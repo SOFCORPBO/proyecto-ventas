@@ -29,14 +29,15 @@ define('LANGUAGE',  'es');
  |  Datos de la Aplicación
  |-------------------------------------------
  */
-define('TITULO',    'StockApp');
+define('TITULO',    'PUNTO DE VENTA RIHANA');
 
 /**
  |-------------------------------------------
  |  CONFIGURACION DIRECCIONES
  |-------------------------------------------
  */
-define('URLBASE', '/Punto-de-venta-php-master/');
+define('URLBASE', 'http://localhost/Punto-de-venta-php-master/');
+
 
 define('URLNOTIFICARVENTA', '#');
 
