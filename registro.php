@@ -6,7 +6,7 @@ include("sistema/configuracion.php");
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
-// Asegurarnos de tener los datos mínimos
+// Validar datos mínimos recibidos
 if (!isset($_POST['cantidad'], $_POST['codigo'], $_POST['cliente'])) {
     echo '
     <div class="alert alert-warning alert-dismissible">
@@ -30,12 +30,13 @@ if ($cantidad <= 0 || !$producto || !$cliente) {
     exit;
 }
 
-// Buscar servicio (producto) y validar que esté habilitado
+// Buscar servicio habilitado
 $ServicioSql = $db->SQL("
     SELECT id, nombre, precioventa, comision
     FROM producto
     WHERE id = '{$producto}' AND habilitado = '1'
 ");
+
 if ($ServicioSql->num_rows <= 0) {
     echo '
     <div class="alert alert-warning alert-dismissible">
@@ -44,22 +45,18 @@ if ($ServicioSql->num_rows <= 0) {
     </div>';
     exit;
 }
+
 $Servicio = $ServicioSql->fetch_assoc();
 
 // Datos de cálculo
 $precio   = $Servicio['precioventa'];
-$comision = isset($Servicio['comision']) ? (float)$Servicio['comision'] : 0; // ⚠ solo para cálculos futuros
+$comision = isset($Servicio['comision']) ? (float)$Servicio['comision'] : 0;
 $total    = $precio * $cantidad;
-
-// *** IMPORTANTE ***
-// Ya NO controlamos stock real (son SERVICIOS).
-// Pero como la tabla cajatmp tiene stockTmp y stock, los llenamos con 0
-// para no romper nada en otras partes del sistema.
 
 $fecha = FechaActual();
 $hora  = HoraActual();
 
-// ¿Ya existe este servicio en el carrito de este vendedor y cliente?
+// Buscar si ya existe ese servicio en el carrito de este vendedor y cliente
 $TmpSql = $db->SQL("
     SELECT id, cantidad, precio
     FROM cajatmp
@@ -72,40 +69,42 @@ $TmpSql = $db->SQL("
 
 if ($TmpSql->num_rows == 0) {
 
-    // ➜ Insertar nuevo renglón en cajatmp (SIN columna comision)
-  $InsertSql = $db->SQL("
-    INSERT INTO cajatmp (
-        idfactura,
-        producto,
-        cantidad,
-        precio,
-        totalprecio,
-        vendedor,
-        cliente,
-        stockTmp,
-        stock,
-        fecha,
-        hora
-    ) VALUES (
-        NULL,
-        '{$producto}',
-        '{$cantidad}',
-        '{$precio}',
-        '{$total}',
-        '{$vendedor}',
-        '{$cliente}',
-        0,
-        0,
-        '{$fecha}',
-        '{$hora}'
-    )
-");
-
+    // Insertar nuevo registro en cajatmp
+    $InsertSql = $db->SQL("
+        INSERT INTO cajatmp (
+            idfactura,
+            producto,
+            cantidad,
+            precio,
+            totalprecio,
+            comision,
+            vendedor,
+            cliente,
+            stockTmp,
+            stock,
+            fecha,
+            hora
+        ) VALUES (
+            NULL,
+            '{$producto}',
+            '{$cantidad}',
+            '{$precio}',
+            '{$total}',
+            '{$comision}',
+            '{$vendedor}',
+            '{$cliente}',
+            0,
+            0,
+            '{$fecha}',
+            '{$hora}'
+        )
+    ");
 
 } else {
 
-    // ➜ Ya estaba en el carrito: actualizamos cantidad e importe
-    $TmpRow        = $TmpSql->fetch_assoc();
+    // Ya existía → sumamos cantidades e importes
+    $TmpRow = $TmpSql->fetch_assoc();
+
     $NuevaCantidad = $TmpRow['cantidad'] + $cantidad;
     $NuevoTotal    = $NuevaCantidad * $precio;
 
@@ -119,7 +118,7 @@ if ($TmpSql->num_rows == 0) {
     ");
 }
 
-// Si todo salió bien, volvemos a pintar la tabla del carrito
+// Si todo salió bien, recargar la tabla del carrito
 if ($InsertSql) {
     include("consulta.php");
 } else {

@@ -1,7 +1,10 @@
-<?php session_start();
+<?php 
+session_start();
 include ('sistema/configuracion.php');
+
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -10,197 +13,324 @@ $usuario->VerificacionCuenta();
     <meta charset="utf-8">
     <title><?php echo TITULO ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" href="<?php echo ESTATICO ?>img/favicon.ico">
-    <?php include(MODULO.'Tema.CSS.php');?>
+    <?php include(MODULO.'Tema.CSS.php'); ?>
 </head>
 
 <body>
+
     <?php
-	// Menu inicio
-	if($usuarioApp['id_perfil']==2){
-		include (MODULO.'menu_vendedor.php');
-	}elseif($usuarioApp['id_perfil']==1){
-		include (MODULO.'menu_admin.php');
-	}else{
-		echo'<meta http-equiv="refresh" content="0;url='.URLBASE.'cerrar-sesion"/>';
-	}
-	//Menu Fin
-	?>
+// Menú
+if($usuarioApp['id_perfil']==2){
+    include (MODULO.'menu_vendedor.php');
+}elseif($usuarioApp['id_perfil']==1){
+    include (MODULO.'menu_admin.php');
+}else{
+    echo'<meta http-equiv="refresh" content="0;url='.URLBASE.'cerrar-sesion"/>';
+}
+?>
+
     <div id="wrap">
         <div class="container">
+
             <?php
-		if(isset($_POST['RegistrarCompra'])){
-			$TotalNetoSql	= $db->SQL("SELECT SUM(totalprecio) AS deudatotal FROM cajatmp WHERE vendedor='{$usuarioApp['id']}'");
-			$TotalNeto		= $TotalNetoSql->fetch_array();
-			
-			$IdDatosTotalSql= $db->SQL("SELECT vendedor, cliente FROM `cajatmp` WHERE vendedor='{$usuarioApp['id']}' LIMIT 1");
-			$IdDatosTotal	= $IdDatosTotalSql->fetch_array();
 
-			$vendedor		= filter_var($usuarioApp['id'], FILTER_VALIDATE_INT);
-			$cliente		= filter_var($IdDatosTotal['cliente'], FILTER_VALIDATE_INT);
-			$tipo			= filter_var($_POST['tipo'], FILTER_VALIDATE_INT);
-			$total			= $Vendedor->Formato($TotalNeto['deudatotal']);
-			$fecha			= FechaActual();
-			$hora			= HoraActual();
+/* ===========================================================
+   PROCESO PRINCIPAL - SOLO SI HAY POST
+   =========================================================== */
+if(isset($_POST['RegistrarCompra'])){
 
-			// Agrego los datos para generar la factura
-			$facturaSql		= $db->SQL("INSERT INTO `factura` (`total`, `fecha`, `hora`, `usuario`, `cliente`, `tipo`, `habilitado`) VALUES ('{$total}', '{$fecha}',  '{$hora}', '{$vendedor}', '{$cliente}', '{$tipo}', '1')");
-			// Copiando Datos de la caja temporal a la caja principal
-			$registrarSql	= $db->SQL("INSERT INTO `ventas` (`producto`, `cantidad`, `precio`, `totalprecio`, `vendedor`, `cliente`, `fecha`, `hora`)
-			SELECT
-			  `producto`, `cantidad`, `precio`, `totalprecio`, `vendedor`, `cliente`, `fecha`, `hora`
-			FROM   `cajatmp`
-			WHERE  vendedor='{$vendedor}'");
+    /* ======================================
+       1) DATOS DESDE EL FORMULARIO
+       ====================================== */
+    $tipo_comprobante = $_POST['tipo_comprobante']; // FACTURA | RECIBO
+    $con_factura      = $_POST['con_factura']; // 0 | 1
+    $nit_cliente      = $_POST['nit_cliente'] ?? NULL;
+    $razon_social     = $_POST['razon_social'] ?? NULL;
 
-			//Registras Salidas en el kardex
-			$KardexSalidaSql= $db->SQL("SELECT `producto`, `cantidad`, `stockTmp`, `precio`, `totalprecio`, `fecha`, `hora` FROM `cajatmp` WHERE  vendedor='{$vendedor}'");
-			while ($row		= $KardexSalidaSql->fetch_array()) {
-				$campo1		= $row['producto'];
-				$campo2		= $row['cantidad'];
-				$campo3		= $row['stockTmp'];
-				$campo4		= $row['precio'];
-				$campo5		= $row['totalprecio'];
-				$campo6		= $row['fecha'];
-				$campo7		= $row['hora'];
-				$KardexQuery= $db->SQL("INSERT INTO `kardex` (`producto`, `salida`, `stock`, `preciounitario`, `preciototal`, `fecha`, `hora`) VALUES ('{$campo1}', '{$campo2}', '{$campo3}', '{$campo4}', '{$campo5}', '{$campo6}', '{$campo7}')");
-			}
-			
-			// Impementando Dinero en Caja
-			$MaxIdCajaQuery		= $db->SQL("SELECT MAX(id) AS IdCaja FROM `caja`");
-			$MaxIdCaja			= $MaxIdCajaQuery->fetch_array();
-			$ActualizandoCajaSql= $db->SQL("UPDATE `caja` SET `monto`=`monto`+'{$total}' WHERE id = '{$MaxIdCaja['IdCaja']}'");
-			
-			//Obteniendo Id de la Factura
-			$IdFacturaSql	= $db->SQL("SELECT MAX(id) AS ultimaid FROM factura WHERE usuario='{$vendedor}'");
-			$IdFactura		= $IdFacturaSql->fetch_array();
-			$ActulizarIdFactura	= $db->SQL("UPDATE `ventas` SET `idfactura` = '{$IdFactura['ultimaid']}' WHERE `idfactura` IS NULL ");
-			// Eliminando numeros de caja temporal
-			$EliminarCajaTmp = $db->SQL("DELETE FROM `cajatmp` WHERE vendedor='{$vendedor}'");
-			echo'<meta http-equiv="Refresh" content="10;url='.URLBASE.'">';
-			$localSql	= $db->SQL("SELECT `establecimiento`, `canton`, `distrito` FROM `vendedores` WHERE id='{$vendedor}'");
-			$local		= $localSql->fetch_array();
-			$ventaSql	= $db->SQL("SELECT `total`, `fecha`, `hora`, `cliente` FROM `factura` WHERE id='{$IdFactura['ultimaid']}'");
-			$venta		= $ventaSql->fetch_array();
-			?>
+    $metodo_pago      = $_POST['metodo_pago']; // EFECTIVO / TRANSFERENCIA / TARJETA / DEPOSITO / MIXTO
+    $id_banco         = !empty($_POST['id_banco']) ? $_POST['id_banco'] : NULL;
+    $referencia       = $_POST['referencia'] ?? NULL;
+
+    /* ======================================
+       2) OBTENER DATOS DESDE cajatmp
+       ====================================== */
+    $vendedor = $usuarioApp['id'];
+
+    $DatosSql = $db->SQL("
+        SELECT vendedor, cliente 
+        FROM cajatmp 
+        WHERE vendedor='{$vendedor}' 
+        LIMIT 1
+    ");
+    if($DatosSql->num_rows == 0){
+        // No hay venta
+        echo "<h3>No hay venta pendiente</h3>";
+        exit;
+    }
+    $Datos = $DatosSql->fetch_assoc();
+    $cliente = $Datos['cliente'];
+
+    /* ======================================
+       3) CALCULAR TOTALES Y COMISIONES
+       ====================================== */
+    $totales = $db->SQL("
+        SELECT 
+            SUM(totalprecio) AS total,
+            SUM(comision) AS total_comision
+        FROM cajatmp
+        WHERE vendedor='{$vendedor}'
+    ")->fetch_assoc();
+
+    $total_general   = floatval($totales['total']);
+    $total_comision  = floatval($totales['total_comision']);
+    $total_caja      = $total_general - $total_comision;
+
+    $fecha = FechaActual();
+    $hora  = HoraActual();
+
+    /* ======================================
+       4) INSERTAR FACTURA
+       ====================================== */
+    $sqlFactura = "
+        INSERT INTO factura (
+            subtotal,
+            iva,
+            tipo_comprobante,
+            total,
+            total_comision,
+            total_caja,
+            fecha,
+            hora,
+            usuario,
+            cliente,
+            nit_cliente,
+            razon_social,
+            tipo,
+            metodo_pago,
+            referencia,
+            id_banco,
+            habilitado
+        ) VALUES (
+            0,
+            0,
+            '{$tipo_comprobante}',
+            '{$total_general}',
+            '{$total_comision}',
+            '{$total_caja}',
+            '{$fecha}',
+            '{$hora}',
+            '{$vendedor}',
+            '{$cliente}',
+            ".($nit_cliente ? "'$nit_cliente'" : "NULL").",
+            ".($razon_social ? "'$razon_social'" : "NULL").",
+            1,
+            '{$metodo_pago}',
+            ".($referencia ? "'$referencia'" : "NULL").",
+            ".($id_banco ? $id_banco : "NULL").",
+            1
+        )
+    ";
+    $db->SQL($sqlFactura);
+
+    /* Obtener ID factura recién generada */
+    $IdFactura = $db->SQL("SELECT MAX(id) AS id FROM factura WHERE usuario='{$vendedor}'")->fetch_assoc();
+    $idfactura = $IdFactura['id'];
+
+    /* ======================================
+       5) INSERTAR DETALLES EN ventas
+       ====================================== */
+    $CarritoSql = $db->SQL("SELECT * FROM cajatmp WHERE vendedor='{$vendedor}'");
+
+    while($c = $CarritoSql->fetch_assoc()){
+
+        $db->SQL("
+            INSERT INTO ventas (
+                idfactura,
+                producto,
+                cantidad,
+                precio,
+                totalprecio,
+                vendedor,
+                cliente,
+                fecha,
+                hora,
+                tipo,
+                con_factura,
+                metodo_pago,
+                id_banco,
+                id_tramite,
+                comision,
+                habilitada
+            ) VALUES (
+                '{$idfactura}',
+                '{$c['producto']}',
+                '{$c['cantidad']}',
+                '{$c['precio']}',
+                '{$c['totalprecio']}',
+                '{$vendedor}',
+                '{$cliente}',
+                '{$c['fecha']}',
+                '{$c['hora']}',
+                1,
+                '{$con_factura}',
+                '{$metodo_pago}',
+                ".($id_banco ? $id_banco : "NULL").",
+                NULL,
+                '{$c['comision']}',
+                1
+            )
+        ");
+    }
+
+    /* ======================================
+       6) MOVIMIENTO EN BANCO (si aplica)
+       ====================================== */
+    if($metodo_pago !== "EFECTIVO" && $id_banco){
+
+        $db->SQL("
+            INSERT INTO banco_movimientos (
+                id_banco,
+                fecha,
+                tipo,
+                monto,
+                concepto,
+                id_venta
+            ) VALUES (
+                {$id_banco},
+                NOW(),
+                'INGRESO',
+                {$total_caja},
+                'Venta factura #{$idfactura}',
+                NULL
+            )
+        ");
+    }
+
+    /* ======================================
+       7) ACTUALIZAR CAJA (solo efectivo)
+       ====================================== */
+    if($metodo_pago === "EFECTIVO"){
+        $MaxIdCaja = $db->SQL("SELECT MAX(id) AS id FROM caja")->fetch_assoc();
+
+        $db->SQL("
+            UPDATE caja
+            SET monto = monto + '{$total_caja}'
+            WHERE id = '{$MaxIdCaja['id']}'
+        ");
+    }
+
+    /* ======================================
+       8) BORRAR CAJA TEMPORAL
+       ====================================== */
+    $db->SQL("DELETE FROM cajatmp WHERE vendedor='{$vendedor}'");
+
+    /* ======================================
+       9) MOSTRAR COMPROBANTE
+       ====================================== */
+    $local   = $db->SQL("SELECT establecimiento FROM vendedores WHERE id='{$vendedor}'")->fetch_assoc();
+    $venta   = $db->SQL("SELECT total, fecha, hora, cliente FROM factura WHERE id='{$idfactura}'")->fetch_assoc();
+
+    ?>
+
             <div class="page-header" id="banner">
-                <div class="row">
-                    <div class="col-lg-8 col-md-7 col-sm-6">
-                        <h1>Comprobante de Compra</h1>
-                        <p class="lead">Impresi&oacute;n de comprobante</p>
-                    </div>
-                </div>
+                <h1>Comprobante de Compra</h1>
+                <p class="lead">Impresión de comprobante</p>
             </div>
+
             <div class="row">
                 <div class="col-lg-12 well">
-                    <table class="table table-bordered col-lg-3" style="background-color: #fff">
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <center>
-                                        <button onclick="imprimir();" class="btn btn-primary"><i
-                                                class="fa fa-print"></i> <strong>IMPRIMIR</strong></button> | <a
-                                            href="<?php echo URLBASE ?>" class="btn btn-default"><i
-                                                class="fa fa-print"></i> <strong>No, Gracias</strong></a><br><br>
-                                        <div id="imprimeme">
-                                            <table width="95%">
-                                                <tbody>
-                                                    <tr>
-                                                        <td><br>
-                                                            <strong><?php echo $local['establecimiento']; ?><br>
-                                                                <strong>Factura:
-                                                                </strong><?php echo $IdFactura['ultimaid']; ?><br>
-                                                                <strong>Fecha:
-                                                                </strong><?php echo $venta['fecha'].' '.$venta['hora']; ?><br>
-                                                                <strong>Cliente:
-                                                                </strong><?php echo $venta['cliente']; ?><br>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <br>
-                                            <table width="95%" border="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="center"><strong>Producto</strong></td>
-                                                        <td align="center"><strong>Cantidad</strong></td>
-                                                        <td align="center"><strong>Valor</strong></td>
-                                                    </tr>
-                                                    <?php
-												$cajaSql	= $db->SQL("SELECT * FROM ventas WHERE idfactura='{$IdFactura['ultimaid']}'");
-												while($caja	= $cajaSql->fetch_array()){
-												?>
-                                                    <tr>
-                                                        <td align="center">
-                                                            <?php
-													$ProductoFacturaSql		= $db->SQL("SELECT nombre FROM `producto` WHERE id='{$caja['producto']}'");
-													$ProductoFactura		= $ProductoFacturaSql->fetch_array();
-													echo $ProductoFactura['nombre'];
-													?>
-                                                        </td>
-                                                        <td align="center"><?php echo $caja['cantidad']; ?></td>
-                                                        <td align="center"> $
-                                                            <?php echo $Vendedor->Formato($caja['precio']); ?></td>
-                                                    </tr>
-                                                    <?php
-												}
-												?>
-                                                    <tr>
-                                                        <td>
-                                                            <div align="center"><strong>Total</strong></div>
-                                                        </td>
-                                                        <td></td>
-                                                        <?php
-													$netoSql= $db->SQL("SELECT SUM(totalprecio) AS deudatotal FROM ventas WHERE idfactura='{$IdFactura['ultimaid']}'");
-													$neto	= $netoSql->fetch_array();
-													?>
-                                                        <td>
-                                                            <div align="center"><strong>$
-                                                                    <?php echo $Vendedor->Formato($neto['deudatotal']); ?></strong>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <br />
-                                        </div>
-                                    </center>
-                                </td>
-                            </tr>
-                        </tbody>
+
+                    <table class="table table-bordered" style="background:white">
+                        <tr>
+                            <td>
+                                <center>
+                                    <button onclick="imprimir();" class="btn btn-primary"><i class="fa fa-print"></i>
+                                        <strong>IMPRIMIR</strong></button>
+                                    &nbsp;|&nbsp;
+                                    <a href="<?php echo URLBASE ?>" class="btn btn-default"><strong>No,
+                                            Gracias</strong></a>
+
+                                    <br><br>
+
+                                    <div id="imprimeme">
+
+                                        <table width="95%">
+                                            <tr>
+                                                <td><br>
+                                                    <strong><?php echo $local['establecimiento']; ?></strong><br>
+                                                    <strong>Factura:</strong> <?php echo $idfactura; ?><br>
+                                                    <strong>Fecha:</strong>
+                                                    <?php echo $venta['fecha'].' '.$venta['hora']; ?><br>
+                                                    <strong>Cliente:</strong> <?php echo $venta['cliente']; ?><br>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <br>
+
+                                        <table width="95%" border="0">
+                                            <tr>
+                                                <td align="center"><strong>Servicio</strong></td>
+                                                <td align="center"><strong>Cantidad</strong></td>
+                                                <td align="center"><strong>Valor</strong></td>
+                                            </tr>
+
+                                            <?php
+$Lineas = $db->SQL("SELECT * FROM ventas WHERE idfactura='{$idfactura}'");
+while($l = $Lineas->fetch_assoc()){
+    $prod = $db->SQL("SELECT nombre FROM producto WHERE id='{$l['producto']}'")->fetch_assoc();
+?>
+                                            <tr>
+                                                <td align="center"><?php echo $prod['nombre']; ?></td>
+                                                <td align="center"><?php echo $l['cantidad']; ?></td>
+                                                <td align="center"><?php echo number_format($l['precio'],2); ?></td>
+                                            </tr>
+                                            <?php } ?>
+
+                                            <tr>
+                                                <td align="center"><strong>Total</strong></td>
+                                                <td></td>
+                                                <td align="center">
+                                                    <strong><?php echo number_format($total_general,2); ?></strong></td>
+                                            </tr>
+
+                                        </table>
+
+                                        <br />
+                                    </div>
+
+                                </center>
+                            </td>
+                        </tr>
                     </table>
+
                 </div>
             </div>
-            <?php
-			}else{
-			?>
-            <div class="page-header" id="banner">
-                <div class="row">
-                    <div class="col-lg-8 col-md-7 col-sm-6">
-                        <h1>Error Comprobante de Compra</h1>
-                        <p class="lead">No hay compra registrada</p>
-                    </div>
-                </div>
-            </div>
-            <?php
-			}
-			?>
+
+            <?php } else { ?>
+
+            <h1>Error – No hay venta registrada</h1>
+
+            <?php } ?>
+
         </div>
     </div>
+
     <?php include (MODULO.'footer.php'); ?>
-    <!-- Cargado archivos javascript al final para que la pagina cargue mas rapido -->
-    <?php include(MODULO.'Tema.JS.php');?>
-    <script type="text/javascript">
+    <?php include(MODULO.'Tema.JS.php'); ?>
+
+    <script>
     function imprimir() {
-        var objeto = document.getElementById('imprimeme'); //obtenemos el objeto a imprimir
-        var ventana = window.open('', '_blank'); //abrimos una ventana vacía nueva
-        ventana.document.write(objeto.innerHTML); //imprimimos el HTML del objeto en la nueva ventana
-        ventana.document.close(); //cerramos el documento
-        ventana.print(); //imprimimos la ventana
-        ventana.close(); //cerramos la ventana
+        var objeto = document.getElementById('imprimeme');
+        var ventana = window.open('', '_blank');
+        ventana.document.write(objeto.innerHTML);
+        ventana.document.close();
+        ventana.print();
+        ventana.close();
     }
     </script>
-    <!-- Cargado archivos javascript al final para que la pagina cargue mas rapido Fin -->
+
 </body>
 
 </html>
