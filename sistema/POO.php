@@ -243,3 +243,13 @@ $fechaActual = FechaActual();
  while($CajaChicaRegistroSalidaDinero	= $CajaChicaRegistroSalidaDineroQuery->fetch_array()):
  $CajaChicaRegistroSalidaDineroArray[]	= $CajaChicaRegistroSalidaDinero;
  endwhile;
+
+ // ===============================
+// CLIENTES
+// ===============================
+$ClientesStockSQL = $db->SQL("SELECT * FROM cliente ORDER BY id DESC");
+$ClientesStockArray = [];
+while($c = $ClientesStockSQL->fetch_assoc()){
+    $ClientesStockArray[] = $c;
+}
+
