@@ -5,22 +5,19 @@ include('sistema/configuracion.php');
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
-// Validar ID de factura
+// Validar ID
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    echo "ID de factura inválido";
+    echo "ID inválido";
     exit;
 }
 
 $idfactura = intval($_GET['id']);
 
-// Obtener datos de la factura + nombre de cliente
+// Obtener factura
 $FacturaSQL = $db->SQL("
-    SELECT 
-        f.*,
-        c.nombre AS nombre_cliente
-    FROM factura f
-    LEFT JOIN cliente c ON c.id = f.cliente
-    WHERE f.id = {$idfactura}
+    SELECT *
+    FROM factura
+    WHERE id = {$idfactura}
     LIMIT 1
 ");
 
@@ -31,71 +28,55 @@ if ($FacturaSQL->num_rows == 0) {
 
 $Factura = $FacturaSQL->fetch_assoc();
 
-// Obtener detalle desde tabla VENTAS (ya adaptada a servicios)
-$DetalleSQL = $db->SQL("
-    SELECT v.*, p.nombre 
-    FROM ventas v
-    INNER JOIN producto p ON p.id = v.producto
-    WHERE v.idfactura = {$idfactura}
-");
+// Datos del cliente
+$clienteNombre = $Factura['cliente'];
+$clienteDocumento = '';
+$clienteEmail = '';
 
-// Banco (si aplica)
-$Banco = null;
-if (!empty($Factura['id_banco'])) {
-    $id_banco = intval($Factura['id_banco']);
-    $BancoSQL = $db->SQL("
-        SELECT nombre, numero_cuenta 
-        FROM bancos 
-        WHERE id = {$id_banco}
-        LIMIT 1
-    ");
-    if ($BancoSQL->num_rows > 0) {
-        $Banco = $BancoSQL->fetch_assoc();
-    }
+$CliSQL = $db->SQL("SELECT * FROM cliente WHERE id = '{$Factura['cliente']}'");
+if($CliSQL->num_rows > 0){
+    $Cli = $CliSQL->fetch_assoc();
+    $clienteNombre    = $Cli['nombre'];
+    $clienteDocumento = $Cli['ci_pasaporte'];
+    $clienteEmail     = $Cli['email'];
 }
 
-// Totales
-$total_general  = (float)$Factura['total'];
-$total_comision = isset($Factura['total_comision']) ? (float)$Factura['total_comision'] : 0;
-$total_caja     = isset($Factura['total_caja']) ? (float)$Factura['total_caja'] : $total_general;
-
-// Tipo comprobante / método pago
-$tipo_comprobante = $Factura['tipo_comprobante']; // FACTURA | RECIBO
-$metodo_pago      = $Factura['metodo_pago'];      // EFECTIVO, TRANSFERENCIA, etc.
-$nit_cliente      = $Factura['nit_cliente'];
-$razon_social     = $Factura['razon_social'];
-$referencia       = $Factura['referencia'];
-
+// Detalle de venta desde detalle_venta
+$DetalleSQL = $db->SQL("
+    SELECT dv.*, p.nombre
+    FROM detalle_venta dv
+    INNER JOIN producto p ON p.id = dv.id_servicio
+    WHERE dv.idfactura = {$idfactura}
+");
 ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>Comprobante #<?php echo $idfactura; ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Factura #<?php echo $idfactura; ?></title>
 
-    <?php // Usamos el mismo sistema de temas del proyecto ?>
+    <link rel="shortcut icon" href="<?php echo ESTATICO ?>img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO ?>css/bootstrap.min.css">
     <?php include(MODULO.'Tema.CSS.php'); ?>
 
     <style>
     body {
         padding: 20px;
+        font-family: Arial;
     }
 
-    .tabla-detalle th,
-    .tabla-detalle td {
-        font-size: 13px;
+    h3 {
+        margin-bottom: 20px;
     }
 
-    .bloque-datos p {
-        margin: 0;
+    .table th,
+    .table td {
+        font-size: 14px;
     }
 
-    @media print {
-        .no-print {
-            display: none;
-        }
+    .encabezado {
+        margin-bottom: 20px;
     }
     </style>
 </head>
@@ -104,65 +85,33 @@ $referencia       = $Factura['referencia'];
 
     <div class="container">
 
-        <div class="row no-print">
-            <div class="col-md-12 text-right">
-                <button onclick="window.print();" class="btn btn-primary">
-                    <i class="fa fa-print"></i> Imprimir
-                </button>
-                <a href="<?php echo URLBASE; ?>" class="btn btn-default">
-                    Volver al sistema
-                </a>
-            </div>
-        </div>
+        <div class="encabezado">
+            <h3>Factura / Comprobante #<?php echo $idfactura; ?></h3>
+            <p><strong>Fecha:</strong> <?php echo $Factura['fecha']." ".$Factura['hora']; ?></p>
+            <p><strong>Tipo Comprobante:</strong> <?php echo $Factura['tipo_comprobante']; ?></p>
+            <p><strong>Total venta:</strong> <?php echo number_format($Factura['total'],2); ?></p>
 
-        <hr class="no-print">
+            <hr>
 
-        <div class="row">
-            <div class="col-md-12">
-                <h3>
-                    Comprobante de Venta
-                    <small>#<?php echo $idfactura; ?></small>
-                </h3>
-                <p><strong>Tipo de comprobante:</strong> <?php echo $tipo_comprobante; ?></p>
-            </div>
-        </div>
+            <h4>Datos del Cliente</h4>
+            <p><strong>Nombre:</strong> <?php echo $clienteNombre; ?></p>
+            <?php if(!empty($clienteDocumento)): ?>
+            <p><strong>CI / Pasaporte:</strong> <?php echo $clienteDocumento; ?></p>
+            <?php endif; ?>
+            <?php if(!empty($Factura['nit_cliente'])): ?>
+            <p><strong>NIT/CI Facturación:</strong> <?php echo $Factura['nit_cliente']; ?></p>
+            <?php endif; ?>
+            <?php if(!empty($Factura['razon_social'])): ?>
+            <p><strong>Razón Social:</strong> <?php echo $Factura['razon_social']; ?></p>
+            <?php endif; ?>
+            <?php if(!empty($clienteEmail)): ?>
+            <p><strong>Email:</strong> <?php echo $clienteEmail; ?></p>
+            <?php endif; ?>
 
-        <hr>
-
-        <div class="row bloque-datos">
-            <div class="col-md-6">
-                <h4>Datos del Cliente</h4>
-                <p><strong>Cliente:</strong>
-                    <?php
-                if (!empty($Factura['cliente']) && $Factura['cliente'] != 0) {
-                    echo !empty($Factura['nombre_cliente'])
-                        ? $Factura['nombre_cliente']." (ID: ".$Factura['cliente'].")"
-                        : "ID Cliente: ".$Factura['cliente'];
-                } else {
-                    echo "Cliente Contado";
-                }
-                ?>
-                </p>
-                <?php if (!empty($nit_cliente)): ?>
-                <p><strong>NIT / CI:</strong> <?php echo $nit_cliente; ?></p>
-                <?php endif; ?>
-                <?php if (!empty($razon_social)): ?>
-                <p><strong>Razón Social:</strong> <?php echo $razon_social; ?></p>
-                <?php endif; ?>
-            </div>
-
-            <div class="col-md-6">
-                <h4>Datos de la Operación</h4>
-                <p><strong>Fecha y hora:</strong> <?php echo $Factura['fecha']." ".$Factura['hora']; ?></p>
-                <p><strong>Método de pago:</strong> <?php echo $metodo_pago; ?></p>
-                <?php if ($Banco): ?>
-                <p><strong>Banco:</strong> <?php echo $Banco['nombre']; ?></p>
-                <p><strong>N° de cuenta:</strong> <?php echo $Banco['numero_cuenta']; ?></p>
-                <?php endif; ?>
-                <?php if (!empty($referencia)): ?>
-                <p><strong>Referencia:</strong> <?php echo $referencia; ?></p>
-                <?php endif; ?>
-            </div>
+            <p><strong>Método de pago:</strong> <?php echo $Factura['metodo_pago']; ?></p>
+            <?php if(!empty($Factura['referencia'])): ?>
+            <p><strong>Referencia:</strong> <?php echo $Factura['referencia']; ?></p>
+            <?php endif; ?>
         </div>
 
         <hr>
@@ -171,57 +120,45 @@ $referencia       = $Factura['referencia'];
 
         <?php if ($DetalleSQL->num_rows == 0): ?>
 
-        <div class="alert alert-warning">
-            No hay servicios registrados en esta venta.
-        </div>
+        <div class="alert alert-warning">No hay servicios registrados en esta venta.</div>
 
         <?php else: ?>
 
-        <table class="table table-bordered table-striped tabla-detalle">
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th>Servicio</th>
-                    <th>Cant.</th>
+                    <th>Cantidad</th>
                     <th>Precio</th>
                     <th>Subtotal</th>
-                    <th>Comisión</th>
                 </tr>
             </thead>
             <tbody>
-                <?php while($row = $DetalleSQL->fetch_assoc()): ?>
+                <?php 
+            $total = 0;
+            while($row = $DetalleSQL->fetch_assoc()): 
+                $total += $row['subtotal'];
+            ?>
                 <tr>
                     <td><?php echo $row['nombre']; ?></td>
-                    <td class="text-center"><?php echo $row['cantidad']; ?></td>
-                    <td class="text-right"><?php echo number_format($row['precio'], 2); ?></td>
-                    <td class="text-right"><?php echo number_format($row['totalprecio'], 2); ?></td>
-                    <td class="text-right">
-                        <?php echo isset($row['comision']) ? number_format($row['comision'], 2) : '0.00'; ?>
-                    </td>
+                    <td><?php echo $row['cantidad']; ?></td>
+                    <td><?php echo number_format($row['precio'],2); ?></td>
+                    <td><?php echo number_format($row['subtotal'],2); ?></td>
                 </tr>
                 <?php endwhile; ?>
+                <tr>
+                    <td colspan="3" align="right"><strong>Total</strong></td>
+                    <td><strong><?php echo number_format($total,2); ?></strong></td>
+                </tr>
             </tbody>
         </table>
 
         <?php endif; ?>
 
-        <div class="row">
-            <div class="col-md-4 col-md-offset-8">
-                <table class="table">
-                    <tr>
-                        <th class="text-right">Total servicios:</th>
-                        <td class="text-right"><?php echo number_format($total_general, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <th class="text-right">Total comisión:</th>
-                        <td class="text-right"><?php echo number_format($total_comision, 2); ?></td>
-                    </tr>
-                    <tr>
-                        <th class="text-right">Total para caja:</th>
-                        <td class="text-right"><?php echo number_format($total_caja, 2); ?></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+        <br>
+        <button onclick="window.print();" class="btn btn-primary">
+            <i class="fa fa-print"></i> Imprimir
+        </button>
 
     </div>
 
