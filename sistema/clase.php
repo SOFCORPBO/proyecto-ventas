@@ -21,7 +21,7 @@ spl_autoload_register(function ($NombreClase) {
 $db				= new Conexion();
 $usuario		= new Usuario();
 $enlace			= new Enlace();
-$clientes       = new Clientes();
+$ClientesClase  = new Clientes();
 $sistema		= new Sistema();
 $Vendedor		= new Vendedor();
 $notificacion	= new Notificacion();

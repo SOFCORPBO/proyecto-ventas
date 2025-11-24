@@ -1,22 +1,31 @@
 <?php 
 session_start();
 include ('sistema/configuracion.php');
+
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
+
+// Cargar clase clientes
+$ClientesClase = new Clientes();
+
+// Ejecutar acciones
+$ClientesClase->EliminarCliente();
+$ClientesClase->ActivarCliente();
+$ClientesClase->DesactivarCliente();
+
+$ListaClientes = $ClientesClase->ListarClientes();
 ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>Clientes | <?php echo TITULO ?></title>
+    <title>Registro de Clientes | <?php echo TITULO ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <link rel="shortcut icon" href="<?php echo ESTATICO ?>img/favicon.ico">
-
-    <link rel="stylesheet" href="<?php echo ESTATICO ?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo ESTATICO ?>css/dataTables.bootstrap.css">
-
+    <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO ?>css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO ?>css/dataTables.bootstrap.css">
     <?php include(MODULO.'Tema.CSS.php'); ?>
 </head>
 
@@ -27,96 +36,95 @@ if($usuarioApp['id_perfil']==2){
     include (MODULO.'menu_vendedor.php');
 }elseif($usuarioApp['id_perfil']==1){
     include (MODULO.'menu_admin.php');
-}else{
-    echo '<meta http-equiv="refresh" content="0;url='.URLBASE.'cerrar-sesion"/>';
 }
 ?>
 
     <div id="wrap">
         <div class="container">
 
-            <?php 
-        $ClientesClase->CambiarEstado();
-        ?>
-
-            <div class="page-header" id="banner">
-                <h1>Clientes</h1>
-
+            <div class="page-header">
+                <h1>Registro de Clientes</h1>
                 <a href="<?php echo URLBASE ?>nuevo-cliente" class="btn btn-primary">
                     <i class="fa fa-plus"></i> Nuevo Cliente
                 </a>
             </div>
 
             <div class="table-responsive">
-                <table class="table table-bordered" id="clientes">
+                <table class="table table-bordered" id="tabla_clientes">
                     <thead>
                         <tr>
                             <th>Nombre</th>
-                            <th>Documento</th>
+                            <th>CI / Pasaporte</th>
+                            <th>Tipo Documento</th>
                             <th>Nacionalidad</th>
                             <th>Teléfono</th>
-                            <th>Correo</th>
-                            <th>Visa</th>
+                            <th>Email</th>
+                            <th>Descuento</th>
                             <th>Estado</th>
-                            <th style="width:140px;">Opciones</th>
+                            <th width="180">Opciones</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <?php foreach($ClientesStockArray as $row): ?>
+                        <?php while($row = $ListaClientes->fetch_assoc()): ?>
                         <tr>
-                            <td><?php echo $row['nombre']; ?></td>
-
-                            <td><?php echo $row['tipo_documento'].' '.$row['numero_documento']; ?></td>
-
-                            <td><?php echo $row['nacionalidad']; ?></td>
-
-                            <td><?php echo $row['telefono']; ?></td>
-
-                            <td><?php echo $row['correo']; ?></td>
+                            <td><?= $row['nombre'] ?></td>
+                            <td><?= $row['ci_pasaporte'] ?></td>
+                            <td><?= $row['tipo_documento'] ?></td>
+                            <td><?= $row['nacionalidad'] ?></td>
+                            <td><?= $row['telefono'] ?></td>
+                            <td><?= $row['email'] ?></td>
+                            <td><?= $row['descuento'] ?>%</td>
 
                             <td>
-                                <?php echo ($row['requiere_visa']==1) 
-                                ? '<span class="label label-warning">Sí</span>' 
-                                : '<span class="label label-success">No</span>'; ?>
+                                <?php if($row['habilitado']==1): ?>
+                                <span class="label label-success">Activo</span>
+                                <?php else: ?>
+                                <span class="label label-danger">Inactivo</span>
+                                <?php endif; ?>
                             </td>
 
                             <td>
-                                <?php echo ($row['habilitado']==1) 
-                                ? '<span class="label label-success">Activo</span>' 
-                                : '<span class="label label-danger">Inactivo</span>'; ?>
-                            </td>
-
-                            <td>
-                                <a href="<?php echo URLBASE ?>editarcliente/<?php echo $row['id']; ?>"
-                                    class="btn btn-primary btn-xs" title="Editar">
+                                <!-- Editar -->
+                                <a href="<?php echo URLBASE ?>editarcliente.php?id=<?= $row['id'] ?>"
+                                    class="btn btn-primary btn-xs">
                                     <i class="fa fa-pencil"></i>
                                 </a>
 
-                                <form method="post" style="display:inline;">
-                                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                                    <input type="hidden" name="estado"
-                                        value="<?php echo ($row['habilitado']==1 ? 0 : 1); ?>">
+                                <!-- Activar / Desactivar -->
+                                <form method="post" style="display:inline-block;">
+                                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                    <?php if($row['habilitado']==1): ?>
+                                    <button type="submit" name="DesactivarCliente" class="btn btn-warning btn-xs">
+                                        <i class="fa fa-ban"></i>
+                                    </button>
+                                    <?php else: ?>
+                                    <button type="submit" name="ActivarCliente" class="btn btn-success btn-xs">
+                                        <i class="fa fa-check"></i>
+                                    </button>
+                                    <?php endif; ?>
+                                </form>
 
-                                    <button type="submit" name="CambiarEstado"
-                                        class="btn btn-<?php echo ($row['habilitado']==1 ? 'warning' : 'success'); ?> btn-xs">
-                                        <i class="fa fa-<?php echo ($row['habilitado']==1 ? 'ban' : 'check'); ?>"></i>
+                                <!-- Eliminar -->
+                                <form method="post" style="display:inline-block;"
+                                    onsubmit="return confirm('¿Eliminar este cliente?');">
+                                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                    <button type="submit" name="EliminarCliente" class="btn btn-danger btn-xs">
+                                        <i class="fa fa-trash"></i>
                                     </button>
                                 </form>
 
                             </td>
-
                         </tr>
-                        <?php endforeach; ?>
+                        <?php endwhile; ?>
                     </tbody>
-
                 </table>
             </div>
 
         </div>
     </div>
 
-    <?php include (MODULO.'footer.php'); ?>
+    <?php include(MODULO.'footer.php'); ?>
 
     <?php include(MODULO.'Tema.JS.php'); ?>
     <script src="<?php echo ESTATICO ?>js/jquery.dataTables.min.js"></script>
@@ -124,8 +132,7 @@ if($usuarioApp['id_perfil']==2){
 
     <script>
     $(document).ready(function() {
-        $('#clientes').dataTable({
-            "scrollY": false,
+        $('#tabla_clientes').dataTable({
             "scrollX": true
         });
     });

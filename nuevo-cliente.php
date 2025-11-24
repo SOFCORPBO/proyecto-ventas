@@ -1,11 +1,15 @@
 <?php 
 session_start();
 include ('sistema/configuracion.php');
+
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
-// Muy importante: usar la clase que creamos
-// $ClientesClase viene instanciada en clientes.clase.php (incluida desde configuracion.php)
+// Cargar clase clientes
+$ClientesClase = new Clientes();
+
+// Ejecutar registro
+$ClientesClase->CrearCliente();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,152 +18,114 @@ $usuario->VerificacionCuenta();
     <meta charset="utf-8">
     <title>Nuevo Cliente | <?php echo TITULO ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" href="<?php echo ESTATICO ?>img/favicon.ico">
 
-    <!-- Mismos estilos base que otros módulos -->
-    <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO ?>css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO ?>css/dataTables.bootstrap.css">
-
-    <!-- Tema -->
+    <!-- Estilos del sistema -->
+    <link rel="stylesheet" href="<?php echo ESTATICO ?>css/bootstrap.min.css">
     <?php include(MODULO.'Tema.CSS.php'); ?>
 </head>
 
 <body>
 
+    <!-- Menú -->
     <?php
-// Menú según perfil (igual que en productos.php, nuevo-producto.php, etc.)
 if($usuarioApp['id_perfil']==2){
     include (MODULO.'menu_vendedor.php');
 }elseif($usuarioApp['id_perfil']==1){
     include (MODULO.'menu_admin.php');
-}else{
-    echo'<meta http-equiv="refresh" content="0;url='.URLBASE.'cerrar-sesion"/>';
 }
 ?>
 
     <div id="wrap">
         <div class="container">
 
-            <div class="page-header" id="banner">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Nuevo Cliente</h1>
-                        <p class="lead">Registrar pasajero / cliente de la agencia</p>
-                    </div>
+            <div class="page-header">
+                <h1>Nuevo Cliente</h1>
+                <p>Registrar pasajero / cliente de la agencia</p>
+            </div>
+
+            <form method="post" class="form-horizontal">
+
+                <!-- NOMBRE -->
+                <div class="col-md-4">
+                    <label>Nombre Completo</label>
+                    <input type="text" class="form-control" name="nombre" placeholder="Ej: Juan Pérez" required>
                 </div>
-            </div>
 
-            <?php 
-        // Procesa el POST si viene del formulario
-        $ClientesClase->CrearCliente(); 
-        ?>
+                <!-- CI / PASAPORTE -->
+                <div class="col-md-4">
+                    <label>CI / Pasaporte</label>
+                    <input type="text" class="form-control" name="ci_pasaporte" placeholder="Documento" required>
+                </div>
 
-            <div class="row">
-                <form class="form-horizontal" method="post">
+                <!-- TIPO DOCUMENTO -->
+                <div class="col-md-4">
+                    <label>Tipo de Documento</label>
+                    <select class="form-control" name="tipo_documento" required>
+                        <option value="CI">CI</option>
+                        <option value="PASAPORTE">Pasaporte</option>
+                        <option value="OTRO">Otro</option>
+                    </select>
+                </div>
 
-                    <!-- Nombre completo -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="control-label">Nombre Completo</label>
-                            <input type="text" class="form-control" name="nombre" placeholder="Ej: Juan Pérez López"
-                                required>
-                        </div>
-                    </div>
+                <!-- NACIONALIDAD -->
+                <div class="col-md-4">
+                    <label>Nacionalidad</label>
+                    <input type="text" class="form-control" name="nacionalidad" placeholder="Ej: Boliviano" required>
+                </div>
 
-                    <!-- Tipo de documento -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">Tipo de Documento</label>
-                            <select class="form-control" name="tipo_documento">
-                                <option value="CI">CI</option>
-                                <option value="PASAPORTE">Pasaporte</option>
-                                <option value="OTRO">Otro</option>
-                            </select>
-                        </div>
-                    </div>
+                <!-- FECHA NACIMIENTO -->
+                <div class="col-md-4">
+                    <label>Fecha de Nacimiento</label>
+                    <input type="date" class="form-control" name="fecha_nacimiento">
+                </div>
 
-                    <!-- Número de documento -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">N° Documento</label>
-                            <input type="text" class="form-control" name="numero_documento"
-                                placeholder="Ej: 12345678 LP">
-                        </div>
-                    </div>
+                <!-- TELEFONO -->
+                <div class="col-md-4">
+                    <label>Teléfono</label>
+                    <input type="text" class="form-control" name="telefono" placeholder="Celular">
+                </div>
 
-                    <!-- Nacionalidad -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">Nacionalidad</label>
-                            <input type="text" class="form-control" name="nacionalidad" placeholder="Ej: Boliviana">
-                        </div>
-                    </div>
+                <!-- EMAIL -->
+                <div class="col-md-6">
+                    <label>Correo</label>
+                    <input type="email" class="form-control" name="email" placeholder="correo@ejemplo.com">
+                </div>
 
-                    <!-- Fecha nacimiento -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">Fecha de Nacimiento</label>
-                            <input type="date" class="form-control" name="fecha_nacimiento">
-                        </div>
-                    </div>
+                <!-- DIRECCION -->
+                <div class="col-md-6">
+                    <label>Dirección</label>
+                    <input type="text" class="form-control" name="direccion" placeholder="Dirección del cliente">
+                </div>
 
-                    <!-- Teléfono -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">Teléfono / Celular</label>
-                            <input type="text" class="form-control" name="telefono" placeholder="Ej: 70000000">
-                        </div>
-                    </div>
+                <!-- DESCUENTO % -->
+                <div class="col-md-4">
+                    <label>Descuento (%)</label>
+                    <input type="number" min="0" step="0.01" class="form-control" name="descuento" placeholder="Ej: 10">
+                </div>
 
-                    <!-- Correo -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">Correo electrónico</label>
-                            <input type="email" class="form-control" name="correo" placeholder="Ej: cliente@gmail.com">
-                        </div>
-                    </div>
+                <!-- HABILITADO -->
+                <div class="col-md-4">
+                    <label>Estado</label>
+                    <select class="form-control" name="habilitado">
+                        <option value="1">Habilitado</option>
+                        <option value="0">Inhabilitado</option>
+                    </select>
+                </div>
 
-                    <!-- Requiere visa -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="control-label">¿Requiere Visa?</label>
-                            <select class="form-control" name="requiere_visa">
-                                <option value="0">No</option>
-                                <option value="1">Sí</option>
-                            </select>
-                        </div>
-                    </div>
+                <!-- BOTONES -->
+                <div class="col-md-12" style="margin-top:20px;">
+                    <button type="submit" name="CrearCliente" class="btn btn-primary">Registrar Cliente</button>
+                    <a href="<?php echo URLBASE ?>clientes" class="btn btn-default">Cancelar</a>
+                </div>
 
-                    <!-- Observaciones -->
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label class="control-label">Observaciones</label>
-                            <textarea class="form-control" name="observaciones" rows="3"
-                                placeholder="Notas sobre el cliente, preferencias, restricciones, etc."></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Botones -->
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <button type="submit" name="CrearCliente" class="btn btn-primary">
-                                Guardar Cliente
-                            </button>
-                            <a href="<?php echo URLBASE ?>clientes" class="btn btn-default">
-                                Volver al listado
-                            </a>
-                        </div>
-                    </div>
-
-                </form>
-            </div>
+            </form>
 
         </div>
     </div>
 
     <?php include (MODULO.'footer.php'); ?>
-    <?php include(MODULO.'Tema.JS.php');?>
+    <?php include(MODULO.'Tema.JS.php'); ?>
 
 </body>
 

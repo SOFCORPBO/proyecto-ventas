@@ -3164,3 +3164,155 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\Punto-de-venta-php-master\nuevo-cliente.php on line 55
+[24-Nov-2025 17:41:44 Europe/Berlin] PHP Notice:  Undefined variable: ClientesClase in C:\xampp\htdocs\Punto-de-venta-php-master\nuevo-cliente.php on line 55
+[24-Nov-2025 17:41:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CrearCliente() on null in C:\xampp\htdocs\Punto-de-venta-php-master\nuevo-cliente.php:55
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\nuevo-cliente.php on line 55
+[24-Nov-2025 17:41:49 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 17:41:49 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 17:41:49 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 17:41:51 Europe/Berlin] PHP Notice:  Undefined variable: ClientesClase in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 39
+[24-Nov-2025 17:41:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEstado() on null in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:39
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 39
+[24-Nov-2025 17:45:04 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:04 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:04 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:19 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:19 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:19 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:23 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:23 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:23 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:39 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:39 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:39 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:46 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:46 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:46 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:48 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:48 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:48 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:49 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:49 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:49 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:51 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:51 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:51 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:51 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:51 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:51 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:45:55 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:45:55 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:45:55 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:46:05 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:46:05 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:46:05 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:49:04 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:49:04 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:49:04 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:49:09 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:49:09 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:49:09 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 17:49:12 Europe/Berlin] PHP Notice:  Undefined index: numero_documento in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 70
+[24-Nov-2025 17:49:12 Europe/Berlin] PHP Notice:  Undefined index: correo in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 76
+[24-Nov-2025 17:49:12 Europe/Berlin] PHP Notice:  Undefined index: requiere_visa in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 79
+[24-Nov-2025 18:37:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 18:37:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 18:37:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 18:46:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 18:46:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 18:46:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 18:48:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:48:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:48:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:48:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:48:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:48:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:48:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:48:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:48:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:49:30 Europe/Berlin] PHP Notice:  Undefined variable: ListaClientes in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 65
+[24-Nov-2025 18:49:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:65
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 65
+[24-Nov-2025 18:49:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 18:49:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 18:49:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 18:49:46 Europe/Berlin] PHP Notice:  Undefined variable: ListaClientes in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 65
+[24-Nov-2025 18:49:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:65
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 65
+[24-Nov-2025 18:50:32 Europe/Berlin] PHP Notice:  Undefined variable: ListaClientes in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 65
+[24-Nov-2025 18:50:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:65
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 65
+[24-Nov-2025 18:50:37 Europe/Berlin] PHP Notice:  Undefined variable: ListaClientes in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 65
+[24-Nov-2025 18:50:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on null in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:65
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 65
+[24-Nov-2025 18:50:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:50:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:51:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:51:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:53:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:53:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:53:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
+[24-Nov-2025 18:53:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Clientes::ActivarCliente() in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php:13
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\clientes.php on line 13
