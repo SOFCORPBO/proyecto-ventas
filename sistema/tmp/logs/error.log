@@ -3638,3 +3638,790 @@ Stack trace:
 [24-Nov-2025 19:37:30 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
 [24-Nov-2025 19:37:30 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
 [24-Nov-2025 19:37:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:40:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 19:40:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 19:40:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 19:41:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 19:41:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 19:41:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 19:41:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 19:41:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 19:41:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 19:41:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php:355
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 355
+[24-Nov-2025 19:41:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 19:41:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 19:41:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 19:42:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 19:42:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 19:42:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 19:42:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 19:42:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 19:42:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 109
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Undefined variable: cajatmp in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 19:42:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 138
+[24-Nov-2025 22:20:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 22:20:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 22:20:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:21:13 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:29 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:33 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:22:36 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:23:27 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:23 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:26 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:43 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:24:47 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:14 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:14 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:14 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:14 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:14 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:14 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:14 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:14 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:15 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:15 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:15 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:15 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:15 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:37 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:50 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:50 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:50 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:50 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:29:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 22:37:12 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 23:35:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 23:35:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:35:51 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:46 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[24-Nov-2025 23:50:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 23:50:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 23:50:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 23:50:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 23:50:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 23:50:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 23:50:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 23:50:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 23:50:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 23:50:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 23:50:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 23:50:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 23:55:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 23:55:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 23:55:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[24-Nov-2025 23:57:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[24-Nov-2025 23:57:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[24-Nov-2025 23:57:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 00:05:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 00:05:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 00:05:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 00:05:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 00:05:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 00:05:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:05:45 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:06:01 Europe/Berlin] PHP Notice:  A non well formed numeric value encountered in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 106
+[25-Nov-2025 00:15:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 00:58:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 03:51:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 04:06:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:06:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:06:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:08:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 04:08:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:08:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:08:23 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:08:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 04:09:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 04:10:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 04:11:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:11:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:11:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:11:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:11:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:11:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:12:01 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:12:01 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:12:01 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:12:13 Europe/Berlin] PHP Notice:  Undefined index: tipo_comprobante in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 45
+[25-Nov-2025 04:12:13 Europe/Berlin] PHP Notice:  Undefined index: metodo_pago in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 50
+[25-Nov-2025 04:12:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php:332
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 332
+[25-Nov-2025 04:12:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:12:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:12:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:12:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 04:13:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 04:13:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:13:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:13:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:13:55 Europe/Berlin] PHP Notice:  Undefined index: tipo_comprobante in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 46
+[25-Nov-2025 04:13:55 Europe/Berlin] PHP Notice:  Undefined index: con_factura in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 47
+[25-Nov-2025 04:13:55 Europe/Berlin] PHP Notice:  Undefined index: metodo_pago in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 51
+[25-Nov-2025 04:13:57 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\detalle-venta.php on line 39
+[25-Nov-2025 04:14:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:14:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:14:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:14:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:86
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 86
+[25-Nov-2025 04:17:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:78
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 78
+[25-Nov-2025 04:18:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:18:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:18:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:18:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:78
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 78
+[25-Nov-2025 04:18:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:18:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:18:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:19:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:78
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 78
+[25-Nov-2025 04:35:52 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\detalle-venta.php on line 39
+[25-Nov-2025 04:36:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:36:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:36:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:36:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:36:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:36:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:36:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:36:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:36:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:36:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:36:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:36:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:39:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:39:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:39:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:40:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:40:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:40:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:40:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:40:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:40:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:40:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:91
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 91
+[25-Nov-2025 04:40:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:91
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 91
+[25-Nov-2025 04:40:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:40:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:40:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:41:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:91
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 91
+[25-Nov-2025 04:41:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:41:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:41:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:41:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:91
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 91
+[25-Nov-2025 04:41:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:41:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:41:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:43:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 28
+[25-Nov-2025 04:43:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 28
+[25-Nov-2025 04:43:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:43:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:43:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:43:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php:91
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registro-de-ventas.php on line 91
+[25-Nov-2025 04:43:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 04:43:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 04:43:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 04:43:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 28
+[25-Nov-2025 06:37:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 06:37:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 06:37:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 06:37:42 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\detalle-venta.php on line 39
+[25-Nov-2025 06:37:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 06:37:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 06:37:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 06:38:09 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\detalle-venta.php on line 39
+[25-Nov-2025 06:48:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 06:48:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 06:48:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 06:48:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 158
+[25-Nov-2025 06:48:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 165
+[25-Nov-2025 06:48:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 209
+[25-Nov-2025 06:48:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 209
+[25-Nov-2025 06:48:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 223
+[25-Nov-2025 06:49:04 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[25-Nov-2025 06:49:08 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[25-Nov-2025 06:49:09 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[25-Nov-2025 06:49:30 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[25-Nov-2025 06:49:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 06:49:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 06:49:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 06:50:22 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\detalle-venta.php on line 39
+[25-Nov-2025 07:00:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 07:00:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 07:00:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 08:11:49 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 08:11:49 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 08:11:49 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Shared\String.php on line 529
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Shared\String.php on line 530
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Shared\String.php on line 536
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Shared\String.php on line 536
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Shared\String.php on line 537
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Shared\String.php on line 537
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2186
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2186
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2294
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2294
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2296
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2372
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2374
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2383
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2632
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2761
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2763
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 2764
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3039
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3039
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3042
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3043
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3458
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3458
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3493
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3497
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3550
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Calculation.php on line 3551
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Worksheet\AutoFilter.php on line 729
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Deprecated:  Array and string offset access syntax with curly braces is deprecated in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\PHPExcel\PHPExcel\Worksheet\AutoFilter.php on line 729
+[25-Nov-2025 08:14:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\modulo\exportar-resumen.php:31
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\modulo\exportar-resumen.php on line 31
+[25-Nov-2025 17:01:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 17:01:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 17:01:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 17:10:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 17:10:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 17:10:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 17:14:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 17:14:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 17:14:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 17:15:18 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[25-Nov-2025 17:38:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php:282
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 282
+[25-Nov-2025 17:38:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 17:38:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 17:38:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 17:38:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php:282
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 282
+[25-Nov-2025 17:38:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php:282
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 282
+[25-Nov-2025 17:39:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php:282
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 282
+[25-Nov-2025 17:40:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 170
+[25-Nov-2025 17:40:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 179
+[25-Nov-2025 17:40:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 17:40:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 17:40:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 247
+[25-Nov-2025 17:59:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 170
+[25-Nov-2025 17:59:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 179
+[25-Nov-2025 17:59:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 17:59:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 17:59:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 247
+[25-Nov-2025 17:59:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[25-Nov-2025 17:59:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 170
+[25-Nov-2025 17:59:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 179
+[25-Nov-2025 17:59:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 17:59:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 17:59:42 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 247
+[25-Nov-2025 17:59:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 18:00:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 18:00:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 18:00:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 18:00:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 170
+[25-Nov-2025 18:00:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 179
+[25-Nov-2025 18:00:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 18:00:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 18:00:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 247
+[25-Nov-2025 18:00:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 18:04:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 18:05:03 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 18:05:03 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 18:05:03 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 18:05:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 170
+[25-Nov-2025 18:05:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 179
+[25-Nov-2025 18:05:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 18:05:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 18:05:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 247
+[25-Nov-2025 18:05:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[25-Nov-2025 18:07:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 18:07:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 18:07:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 18:07:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 19:05:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 19:05:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 19:05:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 19:05:12 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 19:05:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[25-Nov-2025 19:05:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[25-Nov-2025 19:06:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Cajas' not found in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 10
+[25-Nov-2025 19:06:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Cajas' not found in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 10
+[25-Nov-2025 19:06:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 19:06:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 19:06:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 19:06:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Cajas' not found in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 10
+[25-Nov-2025 19:06:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 19:06:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 19:06:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 19:07:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[25-Nov-2025 19:07:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 19:07:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 19:07:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 19:07:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 19:11:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 19:11:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 19:11:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 19:11:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 19:11:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 19:17:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335
+[25-Nov-2025 19:17:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 19:17:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 19:17:44 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 19:17:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
+[25-Nov-2025 19:17:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
+[25-Nov-2025 19:17:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[25-Nov-2025 19:17:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 170
+[25-Nov-2025 19:17:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 179
+[25-Nov-2025 19:17:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 19:17:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 19:17:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 247
+[25-Nov-2025 19:18:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[25-Nov-2025 19:18:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 170
+[25-Nov-2025 19:18:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 179
+[25-Nov-2025 19:18:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 19:18:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 230
+[25-Nov-2025 19:18:08 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\cajas.php on line 247
+[25-Nov-2025 19:18:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php:335
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 335

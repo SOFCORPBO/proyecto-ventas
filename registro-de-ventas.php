@@ -16,8 +16,7 @@ if (!isset($Venta)) {
 |------------------------------------------------------------
 | PROCESAR CANCELACIÓN DE FACTURA
 |   - Usa la lógica de Venta->CancelarFactura()
-|   - Ajusta caja, marca factura y venta como anuladas
-|   - NO mueve inventario (son servicios)
+|   - Ajusta caja / banco / ventas / factura según lo ya adaptado
 |------------------------------------------------------------
 */
 $Venta->CancelarFactura();
@@ -27,10 +26,11 @@ $Venta->CancelarFactura();
 
 <head>
     <meta charset="utf-8">
-    <title><?php echo TITULO; ?></title>
+    <title><?php echo TITULO; ?> - Registro de Ventas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="shortcut icon" href="<?php echo ESTATICO; ?>img/favicon.ico">
+
     <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO; ?>css/dataTables.bootstrap.css">
     <?php include(MODULO . 'Tema.CSS.php'); ?>
 </head>
@@ -59,101 +59,148 @@ $Venta->CancelarFactura();
                 </div>
             </div>
 
-            <!-- Tabla de facturas -->
+            <!-- Tabla de ventas agrupadas por factura -->
             <div class="row">
                 <div class="col-sm-12">
                     <table cellpadding="0" cellspacing="0" border="0"
-                        class="table table-striped table-bordered table-condensed" id="example" data-sort-name="id"
-                        data-sort-order="desc">
+                        class="table table-striped table-bordered table-condensed" id="example">
                         <thead>
                             <tr>
-                                <td><strong>Id Factura</strong></td>
-                                <td><strong>Total</strong></td>
-                                <td><strong>Comisión</strong></td>
-                                <td><strong>Fecha</strong></td>
-                                <td><strong>Vendedor</strong></td>
-                                <td><strong>Estado</strong></td>
-                                <td><strong>Comprobante</strong></td>
+                                <th>Id Factura</th>
+                                <th>Cliente</th>
+                                <th>Vendedor</th>
+                                <th>Total</th>
+                                <th>Comisión</th>
+                                <th>Método de pago</th>
+                                <th>Comprobante</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
                             /*
-                             * Ahora traemos:
-                             * - Datos de la factura
-                             * - Nombre del vendedor (JOIN con vendedores)
+                             * IMPORTANTE:
+                             * - Usamos la TABLA VENTAS como base
+                             * - Agrupamos por idfactura
+                             * - Tomamos totales, comisiones, fecha/hora, cliente, vendedor
                              */
-                            $facturasSql = $db->SQL("
-                                SELECT f.*,
-                                       v.nombre   AS vendedor_nombre,
-                                       v.apellido1 AS vendedor_apellido1,
-                                       v.apellido2 AS vendedor_apellido2
-                                FROM factura f
-                                LEFT JOIN vendedores v ON v.id = f.usuario
-                                ORDER BY f.id DESC
+                            $FacturasSql = $db->SQL("
+                                SELECT idfactura
+                                FROM ventas
+                                WHERE idfactura IS NOT NULL
+                                GROUP BY idfactura
+                                ORDER BY idfactura DESC
                             ");
 
-                            while ($factura = $facturasSql->fetch_array()):
-                                // Calcular comisión total de la factura (suma de comision_monto en detalleventa)
-                                $ComisionSql = $db->SQL("
-                                    SELECT SUM(comision_monto) AS total_comision
-                                    FROM detalleventa
-                                    WHERE idfactura = '{$factura['id']}'
+                            while ($row = $FacturasSql->fetch_assoc()):
+                                $idfactura = $row['idfactura'];
+
+                                // Resumen de la venta (sobre tabla ventas)
+                                $DatosSql = $db->SQL("
+                                    SELECT
+                                        SUM(totalprecio) AS total,
+                                        SUM(comision)    AS total_comision,
+                                        MIN(fecha)       AS fecha,
+                                        MIN(hora)        AS hora,
+                                        MIN(vendedor)    AS id_vendedor,
+                                        MIN(cliente)     AS id_cliente,
+                                        MIN(metodo_pago) AS metodo_pago,
+                                        MIN(con_factura) AS con_factura,
+                                        MIN(habilitada)  AS habilitada
+                                    FROM ventas
+                                    WHERE idfactura = '{$idfactura}'
                                 ");
-                                $Comision = $ComisionSql->fetch_assoc();
-                                $totalComision = isset($Comision['total_comision']) ? (float)$Comision['total_comision'] : 0;
+                                $Datos = $DatosSql->fetch_assoc();
+
+                                // Vendedor
+                                $VendedorNombre = 'Sin asignar';
+                                if (!empty($Datos['id_vendedor'])) {
+                                    $VendedorSql = $db->SQL("
+                                        SELECT nombre, apellido1, apellido2
+                                        FROM vendedores
+                                        WHERE id='{$Datos['id_vendedor']}'
+                                    ");
+                                    if ($VendedorSql && $VendedorSql->num_rows > 0) {
+                                        $Vend = $VendedorSql->fetch_assoc();
+                                        $VendedorNombre = trim(
+                                            $Vend['nombre'] . ' ' .
+                                            $Vend['apellido1'] . ' ' .
+                                            $Vend['apellido2']
+                                        );
+                                    }
+                                }
+
+                                // Cliente
+                                $ClienteNombre = 'Cliente Contado';
+                                if (!empty($Datos['id_cliente'])) {
+                                    $ClienteSql = $db->SQL("
+                                        SELECT nombre
+                                        FROM cliente
+                                        WHERE id = '{$Datos['id_cliente']}'
+                                    ");
+                                    if ($ClienteSql && $ClienteSql->num_rows > 0) {
+                                        $Cli = $ClienteSql->fetch_assoc();
+                                        $ClienteNombre = $Cli['nombre'];
+                                    }
+                                }
+
+                                // Intentar leer estado y tipo_comprobante desde factura
+                                $FacturaSql = $db->SQL("
+                                    SELECT habilitado, tipo_comprobante
+                                    FROM factura
+                                    WHERE id='{$idfactura}'
+                                    LIMIT 1
+                                ");
+                                $Factura = $FacturaSql->fetch_assoc();
+
+                                $estadoFactura   = isset($Factura['habilitado']) ? (int)$Factura['habilitado'] : (int)$Datos['habilitada'];
+                                $tipoComprobante = isset($Factura['tipo_comprobante'])
+                                    ? $Factura['tipo_comprobante']
+                                    : ((int)$Datos['con_factura'] === 1 ? 'FACTURA' : 'RECIBO');
+
+                                // Método de pago
+                                $MetodoPago = $Datos['metodo_pago'] ?: 'EFECTIVO';
+
+                                // Etiqueta estado
+                                $EtiquetaEstado = ($estadoFactura === 1)
+                                    ? '<span class="label label-success">Activa</span>'
+                                    : '<span class="label label-danger">Cancelada</span>';
                             ?>
                             <tr>
-                                <td data-sort-order="desc"><?php echo $factura['id']; ?></td>
-
-                                <td>Bs <?php echo number_format($factura['total'], 2); ?></td>
-
-                                <td>Bs <?php echo number_format($totalComision, 2); ?></td>
-
-                                <td><?php echo $factura['fecha'] . ' ' . $factura['hora']; ?></td>
-
+                                <td><?php echo $idfactura; ?></td>
+                                <td><?php echo htmlspecialchars($ClienteNombre); ?></td>
+                                <td><?php echo htmlspecialchars($VendedorNombre); ?></td>
+                                <td>Bs <?php echo number_format($Datos['total'], 2); ?></td>
+                                <td>Bs <?php echo number_format($Datos['total_comision'], 2); ?></td>
+                                <td><?php echo htmlspecialchars($MetodoPago); ?></td>
+                                <td><?php echo htmlspecialchars($tipoComprobante); ?></td>
+                                <td><?php echo $Datos['fecha'] . ' ' . $Datos['hora']; ?></td>
+                                <td><?php echo $EtiquetaEstado; ?></td>
                                 <td>
-                                    <?php
-                                    $nombreVendedor = trim(
-                                        ($factura['vendedor_nombre'] ?? '') . ' ' .
-                                        ($factura['vendedor_apellido1'] ?? '') . ' ' .
-                                        ($factura['vendedor_apellido2'] ?? '')
-                                    );
-                                    echo $nombreVendedor !== '' ? $nombreVendedor : 'Sin asignar';
-                                    ?>
-                                </td>
+                                    <!-- Ver comprobante (ticket simple / reimpresión) -->
+                                    <a href="<?php echo URLBASE ?>reimprimir.php?id=<?php echo $idfactura; ?>"
+                                        class="btn btn-primary btn-xs">
+                                        Ver comprobante
+                                    </a>
 
-                                <td>
-                                    <?php
-                                    if ($factura['habilitado'] == 1) {
-                                            echo '<span class="label label-success">Activa</span>';
-                                        } else {
-                                        echo '<span class="label label-danger">Cancelada</span>';
-                                    }
-                                    ?>
-                                </td>
-
-                                <td>
-                                    <!-- Ver venta / comprobante -->
-                                    <a href="<?php echo URLBASE ?>detalle-venta.php?id=<?php echo $cajatmp['id']; ?>"
-                                        class="btn btn-primary btn-sm">Ver venta</a>
-
-                                    <!-- Ver detalle de servicios (si implementas detalle-venta.php) -->
-                                    <a href="<?php echo URLBASE; ?>detalle-venta/<?php echo $factura['id']; ?>"
-                                        class="btn btn-info btn-sm">
+                                    <!-- Ver detalle de servicios (detalle-venta.php ya adaptado a tabla ventas) -->
+                                    <a href="<?php echo URLBASE; ?>detalle-venta.php?id=<?php echo $idfactura; ?>"
+                                        class="btn btn-info btn-xs">
                                         Ver detalle
                                     </a>
 
-                                    <?php if ($factura['habilitado'] == 1): ?>
+                                    <?php if ($estadoFactura === 1): ?>
                                     <!-- Botón para cancelar factura -->
-                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                        data-target="#CancelarFactura<?php echo $factura['id']; ?>">
-                                        Cancelar Factura
+                                    <button type="button" class="btn btn-danger btn-xs" data-toggle="modal"
+                                        data-target="#CancelarFactura<?php echo $idfactura; ?>">
+                                        Cancelar
                                     </button>
 
                                     <!-- Modal Cancelar Factura -->
-                                    <div class="modal fade" id="CancelarFactura<?php echo $factura['id']; ?>"
-                                        tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="CancelarFactura<?php echo $idfactura; ?>" tabindex="-1"
+                                        role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -162,22 +209,22 @@ $Venta->CancelarFactura();
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                     <h4 class="modal-title" id="myModalLabel">
-                                                        Cancelar Factura #<?php echo $factura['id']; ?>
+                                                        Cancelar Factura #<?php echo $idfactura; ?>
                                                     </h4>
                                                 </div>
                                                 <div class="modal-body">
                                                     <form class="form-horizontal" method="post" action="">
                                                         <input type="hidden" name="Idfactura"
-                                                            value="<?php echo $factura['id']; ?>">
-                                                        <!-- Tipo de factura (forma de pago) -->
-                                                        <input type="hidden" name="tipo"
-                                                            value="<?php echo $factura['tipo']; ?>">
+                                                            value="<?php echo $idfactura; ?>">
+                                                        <!-- Campo tipo/metodo_pago si tu CancelarFactura lo usa -->
+                                                        <input type="hidden" name="MetodoPago"
+                                                            value="<?php echo htmlspecialchars($MetodoPago); ?>">
 
                                                         <div class="form-group">
                                                             <div class="col-sm-12">
                                                                 <p>
                                                                     ¿Est&aacute; seguro que desea cancelar la factura
-                                                                    #<?php echo $factura['id']; ?>?
+                                                                    #<?php echo $idfactura; ?>?
                                                                 </p>
                                                             </div>
                                                         </div>
@@ -213,8 +260,8 @@ $Venta->CancelarFactura();
                                     </div>
                                     <!-- Modal Final -->
                                     <?php else: ?>
-                                    <button type="button" class="btn btn-default btn-sm disabled">
-                                        Factura Cancelada
+                                    <button type="button" class="btn btn-default btn-xs" disabled>
+                                        Cancelada
                                     </button>
                                     <?php endif; ?>
                                 </td>
@@ -239,7 +286,9 @@ $Venta->CancelarFactura();
     <script type="text/javascript" charset="utf-8">
     $(document).ready(function() {
         $('#example').dataTable({
-            "order": [0, 'desc']
+            "order": [
+                [0, 'desc']
+            ]
         });
     });
     </script>
