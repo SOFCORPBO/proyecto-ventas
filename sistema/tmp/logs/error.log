@@ -4492,3 +4492,36 @@ Stack trace:
 [27-Nov-2025 04:12:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 67
 [27-Nov-2025 04:12:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 125
 [27-Nov-2025 04:12:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\index.php on line 133
+[27-Nov-2025 06:32:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[27-Nov-2025 06:32:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[27-Nov-2025 06:33:12 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 14
+[27-Nov-2025 06:46:28 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 14
+[27-Nov-2025 06:49:43 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 14
+[27-Nov-2025 06:49:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[27-Nov-2025 07:12:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[27-Nov-2025 07:25:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[27-Nov-2025 07:26:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[27-Nov-2025 07:26:15 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 14
+[27-Nov-2025 07:26:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php:227
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 227
+[27-Nov-2025 07:26:25 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 14
