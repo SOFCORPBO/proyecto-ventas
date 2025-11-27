@@ -1,243 +1,224 @@
 <?php
-$numerosTotalSql= $db->SQL("SELECT COUNT(id) FROM cajatmp WHERE vendedor='{$usuarioApp['id']}'");
+// CANTIDAD DE SERVICIOS EN EL CARRITO
+$numerosTotalSql = $db->SQL("
+    SELECT COUNT(id) 
+    FROM cajatmp 
+    WHERE vendedor='{$usuarioApp['id']}'
+");
 $numerosTotal = $numerosTotalSql->fetch_row()[0];
 ?>
+
 <div class="col-md-9">
-    <div style="width:100%; height:300px; overflow: auto;">
-        <form name="EliminarCampos" id="EliminarCampos" method="post" action="">
+    <div style="width:100%; height:300px; overflow:auto;">
+        <form method="post" action="">
+
             <table class="table table-bordered">
                 <tr class="well">
-                    <td style="display: none;"></td>
-                    <td><input type="checkbox" value="1" id="todos" onclick="todosuno(this.value)" /></td>
+                    <td style="width:20px;"><input type="checkbox" id="todos" onclick="todosuno(this.value)" /></td>
                     <td><strong>Código</strong></td>
                     <td><strong>Servicio</strong></td>
+                    <td><strong>Tipo</strong></td>
                     <td><strong>Cantidad</strong></td>
                     <td><strong>Precio</strong></td>
                     <td><strong>Importe</strong></td>
-                    <td>
+                    <td><strong>Comisión</strong></td>
+                    <td style="width:180px;">
                         <button type="button"
-                            class="btn btn-primary btn-xs <?php if($numerosTotal <= 0): echo'disabled'; else: endif; ?>"
-                            data-toggle="modal" data-target="#EliminarVenta"><i class="fa fa-trash-o"></i> Limpiar
-                            Venta</button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="EliminarVenta" tabindex="-1" role="dialog"
-                            aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Eliminar Venta Actual</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form class="form-horizontal" method="post" action="">
-                                            <input type="hidden" name="IdUsuario"
-                                                value="<?php echo $usuarioApp['id']; ?>">
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <div class="input-group">¿Est&aacute; seguro que desea eliminar toda
-                                                        la venta actual?</div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" name="EliminarTodo" class="btn btn-primary"
-                                                        onclick="$(this).button('loading');">Si, Eliminar</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Modal Final -->
+                            class="btn btn-primary btn-xs <?php if($numerosTotal <= 0) echo 'disabled'; ?>"
+                            data-toggle="modal" data-target="#EliminarVenta">
+                            <i class="fa fa-trash-o"></i> Limpiar Venta
+                        </button>
                     </td>
                 </tr>
+
+                <!-- MODAL LIMPIAR VENTA -->
+                <div class="modal fade" id="EliminarVenta" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form method="post">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Eliminar Venta Actual</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>¿Está seguro que desea eliminar toda la venta actual?</p>
+                                    <input type="hidden" name="IdUsuario" value="<?php echo $usuarioApp['id']; ?>">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    <button type="submit" name="EliminarTodo" class="btn btn-primary">
+                                        Sí, Eliminar
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
                 <?php
-				$i				= 0;
-				$cajatmpSql		= $db->SQL("SELECT * FROM cajatmp WHERE vendedor='{$usuarioApp['id']}' ORDER BY id DESC");
-				while($cajatmp	= $cajatmpSql->fetch_array()){
-				$i	= $i + 1;
-				?>
+                // OPTIMIZACIÓN: UNA SOLA CONSULTA (JOIN)
+                $cajatmpSql = $db->SQL("
+                    SELECT c.*, 
+                           p.codigo, p.nombre, p.tipo_servicio, 
+                           p.comision AS comision_base,
+                           (p.comision * c.cantidad) AS comision_total
+                    FROM cajatmp c
+                    INNER JOIN producto p ON p.id = c.producto
+                    WHERE c.vendedor='{$usuarioApp['id']}'
+                    ORDER BY c.id DESC
+                ");
+
+                $i = 0;
+                while ($row = $cajatmpSql->fetch_assoc()):
+                    $i++;
+                ?>
                 <tr>
-                    <td style="display: none;"><input name="IdProducto<?php echo $i; ?>" type="hidden"
-                            value="<?php echo $cajatmp['producto']; ?>" /></td>
-                    <td><input id="ID<?php echo $i; ?>" name="IDS<?php echo $i; ?>" type="checkbox"
-                            value="<?php echo $cajatmp['id']; ?>" /></td>
+                    <td><input type="checkbox" name="IDS<?php echo $i; ?>" value="<?php echo $row['id']; ?>"></td>
+
+                    <!-- CÓDIGO -->
+                    <td><?php echo $row['codigo']; ?></td>
+
+                    <!-- SERVICIO -->
+                    <td><?php echo $row['nombre']; ?></td>
+
+                    <!-- TIPO -->
+                    <td><span class="label label-info"><?php echo $row['tipo_servicio']; ?></span></td>
+
+                    <!-- CANTIDAD -->
+                    <td><?php echo $row['cantidad']; ?></td>
+
+                    <!-- PRECIO -->
+                    <td>$ <?php echo number_format($row['precio'], 2); ?></td>
+
+                    <!-- IMPORTE -->
+                    <td>$ <?php echo number_format($row['totalprecio'], 2); ?></td>
+
+                    <!-- COMISIÓN DEL SERVICIO -->
                     <td>
-                        <?php
-					$CodigoProductoSql	= $db->SQL("SELECT codigo FROM `producto` WHERE id='{$cajatmp['producto']}'");
-					$CodigoProducto		= $CodigoProductoSql->fetch_array();
-					echo $CodigoProducto['codigo'];
-					?>
+                        <?php if ($row['comision_base'] > 0): ?>
+                        <span class="label label-success">
+                            <?php echo number_format($row['comision_total'], 2); ?> Bs
+                        </span>
+                        <?php else: ?>
+                        <span class="label label-default">0</span>
+                        <?php endif; ?>
                     </td>
+
                     <td>
-                        <?php
-					$NombreProductoSql	= $db->SQL("SELECT nombre FROM `producto` WHERE id='{$cajatmp['producto']}'");
-					$NombreProducto		= $NombreProductoSql->fetch_array();
-					echo $NombreProducto['nombre'];
-					?>
-                    </td>
-                    <td><input type="hidden" name="cantidad<?php echo $i; ?>"
-                            value="<?php echo $cajatmp['cantidad']; ?>"><?php echo $cajatmp['cantidad']; ?></td>
-                    <td>$ <?php echo $cajatmp['precio']; ?></td>
-                    <td>$ <?php echo $cajatmp['totalprecio']; ?></td>
-                    <td>
-                        <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
-                            data-target="#EliminarProducto<?php echo $cajatmp['id']; ?>"><i
-                                class="fa fa-trash-o"></i></button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="EliminarProducto<?php echo $cajatmp['id']; ?>" tabindex="-1"
-                            role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <!-- BOTÓN ELIMINAR -->
+                        <button type="button" class="btn btn-danger btn-xs" data-toggle="modal"
+                            data-target="#Eliminar<?php echo $row['id']; ?>">
+                            <i class="fa fa-trash"></i>
+                        </button>
+
+                        <!-- MODAL ELIMINAR ITEM -->
+                        <div class="modal fade" id="Eliminar<?php echo $row['id']; ?>">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Eliminar servicio de la factura</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form class="form-horizontal" method="post" action="">
-                                            <input type="hidden" name="IdCajatmp" value="<?php echo $cajatmp['id']; ?>">
-                                            <input type="hidden" name="IdProducto"
-                                                value="<?php echo $cajatmp['producto']; ?>">
-                                            <input type="hidden" name="CantidadStock"
-                                                value="<?php echo $cajatmp['cantidad']; ?>">
-                                            <div class="form-group">
-                                                <div class="col-sm-12">
-                                                    <div class="input-group">
-                                                        ¿Est&aacute; seguro que desea eliminar el servicio?
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-offset-2 col-sm-10">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" name="EliminarProducto"
-                                                        class="btn btn-primary" onclick="$(this).button('loading');">Si,
-                                                        Eliminar</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    <form method="post">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Eliminar servicio</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            ¿Eliminar este servicio de la venta?
+                                            <input type="hidden" name="IdCajatmp" value="<?php echo $row['id']; ?>">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default"
+                                                data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" name="EliminarProducto" class="btn btn-danger">
+                                                Eliminar
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <!-- Modal Final -->
-                        <!-- Actualizar cantidad -->
+
+                        <!-- BOTÓN ACTUALIZAR -->
                         <button type="button" class="btn btn-primary btn-xs" data-toggle="modal"
-                            data-target="#ActualizarCantidad<?php echo $cajatmp['id']; ?>"><i
-                                class="fa fa-edit"></i></button>
-                        <!-- Modal -->
-                        <div class="modal fade" id="ActualizarCantidad<?php echo $cajatmp['id']; ?>" tabindex="-1"
-                            role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            data-target="#Actualizar<?php echo $row['id']; ?>">
+                            <i class="fa fa-edit"></i>
+                        </button>
+
+                        <!-- MODAL ACTUALIZAR CANTIDAD -->
+                        <div class="modal fade" id="Actualizar<?php echo $row['id']; ?>">
                             <div class="modal-dialog">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Actualizar cantidad de servicio</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form class="form-horizontal" method="post" action="">
-                                            <input type="hidden" name="IdCajaTmp" value="<?php echo $cajatmp['id']; ?>">
-                                            <input type="hidden" name="IdProducto"
-                                                value="<?php echo $cajatmp['producto']; ?>">
-                                            <input type="hidden" name="Precio"
-                                                value="<?php echo $cajatmp['precio']; ?>">
-                                            <input type="hidden" name="CantidadAnterior"
-                                                value="<?php echo $cajatmp['cantidad']; ?>">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label class="control-label">&nbsp;&nbsp;&nbsp; Cantidad</label>
-                                                    <div class="input-group">
-                                                        <span class="input-group-addon"><strong>#</strong></span>
-                                                        <input type="number" min="1" step="1" maxlength="6"
-                                                            class="form-control" name="Cantidad"
-                                                            value="<?php echo $cajatmp['cantidad']; ?>"
-                                                            onkeypress="return PermitirSoloNumeros(event);"
-                                                            autocomplete="off" autofocus required />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-offset-2 col-sm-10">
-                                                    <button type="button" class="btn btn-default"
-                                                        data-dismiss="modal">Cerrar</button>
-                                                    <button type="submit" name="ActualizarCantidadCajaTmp"
-                                                        class="btn btn-primary"
-                                                        onclick="$(this).button('loading');">Actualizar cantidad de
-                                                        servicios</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                                    <form method="post">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Actualizar cantidad</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="hidden" name="IdCajaTmp" value="<?php echo $row['id']; ?>">
+                                            <input type="hidden" name="Precio" value="<?php echo $row['precio']; ?>">
+
+                                            <input type="number" min="1" class="form-control" name="Cantidad"
+                                                value="<?php echo $row['cantidad']; ?>" required>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" name="ActualizarCantidadCajaTmp"
+                                                class="btn btn-primary">
+                                                Actualizar
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        <!-- Modal Final -->
+
                     </td>
                 </tr>
-                <?php
-				}
-				?>
-                <input type="hidden" value="<?php echo $i; ?>" name="contadorx" />
+                <?php endwhile; ?>
+
+                <input type="hidden" name="contadorx" value="<?php echo $i; ?>">
             </table>
+
         </form>
     </div>
 </div>
+
+<!-- PANEL DERECHO (TOTAL) -->
 <div class="col-md-3">
     <?php
-	$netoSql= $db->SQL("SELECT SUM(totalprecio) AS deudatotal FROM cajatmp WHERE vendedor='{$usuarioApp['id']}'");
-	$neto	= $netoSql->fetch_array();
-	$TipoDeCambioSql= $db->SQL("SELECT valor FROM `moneda` WHERE rango='2'");
-	$TipoDeCambio	= $TipoDeCambioSql->fetch_assoc();
-	?>
+    $netoSql = $db->SQL("
+        SELECT SUM(totalprecio) AS total 
+        FROM cajatmp 
+        WHERE vendedor='{$usuarioApp['id']}'
+    ");
+    $neto = $netoSql->fetch_assoc();
+    ?>
+
     <div class="panel panel-default">
-        <div class="panel-heading">
-            <center><strong>Neto a Pagar</strong></center>
-        </div>
+        <div class="panel-heading text-center"><strong>Neto a Pagar</strong></div>
+
         <div class="panel-body">
-            <h2 class="text-success" align="center">$ <?php echo $Vendedor->Formato($neto['deudatotal']); ?>
-                <?php
-		$TipoDeCambioActivoSql	= $db->SQL("SELECT TipoCambio FROM `sistema`");
-		$TipoDeCambioActivo		= $TipoDeCambioActivoSql->fetch_assoc();
-		if($TipoDeCambioActivo['TipoCambio'] == 1){
-		?>
-                <br /><small class="text-info">&cent;
-                    <?php echo $Vendedor->FormatoSaldo($neto['deudatotal']*$TipoDeCambio['valor']); ?></small>
+            <h2 class="text-success text-center">
+                $ <?php echo number_format($neto['total'], 2); ?>
             </h2>
-            <?php
-		}else{
-			// Tipo Cambio deshabilitado
-		}
-		?>
         </div>
-        <div class="panel-heading">
-            <center><strong>Cantidad de Servicios: <br><span
-                        class="badge badge-success"><?php echo $numerosTotal; ?></span></strong></center>
+
+        <div class="panel-heading text-center">
+            <strong>
+                Servicios agregados:
+                <span class="badge badge-success"><?php echo $numerosTotal; ?></span>
+            </strong>
         </div>
     </div>
-    <div class="form-group">
-        <?php
-		if($numerosTotal <= 0){
-			echo'
-			<button type="button" class="btn btn-default btn-lg btn-block" id="btsubmit" disabled>
-				<i class="fa fa-shopping-cart"></i> Registrar Venta
-			</button>';
-		}else{
-		?>
-        <button type="button" class="btn btn-primary btn-lg btn-block" id="btsubmit" data-toggle="modal"
-            data-target="#RegistrarCompra"><i class="fa fa-shopping-cart"></i> Registrar Venta</button>
-        <?php
-		}
-		?>
-    </div>
-    <hr />
-    <!-- Notificaciones -->
+
+    <!-- BOTÓN REGISTRAR VENTA -->
+    <?php if ($numerosTotal > 0): ?>
+    <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#RegistrarCompra">
+        <i class="fa fa-shopping-cart"></i> Registrar Venta
+    </button>
+    <?php else: ?>
+    <button class="btn btn-default btn-lg btn-block" disabled>
+        <i class="fa fa-shopping-cart"></i> Registrar Venta
+    </button>
+    <?php endif; ?>
+
+    <hr>
     <?php include(MODULO.'notificacion.php'); ?>
-    <!-- Notificaciones fin -->
+
 </div>

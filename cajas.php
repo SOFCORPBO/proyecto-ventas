@@ -1,662 +1,414 @@
-<?php session_start();
-include ('sistema/configuracion.php');
+<?php
+session_start();
+include('sistema/configuracion.php');
+
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
-$fechaActual = FechaActual();
+$usuario->ZonaAdministrador();
+
+// Datos básicos
+$fecha = date('Y-m-d');
+$hora  = date('H:i:s');
+
+// Intento de obtener responsable desde sesión
+$idResponsable = null;
+if (isset($usuarioApp['id_vendedor'])) {
+    $idResponsable = (int)$usuarioApp['id_vendedor'];
+} elseif (isset($usuarioApp['id_usuario'])) {
+    $idResponsable = (int)$usuarioApp['id_usuario'];
+}
+
+// Función rápida para sumar saldo de movimientos
+function saldoCajaGeneral($db) {
+    $sql = $db->SQL("
+        SELECT 
+            SUM(CASE WHEN tipo='INGRESO' THEN monto ELSE -monto END) AS saldo
+        FROM caja_general_movimientos
+    ");
+    $row = $sql->fetch_assoc();
+    return $row && $row['saldo'] !== null ? (float)$row['saldo'] : 0.0;
+}
+
+function saldoCajaChica($db) {
+    $sql = $db->SQL("
+        SELECT 
+            SUM(CASE WHEN tipo='INGRESO' THEN monto ELSE -monto END) AS saldo
+        FROM caja_chica_movimientos
+    ");
+    $row = $sql->fetch_assoc();
+    return $row && $row['saldo'] !== null ? (float)$row['saldo'] : 0.0;
+}
+
+/*
+|------------------------------------------------------------
+|   PROCESAR ACCIONES DE CAJA
+|   - Apertura / Cierre Caja GENERAL
+|   - Apertura / Cierre Caja CHICA
+|------------------------------------------------------------
+*/
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['AccionCaja'])) {
+
+    $accion = $_POST['AccionCaja'];
+
+    // Normalizamos responsable para SQL
+    $respSQL = $idResponsable !== null ? (int)$idResponsable : 'NULL';
+
+    // === APERTURA CAJA GENERAL ===
+    if ($accion === 'AperturarGeneral') {
+        $monto = isset($_POST['monto_inicial']) ? (float)$_POST['monto_inicial'] : 0;
+
+        // Evitar doble apertura
+        $abierta = $db->SQL("
+            SELECT id 
+            FROM caja 
+            WHERE tipo_caja='GENERAL' AND estado=1 AND habilitado=1
+            LIMIT 1
+        ");
+
+        if ($abierta->num_rows == 0) {
+            // Registrar en tabla caja
+            $db->SQL("
+                INSERT INTO caja (monto, fecha, hora, estado, habilitado, tipo_caja, responsable, observacion)
+                VALUES ('{$monto}','{$fecha}','{$hora}',1,1,'GENERAL',{$respSQL},'Apertura de caja general')
+            ");
+
+            // Registrar movimiento inicial
+            $db->SQL("
+                INSERT INTO caja_general_movimientos
+                    (fecha, hora, tipo, monto, concepto, metodo_pago, id_banco, referencia, responsable, saldo_caja, saldo_banco)
+                VALUES 
+                    ('{$fecha}','{$hora}','INGRESO',{$monto},
+                     'Apertura de caja general',
+                     'EFECTIVO', NULL, 'APERTURA', {$respSQL}, {$monto}, NULL)
+            ");
+        }
+
+    // === CIERRE CAJA GENERAL ===
+    } elseif ($accion === 'CerrarGeneral') {
+        $montoCierre = isset($_POST['monto_cierre']) ? (float)$_POST['monto_cierre'] : 0;
+
+        $cajaRes = $db->SQL("
+            SELECT id 
+            FROM caja 
+            WHERE tipo_caja='GENERAL' AND estado=1 AND habilitado=1
+            ORDER BY id DESC
+            LIMIT 1
+        ");
+
+        if ($cajaRes->num_rows > 0) {
+            $caja = $cajaRes->fetch_assoc();
+
+            // Actualizar estado de caja
+            $db->SQL("
+                UPDATE caja 
+                SET estado=0, observacion='Cierre de caja general'
+                WHERE id = {$caja['id']}
+            ");
+
+            // Movimiento de cierre (egreso para dejar saldo 0 en caja física)
+            $db->SQL("
+                INSERT INTO caja_general_movimientos
+                    (fecha, hora, tipo, monto, concepto, metodo_pago, id_banco, referencia, responsable, saldo_caja, saldo_banco)
+                VALUES 
+                    ('{$fecha}','{$hora}','EGRESO',{$montoCierre},
+                     'Cierre de caja general',
+                     'EFECTIVO', NULL, 'CIERRE', {$respSQL}, 0, NULL)
+            ");
+        }
+
+    // === APERTURA CAJA CHICA ===
+    } elseif ($accion === 'AperturarChica') {
+        $monto = isset($_POST['monto_inicial_chica']) ? (float)$_POST['monto_inicial_chica'] : 0;
+
+        // Evitar doble apertura
+        $abierta = $db->SQL("
+            SELECT id 
+            FROM cajachica 
+            WHERE tipo=1 AND habilitado=1
+            ORDER BY id DESC
+            LIMIT 1
+        ");
+
+        if ($abierta->num_rows == 0) {
+            // Registrar apertura en cajachica
+            $db->SQL("
+                INSERT INTO cajachica (monto, fecha, hora, tipo, responsable, observacion, habilitado)
+                VALUES ('{$monto}','{$fecha}','{$hora}',1,{$respSQL},'Apertura de caja chica',1)
+            ");
+
+            // Movimiento en caja_chica_movimientos
+            $db->SQL("
+                INSERT INTO caja_chica_movimientos
+                    (fecha, hora, tipo, monto, concepto, responsable, saldo_resultante, referencia)
+                VALUES 
+                    ('{$fecha}','{$hora}','INGRESO',{$monto},
+                     'Apertura de caja chica',{$respSQL},{$monto},'APERTURA')
+            ");
+        }
+
+    // === CIERRE CAJA CHICA ===
+    } elseif ($accion === 'CerrarChica') {
+        $montoCierre = isset($_POST['monto_cierre_chica']) ? (float)$_POST['monto_cierre_chica'] : 0;
+
+        $cajaRes = $db->SQL("
+            SELECT id 
+            FROM cajachica 
+            WHERE tipo=1 AND habilitado=1
+            ORDER BY id DESC
+            LIMIT 1
+        ");
+
+        if ($cajaRes->num_rows > 0) {
+            $caja = $cajaRes->fetch_assoc();
+
+            // Marcar como cerrada (habilitado=0)
+            $db->SQL("
+                UPDATE cajachica 
+                SET habilitado=0, observacion='Cierre de caja chica'
+                WHERE id = {$caja['id']}
+            ");
+
+            // Movimiento de cierre (EGRESO para dejar saldo 0)
+            $db->SQL("
+                INSERT INTO caja_chica_movimientos
+                    (fecha, hora, tipo, monto, concepto, responsable, saldo_resultante, referencia)
+                VALUES 
+                    ('{$fecha}','{$hora}','EGRESO',{$montoCierre},
+                     'Cierre de caja chica',{$respSQL},0,'CIERRE')
+            ");
+        }
+    }
+
+    // Redirección pequeña para evitar re-envío de formulario
+    header("Location: cajas.php");
+    exit;
+}
+
+/*
+|------------------------------------------------------------
+|   CONSULTAS PARA MOSTRAR ESTADO ACTUAL
+|------------------------------------------------------------
+*/
+
+// Caja General (último registro)
+$cajaGeneralRes = $db->SQL("
+    SELECT * 
+    FROM caja 
+    WHERE tipo_caja='GENERAL' 
+    ORDER BY id DESC
+    LIMIT 1
+");
+$cajaGeneral = $cajaGeneralRes->num_rows ? $cajaGeneralRes->fetch_assoc() : null;
+$saldoGeneral = saldoCajaGeneral($db);
+
+// Caja Chica (último registro)
+$cajaChicaRes = $db->SQL("
+    SELECT * 
+    FROM cajachica 
+    ORDER BY id DESC
+    LIMIT 1
+");
+$cajaChica = $cajaChicaRes->num_rows ? $cajaChicaRes->fetch_assoc() : null;
+$saldoChica = saldoCajaChica($db);
+
+// Obtener nombre del responsable (si existe) para mostrar en tarjetas
+function nombreResponsable($db, $id) {
+    if (!$id) return 'No asignado';
+    $sql = $db->SQL("
+        SELECT nombre, apellido1, apellido2
+        FROM vendedores
+        WHERE id = ".(int)$id."
+        LIMIT 1
+    ");
+    if ($sql->num_rows == 0) return 'No asignado';
+
+    $v = $sql->fetch_assoc();
+    return trim($v['nombre'].' '.$v['apellido1'].' '.$v['apellido2']);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
-    <title>Cajas | <?php echo TITULO ?></title>
+    <title>Cajas del Sistema | <?php echo TITULO; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="shortcut icon" href="<?php echo ESTATICO ?>img/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO ?>css/dataTables.bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO ?>css/calendario/bootstrap-datepicker3.css">
-    <?php include(MODULO.'Tema.CSS.php');?>
+
+    <link rel="shortcut icon" href="<?php echo ESTATICO; ?>img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO; ?>css/bootstrap.min.css">
+    <?php include(MODULO.'Tema.CSS.php'); ?>
 </head>
 
 <body>
+
     <?php
-	// Menu inicio
-	if($usuarioApp['id_perfil']==2){
-		include (MODULO.'menu_vendedor.php');
-	}elseif($usuarioApp['id_perfil']==1){
-		include (MODULO.'menu_admin.php');
-	}else{
-		echo'<meta http-equiv="refresh" content="0;url='.URLBASE.'cerrar-sesion"/>';
-	}
-	//Menu Fin
-	?>
+// Menú
+if ($usuarioApp['id_perfil'] == 2) {
+    include(MODULO.'menu_vendedor.php');
+} elseif ($usuarioApp['id_perfil'] == 1) {
+    include(MODULO.'menu_admin.php');
+}
+?>
+
     <div id="wrap">
         <div class="container">
 
             <div class="page-header" id="banner">
                 <div class="row">
                     <div class="col-lg-8 col-md-7 col-sm-6">
-                        <h1>Caja del Sistema</h1>
+                        <h1>Cajas del Sistema</h1>
+                        <p class="lead">Gestión de Caja General y Caja Chica</p>
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <?php
-				$sistema->AperturaCaja();
-				$sistema->CierreCaja();
-				$sistema->CajaChica();
-				?>
-                <div class=" col-md-6">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#Caja" data-toggle="tab">Caja</a></li>
-                        <li><a href="#AperturaRegistro" data-toggle="tab">Apertura de Caja</a></li>
-                        <li><a href="#CierreRegistro" data-toggle="tab">Cierre de Caja</a></li>
-                    </ul>
-                    <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade active in" id="Caja">
-                            <table class="table table-bordered" id="CajaGeneral">
-                                <thead>
-                                    <tr>
-                                        <td><strong>#</strong></td>
-                                        <td><strong>Monto</strong></td>
-                                        <td><strong>
-                                                <center>FechaRegistro</center>
-                                            </strong></td>
-                                        <td><strong>
-                                                <center>Editar</center>
-                                            </strong></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($CajaArray as $CajaRow): ?>
-                                    <tr>
-                                        <th><?php echo $CajaRow['id']; ?></th>
-                                        <td>&cent; <?php echo $CajaRow['monto']; ?></td>
-                                        <td>
-                                            <center><?php echo $CajaRow['fecha'].' '.$CajaRow['hora']; ?></center>
-                                        </td>
-                                        <td><button class="btn btn-primary btn-xs">Registro</button></td>
-                                    </tr>
-                                    <?php endforeach?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="tab-pane fade" id="AperturaRegistro">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table table-hover" id="AperturaRegistroTabla">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Monto</th>
-                                            <th>FechaRegistro</th>
-                                            <th>HoraRegistro</th>
-                                            <th>Estado</th>
-                                            <th>Opci&oacute;n</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($CajaAperturaRegistroArray as $CajaAperturaRegistroRow): ?>
-                                        <tr>
-                                            <th><?php echo $CajaAperturaRegistroRow['id']; ?></th>
-                                            <td data-title="Price" class="numeric">$
-                                                <?php echo $CajaAperturaRegistroRow['monto']; ?></td>
-                                            <td><?php echo $CajaAperturaRegistroRow['fecha']; ?></td>
-                                            <td><?php echo $CajaAperturaRegistroRow['hora']; ?></td>
-                                            <td>
-                                                <?php
-											if($CajaAperturaRegistroRow['tipo'] == 1){
-												echo'<span class="label label-success">Activo</span>';
-											}else{
-												echo'<span class="label label-danger">Desactivado</span>';
-											}
-											?>
-                                            </td>
-                                            <td><button class="btn btn-primary btn-xs">Editar</button></td>
-                                        </tr>
-                                        <?php endforeach?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="CierreRegistro">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table table-hover" id="CierreRegistroTabla">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Monto</th>
-                                            <th>FechaRegistro</th>
-                                            <th>HoraRegistro</th>
-                                            <th>Estado</th>
-                                            <th>Opci&oacute;n</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($CajaCierreRegistroArray as $CajaCierreRegistroRow): ?>
-                                        <tr>
-                                            <th><?php echo $CajaCierreRegistroRow['id']; ?></th>
-                                            <td data-title="Price" class="numeric">$
-                                                <?php echo $CajaCierreRegistroRow['monto']; ?></td>
-                                            <td><?php echo $CajaCierreRegistroRow['fecha']; ?></td>
-                                            <td><?php echo $CajaCierreRegistroRow['hora']; ?></td>
-                                            <td>
-                                                <?php
-											if($CajaCierreRegistroRow['habilitado'] == 1){
-												echo'<span class="label label-success">Activo</span>';
-											}else{
-												echo'<span class="label label-danger">Desactivado</span>';
-											}
-											?>
-                                            </td>
-                                            <td><button class="btn btn-primary btn-xs">Editar</button></td>
-                                        </tr>
-                                        <?php endforeach?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                <!-- CAJA GENERAL -->
                 <div class="col-md-6">
-                    <?php
-					$TipoOperacionQuery	= $db->SQL("SELECT tipo  FROM `cajaregistros` WHERE habilitado='1' ORDER BY id DESC LIMIT 1");
-					$TipoOperacion		= $TipoOperacionQuery->fetch_array();
-					?>
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr class="well">
-                                <td>
-                                    <center><strong>Caja Principal |
-                                            <?php if($TipoOperacion['tipo'] == 1): echo'Cierre de Caja'; else: echo'Apertura de Caja'; endif; ?></strong>
-                                    </center>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <form method="post" action="" class="form-horizontal">
-                                        <label>Tipo de Operaci&oacute;n</label>
-                                        <div class="form-group">
-                                            <?php if($TipoOperacion['tipo'] == 1): ?>
-                                            <div class="col-md-4">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="tipo" id="SorteoMedioDia" value="1"
-                                                            disabled />
-                                                        Apertura de Caja
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="tipo" id="SorteoNocturno" value="2"
-                                                            checked />
-                                                        Cierre de Caja
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <?php else:?>
-                                            <div class="col-md-4">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="tipo" id="SorteoMedioDia" value="1"
-                                                            checked />
-                                                        Apertura de Caja
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="tipo" id="SorteoNocturno" value="2"
-                                                            disabled />
-                                                        Cierre de Caja
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <?php endif;?>
-                                        </div>
-                                        <hr />
-                                        <div class="form-group">
-                                            <label class="control-label" for="fecha">Fecha:</label>
-                                            <div class="input-daterange input-group" id="fecha">
-                                                <input type="text" class="input-md form-control" name="fecha"
-                                                    value="<?php echo FechaActual(); ?>" required />
-                                                <div class="input-group-addon"><span class="glyphicon glyphicon-th"
-                                                        aria-hidden="true"></span></div>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <?php if($TipoOperacion['tipo'] == 2 or $TipoOperacion['tipo'] == null): ?>
-                                        <div class="form-group">
-                                            <label>Monto</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">$</span>
-                                                <input type="text" class="form-control" name="monto" required=""
-                                                    onkeypress="return PermitirSoloNumeros(event);"
-                                                    placeholder="Monto de la operaci&oacute;n" autocomplete="off"
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <?php
-										else:
-										endif
-										?>
-                                        <div class="form-group">
-                                            <?php if($TipoOperacion['tipo'] == 1): ?>
-                                            <button type="submit" name="CierreCaja" class="btn btn-primary">Realizar
-                                                Cierre de Caja</button>
-                                            <?php else:?>
-                                            <button type="submit" name="AperturaCaja" class="btn btn-primary">Realizar
-                                                Apertura de Caja</button>
-                                            <?php endif;?>
-                                            <button type="reset" class="btn btn-default">Cancelar</button>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <hr />
-            <div class="row">
-                <legend>Tipos de Pagos</legend>
-                <div class="col-md-9">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#PagosTarjeta" data-toggle="tab">Pagos con Tarjeta</a></li>
-                        <li><a href="#PagosEfectivo" data-toggle="tab">Pagos con efectivo</a></li>
-                    </ul>
-                    <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade active in" id="PagosTarjeta">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover" id="PagoTarjeta">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Monto</th>
-                                            <th>FechaRegistro</th>
-                                            <th>HoraRegistro</th>
-                                            <th>Estado</th>
-                                            <th>Opci&oacute;n</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($CajaCierreRegistroTarjetaArray as $CajaCierreRegistroTarjetaRow): ?>
-                                        <tr>
-                                            <th><?php echo $CajaCierreRegistroTarjetaRow['id']; ?></th>
-                                            <td data-title="Price" class="numeric">$
-                                                <?php echo $CajaCierreRegistroTarjetaRow['total']; ?></td>
-                                            <td><?php echo $CajaCierreRegistroTarjetaRow['fecha']; ?></td>
-                                            <td><?php echo $CajaCierreRegistroTarjetaRow['hora']; ?></td>
-                                            <td>
-                                                <?php
-											if($CajaCierreRegistroTarjetaRow['habilitado'] == 1){
-												echo'<span class="label label-success">Activo</span>';
-											}else{
-												echo'<span class="label label-danger">Desactivado</span>';
-											}
-											?>
-                                            </td>
-                                            <td><button class="btn btn-primary btn-xs">Editar</button></td>
-                                        </tr>
-                                        <?php endforeach?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="PagosEfectivo">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table-hover" id="PagoEfectivo">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Monto</th>
-                                            <th>FechaRegistro</th>
-                                            <th>HoraRegistro</th>
-                                            <th>Estado</th>
-                                            <th>Opci&oacute;n</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($CajaCierreRegistroEfectivoArray as $CajaCierreRegistroEfectivoRow): ?>
-                                        <tr>
-                                            <th><?php echo $CajaCierreRegistroEfectivoRow['id']; ?></th>
-                                            <td data-title="Price" class="numeric">$
-                                                <?php echo $CajaCierreRegistroEfectivoRow['total']; ?></td>
-                                            <td><?php echo $CajaCierreRegistroEfectivoRow['fecha']; ?></td>
-                                            <td><?php echo $CajaCierreRegistroEfectivoRow['hora']; ?></td>
-                                            <td>
-                                                <?php
-											if($CajaCierreRegistroEfectivoRow['habilitado'] == 1){
-												echo'<span class="label label-success">Activo</span>';
-											}else{
-												echo'<span class="label label-danger">Desactivado</span>';
-											}
-											?>
-                                            </td>
-                                            <td><button class="btn btn-primary btn-xs">Editar</button></td>
-                                        </tr>
-                                        <?php endforeach?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Resumen De Venta</h3>
+                            <strong>Caja General</strong>
                         </div>
                         <div class="panel-body">
-                            <?php
-							$ResumenVentaDiaTotalSql = $db->SQL("SELECT SUM(total) AS total FROM `factura` WHERE fecha='{$fechaActual}' AND habilitado='1'");
-							$ResumenVentaDiaTotal = $ResumenVentaDiaTotalSql->fetch_array();
-							
-							$ResumenVentaDiaEfectivoSql = $db->SQL("SELECT SUM(total) AS total FROM `factura` WHERE tipo='1' AND fecha='{$fechaActual}' AND habilitado='1'");
-							$ResumenVentaDiaEfectivo = $ResumenVentaDiaEfectivoSql->fetch_array();
-							
-							$ResumenVentaDiaTarjetaSql = $db->SQL("SELECT SUM(total) AS total FROM `factura` WHERE  tipo='0' AND fecha='{$fechaActual}' AND habilitado='1'");
-							$ResumenVentaDiaTarjeta = $ResumenVentaDiaTarjetaSql->fetch_array();
-							?>
-                            Venta Total: $ <?php echo @$Vendedor->FormatoSaldo($ResumenVentaDiaTotal['total']); ?> |
-                            &cent; <?php echo @$Vendedor->FormatoSaldo($ResumenVentaDiaTotal['total']*528); ?><br />
-                            Venta Efetivo: $ <?php echo @$Vendedor->FormatoSaldo($ResumenVentaDiaEfectivo['total']); ?>
-                            | &cent;
-                            <?php echo @$Vendedor->FormatoSaldo($ResumenVentaDiaEfectivo['total']*528); ?><br />
-                            Venta Tarjeta: $ <?php echo @$Vendedor->FormatoSaldo($ResumenVentaDiaTarjeta['total']); ?> |
-                            &cent; <?php echo @$Vendedor->FormatoSaldo($ResumenVentaDiaTarjeta['total']*528); ?><br />
+                            <p>
+                                Estado:
+                                <?php if ($cajaGeneral && $cajaGeneral['estado'] == 1): ?>
+                                <span class="label label-success">Abierta</span>
+                                <?php else: ?>
+                                <span class="label label-danger">Cerrada</span>
+                                <?php endif; ?>
+                            </p>
+
+                            <p><strong>Saldo actual:</strong> Bs <?php echo number_format($saldoGeneral, 2); ?></p>
+
+                            <?php if ($cajaGeneral): ?>
+                            <p><strong>Monto Apertura:</strong> Bs
+                                <?php echo number_format($cajaGeneral['monto'], 2); ?></p>
+                            <p><strong>Fecha/Hora Apertura:</strong>
+                                <?php echo $cajaGeneral['fecha'].' '.$cajaGeneral['hora']; ?></p>
+                            <p><strong>Responsable:</strong>
+                                <?php echo nombreResponsable($db, $cajaGeneral['responsable']); ?></p>
+                            <?php else: ?>
+                            <p>No hay registros de Caja General.</p>
+                            <?php endif; ?>
+
+                            <hr>
+
+                            <?php if (!$cajaGeneral || $cajaGeneral['estado'] == 0): ?>
+                            <!-- Formulario de Apertura Caja General -->
+                            <form method="post" class="form-inline">
+                                <input type="hidden" name="AccionCaja" value="AperturarGeneral">
+                                <div class="form-group">
+                                    <label for="monto_inicial">Monto inicial:&nbsp;</label>
+                                    <input type="number" step="0.01" min="0" name="monto_inicial" id="monto_inicial"
+                                        class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="glyphicon glyphicon-ok"></i> Aperturar Caja General
+                                </button>
+                            </form>
+                            <?php else: ?>
+                            <!-- Formulario de Cierre Caja General -->
+                            <form method="post" class="form-inline">
+                                <input type="hidden" name="AccionCaja" value="CerrarGeneral">
+                                <div class="form-group">
+                                    <label for="monto_cierre">Monto cierre (efectivo actual):&nbsp;</label>
+                                    <input type="number" step="0.01" min="0" name="monto_cierre" id="monto_cierre"
+                                        class="form-control" required
+                                        value="<?php echo number_format($saldoGeneral, 2, '.', ''); ?>">
+                                </div>
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-remove"></i> Cerrar Caja General
+                                </button>
+                            </form>
+                            <?php endif; ?>
+
+                            <hr>
+                            <a href="<?php echo URLBASE; ?>caja-general" class="btn btn-default">
+                                Ver detalle movimientos Caja General
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <hr />
-            <div class="row">
-                <legend>Caja Chica</legend>
-                <div class=" col-md-6">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#CajaChicaGeneral" data-toggle="tab">Caja</a></li>
-                        <li><a href="#CajaChicaRegistroEntradaDinero" data-toggle="tab">Entrada de Dinero a Caja
-                                Chica</a></li>
-                        <li><a href="#CajaChicaRegistroSalidaDinero" data-toggle="tab">Salida de Dinero de la Cierre de
-                                Caja</a></li>
-                    </ul>
-                    <div id="myTabContent" class="tab-content">
-                        <div class="tab-pane fade active in" id="CajaChicaGeneral">
-                            <table class="table table-bordered" id="CajaChicaGeneralTabla">
-                                <thead>
-                                    <tr>
-                                        <td><strong>#</strong></td>
-                                        <td><strong>Monto</strong></td>
-                                        <td><strong>
-                                                <center>FechaRegistro</center>
-                                            </strong></td>
-                                        <td><strong>
-                                                <center>Editar</center>
-                                            </strong></td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($CajaChicaArray as $CajaChicaRow): ?>
-                                    <tr>
-                                        <th><?php echo $CajaChicaRow['id']; ?></th>
-                                        <td>&cent; <?php echo $CajaChicaRow['monto']; ?></td>
-                                        <td>
-                                            <center><?php echo $CajaChicaRow['fecha'].' '.$CajaChicaRow['hora']; ?>
-                                            </center>
-                                        </td>
-                                        <td><button class="btn btn-primary btn-xs">Registro</button></td>
-                                    </tr>
-                                    <?php endforeach?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="tab-pane fade" id="CajaChicaRegistroEntradaDinero">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table table-hover"
-                                    id="CajaChicaRegistroEntradaDineroTabla">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Monto</th>
-                                            <th>FechaRegistro</th>
-                                            <th>HoraRegistro</th>
-                                            <th>Estado</th>
-                                            <th>Opci&oacute;n</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($CajaChicaRegistroEntradaDineroArray as $CajaChicaRegistroEntradaDineroRow): ?>
-                                        <tr>
-                                            <th><?php echo $CajaChicaRegistroEntradaDineroRow['id']; ?></th>
-                                            <td data-title="Price" class="numeric">$
-                                                <?php echo $CajaChicaRegistroEntradaDineroRow['monto']; ?></td>
-                                            <td><?php echo $CajaChicaRegistroEntradaDineroRow['fecha']; ?></td>
-                                            <td><?php echo $CajaChicaRegistroEntradaDineroRow['hora']; ?></td>
-                                            <td>
-                                                <?php
-											if($CajaChicaRegistroEntradaDineroRow['habilitado'] == 1){
-												echo'<span class="label label-success">Activo</span>';
-											}else{
-												echo'<span class="label label-danger">Desactivado</span>';
-											}
-											?>
-                                            </td>
-                                            <td><button class="btn btn-primary btn-xs">Editar</button></td>
-                                        </tr>
-                                        <?php endforeach?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="CajaChicaRegistroSalidaDinero">
-                            <div class="table-responsive">
-                                <table class="table table-bordered table table-hover"
-                                    id="CajaChicaRegistroSalidaDineroTabla">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Monto</th>
-                                            <th>FechaRegistro</th>
-                                            <th>HoraRegistro</th>
-                                            <th>Estado</th>
-                                            <th>Opci&oacute;n</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($CajaChicaRegistroSalidaDineroArray as $CajaChicaRegistroSalidaDineroRow): ?>
-                                        <tr>
-                                            <th><?php echo $CajaChicaRegistroSalidaDineroRow['id']; ?></th>
-                                            <td data-title="Price" class="numeric">$
-                                                <?php echo $CajaChicaRegistroSalidaDineroRow['monto']; ?></td>
-                                            <td><?php echo $CajaChicaRegistroSalidaDineroRow['fecha']; ?></td>
-                                            <td><?php echo $CajaChicaRegistroSalidaDineroRow['hora']; ?></td>
-                                            <td>
-                                                <?php
-											if($CajaChicaRegistroSalidaDineroRow['habilitado'] == 1){
-												echo'<span class="label label-success">Activo</span>';
-											}else{
-												echo'<span class="label label-danger">Desactivado</span>';
-											}
-											?>
-                                            </td>
-                                            <td><button class="btn btn-primary btn-xs">Editar</button></td>
-                                        </tr>
-                                        <?php endforeach?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                <!-- CAJA CHICA -->
                 <div class="col-md-6">
-                    <table class="table table-bordered">
-                        <tbody>
-                            <tr class="well">
-                                <td>
-                                    <center><strong>Caja Chica | <?php echo TITULO ?></strong></center>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <form method="post" action="" class="form-horizontal">
-                                        <label>Tipo de Operaci&oacute;n</label>
-                                        <div class="form-group">
-                                            <div class="col-md-4">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="tipo" value="0" required />
-                                                        Entrada de Dinero
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="tipo" value="1" required />
-                                                        Salida de Dinero
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="form-group">
-                                            <label class="control-label" for="fecha">Fecha:</label>
-                                            <div class="input-daterange input-group" id="fecha">
-                                                <input type="text" class="input-md form-control" name="fecha"
-                                                    value="<?php echo FechaActual(); ?>" disabled />
-                                                <div class="input-group-addon"><span class="glyphicon glyphicon-th"
-                                                        aria-hidden="true"></span></div>
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="form-group">
-                                            <label>Monto</label>
-                                            <div class="input-group">
-                                                <span class="input-group-addon">$</span>
-                                                <input type="text" class="form-control" name="monto" required=""
-                                                    onkeypress="return PermitirSoloNumeros(event);"
-                                                    placeholder="Monto de la operaci&oacute;n" autocomplete="off"
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <hr />
-                                        <div class="form-group">
-                                            <label>Comentario</label>
-                                            <textarea type="text" class="form-control" name="comentario"
-                                                placeholder="Escriba un comentario" autocomplete="off"
-                                                required></textarea>
-                                        </div>
-                                        <hr />
-                                        <div class="form-group">
-                                            <button type="submit" name="CajaChicaOperacion"
-                                                class="btn btn-primary">Realizar Operaci&oacute;n</button>
-                                            <button type="reset" class="btn btn-default">Cancelar</button>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <strong>Caja Chica</strong>
+                        </div>
+                        <div class="panel-body">
+                            <p>
+                                Estado:
+                                <?php if ($cajaChica && $cajaChica['habilitado'] == 1): ?>
+                                <span class="label label-success">Abierta</span>
+                                <?php else: ?>
+                                <span class="label label-danger">Cerrada</span>
+                                <?php endif; ?>
+                            </p>
+
+                            <p><strong>Saldo actual:</strong> Bs <?php echo number_format($saldoChica, 2); ?></p>
+
+                            <?php if ($cajaChica): ?>
+                            <p><strong>Monto Apertura:</strong> Bs <?php echo number_format($cajaChica['monto'], 2); ?>
+                            </p>
+                            <p><strong>Fecha/Hora Apertura:</strong>
+                                <?php echo $cajaChica['fecha'].' '.$cajaChica['hora']; ?></p>
+                            <p><strong>Responsable:</strong>
+                                <?php echo nombreResponsable($db, $cajaChica['responsable']); ?></p>
+                            <?php else: ?>
+                            <p>No hay registros de Caja Chica.</p>
+                            <?php endif; ?>
+
+                            <hr>
+
+                            <?php if (!$cajaChica || $cajaChica['habilitado'] == 0): ?>
+                            <!-- Apertura Caja Chica -->
+                            <form method="post" class="form-inline">
+                                <input type="hidden" name="AccionCaja" value="AperturarChica">
+                                <div class="form-group">
+                                    <label for="monto_inicial_chica">Monto inicial:&nbsp;</label>
+                                    <input type="number" step="0.01" min="0" name="monto_inicial_chica"
+                                        id="monto_inicial_chica" class="form-control" required>
+                                </div>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="glyphicon glyphicon-ok"></i> Aperturar Caja Chica
+                                </button>
+                            </form>
+                            <?php else: ?>
+                            <!-- Cierre Caja Chica -->
+                            <form method="post" class="form-inline">
+                                <input type="hidden" name="AccionCaja" value="CerrarChica">
+                                <div class="form-group">
+                                    <label for="monto_cierre_chica">Monto cierre:&nbsp;</label>
+                                    <input type="number" step="0.01" min="0" name="monto_cierre_chica"
+                                        id="monto_cierre_chica" class="form-control" required
+                                        value="<?php echo number_format($saldoChica, 2, '.', ''); ?>">
+                                </div>
+                                <button type="submit" class="btn btn-danger">
+                                    <i class="glyphicon glyphicon-remove"></i> Cerrar Caja Chica
+                                </button>
+                            </form>
+                            <?php endif; ?>
+
+                            <hr>
+                            <a href="<?php echo URLBASE; ?>caja-chica" class="btn btn-default">
+                                Ver detalle movimientos Caja Chica
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <?php include (MODULO.'footer.php'); ?>
-    <!-- Cargado archivos javascript al final para que la pagina cargue mas rapido -->
-    <?php include(MODULO.'Tema.JS.php');?>
-    <script type="text/javascript" language="javascript" src="<?php echo ESTATICO ?>js/jquery.dataTables.min.js">
-    </script>
-    <script type="text/javascript" language="javascript" src="<?php echo ESTATICO ?>js/dataTables.bootstrap.js">
-    </script>
-    <script type="text/javascript" language="javascript"
-        src="<?php echo ESTATICO ?>js/calendario/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" language="javascript"
-        src="<?php echo ESTATICO ?>js/calendario/bootstrap-datepicker.min.js"></script>
-    <script type="text/javascript" language="javascript"
-        src="<?php echo ESTATICO ?>js/calendario/locales/bootstrap-datepicker.es.min.js"></script>
-    <script type="text/javascript">
-    $('#fecha').datepicker({
-        format: "dd-mm-yyyy",
-        language: "es",
-        beforeShowDay: function(date) {
-            if (date.getMonth() == (new Date()).getMonth())
-                switch (date.getDate()) {
-                    case 12:
-                        return "green";
-                }
-        }
-    });
 
-    //Tablas Diseño
-    $(document).ready(function() {
-        $('#AperturaRegistroTabla').dataTable({
-            "scrollY": false,
-            "scrollX": true
-        });
-    });
+            </div><!-- /.row -->
 
-    $(document).ready(function() {
-        $('#CierreRegistroTabla').dataTable({
-            "scrollY": false,
-            "scrollX": true
-        });
-    });
+        </div><!-- /.container -->
+    </div><!-- /#wrap -->
 
-    $(document).ready(function() {
-        $('#CajaGeneral').dataTable({
-            "scrollY": false,
-            "scrollX": true
-        });
-    });
+    <?php include(MODULO.'footer.php'); ?>
+    <?php include(MODULO.'Tema.JS.php'); ?>
 
-    $(document).ready(function() {
-        $('#PagoTarjeta').dataTable({
-            "scrollY": false,
-            "scrollX": true
-        });
-    });
-
-    $(document).ready(function() {
-        $('#PagoEfectivo').dataTable({
-            "scrollY": false,
-            "scrollX": true
-        });
-    });
-
-    $(document).ready(function() {
-        $('#CajaChicaGeneralTabla').dataTable({
-            "scrollY": false,
-            "scrollX": true
-        });
-    });
-
-    $(document).ready(function() {
-        $('#CajaChicaRegistroEntradaDineroTabla').dataTable({
-            "scrollY": false,
-            "scrollX": true
-        });
-    });
-
-    $(document).ready(function() {
-        $('#CajaChicaRegistroSalidaDineroTabla').dataTable({
-            "scrollY": false,
-            "scrollX": true
-        });
-    });
-
-    // Permitir Solo numeros en los input
-    function PermitirSoloNumeros(e) {
-        var keynum = window.event ? window.event.keyCode : e.which;
-        if ((keynum == 8) || (keynum == 46))
-            return true;
-
-        return /\d/.test(String.fromCharCode(keynum));
-    }
-    </script>
-    <!-- Cargado archivos javascript al final para que la pagina cargue mas rapido Fin -->
 </body>
 
 </html>
