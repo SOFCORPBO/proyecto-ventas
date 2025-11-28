@@ -40,28 +40,26 @@ if (isset($_POST['RegistrarCompra'])) {
 
     $vendedor = $usuarioApp['id'];
 
-    // 1) LEER DATOS DEL FORMULARIO (tipo-compra.php)
-    $tipo_comprobante = isset($_POST['tipo_comprobante']) ? $_POST['tipo_comprobante'] : 'RECIBO'; // FACTURA | RECIBO
-    $con_factura      = isset($_POST['con_factura']) ? intval($_POST['con_factura']) : 0;         // 0 | 1
-    $nit_cliente      = !empty($_POST['nit_cliente'])    ? $_POST['nit_cliente']    : null;
-    $razon_social     = !empty($_POST['razon_social'])   ? $_POST['razon_social']   : null;
+    /* 1) DATOS DEL FORMULARIO */
+    $tipo_comprobante = $_POST['tipo_comprobante'] ?? 'RECIBO';
+    $con_factura      = intval($_POST['con_factura'] ?? 0);
+    $nit_cliente      = $_POST['nit_cliente'] ?: null;
+    $razon_social     = $_POST['razon_social'] ?: null;
 
-    $metodo_pago      = isset($_POST['metodo_pago']) ? $_POST['metodo_pago'] : 'EFECTIVO';
-    $id_banco         = !empty($_POST['id_banco'])   ? intval($_POST['id_banco'])  : null;
-    $referencia       = !empty($_POST['referencia']) ? $_POST['referencia']        : null;
+    $metodo_pago      = $_POST['metodo_pago'] ?? 'EFECTIVO';
+    $id_banco         = !empty($_POST['id_banco']) ? intval($_POST['id_banco']) : null;
+    $referencia       = $_POST['referencia'] ?: null;
 
-    // Si más adelante tienes un formulario de trámites, lo puedes enviar por POST
     $id_tramite       = !empty($_POST['id_tramite']) ? intval($_POST['id_tramite']) : null;
 
-    // 2) OBTENER DATOS DE LA CAJA TEMPORAL
+    /* 2) LECTURA DEL CARRITO */
     $CarritoSql = $db->SQL("
         SELECT *
         FROM cajatmp
-        WHERE vendedor = '{$vendedor}'
+        WHERE vendedor='{$vendedor}'
     ");
 
     if ($CarritoSql->num_rows <= 0) {
-        // No hay venta cargada
         ?>
             <div class="page-header" id="banner">
                 <h1>Error – No hay venta registrada</h1>
@@ -70,17 +68,16 @@ if (isset($_POST['RegistrarCompra'])) {
             <?php
     } else {
 
-        // Obtener cliente desde el primer registro del carrito
+        /* Obtener cliente */
         $DatosSql = $db->SQL("
             SELECT cliente
             FROM cajatmp
             WHERE vendedor='{$vendedor}'
             LIMIT 1
         ");
-        $Datos   = $DatosSql->fetch_assoc();
-        $cliente = intval($Datos['cliente']);
+        $cliente = intval($DatosSql->fetch_assoc()['cliente']);
 
-        // 3) CALCULAR TOTALES Y COMISIONES
+        /* 3) TOTALES */
         $TotalesSql = $db->SQL("
             SELECT 
                 SUM(totalprecio) AS total,
@@ -92,31 +89,18 @@ if (isset($_POST['RegistrarCompra'])) {
         $total_general  = floatval($Totales['total']);
         $total_comision = floatval($Totales['total_comision']);
 
-        $fecha = FechaActual();
-        $hora  = HoraActual();
+        $fecha = date('Y-m-d');
+        $hora  = date('H:i:s');
 
-        // Mapeo simple de "tipo" para seguir con la estructura base de factura
-        // Por ejemplo: 1 = Contado / 2 = Otro
-        $tipo = ($metodo_pago === 'EFECTIVO') ? 1 : 2;
+        $tipo = ($metodo_pago == 'EFECTIVO') ? 1 : 2;
 
-        // 4) INSERTAR CABECERA EN TABLA factura (ESTRUCTURA BASE)
+        /* 4) CREAR FACTURA */
         $FacturaSql = $db->SQL("
             INSERT INTO factura (
-                total,
-                fecha,
-                hora,
-                usuario,
-                cliente,
-                tipo,
-                habilitado
+                total, fecha, hora, usuario, cliente, tipo, habilitado
             ) VALUES (
-                '{$total_general}',
-                '{$fecha}',
-                '{$hora}',
-                '{$vendedor}',
-                '{$cliente}',
-                '{$tipo}',
-                1
+                '{$total_general}','{$fecha}','{$hora}','{$vendedor}',
+                '{$cliente}','{$tipo}',1
             )
         ");
 
@@ -124,97 +108,93 @@ if (isset($_POST['RegistrarCompra'])) {
             ?>
             <div class="page-header" id="banner">
                 <h1>Error al registrar factura</h1>
-                <p class="lead">Ocurrió un problema al crear la cabecera de la factura.</p>
+                <p class="lead">Ocurrió un problema al crear la cabecera.</p>
             </div>
             <?php
         } else {
 
-            // 5) OBTENER ID DE LA FACTURA Y GENERAR NRO_COMPROBANTE
+            /* 5) ID FACTURA */
             $IdFacturaSql = $db->SQL("
                 SELECT MAX(id) AS ultimaid
                 FROM factura
-                WHERE usuario = '{$vendedor}'
+                WHERE usuario='{$vendedor}'
             ");
-            $IdFactura   = $IdFacturaSql->fetch_assoc();
-            $idfactura   = intval($IdFactura['ultimaid']);
+            $idfactura = intval($IdFacturaSql->fetch_assoc()['ultimaid']);
 
-            // Nro comprobante autoincremental según lo que ya hay en ventas
+            /* Nro Comprobante */
             $NcSql   = $db->SQL("SELECT MAX(CAST(nro_comprobante AS UNSIGNED)) AS ultimo FROM ventas");
-            $NcRow   = $NcSql->fetch_assoc();
-            $ultimo  = !empty($NcRow['ultimo']) ? intval($NcRow['ultimo']) : 0;
-            $nro_comp = $ultimo + 1; // siguiente número
+            $ultimo  = intval($NcSql->fetch_assoc()['ultimo']);
+            $nro_comp = $ultimo + 1;
 
-            // 6) INSERTAR DETALLES EN TABLA ventas (UNO POR SERVICIO)
+            /* 6) INSERTAR DETALLES */
             while($c = $CarritoSql->fetch_assoc()){
 
                 $producto   = intval($c['producto']);
                 $cantidad   = intval($c['cantidad']);
                 $precio     = floatval($c['precio']);
                 $totalLinea = floatval($c['totalprecio']);
-                $comision   = isset($c['comision']) ? floatval($c['comision']) : 0;
+                $comision   = floatval($c['comision']);
 
-                $InsertVenta = $db->SQL("
+                $db->SQL("
                     INSERT INTO ventas (
-                        idfactura,
-                        producto,
-                        cantidad,
-                        precio,
-                        totalprecio,
-                        vendedor,
-                        cliente,
-                        fecha,
-                        hora,
-                        tipo,
-                        con_factura,
-                        metodo_pago,
-                        id_banco,
-                        id_tramite,
-                        comision,
-                        habilitada,
-                        nit,
-                        razon_social,
-                        referencia_pago,
-                        nro_comprobante,
-                        usuario_factura
+                        idfactura, producto, cantidad, precio, totalprecio,
+                        vendedor, cliente, fecha, hora, tipo,
+                        con_factura, metodo_pago, id_banco,
+                        id_tramite, comision, habilitada,
+                        nit, razon_social, referencia_pago,
+                        nro_comprobante, usuario_factura
                     ) VALUES (
-                        '{$idfactura}',
-                        '{$producto}',
-                        '{$cantidad}',
-                        '{$precio}',
-                        '{$totalLinea}',
-                        '{$vendedor}',
-                        '{$cliente}',
-                        '{$c['fecha']}',
-                        '{$c['hora']}',
-                        '{$tipo}',
-                        '{$con_factura}',
-                        '{$metodo_pago}',
+                        '{$idfactura}','{$producto}','{$cantidad}','{$precio}','{$totalLinea}',
+                        '{$vendedor}','{$cliente}','{$fecha}','{$hora}','{$tipo}',
+                        '{$con_factura}','{$metodo_pago}',
                         ".($id_banco ? $id_banco : "NULL").",
                         ".($id_tramite ? $id_tramite : "NULL").",
-                        '{$comision}',
-                        1,
+                        '{$comision}',1,
                         ".($nit_cliente   ? "'".$nit_cliente."'"   : "NULL").",
                         ".($razon_social ? "'".$razon_social."'" : "NULL").",
                         ".($referencia   ? "'".$referencia."'"   : "NULL").",
-                        '{$nro_comp}',
-                        '{$vendedor}'
+                        '{$nro_comp}','{$vendedor}'
                     )
                 ");
             }
 
-            // 7) ACTUALIZAR CAJA (SIGUIENDO LA LÓGICA BASE: TODA VENTA ENTRA A CAJA)
-            $MaxIdCajaSql = $db->SQL("SELECT MAX(id) AS IdCaja FROM caja");
-            $MaxIdCaja    = $MaxIdCajaSql->fetch_assoc();
+            /* ======================================================
+               NUEVO: MOVIMIENTO AUTOMÁTICO A CAJA GENERAL
+               ====================================================== */
+            $conceptoVenta = "Venta de servicios - Factura #{$idfactura}";
+
+            /* saldo anterior */
+            $SaldoSQL = $db->SQL("SELECT saldo_caja FROM caja_general_movimientos ORDER BY id DESC LIMIT 1");
+            $saldoAnterior = ($SaldoSQL->num_rows > 0)
+                ? floatval($SaldoSQL->fetch_assoc()['saldo_caja'])
+                : 0;
+
+            /* nuevo saldo */
+            $saldoNuevo = $saldoAnterior + $total_general;
+
+            $id_banco_insert      = ($metodo_pago != 'EFECTIVO' && $id_banco) ? $id_banco : "NULL";
+            $referencia_insert    = $referencia ? "'{$referencia}'" : "NULL";
+
             $db->SQL("
-                UPDATE caja
-                SET monto = monto + '{$total_general}'
-                WHERE id = '{$MaxIdCaja['IdCaja']}'
+                INSERT INTO caja_general_movimientos
+                (fecha, hora, tipo, monto, concepto, metodo_pago, id_banco, referencia,
+                 responsable, saldo_caja)
+                VALUES
+                (
+                    '{$fecha}','{$hora}','INGRESO','{$total_general}',
+                    '{$conceptoVenta}','{$metodo_pago}',{$id_banco_insert},
+                    {$referencia_insert},'{$vendedor}','{$saldoNuevo}'
+                )
             ");
 
-            // 8) LIMPIAR CAJA TEMPORAL
+            /* ======================================================
+               FIN DE REGISTRO EN CAJA GENERAL
+               ====================================================== */
+
+            /* 8) LIMPIAR CARRITO */
             $db->SQL("DELETE FROM cajatmp WHERE vendedor='{$vendedor}'");
 
-            // 9) OBTENER DATOS PARA MOSTRAR EL COMPROBANTE
+            /* 9) OBTENER INFO PARA IMPRESIÓN */
             $localSql = $db->SQL("
                 SELECT establecimiento
                 FROM vendedores
@@ -222,36 +202,26 @@ if (isset($_POST['RegistrarCompra'])) {
             ");
             $local = $localSql->fetch_assoc();
 
-            // Cabecera para mostrar
             $ventaCabSql = $db->SQL("
-                SELECT 
-                    v.idfactura,
-                    v.fecha,
-                    v.hora,
-                    v.cliente,
-                    v.nit,
-                    v.razon_social,
-                    v.metodo_pago,
-                    v.nro_comprobante
-                FROM ventas v
-                WHERE v.idfactura = '{$idfactura}'
+                SELECT idfactura, fecha, hora, cliente, nit, razon_social, metodo_pago, nro_comprobante
+                FROM ventas
+                WHERE idfactura='{$idfactura}'
                 LIMIT 1
             ");
             $ventaCab = $ventaCabSql->fetch_assoc();
 
-            // Total general desde ventas (por seguridad)
             $TotalVentaSql = $db->SQL("
                 SELECT SUM(totalprecio) AS total
                 FROM ventas
-                WHERE idfactura = '{$idfactura}'
+                WHERE idfactura='{$idfactura}'
             ");
-            $TotalVenta = $TotalVentaSql->fetch_assoc();
-            $totalFinal = floatval($TotalVenta['total']);
+            $totalFinal = floatval($TotalVentaSql->fetch_assoc()['total']);
+
             ?>
 
             <div class="page-header" id="banner">
                 <h1>Comprobante de Venta</h1>
-                <p class="lead">Impresi&oacute;n de comprobante</p>
+                <p class="lead">Impresión de comprobante</p>
             </div>
 
             <div class="row">
@@ -310,8 +280,8 @@ if (isset($_POST['RegistrarCompra'])) {
                                             $LineasSql = $db->SQL("
                                                 SELECT v.*, p.nombre
                                                 FROM ventas v
-                                                INNER JOIN producto p ON p.id = v.producto
-                                                WHERE v.idfactura = '{$idfactura}'
+                                                INNER JOIN producto p ON p.id=v.producto
+                                                WHERE v.idfactura='{$idfactura}'
                                             ");
                                             while($l = $LineasSql->fetch_assoc()){
                                             ?>
@@ -346,15 +316,14 @@ if (isset($_POST['RegistrarCompra'])) {
             </div>
 
             <?php
-        } // fin else factura ok
-    } // fin else carrito > 0
+        }
+    }
 
 } else {
-    // No vino desde el formulario
     ?>
             <div class="page-header" id="banner">
                 <h1>Error – No hay venta registrada</h1>
-                <p class="lead">Debe registrar una venta desde el POS antes de acceder a esta página.</p>
+                <p class="lead">Debe registrar una venta desde el POS antes de acceder.</p>
             </div>
             <?php
 }
