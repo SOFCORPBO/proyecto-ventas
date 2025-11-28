@@ -4603,3 +4603,18 @@ Stack trace:
 [28-Nov-2025 08:57:29 Europe/Berlin] PHP Notice:  Undefined index: razon_social in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 47
 [28-Nov-2025 08:57:29 Europe/Berlin] PHP Notice:  Undefined index: referencia in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 51
 [28-Nov-2025 08:57:41 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 13
+[28-Nov-2025 09:02:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 09:02:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 09:02:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 09:05:29 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 13
+[28-Nov-2025 09:06:04 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 13
+[28-Nov-2025 09:09:02 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 13
+[28-Nov-2025 09:17:56 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 13
+[28-Nov-2025 09:18:03 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 13
+[28-Nov-2025 09:20:16 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 13
+[28-Nov-2025 09:20:29 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 13
+[28-Nov-2025 09:20:30 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 13
+[28-Nov-2025 09:20:34 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 13
+[28-Nov-2025 09:59:42 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 13
+[28-Nov-2025 09:59:56 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 10:03:05 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 13

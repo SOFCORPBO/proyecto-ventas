@@ -84,6 +84,12 @@
                         <!-- NUEVA: Caja General -->
                         <li><a href="<?php echo URLBASE ?>caja-general.php">Caja General</a></li>
 
+                        <li>
+                            <a href="<?php echo URLBASE; ?>panel-cajas.php">
+                                <i class="fa fa-area-chart"></i> Panel de Cajas
+                            </a>
+                        </li>
+
                         <!-- Ajustes -->
                         <li><a href="<?php echo URLBASE ?>ajuste-sistema.php">Ajustes de la Aplicación</a></li>
                     </ul>
