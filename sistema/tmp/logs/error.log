@@ -4618,3 +4618,1066 @@ Stack trace:
 [28-Nov-2025 09:59:42 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-chica.php on line 13
 [28-Nov-2025 09:59:56 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
 [28-Nov-2025 10:03:05 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 13
+[28-Nov-2025 10:29:29 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 9
+[28-Nov-2025 10:29:29 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 71
+[28-Nov-2025 10:29:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 84
+[28-Nov-2025 10:30:05 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 9
+[28-Nov-2025 10:30:05 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 71
+[28-Nov-2025 10:30:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 84
+[28-Nov-2025 10:31:24 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 9
+[28-Nov-2025 10:31:24 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 71
+[28-Nov-2025 10:31:24 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 84
+[28-Nov-2025 11:00:21 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 9
+[28-Nov-2025 11:00:21 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 71
+[28-Nov-2025 11:00:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-administrativo.php on line 84
+[28-Nov-2025 11:03:00 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 9
+[28-Nov-2025 11:03:00 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 71
+[28-Nov-2025 11:03:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 84
+[28-Nov-2025 11:03:00 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 9
+[28-Nov-2025 11:03:01 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 71
+[28-Nov-2025 11:03:01 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 84
+[28-Nov-2025 11:10:00 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 9
+[28-Nov-2025 11:10:00 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 71
+[28-Nov-2025 11:10:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 84
+[28-Nov-2025 11:10:04 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 9
+[28-Nov-2025 11:10:04 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 71
+[28-Nov-2025 11:10:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 84
+[28-Nov-2025 11:10:28 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 9
+[28-Nov-2025 11:10:28 Europe/Berlin] PHP Notice:  Undefined index: saldo in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 71
+[28-Nov-2025 11:10:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type bool in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 84
+[28-Nov-2025 11:14:24 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 11:14:25 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 11:18:51 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 11:34:11 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 11:34:13 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 11:34:13 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 11:44:36 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 11:44:42 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 11:57:55 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 11:57:56 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 11:58:03 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 11:58:03 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 11:59:14 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 11:59:14 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:00:05 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:00:05 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:02:28 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:02:28 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:02:34 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:02:34 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:02:43 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:02:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:02:44 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:02:44 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:07:10 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 12:07:11 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 12:07:15 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:07:15 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:09:15 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:09:15 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:09:53 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:09:53 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:10:50 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:10:50 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:11:02 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:11:02 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:11:03 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 12:11:04 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 12:11:10 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:11:10 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:13:02 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:13:02 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:13:07 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:13:07 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:13:08 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:13:08 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:13:09 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:13:09 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:14:53 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:14:53 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:19:15 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:19:15 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:19:15 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:19:15 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:42:25 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:42:25 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:50:02 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:50:02 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 12:50:05 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 12:50:05 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 12:53:37 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 12:53:38 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 12:53:57 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 12:53:57 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 12:54:39 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:39 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:39 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 12:54:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 12:54:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 12:59:21 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 12:59:22 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 12:59:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 12:59:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 12:59:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 12:59:37 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 12:59:37 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 12:59:43 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:59:43 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:59:43 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 12:59:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 12:59:46 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 12:59:46 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 12:59:59 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:59:59 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 12:59:59 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 12:59:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 13:05:52 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:05:52 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:05:52 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:05:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 13:05:54 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:05:54 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:05:54 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:05:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 13:05:54 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:05:54 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:05:54 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:05:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[28-Nov-2025 13:05:57 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 13:05:59 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 13:06:37 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:06:37 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:06:37 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:09:17 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 13:09:17 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 13:10:24 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:10:24 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:10:24 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:10:43 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:10:43 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:10:43 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:15:39 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:15:39 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:15:39 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:15:52 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:15:52 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:15:52 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:18:28 Europe/Berlin] PHP Warning:  include_once(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:18:28 Europe/Berlin] PHP Warning:  include_once(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[28-Nov-2025 13:18:28 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 14
+[28-Nov-2025 13:24:34 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 13:25:11 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 13:25:12 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 13:25:36 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 13:25:36 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 13:25:46 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 13:28:06 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 13:28:06 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 13:28:06 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 13:28:13 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:12:41 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:13:10 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:13:30 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 16:13:31 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 16:13:40 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:16:05 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:16:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:19 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:16:44 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:16:59 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:17:04 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:17:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:24 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:24 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:24 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:27 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:17:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:17:59 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:23:12 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:23:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:23:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:23:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:36:58 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:38:25 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 13
+[28-Nov-2025 16:38:34 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:38:34 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:38:34 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:38:41 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:38:41 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:38:41 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:39:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:44:46 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:44:46 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:44:46 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:44:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:44:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:44:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:45:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:45:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:45:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:45:05 Europe/Berlin] PHP Warning:  include(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 16:45:05 Europe/Berlin] PHP Warning:  include(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 16:45:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 16:46:28 Europe/Berlin] PHP Warning:  include(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 16:46:28 Europe/Berlin] PHP Warning:  include(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 16:46:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 16:46:29 Europe/Berlin] PHP Warning:  include(servicios.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 16:46:29 Europe/Berlin] PHP Warning:  include(): Failed opening 'servicios.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 16:46:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Servicios' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:10
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 16:46:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:46:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:46:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:49:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:49:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:49:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:51:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:51:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:51:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:52:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:52:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:52:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:52:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:52:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 16:52:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:40:09 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:40:09 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:40:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:40:15 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:40:15 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:40:25 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:40:25 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:40:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:40:42 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:40:43 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:40:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:40:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:40:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:40:54 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:40:54 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:40:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:41:02 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:41:03 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:41:39 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:41:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:41:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:41:41 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:41:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:42:16 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:42:16 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:42:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:42:23 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:42:24 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:42:27 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:42:39 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[28-Nov-2025 17:42:43 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[28-Nov-2025 17:43:23 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[28-Nov-2025 17:43:32 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[28-Nov-2025 17:43:33 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[28-Nov-2025 17:43:37 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[28-Nov-2025 17:43:38 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\Punto-de-venta-php-master\ajuste-sistema.php on line 365
+[28-Nov-2025 17:43:43 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:43:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:43:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:43:45 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:43:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:44:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:44:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:44:04 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:44:09 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:44:09 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:44:09 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:46:22 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 17:46:22 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 17:48:01 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 17:48:01 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 17:48:06 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:48:06 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:48:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:48:09 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:48:09 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:48:12 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:48:12 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:48:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:48:23 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:48:23 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:48:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:48:26 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:48:26 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:48:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:48:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:48:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:48:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:48:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:48:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:49:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:49:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:49:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:50:17 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:50:17 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:50:17 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:50:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:50:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:50:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:51:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:51:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:51:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[28-Nov-2025 17:51:05 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:51:06 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:51:10 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:10 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:51:16 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:51:16 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:51:20 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:20 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:51:26 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:51:26 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:51:30 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:30 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:51:34 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:51:34 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:51:37 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:37 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:51:41 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:51:41 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:51:43 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:51:49 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:51:49 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:51:54 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:54 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:51:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:52:30 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:52:30 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:52:34 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:52:34 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:52:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:52:38 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:52:39 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:52:54 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:52:54 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:52:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:52:55 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:52:55 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:53:04 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:04 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:53:07 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:53:07 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:53:10 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:10 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:53:18 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:53:18 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:53:27 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:27 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:53:28 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:53:29 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:53:33 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:33 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:53:36 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:53:36 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-nuevo.php on line 8
+[28-Nov-2025 17:53:37 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:37 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:53:42 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:53:43 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:53:45 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:53:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:54:40 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:54:41 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:54:43 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:54:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:54:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:54:46 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:54:46 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:54:48 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:54:48 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[28-Nov-2025 17:54:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:152
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 152
+[28-Nov-2025 17:54:51 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[28-Nov-2025 17:54:52 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:24 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:33 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 8
+[28-Nov-2025 17:58:33 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 8
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:38 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:38 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:39 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:39 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:39 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:39 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:39 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:39 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:39 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:47 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:47 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:49 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:49 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 17:58:49 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:49 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:50 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:50 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:50 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 17:58:50 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:31 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:09:31 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:09:31 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:31 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:31 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:31 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:31 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:31 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:38 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:09:38 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:09:38 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:38 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:38 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:38 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:38 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:09:38 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[28-Nov-2025 18:23:18 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:23:19 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:24:00 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:24:00 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:24:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:24:11 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:24:11 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:29:12 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:29:12 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:29:13 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:29:13 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:29:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:29:23 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:29:23 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:29:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:29:44 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:29:44 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:29:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:29:45 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:29:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:29:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:29:45 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:29:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:29:55 Europe/Berlin] PHP Warning:  include(clases/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:29:55 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:29:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:35:09 Europe/Berlin] PHP Warning:  include(clase/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:09 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:35:10 Europe/Berlin] PHP Warning:  include(clase/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:10 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:35:11 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:35:11 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:35:15 Europe/Berlin] PHP Warning:  include(clase/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:15 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:35:30 Europe/Berlin] PHP Warning:  include(clase/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:30 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:35:31 Europe/Berlin] PHP Warning:  include(clase/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:31 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:35:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:36:19 Europe/Berlin] PHP Warning:  include(clase/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:36:19 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:36:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:37:20 Europe/Berlin] PHP Warning:  include(clase/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:37:20 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:37:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:37:44 Europe/Berlin] PHP Warning:  include(clase/servicios.config.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:37:44 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicios.config.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 7
+[28-Nov-2025 18:37:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php:8
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios-config.php on line 8
+[28-Nov-2025 18:37:47 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:37:47 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:39:38 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:38 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:39:41 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:39:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:39:43 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:39:46 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:39:46 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:39:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:40:41 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:40:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:40:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:40:42 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:40:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:40:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:40:42 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:40:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:40:46 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:40:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:40:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:41:54 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:41:54 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:41:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:41:55 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:41:55 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:41:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:41:56 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:41:56 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:41:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:41:56 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:41:56 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:41:59 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:41:59 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:41:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:42:46 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:42:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:42:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:42:47 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:42:47 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:42:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 18:42:48 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:42:48 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[28-Nov-2025 18:42:51 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:42:51 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 18:42:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 19:18:14 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 19:18:14 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 19:18:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 19:20:02 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 19:20:02 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 19:20:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 19:23:38 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 19:23:38 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 19:23:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 19:23:39 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 19:23:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 19:23:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 21:09:08 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:09:08 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:09:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 21:13:54 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:13:54 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:13:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 21:14:04 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:14:04 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:14:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:12
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 12
+[28-Nov-2025 21:23:57 Europe/Berlin] PHP Warning:  include(clase/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:23:58 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:23:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:26:07 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:26:07 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:26:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:26:12 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:26:12 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:26:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:38:18 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:38:18 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:38:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:38:18 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:38:18 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:38:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:43:37 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:43:37 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:43:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:43:40 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:43:40 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:43:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:43:40 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:43:40 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:43:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:02 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:02 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:05 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:05 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[28-Nov-2025 21:49:05 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:05 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[28-Nov-2025 21:49:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'ServicioConfig' not found in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php:11
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php(10): Servicio->__construct()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php on line 11
+[29-Nov-2025 00:02:19 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:02:19 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:02:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[29-Nov-2025 00:02:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[29-Nov-2025 00:02:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[29-Nov-2025 00:02:46 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:02:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:02:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[29-Nov-2025 00:02:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[29-Nov-2025 00:02:56 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[29-Nov-2025 00:03:00 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:03:00 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:03:10 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[29-Nov-2025 00:03:10 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[29-Nov-2025 00:04:32 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 00:04:32 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 00:06:03 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:06:03 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:06:13 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[29-Nov-2025 00:07:40 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[29-Nov-2025 00:07:45 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:07:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:07:45 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 190
+[29-Nov-2025 00:07:45 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 190
+[29-Nov-2025 00:07:45 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 190
+[29-Nov-2025 00:07:45 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 190
+[29-Nov-2025 00:07:45 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 190
+[29-Nov-2025 00:07:45 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 190
+[29-Nov-2025 00:10:06 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 00:10:06 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 00:14:00 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 00:14:00 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 00:14:03 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:14:03 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:14:03 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:14:03 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:14:03 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:14:03 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:14:03 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:14:03 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:15:35 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:15:35 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:15:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:15:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:15:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:15:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:15:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:15:35 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:16:01 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 00:16:01 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 00:34:19 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:34:19 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198

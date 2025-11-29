@@ -17,26 +17,45 @@
         <div class="navbar-collapse collapse" id="navbar-main">
             <ul class="nav navbar-nav">
 
+                <li><a href="<?php echo URLBASE; ?>panel-admin.php">
+                        <i class="fa fa-area-chart"></i> Panel Administrativo
+                    </a></li>
+
+
                 <!-- POS -->
                 <li class="menu"><a href="<?php echo URLBASE ?>index.php">POS VENTA</a></li>
 
                 <!-- KARDEX -->
                 <li class="dropdown menu">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Kardex <span class="caret"></span></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown"> CLIENTES Y EXPEDIENTES <span
+                            class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo URLBASE ?>kardex.php">Kardex General</a></li>
+                        <li><a href="<?php echo URLBASE ?>tramites.php">TRAMITES</a></li>
                         <li><a href="<?php echo URLBASE ?>kardex-por-producto.php">Kardex Por Servicios</a></li>
                     </ul>
                 </li>
 
                 <!-- SERVICIOS -->
-                <li class="dropdown menu">
-                    <a class="dropdown-toggle" data-toggle="dropdown">Servicios <span class="caret"></span></a>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="glyphicon glyphicon-list-alt"></i> Servicios <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo URLBASE ?>productos.php">Catálogo de Servicios</a></li>
-                        <li><a href="<?php echo URLBASE ?>nuevo-producto.php">Nuevo Servicio</a></li>
-                        <li><a href="<?php echo URLBASE ?>proveedores.php">Proveedores</a></li>
-                        <li><a href="<?php echo URLBASE ?>impuestos.php">Impuestos</a></li>
+
+                        <li>
+                            <a href="<?php echo URLBASE; ?>servicios.php">
+                                <i class="glyphicon glyphicon-tags"></i> Catálogo de Servicios
+                            </a>
+                        </li>
+
+                        <li role="separator" class="divider"></li>
+
+                        <li>
+                            <a href="<?php echo URLBASE; ?>productos.php">
+                                <i class="glyphicon glyphicon-cog"></i> Configuración adicional (Opcional)
+                            </a>
+                        </li>
+
                     </ul>
                 </li>
 

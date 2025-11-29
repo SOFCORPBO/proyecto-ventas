@@ -1,0 +1,196 @@
+/* =========================================================
+   RESPONSIVE CSS – SISTEMA AGENCIA DE VIAJES
+   Optimización total para móviles y tablets
+========================================================= */
+
+/* ----------------------------------------
+   NAVBAR Y MENÚ SUPERIOR
+---------------------------------------- */
+@media (max-width: 992px) {
+  body {
+    padding-top: 110px !important;
+  }
+
+  .navbar-brand img {
+    height: 30px;
+  }
+
+  .navbar-nav > li > a {
+    padding: 10px 14px !important;
+    font-size: 14px;
+  }
+
+  .navbar .dropdown-menu {
+    position: static;
+    float: none;
+    background: #fff;
+    box-shadow: none;
+  }
+}
+
+/* ----------------------------------------
+   TARJETAS KPI (2 columnas en tablet)
+---------------------------------------- */
+@media (max-width: 992px) {
+  .kpi-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .kpi-col {
+    width: 50%;
+    margin-bottom: 15px;
+  }
+}
+
+/* ----------------------------------------
+   KPI (1 columna en móvil)
+---------------------------------------- */
+@media (max-width: 600px) {
+  .kpi-col {
+    width: 100%;
+  }
+
+  .kpi-box {
+    padding: 15px;
+  }
+
+  .kpi-value {
+    font-size: 24px;
+  }
+}
+
+/* ----------------------------------------
+   TABLAS
+---------------------------------------- */
+@media (max-width: 992px) {
+  table.table {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ----------------------------------------
+   PANEL / CARDS
+---------------------------------------- */
+@media (max-width: 768px) {
+  .panel {
+    margin-bottom: 20px;
+  }
+
+  .panel-heading {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+/* ----------------------------------------
+   FORMULARIOS
+---------------------------------------- */
+@media (max-width: 768px) {
+  .form-inline .form-control {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+
+  .form-inline .btn {
+    width: 100% !important;
+  }
+
+  textarea.form-control {
+    height: 80px;
+  }
+}
+
+/* ----------------------------------------
+   GRAFICAS
+---------------------------------------- */
+@media (max-width: 992px) {
+  .chart-container {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    min-height: 260px;
+  }
+}
+
+/* ----------------------------------------
+   CUADROS DE FILTRO
+---------------------------------------- */
+@media (max-width: 768px) {
+  .filter-box {
+    padding: 15px;
+  }
+
+  .filter-box .form-group {
+    margin-bottom: 10px;
+  }
+
+  .filter-box label {
+    font-size: 13px;
+    margin-bottom: 3px;
+  }
+}
+
+/* ----------------------------------------
+   DASHBOARD SECCIONES
+---------------------------------------- */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 18px;
+    margin-top: 20px;
+  }
+
+  .section-top {
+    margin-top: 15px;
+  }
+}
+
+/* ----------------------------------------
+   BOTONES
+---------------------------------------- */
+@media (max-width: 600px) {
+  .btn {
+    padding: 8px 10px !important;
+    font-size: 14px !important;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+/* ----------------------------------------
+   TABLAS DE DATATABLES
+---------------------------------------- */
+@media (max-width: 768px) {
+  .dataTables_wrapper .dataTables_filter {
+    text-align: left !important;
+    margin-bottom: 10px;
+  }
+
+  .dataTables_wrapper .dataTables_filter input {
+    width: 100%;
+  }
+
+  .dataTables_wrapper .dataTables_info {
+    font-size: 12px;
+  }
+}
+
+/* ----------------------------------------
+   FOOTER
+---------------------------------------- */
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+    padding: 15px;
+  }
+}
