@@ -5681,3 +5681,386 @@ Stack trace:
 [29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
 [29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
 [29-Nov-2025 00:34:19 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:23:21 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 01:23:21 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[29-Nov-2025 01:23:23 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 01:23:23 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 01:23:23 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:23:23 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:23:23 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:23:23 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:23:23 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:23:23 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:23:39 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[29-Nov-2025 01:23:40 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[29-Nov-2025 01:24:10 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 01:24:10 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 01:24:10 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:24:10 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:24:10 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:24:10 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:24:10 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:24:10 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 198
+[29-Nov-2025 01:27:09 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:09 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:27:12 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:12 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:27:13 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:13 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:27:14 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:14 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:14 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:27:44 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:44 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:27:48 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:48 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:27:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:28:12 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:28:12 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:28:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:28:19 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:28:19 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:28:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:28:20 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:28:20 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:28:20 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:28:23 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:28:23 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 4
+[29-Nov-2025 01:28:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:16
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 16
+[29-Nov-2025 01:28:47 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 01:28:47 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[29-Nov-2025 01:28:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[29-Nov-2025 01:28:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[29-Nov-2025 01:28:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[29-Nov-2025 01:28:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[29-Nov-2025 01:28:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[29-Nov-2025 01:28:47 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[29-Nov-2025 01:34:07 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[29-Nov-2025 01:34:07 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[29-Nov-2025 01:34:35 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[29-Nov-2025 01:34:35 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[29-Nov-2025 01:34:35 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 00:56:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:57:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:58:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:58:07 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 00:58:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 01:15:03 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_array() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php:144
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\Qualtiva.php(41): require_once()
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\sistema\configuracion.php(23): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\index.php(3): include('C:\\xampp\\htdocs...')
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\POO.php on line 144
+[01-Dec-2025 01:16:09 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:16:09 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:16:09 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:16:09 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:16:09 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:16:09 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:16:09 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:16:09 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:16:25 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:16:25 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:16:25 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:17:43 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:17:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:17:43 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:17:43 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:17:43 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:17:43 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:17:43 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:17:43 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:17:55 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 8
+[01-Dec-2025 01:17:55 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 8
+[01-Dec-2025 01:17:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Servicio::Obtener() in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 17
+[01-Dec-2025 01:19:53 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 8
+[01-Dec-2025 01:19:53 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 8
+[01-Dec-2025 01:19:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Servicio::Obtener() in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 17
+[01-Dec-2025 01:19:53 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 8
+[01-Dec-2025 01:19:53 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 8
+[01-Dec-2025 01:19:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Servicio::Obtener() in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php:17
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicio-editar.php on line 17
+[01-Dec-2025 01:19:54 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[01-Dec-2025 01:19:54 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[01-Dec-2025 01:19:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Servicio::obtenerTotalServicios() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:24
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 24
+[01-Dec-2025 01:19:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:19:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:19:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:19:57 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[01-Dec-2025 01:19:57 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[01-Dec-2025 01:19:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Servicio::obtenerTotalServicios() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:24
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 24
+[01-Dec-2025 01:22:46 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[01-Dec-2025 01:22:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 10
+[01-Dec-2025 01:22:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Servicio::obtenerTotalServicios() in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php:24
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 24
+[01-Dec-2025 01:22:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:47 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:22:57 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:01 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:01 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:01 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:23:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:24:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:24:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:24:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:24:34 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:24:34 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:24:34 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:24:34 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:24:34 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:24:34 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:24:34 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:24:34 Europe/Berlin] PHP Notice:  Undefined index: imagen in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 206
+[01-Dec-2025 01:30:54 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:30:54 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:32:07 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:32:07 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:32:09 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:09 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:09 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:32:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 87
+[01-Dec-2025 01:42:46 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:42:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:45:41 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 8
+[01-Dec-2025 01:45:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 8
+[01-Dec-2025 01:51:16 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:51:16 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:54:53 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:54:53 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 01:54:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:54:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:54:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:54:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:54:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:54:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:54:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:54:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:54:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:54:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:54:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:55:07 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99

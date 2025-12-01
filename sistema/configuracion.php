@@ -9,7 +9,7 @@ define('HOST',      '127.0.0.1');
 define('USER',      'root');
 define('PASSWORD',  '');
 define('PORT',      '3306');
-define('DB',        'stockdev');
+define('DB',        'servicios_rahina');
 
 define('LANGUAGE',  'es');
 define('TITULO',    'PUNTO DE VENTA RIHANA');
