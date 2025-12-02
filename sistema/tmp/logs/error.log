@@ -6064,3 +6064,1098 @@ Stack trace:
 [01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
 [01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
 [01-Dec-2025 01:56:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 06:03:34 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[01-Dec-2025 06:03:35 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[01-Dec-2025 06:03:44 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 06:03:44 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 12:51:43 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[01-Dec-2025 12:51:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[01-Dec-2025 12:57:18 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 12:57:18 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 12:57:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 13:03:08 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 13:03:08 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 13:17:10 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[01-Dec-2025 13:17:11 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[01-Dec-2025 13:17:11 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\tramites.clase.php
+[01-Dec-2025 21:19:21 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 21:19:21 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 21:19:21 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:19:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:19:53 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[01-Dec-2025 21:19:53 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[01-Dec-2025 21:20:26 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[01-Dec-2025 21:22:43 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 21:22:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 21:22:43 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:22:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:23:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:30:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:30:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:36:16 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:40:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:41:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:43:41 Europe/Berlin] PHP Warning:  include(clases/servicio.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 21:43:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'clases/servicio.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 21:43:41 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:43:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:44:31 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:48:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:50:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:54:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:55:58 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:05 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:27 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 21:56:32 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:07:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:08:02 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:08:02 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:08:02 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:08:13 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:20 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:21 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:24 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:10:24 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:10:24 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 22:10:28 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:10:28 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:10:28 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:33 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:38 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:45 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:10:45 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:10:45 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:48 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:10:54 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:10:55 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:10:55 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:10:55 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:00 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:11:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:28:28 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:28:28 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:28:28 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:28:29 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:28:42 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:28:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:28:42 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 22:36:29 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:36:29 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[01-Dec-2025 22:36:29 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[01-Dec-2025 22:36:55 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[01-Dec-2025 22:39:13 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[01-Dec-2025 22:39:13 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[01-Dec-2025 22:39:13 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\tramites.clase.php
+[01-Dec-2025 22:53:47 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:53:47 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 22:53:47 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 22:53:47 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 22:53:47 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 22:53:47 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 22:54:18 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:54:18 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 22:54:18 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 22:54:18 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 22:54:18 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 22:54:18 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 22:59:48 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:59:48 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 22:59:48 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 22:59:48 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 22:59:48 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 22:59:48 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 22:59:49 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:59:49 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 22:59:49 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 22:59:49 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 22:59:49 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 22:59:49 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 22:59:53 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:59:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Cotizacion::CambiarEstado() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php:12
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php on line 12
+[01-Dec-2025 22:59:55 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:59:55 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Cotizacion::CambiarEstado() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php:12
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php on line 12
+[01-Dec-2025 22:59:56 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:59:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Cotizacion::CambiarEstado() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php:12
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php on line 12
+[01-Dec-2025 22:59:56 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:59:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Cotizacion::CambiarEstado() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php:12
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php on line 12
+[01-Dec-2025 22:59:57 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 22:59:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Cotizacion::CambiarEstado() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php:12
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php on line 12
+[01-Dec-2025 23:09:49 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:09:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php:102
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php on line 102
+[01-Dec-2025 23:09:51 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:09:51 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 23:09:51 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 23:09:51 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 23:09:51 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 23:09:51 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 23:15:25 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:15:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php:102
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion.php on line 102
+[01-Dec-2025 23:15:26 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:15:26 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 23:15:26 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 23:15:26 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 23:15:26 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 23:15:26 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 23:15:39 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:15:39 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 23:15:39 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 23:15:39 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 23:15:39 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 23:15:39 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 23:15:49 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:15:49 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 23:15:49 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 23:15:49 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 23:15:49 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 23:15:49 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 23:16:04 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:16:04 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 23:16:04 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 23:16:04 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 23:16:04 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 23:16:04 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 23:16:43 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:16:43 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 23:16:43 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 23:16:43 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 23:16:43 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 23:16:43 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 23:56:05 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php
+[01-Dec-2025 23:56:05 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 141
+[01-Dec-2025 23:56:05 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 206
+[01-Dec-2025 23:56:05 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 207
+[01-Dec-2025 23:56:05 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 208
+[01-Dec-2025 23:56:05 Europe/Berlin] PHP Notice:  Undefined variable: subtotal in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-nueva.php on line 217
+[01-Dec-2025 23:58:42 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[01-Dec-2025 23:58:42 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[01-Dec-2025 23:58:42 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\tramites.clase.php
+[02-Dec-2025 00:09:31 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:09:32 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:09:32 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 00:27:46 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:27:46 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:27:46 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 00:27:51 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:56 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:57 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:58 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:58 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:27:59 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:27:59 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:27:59 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 00:28:24 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:28:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:28:26 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:28:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:28:27 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:28:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:28:28 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:28:28 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:31:32 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:31:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:34:47 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:34:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:34:48 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:34:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:34:49 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:34:49 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:34:49 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 00:34:54 Europe/Berlin] PHP Notice:  Undefined variable: CotizacionClase in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:34:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function CambiarEtapaRapida() on null in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:9
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 9
+[02-Dec-2025 00:43:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php:1163
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(16): Cotizacion->ResumenEtapas()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php on line 1163
+[02-Dec-2025 00:43:40 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:43:40 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:43:40 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 00:43:43 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:43:43 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 00:43:43 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 00:43:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php:1163
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(16): Cotizacion->ResumenEtapas()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php on line 1163
+[02-Dec-2025 00:45:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php:1163
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(16): Cotizacion->ResumenEtapas()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php on line 1163
+[02-Dec-2025 00:45:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php:1163
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(16): Cotizacion->ResumenEtapas()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php on line 1163
+[02-Dec-2025 00:47:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php:1163
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(16): Cotizacion->ResumenEtapas()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php on line 1163
+[02-Dec-2025 00:50:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php:1163
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(16): Cotizacion->ResumenEtapas()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php on line 1163
+[02-Dec-2025 02:22:40 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php:1163
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(16): Cotizacion->ResumenEtapas()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php on line 1163
+[02-Dec-2025 02:24:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php:1163
+Stack trace:
+#0 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(16): Cotizacion->ResumenEtapas()
+#1 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\cotizacion.clase.php on line 1163
+[02-Dec-2025 02:45:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php:29
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(30): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php(177): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kanbam.php on line 29
+[02-Dec-2025 02:54:58 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 179
+[02-Dec-2025 02:54:58 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:183
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 183
+[02-Dec-2025 03:25:38 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 179
+[02-Dec-2025 03:25:39 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:183
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 183
+[02-Dec-2025 03:59:04 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 03:59:04 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 03:59:04 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:06 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:11 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:22 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 03:59:30 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 04:38:37 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 04:38:41 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 179
+[02-Dec-2025 04:38:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:183
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 183
+[02-Dec-2025 04:39:02 Europe/Berlin] PHP Notice:  Undefined index: fecha_inicio in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 132
+[02-Dec-2025 04:39:02 Europe/Berlin] PHP Notice:  Undefined index: fecha_entrega in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 138
+[02-Dec-2025 04:39:12 Europe/Berlin] PHP Notice:  Undefined index: fecha_inicio in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 132
+[02-Dec-2025 04:39:12 Europe/Berlin] PHP Notice:  Undefined index: fecha_entrega in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 138
+[02-Dec-2025 04:39:33 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 179
+[02-Dec-2025 04:39:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:183
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 183
+[02-Dec-2025 04:40:24 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 179
+[02-Dec-2025 04:40:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:183
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 183
+[02-Dec-2025 04:52:47 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 179
+[02-Dec-2025 04:52:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:183
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 183
+[02-Dec-2025 05:02:00 Europe/Berlin] PHP Notice:  Trying to get property 'num_rows' of non-object in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 179
+[02-Dec-2025 05:02:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetch_assoc() on bool in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:183
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 183
+[02-Dec-2025 05:04:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:05:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:07:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:08:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:14:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:14:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:20:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:25:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:25:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:26:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:26:28 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-admin.php on line 13
+[02-Dec-2025 05:26:29 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\panel-cajas.php on line 14
+[02-Dec-2025 05:26:39 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 05:26:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 05:26:39 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 05:26:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 05:26:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 05:26:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 05:26:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 05:26:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 05:26:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 05:26:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 05:26:43 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 05:26:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 05:26:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 05:26:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 05:26:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 05:26:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 05:26:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 05:26:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 05:26:50 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 05:36:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:39:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(256): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:40:04 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(256): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:40:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(256): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:41:59 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(256): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:42:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(256): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:42:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(256): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:43:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(256): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:43:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(256): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 05:53:00 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:36
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(36): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(249): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 36
+[02-Dec-2025 05:54:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:36
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(36): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(249): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 36
+[02-Dec-2025 05:54:24 Europe/Berlin] PHP Notice:  Undefined index: fecha_inicio in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 132
+[02-Dec-2025 05:54:24 Europe/Berlin] PHP Notice:  Undefined index: fecha_entrega in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 138
+[02-Dec-2025 05:54:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:36
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(36): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(249): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 36
+[02-Dec-2025 06:07:42 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:07:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:07:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:08:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::real_escape_string() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:39
+Stack trace:
+#0 [internal function]: {closure}('NUEVO')
+#1 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(40): array_map(Object(Closure), Array)
+#2 C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php(295): obtenerCotizacionesPorEtapas(Object(Conexion), Array)
+#3 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 39
+[02-Dec-2025 06:09:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:09:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:09:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:09:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:09:49 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:09:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:09:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:09:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:41 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:12:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:85
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 85
+[02-Dec-2025 06:14:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 06:14:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 06:14:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 06:14:26 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 06:14:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 06:14:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 06:14:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 06:14:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 06:14:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:90
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 90
+[02-Dec-2025 15:35:50 Europe/Berlin] PHP Notice:  Undefined index: fecha_inicio in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 132
+[02-Dec-2025 15:35:50 Europe/Berlin] PHP Notice:  Undefined index: fecha_entrega in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 138
+[02-Dec-2025 15:37:17 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[02-Dec-2025 15:37:17 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[02-Dec-2025 15:37:17 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\tramites.clase.php
+[02-Dec-2025 15:39:52 Europe/Berlin] PHP Notice:  Undefined index: fecha_inicio in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 132
+[02-Dec-2025 15:39:52 Europe/Berlin] PHP Notice:  Undefined index: fecha_entrega in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 138
+[02-Dec-2025 16:23:19 Europe/Berlin] PHP Notice:  Undefined index: fecha_inicio in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 132
+[02-Dec-2025 16:23:20 Europe/Berlin] PHP Notice:  Undefined index: fecha_entrega in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-editar.php on line 138
+[02-Dec-2025 18:02:44 Europe/Berlin] PHP Notice:  Undefined index: nit_cliente in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 46
+[02-Dec-2025 18:02:44 Europe/Berlin] PHP Notice:  Undefined index: razon_social in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 47
+[02-Dec-2025 18:02:44 Europe/Berlin] PHP Notice:  Undefined index: referencia in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 51
+[02-Dec-2025 19:10:01 Europe/Berlin] PHP Notice:  Undefined index: nit_cliente in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 46
+[02-Dec-2025 19:10:01 Europe/Berlin] PHP Notice:  Undefined index: razon_social in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 47
+[02-Dec-2025 19:10:01 Europe/Berlin] PHP Notice:  Undefined index: referencia in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 51
+[02-Dec-2025 19:15:36 Europe/Berlin] PHP Notice:  Undefined index: nit_cliente in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 46
+[02-Dec-2025 19:15:36 Europe/Berlin] PHP Notice:  Undefined index: razon_social in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 47
+[02-Dec-2025 19:15:36 Europe/Berlin] PHP Notice:  Undefined index: referencia in C:\xampp\htdocs\Punto-de-venta-php-master\registrar-compra.php on line 51
+[02-Dec-2025 19:16:23 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 13
+[02-Dec-2025 19:47:23 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 19:47:29 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 19:47:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 19:47:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 19:47:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 19:47:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 19:47:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 19:47:32 Europe/Berlin] PHP Notice:  date_default_timezone_set(): Timezone ID 'America/Ecuador' is invalid in C:\xampp\htdocs\Punto-de-venta-php-master\caja-general.php on line 13
+[02-Dec-2025 19:47:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 20:58:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 21:33:37 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 21:33:37 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 21:33:37 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 21:33:39 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[02-Dec-2025 21:33:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[02-Dec-2025 21:33:39 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\tramites.clase.php
+[02-Dec-2025 21:34:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 21:34:06 Europe/Berlin] PHP Warning:  include(sistema/clases/tramites.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[02-Dec-2025 21:34:06 Europe/Berlin] PHP Warning:  include(): Failed opening 'sistema/clases/tramites.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\tramites.php on line 5
+[02-Dec-2025 21:34:06 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\tramites.clase.php
+[02-Dec-2025 21:34:10 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Conexion::query() in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php:103
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\Punto-de-venta-php-master\cotizacion-kamban.php on line 103
+[02-Dec-2025 21:42:41 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 21:42:41 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 21:42:41 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 21:43:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 21:43:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 21:43:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 21:43:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 21:43:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 21:43:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 21:43:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 98
+[02-Dec-2025 21:43:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\Punto-de-venta-php-master\productos.php on line 99
+[02-Dec-2025 21:47:39 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 21:47:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 21:47:39 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php

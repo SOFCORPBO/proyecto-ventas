@@ -133,7 +133,7 @@ if($usuarioApp['id_perfil']==2){
                             <td>
 
                                 <!-- EDITAR -->
-                                <a href="<?php echo URLBASE ?>editarproducto/<?php echo $row['id']; ?>"
+                                <a href="<?php echo URLBASE ?>servicio-editar.php?id=<?= $row['id'] ?>"
                                     class="btn btn-primary btn-xs">
                                     <i class="fa fa-pencil-square-o"></i>
                                 </a>

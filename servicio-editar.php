@@ -5,65 +5,50 @@ include('sistema/configuracion.php');
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
-include("clases/servicio.clase.php");
-$Servicios = new Servicio();
-
-$id = isset($_GET['id']) ? intval($_GET['id']) : 0;
-if ($id <= 0) {
-    header("Location: servicios.php");
+// -----------------------------
+// VALIDAR ID
+// -----------------------------
+if (!isset($_GET['id'])) {
+    echo '<meta http-equiv="refresh" content="0;url=servicios.php">';
     exit;
 }
 
-$servicio = $Servicios->Obtener($id);
-if (!$servicio) {
-    echo "<p>Servicio no encontrado.</p>";
-    echo '<a href="servicios.php">Volver</a>';
+$idServicio = (int)$_GET['id'];
+
+// -----------------------------
+// OBTENER SERVICIO
+// -----------------------------
+$ServicioSQL = $db->SQL("
+    SELECT * FROM producto 
+    WHERE id = {$idServicio} 
+    LIMIT 1
+");
+
+if ($ServicioSQL->num_rows == 0) {
+    echo '<div class="alert alert-danger">Servicio no encontrado.</div>';
     exit;
 }
 
-$mensaje = '';
-$tipo_mensaje = '';
+$S = $ServicioSQL->fetch_assoc();
 
-// Proveedores
-$ProveedoresSQL = $db->SQL("SELECT id, nombre FROM proveedor WHERE habilitado=1 ORDER BY nombre ASC");
+// -----------------------------
+// OBTENER PROVEEDORES
+// -----------------------------
+$Proveedores = $db->SQL("
+    SELECT id, nombre 
+    FROM proveedor 
+    WHERE habilitado = 1 
+    ORDER BY nombre ASC
+");
 
-if (isset($_POST['GuardarServicio'])) {
-
-    // Mantener imagen actual por defecto
-    $imagen = $servicio['imagen'];
-
-    // Si se sube una nueva, la reemplazamos (la clase puede encargarse de borrar la anterior si quieres)
-    if (!empty($_FILES['imagen']['name'])) {
-        $imgSubida = $Servicios->SubirImagen($_FILES['imagen']);
-        if ($imgSubida) {
-            $imagen = $imgSubida;
-        }
-    }
-
-    $data = [
-        'nombre'        => $_POST['nombre'],
-        'codigo'        => $_POST['codigo'],
-        'tipo_servicio' => $_POST['tipo_servicio'],
-        'proveedor'     => $_POST['proveedor'],
-        'preciocosto'   => $_POST['preciocosto'],
-        'precioventa'   => $_POST['precioventa'],
-        'comision'      => $_POST['comision'],
-        'descripcion'   => $_POST['descripcion'],
-        'imagen'        => $imagen
-    ];
-
-    $ok = $Servicios->Actualizar($id, $data);
-
-    if ($ok) {
-        $mensaje = "Servicio actualizado correctamente.";
-        $tipo_mensaje = "success";
-        // Recargar datos
-        $servicio = $Servicios->Obtener($id);
-    } else {
-        $mensaje = "Error al actualizar el servicio.";
-        $tipo_mensaje = "danger";
-    }
-}
+// -----------------------------
+// OBTENER CATEGORÍAS
+// -----------------------------
+$Categorias = $db->SQL("
+    SELECT id, nombre 
+    FROM categorias_servicios 
+    ORDER BY nombre ASC
+");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -73,21 +58,23 @@ if (isset($_POST['GuardarServicio'])) {
     <title>Editar Servicio | <?php echo TITULO ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="<?php echo ESTATICO ?>img/favicon.ico">
     <link rel="stylesheet" href="<?php echo ESTATICO ?>css/bootstrap.min.css">
-    <?php include(MODULO.'Tema.CSS.php'); ?>
+    <link rel="stylesheet" href="<?php echo ESTATICO ?>css/font-awesome.min.css">
+    <?php include(MODULO . 'Tema.CSS.php'); ?>
 
     <style>
-    .panel-heading h3 {
-        margin: 0;
-    }
-
-    .preview-img {
-        width: 140px;
-        height: 100px;
-        object-fit: cover;
+    .panel-custom {
+        background: #fff;
+        padding: 25px;
         border-radius: 6px;
         border: 1px solid #ddd;
+        margin-top: 15px;
+    }
+
+    h3.section-title {
+        margin-top: 30px;
+        font-weight: bold;
+        color: #555;
     }
     </style>
 </head>
@@ -95,175 +82,225 @@ if (isset($_POST['GuardarServicio'])) {
 <body>
 
     <?php
-if ($usuarioApp['id_perfil'] == 2) include(MODULO.'menu_vendedor.php');
-elseif ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
+if ($usuarioApp['id_perfil'] == 2) {
+    include(MODULO . 'menu_vendedor.php');
+} elseif ($usuarioApp['id_perfil'] == 1) {
+    include(MODULO . 'menu_admin.php');
+}
 ?>
 
     <div class="container">
 
         <div class="page-header">
-            <h1>Editar Servicio</h1>
-            <p class="text-muted"><?php echo htmlspecialchars($servicio['nombre']); ?></p>
+            <h1><i class="fa fa-pencil"></i> Editar Servicio</h1>
+
+            <a href="servicios.php" class="btn btn-default pull-right">
+                <i class="fa fa-arrow-left"></i> Volver al catálogo
+            </a>
+
+            <div class="clearfix"></div>
         </div>
 
-        <?php if ($mensaje != ''): ?>
-        <div class="alert alert-<?php echo $tipo_mensaje; ?>">
-            <?php echo $mensaje; ?>
-        </div>
-        <?php endif; ?>
+        <!-- PROCESAR FORMULARIO -->
+        <?php $ProductosClase->EditarServicio(); ?>
 
-        <form method="post" enctype="multipart/form-data" class="panel panel-default">
-            <div class="panel-heading">
-                <h3>Datos del Servicio</h3>
-            </div>
+        <div class="panel panel-custom">
 
-            <div class="panel-body">
+            <form class="form-horizontal" method="post">
 
-                <div class="row">
+                <input type="hidden" name="IdServicio" value="<?php echo $S['id']; ?>">
 
-                    <!-- Nombre -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label>Nombre del Servicio *</label>
-                            <input type="text" name="nombre" class="form-control"
-                                value="<?php echo htmlspecialchars($servicio['nombre']); ?>" required>
-                        </div>
+                <!-- =============================
+                 DATOS BÁSICOS
+            ==============================-->
+                <h3 class="section-title">Datos Básicos</h3>
+
+                <!-- Nombre -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Nombre del Servicio</label>
+                    <div class="col-md-9">
+                        <input type="text" name="Nombre" class="form-control" value="<?php echo $S['nombre']; ?>"
+                            required>
                     </div>
+                </div>
 
-                    <!-- Código -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Código *</label>
-                            <input type="text" name="codigo" class="form-control"
-                                value="<?php echo htmlspecialchars($servicio['codigo']); ?>" required>
-                        </div>
+                <!-- Código -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Código</label>
+                    <div class="col-md-9">
+                        <input type="text" name="Codigo" class="form-control" value="<?php echo $S['codigo']; ?>"
+                            required>
                     </div>
+                </div>
 
-                    <!-- Tipo -->
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Tipo de Servicio *</label>
-                            <select name="tipo_servicio" class="form-control" required>
-                                <?php
-                            $tipos = ['PASAJE'=>'Pasaje','PAQUETE'=>'Paquete','SEGURO'=>'Seguro','TRAMITE'=>'Trámite','OTRO'=>'Otro'];
-                            foreach ($tipos as $val => $txt):
-                            ?>
-                                <option value="<?php echo $val; ?>"
-                                    <?php if($servicio['tipo_servicio']==$val) echo 'selected'; ?>>
-                                    <?php echo $txt; ?>
-                                </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
+                <!-- Tipo de Servicio -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Tipo de Servicio</label>
+                    <div class="col-md-9">
+                        <select name="TipoServicio" class="form-control">
+                            <?php
+                        $tipos = ['PASAJE','PAQUETE','SEGURO','TRAMITE','OTRO'];
+                        foreach ($tipos as $t):
+                        ?>
+                            <option value="<?php echo $t; ?>" <?php if ($S['tipo_servicio'] == $t) echo 'selected'; ?>>
+                                <?php echo ucfirst(strtolower($t)); ?>
+                            </option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
+                </div>
 
-                </div><!-- /.row -->
-
-                <div class="row">
-
-                    <!-- Proveedor -->
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Proveedor *</label>
-                            <select name="proveedor" class="form-control" required>
-                                <option value="">Seleccione proveedor...</option>
-                                <?php while($p = $ProveedoresSQL->fetch_assoc()): ?>
-                                <option value="<?php echo $p['id']; ?>"
-                                    <?php if($servicio['proveedor']==$p['id']) echo 'selected'; ?>>
-                                    <?php echo $p['nombre']; ?>
-                                </option>
-                                <?php endwhile; ?>
-                            </select>
-                        </div>
+                <!-- Categoría -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Categoría</label>
+                    <div class="col-md-9">
+                        <select name="Categoria" class="form-control">
+                            <option value="">Sin categoría</option>
+                            <?php while ($c = $Categorias->fetch_assoc()): ?>
+                            <option value="<?php echo $c['id']; ?>"
+                                <?php if ($S['categoria_id'] == $c['id']) echo 'selected'; ?>>
+                                <?php echo $c['nombre']; ?>
+                            </option>
+                            <?php endwhile; ?>
+                        </select>
                     </div>
+                </div>
 
-                    <!-- Precio Costo -->
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Precio Costo</label>
-                            <input type="number" step="0.01" name="preciocosto" class="form-control"
-                                value="<?php echo htmlspecialchars($servicio['preciocosto']); ?>">
-                        </div>
+                <!-- Proveedor -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Proveedor</label>
+                    <div class="col-md-9">
+                        <select name="Proveedor" class="form-control">
+                            <?php while ($p = $Proveedores->fetch_assoc()): ?>
+                            <option value="<?php echo $p['id']; ?>"
+                                <?php if ($S['proveedor'] == $p['id']) echo 'selected'; ?>>
+                                <?php echo $p['nombre']; ?>
+                            </option>
+                            <?php endwhile; ?>
+                        </select>
                     </div>
+                </div>
 
-                    <!-- Precio Venta -->
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Precio Venta *</label>
-                            <input type="number" step="0.01" name="precioventa" class="form-control"
-                                value="<?php echo htmlspecialchars($servicio['precioventa']); ?>" required>
-                        </div>
+                <!-- =============================
+                 PRECIOS Y COMISIONES
+            ==============================-->
+                <h3 class="section-title">Precios y Comisión</h3>
+
+                <!-- Precio Costo -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Precio Costo</label>
+                    <div class="col-md-9">
+                        <input type="number" step="0.01" name="PrecioCosto" class="form-control"
+                            value="<?php echo $S['preciocosto']; ?>">
                     </div>
+                </div>
 
-                </div><!-- /.row -->
-
-                <div class="row">
-
-                    <!-- Comisión -->
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Comisión (Bs)</label>
-                            <input type="number" step="0.01" name="comision" class="form-control"
-                                value="<?php echo htmlspecialchars($servicio['comision']); ?>">
-                        </div>
+                <!-- Precio Venta -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Precio Venta</label>
+                    <div class="col-md-9">
+                        <input type="number" step="0.01" name="PrecioVenta" required class="form-control"
+                            value="<?php echo $S['precioventa']; ?>">
                     </div>
+                </div>
 
-                    <!-- Imagen -->
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label>Cambiar Imagen</label>
-                            <input type="file" name="imagen" class="form-control" accept="image/*"
-                                onchange="vistaPrevia(this);">
-                            <br>
-                            <?php if (!empty($servicio['imagen'])): ?>
-                            <img id="preview" class="preview-img"
-                                src="uploads/servicios/<?php echo $servicio['imagen']; ?>">
-                            <?php else: ?>
-                            <img id="preview" class="preview-img" style="display:none;">
-                            <?php endif; ?>
-                        </div>
+                <!-- IVA -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">IVA (%)</label>
+                    <div class="col-md-9">
+                        <input type="number" step="0.01" name="IVA" class="form-control"
+                            value="<?php echo $S['iva']; ?>">
                     </div>
+                </div>
 
-                </div><!-- /.row -->
+                <!-- Comisión -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Comisión (Bs)</label>
+                    <div class="col-md-9">
+                        <input type="number" step="0.01" name="Comision" class="form-control"
+                            value="<?php echo $S['comision']; ?>">
+                    </div>
+                </div>
+
+                <!-- Es Comisionable -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Es Comisionable</label>
+                    <div class="col-md-9">
+                        <select name="EsComisionable" class="form-control">
+                            <option value="1" <?php if ($S['es_comisionable']) echo 'selected'; ?>>Sí</option>
+                            <option value="0" <?php if (!$S['es_comisionable']) echo 'selected'; ?>>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- =============================
+                 REQUISITOS
+            ==============================-->
+                <h3 class="section-title">Requisitos</h3>
+
+                <!-- Requiere Boleto -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Requiere Boleto</label>
+                    <div class="col-md-9">
+                        <select name="RequiereBoleto" class="form-control">
+                            <option value="1" <?php if ($S['requiere_boleto']) echo 'selected'; ?>>Sí</option>
+                            <option value="0" <?php if (!$S['requiere_boleto']) echo 'selected'; ?>>No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Requiere Visa -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Requiere Visa</label>
+                    <div class="col-md-9">
+                        <select name="RequiereVisa" class="form-control">
+                            <option value="1" <?php if ($S['requiere_visa']) echo 'selected'; ?>>Sí</option>
+                            <option value="0" <?php if (!$S['requiere_visa']) echo 'selected'; ?>>No</option>
+                        </select>
+                    </div>
+                </div>
 
                 <!-- Descripción -->
                 <div class="form-group">
-                    <label>Descripción</label>
-                    <textarea name="descripcion" class="form-control" rows="3"><?php
-                    echo htmlspecialchars($servicio['descripcion']);
-                ?></textarea>
+                    <label class="col-md-3 control-label">Descripción</label>
+                    <div class="col-md-9">
+                        <textarea class="form-control" name="DescripcionServicio"
+                            rows="4"><?php echo $S['descripcion']; ?></textarea>
+                    </div>
                 </div>
 
-            </div><!-- /.panel-body -->
+                <!-- Especificaciones -->
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Especificaciones</label>
+                    <div class="col-md-9">
+                        <textarea class="form-control" name="Especificaciones"
+                            rows="3"><?php echo $S['especificaciones']; ?></textarea>
+                    </div>
+                </div>
 
-            <div class="panel-footer">
-                <a href="servicios.php" class="btn btn-default">
-                    <i class="fa fa-arrow-left"></i> Volver
-                </a>
+                <hr>
 
-                <button type="submit" name="GuardarServicio" class="btn btn-primary pull-right">
-                    <i class="fa fa-save"></i> Guardar Cambios
-                </button>
+                <!-- Botones -->
+                <div class="form-group">
+                    <div class="col-md-12 text-right">
+                        <button type="submit" name="EditarServicio" class="btn btn-primary">
+                            <i class="fa fa-save"></i> Guardar Cambios
+                        </button>
 
-                <div style="clear:both;"></div>
-            </div>
+                        <a href="servicios.php" class="btn btn-default">
+                            Cancelar
+                        </a>
+                    </div>
+                </div>
 
-        </form>
+            </form>
+
+        </div>
 
     </div>
 
-    <?php include(MODULO.'footer.php'); ?>
-    <?php include(MODULO.'Tema.JS.php'); ?>
-
-    <script>
-    function vistaPrevia(input) {
-        const preview = document.getElementById('preview');
-        if (input.files && input.files[0]) {
-            preview.style.display = "block";
-            preview.src = URL.createObjectURL(input.files[0]);
-        }
-    }
-    </script>
+    <?php include(MODULO . 'footer.php'); ?>
+    <?php include(MODULO . 'Tema.JS.php'); ?>
 
 </body>
 

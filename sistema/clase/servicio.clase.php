@@ -1,6 +1,6 @@
 <?php
 
-class Servicio {
+class Servicio extends Conexion {
 
     private $db;
 
@@ -86,37 +86,63 @@ class Servicio {
 
         $this->db->SQL($sql);
     }
+public function EditarServicio() {
 
-    // Editar servicio
-    public function editarServicio($id, $nombre, $codigo, $tipo_servicio, $proveedor, $precio_costo, $precio_venta, $comision) {
+    if(!isset($_POST['EditarServicio'])) return;
 
-        $impuesto     = $this->obtenerImpuesto();
-        $precio_final = $precio_venta + ($precio_venta * $impuesto / 100);
+    $db = $this->Conectar();
 
-        $id           = (int)$id;
-        $nombre       = addslashes($nombre);
-        $codigo       = addslashes($codigo);
-        $tipo_servicio= addslashes($tipo_servicio);
-        $comision     = (float)$comision;
-        $precio_costo = (float)$precio_costo;
-        $precio_final = (float)$precio_final;
-        $proveedor    = ($proveedor !== '' ? (int)$proveedor : 'NULL');
+    $id             = (int)$_POST['IdServicio'];
+    $codigo         = $db->real_escape_string($_POST['Codigo']);
+    $nombre         = $db->real_escape_string($_POST['Nombre']);
+    $tipo           = $db->real_escape_string($_POST['TipoServicio']);
+    $descripcion    = $db->real_escape_string($_POST['DescripcionServicio']);
+    $requiereBoleto = (int)$_POST['RequiereBoleto'];
+    $requiereVisa   = (int)$_POST['RequiereVisa'];
+    $precioCosto    = (float)$_POST['PrecioCosto'];
+    $precioVenta    = (float)$_POST['PrecioVenta'];
+    $iva            = (float)$_POST['IVA'];
+    $comision       = (float)$_POST['Comision'];
+    $esComisionable = (int)$_POST['EsComisionable'];
+    $proveedor      = (int)$_POST['Proveedor'];
+    $categoria      = (int)$_POST['Categoria'];
+    $especifica     = $db->real_escape_string($_POST['Especificaciones']);
 
-        $sql = "
-            UPDATE producto
-            SET 
-                nombre      = '$nombre',
-                codigo      = '$codigo',
-                tipo_servicio = '$tipo_servicio',
-                proveedor   = $proveedor,
-                preciocosto = '$precio_costo',
-                precioventa = '$precio_final',
-                comision    = '$comision'
-            WHERE id = $id
-        ";
+    $sql = "
+        UPDATE producto SET
+            codigo          = '$codigo',
+            nombre          = '$nombre',
+            tipo_servicio   = '$tipo',
+            descripcion     = '$descripcion',
+            requiere_boleto = $requiereBoleto,
+            requiere_visa   = $requiereVisa,
+            preciocosto     = $precioCosto,
+            precioventa     = $precioVenta,
+            iva             = $iva,
+            comision        = $comision,
+            es_comisionable = $esComisionable,
+            proveedor       = $proveedor,
+            categoria_id    = $categoria,
+            especificaciones= '$especifica'
+        WHERE id = $id
+    ";
 
-        $this->db->SQL($sql);
+    if($db->query($sql)) {
+        echo '
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Servicio actualizado correctamente.
+        </div>
+        <meta http-equiv="refresh" content="1;url='.URLBASE.'servicios.php" />';
+    } else {
+        echo '
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Error al actualizar el servicio.
+        </div>';
     }
+}
+
 
     // Eliminar servicio (borrado lógico recomendado)
     public function eliminarServicio($id) {

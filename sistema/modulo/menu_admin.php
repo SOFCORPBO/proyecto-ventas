@@ -31,7 +31,7 @@
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo URLBASE ?>tramites.php">TRAMITES</a></li>
-                        <li><a href="<?php echo URLBASE ?>kardex-por-producto.php">Kardex Por Servicios</a></li>
+                        <li><a href="<?php echo URLBASE ?>cotizacion-kamban.php">Cotizaciones </a></li>
                     </ul>
                 </li>
 

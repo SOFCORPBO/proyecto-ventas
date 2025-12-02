@@ -6,7 +6,7 @@ $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
 // Backend
-include("clases/servicio.clase.php");
+include("clase/productos.clase.php");
 $Servicio = new Servicio();
 
 // Tipos y proveedores

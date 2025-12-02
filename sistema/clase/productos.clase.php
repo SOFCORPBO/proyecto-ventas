@@ -1,462 +1,272 @@
 <?php
 
-class Productos extends Conexion {
+class Productos extends Conexion
+{
+    /* ============================================================
+     *  🔵 FUNCIONES DE CONSULTA
+     * ============================================================ */
 
-    /*
-    |-----------------------------------------------------------|
-    | CREAR SERVICIO (antes CrearProducto)
-    |   - Sin stock
-    |   - Sin inventario
-    |   - Solo catálogo de servicios
-    |-----------------------------------------------------------|
-    */
-    public function CrearProducto(){
-        if(isset($_POST['CrearProducto'])){
-
-            // Campos básicos
-            $Codigo         = isset($_POST['Codigo']) ? filter_var($_POST['Codigo'], FILTER_SANITIZE_STRING) : '';
-            $Nombre         = isset($_POST['Nombre']) ? filter_var($_POST['Nombre'], FILTER_SANITIZE_STRING) : '';
-            $PrecioCosto    = isset($_POST['PrecioCosto']) ? filter_var($_POST['PrecioCosto'], FILTER_SANITIZE_STRING) : '0';
-            $PrecioVenta    = isset($_POST['PrecioVenta']) ? filter_var($_POST['PrecioVenta'], FILTER_SANITIZE_STRING) : '0';
-            $Proveedor      = isset($_POST['Proveedor']) ? filter_var($_POST['Proveedor'], FILTER_VALIDATE_INT) : 0;
-
-            // Campos específicos para servicios de agencia
-            $TipoServicio   = isset($_POST['TipoServicio'])
-                                ? filter_var($_POST['TipoServicio'], FILTER_SANITIZE_STRING)
-                                : 'OTRO'; // PASAJE / PAQUETE / SEGURO / TRAMITE / OTRO
-
-            $Descripcion    = isset($_POST['DescripcionServicio'])
-                                ? filter_var($_POST['DescripcionServicio'], FILTER_SANITIZE_STRING)
-                                : '';
-
-            $RequiereBoleto = isset($_POST['RequiereBoleto']) ? 1 : 0;
-            $RequiereVisa   = isset($_POST['RequiereVisa'])   ? 1 : 0;
-
-            $Comision       = isset($_POST['Comision'])
-                                ? filter_var($_POST['Comision'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION)
-                                : 0;
-
-            $EsComisionable = isset($_POST['EsComisionable']) ? 1 : 0;
-
-            // Mayúsculas
-            $Codigo = strtoupper($Codigo);
-            $Nombre = ucwords($Nombre);
-
-            // Insert SOLO con campos de servicios (catálogo)
-            $CrearProductoSql = $this->Conectar()->query("
-                INSERT INTO `producto` (
-                    `codigo`,
-                    `nombre`,
-                    `tipo_servicio`,
-                    `descripcion`,
-                    `proveedor`,
-                    `preciocosto`,
-                    `precioventa`,
-                    `comision`,
-                    `es_comisionable`,
-                    `requiere_boleto`,
-                    `requiere_visa`,
-                    `habilitado`
-                ) VALUES (
-                    '{$Codigo}',
-                    '{$Nombre}',
-                    '{$TipoServicio}',
-                    '{$Descripcion}',
-                    '{$Proveedor}',
-                    '{$PrecioCosto}',
-                    '{$PrecioVenta}',
-                    '{$Comision}',
-                    '{$EsComisionable}',
-                    '{$RequiereBoleto}',
-                    '{$RequiereVisa}',
-                    '1'
-                )
-            ");
-
-            if($CrearProductoSql == true){
-                echo '
-                <div class="alert alert-dismissible alert-success">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Excelente</strong> El servicio "'.$Nombre.'" ha sido creado con &eacute;xito.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'nuevo-producto"/>';
-            }else{
-                echo '
-                <div class="alert alert-dismissible alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Oh no!</strong> Ha ocurrido un error al crear el servicio "'.$Nombre.'", por favor int&eacute;ntalo de nuevo.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'nuevo-producto"/>';
-            }
-        }
+    // Obtener todos los servicios habilitados o con condiciones
+    public function obtenerProductos($condiciones = "")
+    {
+        $sql = "SELECT * FROM producto WHERE 1=1 {$condiciones}";
+        return $this->Conectar()->query($sql);
     }
 
-    /*
-    |-----------------------------------------------------------|
-    | ACTUALIZAR INVENTARIO (DESHABILITADO EN SISTEMA DE SERVICIOS)
-    |   - Se deja solo para no romper estructura si se llama
-    |-----------------------------------------------------------|
-    */
-    public function ActualizarInventario(){
-        if(isset($_POST['ActualizarInventario'])){
-            echo '
-            <div class="alert alert-dismissible alert-warning">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Funci&oacute;n no disponible.</strong> El sistema est&aacute; configurado para manejar <b>servicios</b>, no inventario f&iacute;sico.
-            </div>
-            <meta http-equiv="refresh" content="2;url='.URLBASE.'productos"/>';
-        }
+    // Obtener servicios por tipo
+    public function obtenerPorTipo($tipo)
+    {
+        $tipo = $this->Conectar()->real_escape_string($tipo);
+        return $this->Conectar()->query("
+            SELECT * FROM producto WHERE tipo_servicio = '{$tipo}'
+        ");
     }
-	
 
-	/*
-|-----------------------------------------------------------|
-| ELIMINAR SERVICIO
-|-----------------------------------------------------------|
-*/
-public function EliminarServicio() {
-
-    if(isset($_POST['EliminarServicio'])){
-
-        $IdServicio = filter_var($_POST['IdServicio'], FILTER_VALIDATE_INT);
-
-        // OPCIONAL: evitar eliminar si el servicio ya fue usado en ventas
-        /*
-        $check = $this->Conectar()->query("
-            SELECT COUNT(*) AS total FROM detalleventa WHERE producto='{$IdServicio}'
+    // Cargar servicio por ID
+    public function obtenerServicioPorId($id)
+    {
+        $id = (int)$id;
+        return $this->Conectar()->query("
+            SELECT * FROM producto WHERE id = {$id} LIMIT 1
         ");
-        $resp = $check->fetch_assoc();
-        if($resp['total'] > 0){
-            echo '
-            <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                No se puede eliminar. El servicio ya fue utilizado en ventas.
-            </div>';
-            return;
-        }
-        */
+    }
 
-        $Eliminar = $this->Conectar()->query("
-            DELETE FROM producto WHERE id='{$IdServicio}'
-        ");
 
-        if($Eliminar){
+    /* ============================================================
+     *  🟢 CREAR SERVICIO (CATÁLOGO DE SERVICIOS)
+     * ============================================================ */
+    public function CrearProducto()
+    {
+        if (!isset($_POST['CrearProducto'])) return;
+
+        $db = $this->Conectar();
+
+        $Codigo         = strtoupper($db->real_escape_string($_POST['Codigo']));
+        $Nombre         = ucwords($db->real_escape_string($_POST['Nombre']));
+        $TipoServicio   = $db->real_escape_string($_POST['TipoServicio']);
+        $Proveedor      = (int)$_POST['Proveedor'];
+        $PrecioCosto    = (float)$_POST['PrecioCosto'];
+        $PrecioVenta    = (float)$_POST['PrecioVenta'];
+        $Comision       = (float)$_POST['Comision'];
+        $EsComisionable = (int)$_POST['EsComisionable'];
+        $RequiereBoleto = (int)$_POST['RequiereBoleto'];
+        $RequiereVisa   = (int)$_POST['RequiereVisa'];
+        $Descripcion    = $db->real_escape_string($_POST['DescripcionServicio']);
+
+        $sql = "
+            INSERT INTO producto (
+                codigo, nombre, tipo_servicio, descripcion,
+                proveedor, preciocosto, precioventa,
+                comision, es_comisionable,
+                requiere_boleto, requiere_visa, habilitado
+            ) VALUES (
+                '{$Codigo}', '{$Nombre}', '{$TipoServicio}', '{$Descripcion}',
+                {$Proveedor}, {$PrecioCosto}, {$PrecioVenta},
+                {$Comision}, {$EsComisionable},
+                {$RequiereBoleto}, {$RequiereVisa}, 1
+            )
+        ";
+
+        if ($db->query($sql)) {
             echo '
-            <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Servicio eliminado correctamente.
-            </div>
-            <meta http-equiv="refresh" content="0;url='.URLBASE.'productos" />';
+            <div class="alert alert-success">Servicio creado correctamente.</div>
+            <meta http-equiv="refresh" content="1;url=nuevo-producto">';
         } else {
+            echo '<div class="alert alert-danger">Error al crear servicio.</div>';
+        }
+    }
+
+
+    /* ============================================================
+     *  🟡 EDITAR SERVICIO
+     * ============================================================ */
+    public function EditarServicio()
+    {
+        if (!isset($_POST['EditarServicio'])) return;
+
+        $db = $this->Conectar();
+
+        $idServicio     = (int)$_POST['IdServicio'];
+        $Nombre         = ucwords($db->real_escape_string($_POST['Nombre']));
+        $Codigo         = strtoupper($db->real_escape_string($_POST['Codigo']));
+        $TipoServicio   = $db->real_escape_string($_POST['TipoServicio']);
+        $Categoria      = ($_POST['Categoria'] != "" ? (int)$_POST['Categoria'] : "NULL");
+        $Proveedor      = (int)$_POST['Proveedor'];
+        $PrecioCosto    = (float)$_POST['PrecioCosto'];
+        $PrecioVenta    = (float)$_POST['PrecioVenta'];
+        $IVA            = (float)$_POST['IVA'];
+        $Comision       = (float)$_POST['Comision'];
+        $EsComisionable = (int)$_POST['EsComisionable'];
+        $RequiereBoleto = (int)$_POST['RequiereBoleto'];
+        $RequiereVisa   = (int)$_POST['RequiereVisa'];
+        $Descripcion    = $db->real_escape_string($_POST['DescripcionServicio']);
+        $Especificacion = $db->real_escape_string($_POST['Especificaciones']);
+
+        $sql = "
+            UPDATE producto SET
+                codigo            = '{$Codigo}',
+                nombre            = '{$Nombre}',
+                tipo_servicio     = '{$TipoServicio}',
+                categoria_id      = {$Categoria},
+                proveedor         = {$Proveedor},
+                preciocosto       = {$PrecioCosto},
+                precioventa       = {$PrecioVenta},
+                iva               = {$IVA},
+                comision          = {$Comision},
+                es_comisionable   = {$EsComisionable},
+                requiere_boleto   = {$RequiereBoleto},
+                requiere_visa     = {$RequiereVisa},
+                descripcion       = '{$Descripcion}',
+                especificaciones  = '{$Especificacion}'
+            WHERE id = {$idServicio}
+            LIMIT 1
+        ";
+
+        if ($db->query($sql)) {
             echo '
-            <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Error al eliminar el servicio.
-            </div>';
-        }
-    }
-}
-
-    /*
-    |-----------------------------------------------------------|
-    | DEPARTAMENTOS (pueden usarse como categorías de servicios)
-    |-----------------------------------------------------------|
-    */
-    public function CrearDepartamentos(){
-
-        if(isset($_POST['CrearDepartamento'])){
-            $Nombre = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-            $Estado = filter_var($_POST['estado'], FILTER_VALIDATE_INT);
-            $Nombre = ucwords($Nombre);
-
-            $CrearCategoriaSql = $this->Conectar()->query("
-                INSERT INTO `departamento` (`nombre`, `habilitada`)
-                VALUES ('{$Nombre}', '{$Estado}')
-            ");
-
-            if($CrearCategoriaSql == true){
-                echo'
-                <div class="alert alert-dismissible alert-success">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Excelente</strong> El departamento "'.$Nombre.'" ha sido creado con &eacute;xito.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'departamentos"/>';
-            }else{
-                echo'
-                <div class="alert alert-dismissible alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Oh no!</strong> Ha ocurrido un error al crear el departamento "'.$Nombre.'", por favor int&eacute;ntalo de nuevo.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'departamentos"/>';
-            }
+            <div class="alert alert-success">Servicio actualizado exitosamente.</div>
+            <meta http-equiv="refresh" content="1;url=servicios.php">';
+        } else {
+            echo '<div class="alert alert-danger">Error al actualizar servicio.</div>';
         }
     }
 
-    /*
-    |-----------------------------------------------------------|
-    | PROVEEDORES (aerolíneas, hoteles, aseguradoras, consulados)
-    |-----------------------------------------------------------|
-    */
-    public function CrearProveedor(){
 
-        if(isset($_POST['CrearProveedor'])){
-            $Nombre     = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-            $Telefono   = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
-            $Contacto   = filter_var($_POST['contacto'], FILTER_SANITIZE_STRING);
-            $Direccion  = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
-            $Estado     = filter_var($_POST['estado'], FILTER_VALIDATE_INT);
-            $Nombre     = ucwords($Nombre);
+    /* ============================================================
+     *  🔴 ELIMINAR SERVICIO
+     * ============================================================ */
+    public function EliminarServicio()
+    {
+        if (!isset($_POST['EliminarServicio'])) return;
 
-            $CrearProveedorSql = $this->Conectar()->query("
-                INSERT INTO `proveedor` (`nombre`, `telefono`, `contacto`, `direccion`, `habilitado`)
-                VALUES ('{$Nombre}', '{$Telefono}', '{$Contacto}', '{$Direccion}', '{$Estado}')
-            ");
+        $db = $this->Conectar();
+        $IdServicio = (int)$_POST['IdServicio'];
 
-            if($CrearProveedorSql == true){
-                echo'
-                <div class="alert alert-dismissible alert-success">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Excelente</strong> El proveedor "'.$Nombre.'" ha sido creado con &eacute;xito.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'proveedores"/>';
-            }else{
-                echo'
-                <div class="alert alert-dismissible alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Oh no!</strong> Ha ocurrido un error al crear el proveedor "'.$Nombre.'", por favor int&eacute;ntalo de nuevo.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'proveedores"/>';
-            }
+        $sql = "DELETE FROM producto WHERE id = {$IdServicio}";
+
+        if ($db->query($sql)) {
+            echo '
+            <div class="alert alert-success">Servicio eliminado correctamente.</div>
+            <meta http-equiv="refresh" content="1;url=servicios.php">';
+        } else {
+            echo '<div class="alert alert-danger">No se pudo eliminar.</div>';
         }
     }
 
-    public function EliminarProveedor(){
 
-        if(isset($_POST['EliminarProveedor'])){
-            $IdProveedor = filter_var($_POST['IdProveedor'], FILTER_VALIDATE_INT);
-            $Nombre      = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-            $Nombre      = ucwords($Nombre);
+    /* ============================================================
+     *  🟣 ACTIVAR / DESACTIVAR SERVICIO
+     * ============================================================ */
+    public function ActivarServicio()
+    {
+        if (!isset($_POST['ActivarServicio'])) return;
 
-            $EliminarProveedorSql = $this->Conectar()->query("
-                DELETE FROM `proveedor` WHERE `id` = '{$IdProveedor}'
-            ");
+        $id = (int)$_POST['IdServicio'];
+        $this->Conectar()->query("UPDATE producto SET habilitado = 1 WHERE id = {$id}");
 
-            if($EliminarProveedorSql == true){
-                echo'
-                <div class="alert alert-dismissible alert-success">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Excelente</strong> El proveedor "'.$Nombre.'" ha sido eliminado con &eacute;xito.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'proveedores"/>';
-            }else{
-                echo'
-                <div class="alert alert-dismissible alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Oh no!</strong> Ha ocurrido un error al eliminar el proveedor "'.$Nombre.'", por favor int&eacute;ntalo de nuevo.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'proveedores"/>';
-            }
+        echo '
+        <div class="alert alert-success">Servicio activado.</div>
+        <meta http-equiv="refresh" content="1;url=servicios.php">';
+    }
+
+    public function DesactivarServicio()
+    {
+        if (!isset($_POST['DesactivarServicio'])) return;
+
+        $id = (int)$_POST['IdServicio'];
+        $this->Conectar()->query("UPDATE producto SET habilitado = 0 WHERE id = {$id}");
+
+        echo '
+        <div class="alert alert-warning">Servicio desactivado.</div>
+        <meta http-equiv="refresh" content="1;url=servicios.php">';
+    }
+
+
+    /* ============================================================
+     *  🟤 CATEGORÍAS DE SERVICIOS (Departamentos)
+     * ============================================================ */
+    public function CrearDepartamentos()
+    {
+        if (!isset($_POST['CrearDepartamento'])) return;
+
+        $db = $this->Conectar();
+
+        $Nombre = ucwords($db->real_escape_string($_POST['nombre']));
+        $Estado = (int)$_POST['estado'];
+
+        $sql = "
+            INSERT INTO departamento (nombre, habilitada)
+            VALUES ('{$Nombre}', '{$Estado}')
+        ";
+
+        if ($db->query($sql)) {
+            echo '<div class="alert alert-success">Categoría creada.</div>';
+        } else {
+            echo '<div class="alert alert-danger">Error al crear categoría.</div>';
         }
     }
 
-    public function EditarProveedor(){
 
-        if(isset($_POST['EditarProveedor'])){
-            $IdProveedor= filter_var($_POST['IdProveedor'], FILTER_VALIDATE_INT);
-            $Nombre     = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-            $Telefono   = filter_var($_POST['telefono'], FILTER_SANITIZE_STRING);
-            $Contacto   = filter_var($_POST['contacto'], FILTER_SANITIZE_STRING);
-            $Direccion  = filter_var($_POST['direccion'], FILTER_SANITIZE_STRING);
-            $Estado     = filter_var($_POST['estado'], FILTER_VALIDATE_INT);
-            $Nombre     = ucwords($Nombre);
+    /* ============================================================
+     *  🟠 PROVEEDORES (Aerolíneas, Hoteles, Aseguradoras…)
+     * ============================================================ */
+    public function CrearProveedor()
+    {
+        if (!isset($_POST['CrearProveedor'])) return;
 
-            $EditarProveedorSql = $this->Conectar()->query("
-                UPDATE `proveedor` SET
-                    `nombre`     = '{$Nombre}',
-                    `telefono`   = '{$Telefono}',
-                    `contacto`   = '{$Contacto}',
-                    `direccion`  = '{$Direccion}',
-                    `habilitado` = '{$Estado}'
-                WHERE `id` = '{$IdProveedor}'
-            ");
+        $db = $this->Conectar();
 
-            if($EditarProveedorSql == true){
-                echo'
-                <div class="alert alert-dismissible alert-success">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Excelente</strong> El proveedor "'.$Nombre.'" ha sido editado con &eacute;xito.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'proveedores"/>';
-            }else{
-                echo'
-                <div class="alert alert-dismissible alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Oh no!</strong> Ha ocurrido un error al editar el proveedor "'.$Nombre.'", por favor int&eacute;ntalo de nuevo.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'proveedores"/>';
-            }
+        $Nombre     = ucwords($db->real_escape_string($_POST['nombre']));
+        $Telefono   = $db->real_escape_string($_POST['telefono']);
+        $Contacto   = $db->real_escape_string($_POST['contacto']);
+        $Direccion  = $db->real_escape_string($_POST['direccion']);
+        $Estado     = (int)$_POST['estado'];
+
+        $sql = "
+            INSERT INTO proveedor (nombre, telefono, contacto, direccion, habilitado)
+            VALUES ('{$Nombre}', '{$Telefono}', '{$Contacto}', '{$Direccion}', {$Estado})
+        ";
+
+        if ($db->query($sql)) {
+            echo '<div class="alert alert-success">Proveedor creado.</div>';
+        } else {
+            echo '<div class="alert alert-danger">Error al crear proveedor.</div>';
         }
     }
 
-	
-/*  
-|-----------------------------------------------------------|
-| ACTIVAR SERVICIO (estado = 1)
-|-----------------------------------------------------------|
-------------------------------------------------------|
-*/
-public function ActivarServicio() {
+    public function EditarProveedor()
+    {
+        if (!isset($_POST['EditarProveedor'])) return;
 
-    if(isset($_POST['ActivarServicio'])){
+        $db = $this->Conectar();
 
-        $IdServicio = filter_var($_POST['IdServicio'], FILTER_VALIDATE_INT);
+        $IdProveedor= (int)$_POST['IdProveedor'];
+        $Nombre     = ucwords($db->real_escape_string($_POST['nombre']));
+        $Telefono   = $db->real_escape_string($_POST['telefono']);
+        $Contacto   = $db->real_escape_string($_POST['contacto']);
+        $Direccion  = $db->real_escape_string($_POST['direccion']);
+        $Estado     = (int)$_POST['estado'];
 
-        $SQL = $this->Conectar()->query("
-            UPDATE producto SET habilitado='1' WHERE id='{$IdServicio}'
+        $db->query("
+            UPDATE proveedor SET
+                nombre = '{$Nombre}',
+                telefono = '{$Telefono}',
+                contacto = '{$Contacto}',
+                direccion = '{$Direccion}',
+                habilitado = {$Estado}
+            WHERE id = {$IdProveedor}
         ");
 
-        if($SQL){
-            echo '
-            <div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Servicio activado correctamente.
-            </div>
-            <meta http-equiv="refresh" content="0;url='.URLBASE.'productos" />';
-        } else {
-            echo '
-            <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Error al activar el servicio.
-            </div>
-            <meta http-equiv="refresh" content="0;url='.URLBASE.'productos" />';
-        }
-    }
-}
-
-
-/*
-|-----------------------------------------------------------|
-| DESACTIVAR SERVICIO (estado = 0)
-|-----------------------------------------------------------|
-*/
-public function DesactivarServicio() {
-
-    if(isset($_POST['DesactivarServicio'])){
-
-        $IdServicio = filter_var($_POST['IdServicio'], FILTER_VALIDATE_INT);
-
-        $SQL = $this->Conectar()->query("
-            UPDATE producto SET habilitado='0' WHERE id='{$IdServicio}'
-        ");
-
-        if($SQL){
-            echo '
-            <div class="alert alert-warning alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Servicio desactivado correctamente.
-            </div>
-            <meta http-equiv="refresh" content="0;url='.URLBASE.'productos" />';
-        } else {
-            echo '
-            <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                Error al desactivar el servicio.
-            </div>
-            <meta http-equiv="refresh" content="0;url='.URLBASE.'productos" />';
-        }
-    }
-}
-
-
-    /*
-    |-----------------------------------------------------------|
-    | CARGAR SERVICIO POR ID (para editar)
-    |-----------------------------------------------------------|
-    */
-    public function URLProductoID(){
-
-        global $ProductoID;
-        global $ProductoIDSql;
-
-        if (isset($_GET['id'])){
-            $ProductoIDSql = $this->Conectar()->query("
-                SELECT * FROM `producto` WHERE id='{$_GET['id']}'
-            ");
-            $ProductoID = $ProductoIDSql->fetch_assoc();
-            if (!$ProductoID['id']){
-                $error = true;
-            }
-        }else{
-            $error = true;
-        }
+        echo '<div class="alert alert-success">Proveedor actualizado.</div>';
     }
 
-    /*
-    |-----------------------------------------------------------|
-    | EDITAR SERVICIO (antes EditarProducto)
-    |-----------------------------------------------------------|
-    */
-    public function EditarProducto(){
-        if(isset($_POST['EditarProducto'])){
-            $IdProducto     = filter_var($_POST['Id'], FILTER_VALIDATE_INT);
-            $Codigo         = isset($_POST['Codigo']) ? filter_var($_POST['Codigo'], FILTER_SANITIZE_STRING) : '';
-            $Nombre         = isset($_POST['Nombre']) ? filter_var($_POST['Nombre'], FILTER_SANITIZE_STRING) : '';
-            $PrecioCosto    = isset($_POST['PrecioCosto']) ? filter_var($_POST['PrecioCosto'], FILTER_SANITIZE_STRING) : '0';
-            $PrecioVenta    = isset($_POST['PrecioVenta']) ? filter_var($_POST['PrecioVenta'], FILTER_SANITIZE_STRING) : '0';
-            $Proveedor      = isset($_POST['Proveedor']) ? filter_var($_POST['Proveedor'], FILTER_VALIDATE_INT) : 0;
+    public function EliminarProveedor()
+    {
+        if (!isset($_POST['EliminarProveedor'])) return;
 
-            $TipoServicio   = isset($_POST['TipoServicio'])
-                                ? filter_var($_POST['TipoServicio'], FILTER_SANITIZE_STRING)
-                                : 'OTRO';
+        $id = (int)$_POST['IdProveedor'];
+        $this->Conectar()->query("DELETE FROM proveedor WHERE id = {$id}");
 
-            $Descripcion    = isset($_POST['DescripcionServicio'])
-                                ? filter_var($_POST['DescripcionServicio'], FILTER_SANITIZE_STRING)
-                                : '';
-
-            $RequiereBoleto = isset($_POST['RequiereBoleto']) ? 1 : 0;
-            $RequiereVisa   = isset($_POST['RequiereVisa'])   ? 1 : 0;
-
-            $Comision       = isset($_POST['Comision'])
-                                ? filter_var($_POST['Comision'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION)
-                                : 0;
-
-            $EsComisionable = isset($_POST['EsComisionable']) ? 1 : 0;
-
-            // Mayúsculas
-            $Codigo = strtoupper($Codigo);
-            $Nombre = ucwords($Nombre);
-
-            $EditarProductoSql = $this->Conectar()->query("
-                UPDATE `producto` SET
-                    `codigo`          = '{$Codigo}',
-                    `nombre`          = '{$Nombre}',
-                    `tipo_servicio`   = '{$TipoServicio}',
-                    `descripcion`     = '{$Descripcion}',
-                    `proveedor`       = '{$Proveedor}',
-                    `preciocosto`     = '{$PrecioCosto}',
-                    `precioventa`     = '{$PrecioVenta}',
-                    `comision`        = '{$Comision}',
-                    `es_comisionable` = '{$EsComisionable}',
-                    `requiere_boleto` = '{$RequiereBoleto}',
-                    `requiere_visa`   = '{$RequiereVisa}'
-                WHERE `id` = '{$IdProducto}'
-            ");
-
-            if($EditarProductoSql == true){
-                echo'
-                <div class="alert alert-dismissible alert-success">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Excelente</strong> El servicio "'.$Nombre.'" ha sido actualizado con &eacute;xito.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'productos"/>';
-            }else{
-                echo'
-                <div class="alert alert-dismissible alert-danger">
-                    <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    <strong>&iexcl;Oh no!</strong> Ha ocurrido un error al actualizar el servicio "'.$Nombre.'", por favor int&eacute;ntalo de nuevo.
-                </div>
-                <meta http-equiv="refresh" content="0;url='.URLBASE.'productos"/>';
-            }
-        }
+        echo '<div class="alert alert-success">Proveedor eliminado.</div>';
     }
 }
