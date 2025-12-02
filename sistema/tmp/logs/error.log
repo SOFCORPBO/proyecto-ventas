@@ -7159,3 +7159,6 @@ Stack trace:
 [02-Dec-2025 21:47:39 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
 [02-Dec-2025 21:47:39 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
 [02-Dec-2025 21:47:39 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
+[02-Dec-2025 22:09:34 Europe/Berlin] PHP Warning:  include(clase/productos.clase.php): failed to open stream: No such file or directory in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 22:09:35 Europe/Berlin] PHP Warning:  include(): Failed opening 'clase/productos.clase.php' for inclusion (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\Punto-de-venta-php-master\servicios.php on line 9
+[02-Dec-2025 22:09:35 Europe/Berlin] Cargando clase: C:\xampp\htdocs\Punto-de-venta-php-master\sistema\clase\servicio.clase.php
