@@ -1,29 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 30-11-2025 a las 22:21:50
--- Versión del servidor: 10.4.16-MariaDB
--- Versión de PHP: 7.4.12
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de datos: `stockdev`
---
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `bancos`
 --
 
@@ -181,6 +156,10 @@ CREATE TABLE `cajatmp` (
   `cantidad` int(5) DEFAULT 1,
   `precio` float DEFAULT NULL,
   `totalprecio` float DEFAULT NULL,
+  `iva_porcentaje` decimal(5,2) NOT NULL DEFAULT 0.00,
+  `impuesto_monto` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `comision_porcentaje` decimal(5,2) NOT NULL DEFAULT 0.00,
+  `comision_monto` decimal(10,2) NOT NULL DEFAULT 0.00,
   `comision` float DEFAULT 0,
   `vendedor` int(9) DEFAULT NULL,
   `cliente` int(9) DEFAULT 1,
@@ -272,7 +251,11 @@ INSERT INTO `caja_general_movimientos` (`id`, `fecha`, `hora`, `tipo`, `monto`, 
 (27, '2025-11-30', '20:55:19', 'INGRESO', 1650, 'Venta de servicios - Factura #50', 'EFECTIVO', NULL, NULL, 1, 53850, NULL),
 (28, '2025-11-30', '20:55:36', 'EGRESO', 53850, 'Cierre de caja general', 'EFECTIVO', NULL, 'CIERRE', 1, 0, NULL),
 (29, '2025-11-30', '20:55:42', 'INGRESO', 20000, 'Apertura de caja general', 'EFECTIVO', NULL, 'APERTURA', 1, 20000, NULL),
-(30, '2025-11-30', '21:51:12', 'INGRESO', 3650, 'Venta de servicios - Factura #51', 'EFECTIVO', NULL, NULL, 1, 23650, NULL);
+(30, '2025-11-30', '21:51:12', 'INGRESO', 3650, 'Venta de servicios - Factura #51', 'EFECTIVO', NULL, NULL, 1, 23650, NULL),
+(31, '2025-12-02', '18:02:44', 'INGRESO', 1200, 'Venta de servicios - Factura #52', 'EFECTIVO', NULL, NULL, 1, 24850, NULL),
+(32, '2025-12-02', '19:15:36', 'INGRESO', 250, 'Venta de servicios - Factura #53', 'EFECTIVO', NULL, NULL, 1, 25100, NULL),
+(33, '2025-12-03', '04:30:03', 'INGRESO', 250, 'Venta de servicios - Factura #54', 'EFECTIVO', NULL, NULL, 1, 25350, NULL),
+(34, '2025-12-03', '16:29:06', 'INGRESO', 500, 'Venta de servicios - Factura #55', 'EFECTIVO', NULL, NULL, 1, 25850, NULL);
 
 -- --------------------------------------------------------
 
@@ -376,6 +359,24 @@ INSERT INTO `canton` (`id`, `id_provincia`, `canton`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `carrito_cotizacion`
+--
+
+CREATE TABLE `carrito_cotizacion` (
+  `id` int(11) NOT NULL,
+  `id_servicio` int(11) NOT NULL,
+  `cantidad` int(11) NOT NULL DEFAULT 1,
+  `precio` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `total` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `vendedor` int(11) NOT NULL,
+  `cliente` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `categorias_servicios`
 --
 
@@ -421,7 +422,7 @@ CREATE TABLE `cierre` (
 --
 
 CREATE TABLE `cliente` (
-  `id` int(9) NOT NULL,
+  `id` int(11) NOT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `ci_pasaporte` varchar(30) DEFAULT NULL,
   `tipo_documento` enum('CI','PASAPORTE','OTRO') DEFAULT 'CI',
@@ -439,26 +440,53 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id`, `nombre`, `ci_pasaporte`, `tipo_documento`, `nacionalidad`, `fecha_nacimiento`, `telefono`, `email`, `direccion`, `descuento`, `habilitado`) VALUES
-(1, 'Cliente Contado', NULL, 'CI', NULL, NULL, NULL, NULL, NULL, '0', 1),
-(2, 'Carlos Roca ', '23424', 'CI', 'Brasileña ', '2025-11-04', '42342', 'ewqeqewq@gmail.com', 'wqwqeqw', '12', 1);
+(10, 'Juan Pérez', NULL, '', NULL, NULL, '70000001', 'juan@example.com', NULL, '0', 1),
+(11, 'María Torres', NULL, '', NULL, NULL, '70000002', 'maria@example.com', NULL, '0', 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `clientes`
+-- Estructura de tabla para la tabla `comisiones_vendedores`
 --
 
-CREATE TABLE `clientes` (
+CREATE TABLE `comisiones_vendedores` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(200) NOT NULL,
-  `documento` varchar(100) DEFAULT NULL,
-  `telefono` varchar(50) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `direccion` varchar(200) DEFAULT NULL,
-  `tipo` varchar(50) DEFAULT NULL,
-  `habilitado` tinyint(1) DEFAULT 1,
-  `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp()
+  `id_vendedor` int(11) NOT NULL,
+  `idfactura` int(11) NOT NULL,
+  `comision_monto` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comision_detalle`
+--
+
+CREATE TABLE `comision_detalle` (
+  `id` int(11) NOT NULL,
+  `id_venta` int(11) NOT NULL,
+  `id_vendedor` int(11) NOT NULL,
+  `comision` decimal(12,2) NOT NULL DEFAULT 0.00,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `comprobante`
+--
+
+CREATE TABLE `comprobante` (
+  `id` int(11) NOT NULL,
+  `id_venta` int(11) NOT NULL,
+  `tipo` enum('COMPROBANTE','FACTURA') NOT NULL DEFAULT 'COMPROBANTE',
+  `nro_comprobante` varchar(30) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `monto_total` decimal(12,2) NOT NULL DEFAULT 0.00,
+  `usuario` int(11) NOT NULL,
+  `pdf_path` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -468,32 +496,48 @@ CREATE TABLE `clientes` (
 
 CREATE TABLE `cotizacion` (
   `id` int(11) NOT NULL,
-  `codigo` varchar(30) NOT NULL,
-  `id_cliente` int(11) DEFAULT NULL,
+  `codigo` varchar(50) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `fecha` date NOT NULL,
   `hora` time NOT NULL,
   `validez_dias` int(11) NOT NULL DEFAULT 7,
-  `total` decimal(12,2) NOT NULL DEFAULT 0.00,
-  `moneda` varchar(5) NOT NULL DEFAULT 'BOB',
-  `estado` enum('BORRADOR','ENVIADA','ACEPTADA','RECHAZADA') NOT NULL DEFAULT 'BORRADOR',
-  `observacion` varchar(255) DEFAULT NULL,
-  `usuario` int(11) NOT NULL
+  `fecha_vencimiento` date DEFAULT NULL,
+  `subtotal` decimal(10,2) DEFAULT 0.00,
+  `descuento` decimal(10,2) DEFAULT 0.00,
+  `iva` decimal(10,2) DEFAULT 0.00,
+  `it` decimal(10,2) DEFAULT 0.00,
+  `total` decimal(10,2) NOT NULL DEFAULT 0.00,
+  `moneda` varchar(10) NOT NULL DEFAULT 'BOB',
+  `tipo_cambio` decimal(10,2) DEFAULT 1.00,
+  `estado` enum('PENDIENTE','ACEPTADA','RECHAZADA','VENCIDA') NOT NULL DEFAULT 'PENDIENTE',
+  `observacion` text DEFAULT NULL,
+  `probabilidad` int(3) DEFAULT 0,
+  `etapa` enum('NUEVO','CONTACTO','PROPUESTA ENVIADA','EN NEGOCIACIÓN','CASI CERRADO','GANADO','PERDIDO') NOT NULL DEFAULT 'NUEVO',
+  `fecha_envio` datetime DEFAULT NULL,
+  `fecha_seguimiento` datetime DEFAULT NULL,
+  `enviado_por` varchar(100) DEFAULT NULL,
+  `usuario` int(11) NOT NULL,
+  `fecha_aceptada` datetime DEFAULT NULL,
+  `fecha_rechazada` datetime DEFAULT NULL,
+  `convertida_venta` tinyint(1) NOT NULL DEFAULT 0,
+  `id_factura` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
-
 --
--- Estructura de tabla para la tabla `cotizaciones`
+-- Volcado de datos para la tabla `cotizacion`
 --
 
-CREATE TABLE `cotizaciones` (
-  `id` int(11) NOT NULL,
-  `id_cliente` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `estado` enum('PENDIENTE','ACEPTADA','RECHAZADA') DEFAULT 'PENDIENTE',
-  `observaciones` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `cotizacion` (`id`, `codigo`, `id_cliente`, `fecha`, `hora`, `validez_dias`, `fecha_vencimiento`, `subtotal`, `descuento`, `iva`, `it`, `total`, `moneda`, `tipo_cambio`, `estado`, `observacion`, `probabilidad`, `etapa`, `fecha_envio`, `fecha_seguimiento`, `enviado_por`, `usuario`, `fecha_aceptada`, `fecha_rechazada`, `convertida_venta`, `id_factura`) VALUES
+(100, 'COT-100', 100, '2025-12-02', '00:24:40', 7, NULL, '850.00', '0.00', '0.00', '0.00', '850.00', 'BOB', '1.00', 'PENDIENTE', 'Pasaje SCZ-BA', 10, 'NUEVO', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL),
+(101, 'COT-101', 101, '2025-12-02', '00:24:40', 7, NULL, '250.00', '0.00', '0.00', '0.00', '250.00', 'BOB', '1.00', 'PENDIENTE', 'Seguro internacional', 15, 'CONTACTO', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL),
+(102, 'COT-102', 100, '2025-12-02', '00:24:40', 7, NULL, '1200.00', '0.00', '0.00', '0.00', '1200.00', 'BOB', '1.00', 'PENDIENTE', 'Paquete Cusco 4 días', 20, '', NULL, NULL, NULL, 1, NULL, NULL, 1, NULL),
+(103, 'COT-103', 102, '2025-12-02', '00:24:40', 7, NULL, '500.00', '0.00', '0.00', '0.00', '500.00', 'BOB', '1.00', 'PENDIENTE', 'Visa Americana', 40, 'EN NEGOCIACIÓN', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL),
+(104, 'COT-104', 101, '2025-12-02', '00:24:40', 7, NULL, '1200.00', '0.00', '0.00', '0.00', '1200.00', 'BOB', '1.00', 'PENDIENTE', 'Paquete Cusco', 60, 'CASI CERRADO', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL),
+(105, 'COT-105', 100, '2025-12-02', '00:24:40', 7, NULL, '850.00', '0.00', '0.00', '0.00', '850.00', 'BOB', '1.00', 'ACEPTADA', 'Venta cerrada', 100, 'GANADO', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL),
+(106, 'COT-106', 102, '2025-12-02', '00:24:40', 7, NULL, '250.00', '0.00', '0.00', '0.00', '250.00', 'BOB', '1.00', 'RECHAZADA', 'Cliente no interesado', 0, 'PERDIDO', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL),
+(107, 'COT-20251202054027', 11, '2025-12-02', '05:40:27', 7, '2025-12-09', '250.00', '0.00', '0.00', '0.00', '250.00', 'BOB', '1.00', 'PENDIENTE', 'dasd', 0, 'NUEVO', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL),
+(108, 'COT-20251202055420', 10, '2025-12-02', '05:54:20', 7, '2025-12-09', '250.00', '0.00', '0.00', '0.00', '250.00', 'BOB', '1.00', 'PENDIENTE', 'dasd', 0, '', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL),
+(109, 'COT-20251203032217', 10, '2025-12-03', '03:22:17', 7, '2025-12-10', '850.00', '0.00', '0.00', '0.00', '850.00', 'USD', '1.00', 'PENDIENTE', 'dada', 0, 'NUEVO', NULL, NULL, NULL, 1, NULL, NULL, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -511,6 +555,22 @@ CREATE TABLE `cotizacion_detalle` (
   `subtotal` decimal(12,2) NOT NULL DEFAULT 0.00,
   `comision` decimal(12,2) NOT NULL DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `cotizacion_detalle`
+--
+
+INSERT INTO `cotizacion_detalle` (`id`, `id_cotizacion`, `id_producto`, `descripcion`, `cantidad`, `precio`, `subtotal`, `comision`) VALUES
+(100, 100, 100, 'Pasaje', 1, '850.00', '850.00', '0.00'),
+(101, 101, 102, 'Seguro viaje', 1, '250.00', '250.00', '0.00'),
+(102, 102, 101, 'Paquete Cusco', 1, '1200.00', '1200.00', '0.00'),
+(103, 103, 103, 'Visa USA', 1, '500.00', '500.00', '0.00'),
+(104, 104, 101, 'Paquete Cusco', 1, '1200.00', '1200.00', '0.00'),
+(105, 105, 100, 'Pasaje', 1, '850.00', '850.00', '0.00'),
+(106, 106, 102, 'Seguro', 1, '250.00', '250.00', '0.00'),
+(107, 107, 102, 'Seguro de viaje 15 días', 1, '250.00', '250.00', '0.00'),
+(108, 108, 102, 'Seguro de viaje 15 días', 1, '250.00', '250.00', '0.00'),
+(109, 109, 100, 'Pasaje Santa Cruz - Buenos Aires', 1, '850.00', '850.00', '0.00');
 
 -- --------------------------------------------------------
 
@@ -559,40 +619,6 @@ INSERT INTO `departamento` (`id`, `nombre`, `habilitada`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `detalleventa`
---
-
-CREATE TABLE `detalleventa` (
-  `id` int(11) NOT NULL,
-  `idfactura` int(11) NOT NULL,
-  `idventa` int(11) NOT NULL,
-  `producto` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL DEFAULT 1,
-  `precio` decimal(10,2) NOT NULL,
-  `total` decimal(10,2) NOT NULL,
-  `comision_porcentaje` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `comision_monto` decimal(10,2) NOT NULL DEFAULT 0.00,
-  `fecha` varchar(12) DEFAULT NULL,
-  `hora` varchar(12) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `detalle_cotizacion`
---
-
-CREATE TABLE `detalle_cotizacion` (
-  `id` int(11) NOT NULL,
-  `id_cotizacion` int(11) NOT NULL,
-  `id_producto` int(11) NOT NULL,
-  `cantidad` int(11) NOT NULL DEFAULT 1,
-  `precio_unitario` decimal(10,2) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `distrito`
 --
 
@@ -627,456 +653,6 @@ INSERT INTO `distrito` (`id`, `id_canton`, `distrito`) VALUES
 (10304, 103, 'San Rafael Arriba'),
 (10305, 103, 'San Antonio'),
 (10306, 103, 'Frailes'),
-(10307, 103, 'Patarrá'),
-(10308, 103, 'San Cristóbal'),
-(10309, 103, 'Rosario'),
-(10310, 103, 'Damas'),
-(10311, 103, 'San Rafael Abajo'),
-(10312, 103, 'Gravilias'),
-(10313, 103, 'Los Guido'),
-(10401, 104, 'Santiago'),
-(10402, 104, 'Mercedes Sur'),
-(10403, 104, 'Barbacoas'),
-(10404, 104, 'Grifo Alto'),
-(10405, 104, 'San Rafael'),
-(10406, 104, 'Candelaria'),
-(10407, 104, 'Desamparaditos'),
-(10408, 104, 'San Antonio'),
-(10409, 104, 'Chires'),
-(10501, 105, 'San Marcos'),
-(10502, 105, 'San Lorenzo'),
-(10503, 105, 'San Carlos'),
-(10601, 106, 'Aserrí'),
-(10602, 106, 'Tarbaca o Praga'),
-(10603, 106, 'Vuelta de Jorco'),
-(10604, 106, 'San Gabriel'),
-(10605, 106, 'La Legua'),
-(10606, 106, 'Monterrey'),
-(10607, 106, 'Salitrillos'),
-(10701, 107, 'Colón'),
-(10702, 107, 'Guayabo'),
-(10703, 107, 'Tabarcia'),
-(10704, 107, 'Piedras Negras'),
-(10705, 107, 'Picagres'),
-(10801, 108, 'Guadalupe'),
-(10802, 108, 'San Francisco'),
-(10803, 108, 'Calle Blancos'),
-(10804, 108, 'Mata de Plátano'),
-(10805, 108, 'Ipís'),
-(10806, 108, 'Rancho Redondo'),
-(10807, 108, 'Purral'),
-(10901, 109, 'Santa Ana'),
-(10902, 109, 'Salitral'),
-(10903, 109, 'Pozos o Concepción'),
-(10904, 109, 'Uruca o San Joaquín'),
-(10905, 109, 'Piedades'),
-(10906, 109, 'Brasil'),
-(11001, 110, 'Alajuelita'),
-(11002, 110, 'San Josecito'),
-(11003, 110, 'San Antonio'),
-(11004, 110, 'Concepción'),
-(11005, 110, 'San Felipe'),
-(11101, 111, 'San Isidro'),
-(11102, 111, 'San Rafael'),
-(11103, 111, 'Dulce Nombre de Jesús'),
-(11104, 111, 'Patalillo'),
-(11105, 111, 'Cascajal'),
-(11201, 112, 'San Ignacio'),
-(11202, 112, 'Guaitil'),
-(11203, 112, 'Palmichal'),
-(11204, 112, 'Cangrejal'),
-(11205, 112, 'Sabanillas'),
-(11301, 113, 'San Juan'),
-(11302, 113, 'Cinco Esquinas'),
-(11303, 113, 'Anselmo Llorente'),
-(11304, 113, 'León XIII'),
-(11305, 113, 'Colima'),
-(11401, 114, 'San Vicente'),
-(11402, 114, 'San Jerónimo'),
-(11403, 114, 'Trinidad'),
-(11501, 115, 'San Pedro'),
-(11502, 115, 'Sabanilla'),
-(11503, 115, 'Mercedes o Betania'),
-(11504, 115, 'San Rafael'),
-(11601, 116, 'San Pablo'),
-(11602, 116, 'San Pedro'),
-(11603, 116, 'San Juan de Mata'),
-(11604, 116, 'San Luis'),
-(11605, 116, 'Cárara'),
-(11701, 117, 'Santa María'),
-(11702, 117, 'Jardín'),
-(11703, 117, 'Copey'),
-(11801, 118, 'Curridabat'),
-(11802, 118, 'Granadilla'),
-(11803, 118, 'Sánchez'),
-(11804, 118, 'Tirrases'),
-(11901, 119, 'San Isidro de el General'),
-(11902, 119, 'General'),
-(11903, 119, 'Daniel Flores'),
-(11904, 119, 'Rivas'),
-(11905, 119, 'San Pedro'),
-(11906, 119, 'Platanares'),
-(11907, 119, 'Pejibaye'),
-(11908, 119, 'Cajón'),
-(11909, 119, 'Barú'),
-(11910, 119, 'Río Nuevo'),
-(11911, 119, 'Páramo'),
-(12001, 120, 'San Pablo'),
-(12002, 120, 'San Andrés'),
-(12003, 120, 'Llano Bonito'),
-(12004, 120, 'San Isidro'),
-(12005, 120, 'Santa Cruz'),
-(12006, 120, 'San Antonio'),
-(20101, 201, 'Alajuela'),
-(20102, 201, 'San José'),
-(20103, 201, 'Carrizal'),
-(20104, 201, 'San Antonio'),
-(20105, 201, 'Guácima'),
-(20106, 201, 'San Isidro'),
-(20107, 201, 'Sabanilla'),
-(20108, 201, 'San Rafael'),
-(20109, 201, 'Río Segundo'),
-(20110, 201, 'Desamparados'),
-(20111, 201, 'Turrucares'),
-(20112, 201, 'Tambor'),
-(20113, 201, 'La Garita'),
-(20114, 201, 'Sarapiquí'),
-(20201, 202, 'San Ramón'),
-(20202, 202, 'Santiago'),
-(20203, 202, 'San Juan'),
-(20204, 202, 'Piedades Norte'),
-(20205, 202, 'Piedades Sur'),
-(20206, 202, 'San Rafael'),
-(20207, 202, 'San Isidro'),
-(20208, 202, 'Angeles'),
-(20209, 202, 'Alfaro'),
-(20210, 202, 'Volio'),
-(20211, 202, 'Concepción'),
-(20212, 202, 'Zapotal'),
-(20213, 202, 'San Isidro de Peñas Blancas'),
-(20301, 203, 'Grecia'),
-(20302, 203, 'San Isidro'),
-(20303, 203, 'San José'),
-(20304, 203, 'San Roque'),
-(20305, 203, 'Tacares'),
-(20306, 203, 'Río Cuarto'),
-(20307, 203, 'Puente Piedra'),
-(20308, 203, 'Bolívar'),
-(20401, 204, 'San Mateo'),
-(20402, 204, 'Desmonte'),
-(20403, 204, 'Jesús María'),
-(20501, 205, 'Atenas'),
-(20502, 205, 'Jesús'),
-(20503, 205, 'Mercedes'),
-(20504, 205, 'San Isidro'),
-(20505, 205, 'Concepción'),
-(20506, 205, 'San José'),
-(20507, 205, 'Santa Eulalia'),
-(20508, 205, 'Escobal'),
-(20601, 206, 'Naranjo'),
-(20602, 206, 'San Miguel'),
-(20603, 206, 'San José'),
-(20604, 206, 'Cirrí Sur'),
-(20605, 206, 'San Jerónimo'),
-(20606, 206, 'San Juan'),
-(20607, 206, 'Rosario'),
-(20701, 207, 'Palmares'),
-(20702, 207, 'Zaragoza'),
-(20703, 207, 'Buenos Aires'),
-(20704, 207, 'Santiago'),
-(20705, 207, 'Candelaria'),
-(20706, 207, 'Esquipulas'),
-(20707, 207, 'La Granja'),
-(20801, 208, 'San Pedro'),
-(20802, 208, 'San Juan'),
-(20803, 208, 'San Rafael'),
-(20804, 208, 'Carrillos'),
-(20805, 208, 'Sabana Redonda'),
-(20901, 209, 'Orotina'),
-(20902, 209, 'Mastate'),
-(20903, 209, 'Hacienda Vieja'),
-(20904, 209, 'Coyolar'),
-(20905, 209, 'Ceiba'),
-(21001, 210, 'Quesada'),
-(21002, 210, 'Florencia'),
-(21003, 210, 'Buenavista'),
-(21004, 210, 'Aguas Zarcas'),
-(21005, 210, 'Venecia'),
-(21006, 210, 'Pital'),
-(21007, 210, 'Fortuna'),
-(21008, 210, 'Tigra'),
-(21009, 210, 'Palmera'),
-(21010, 210, 'Venado'),
-(21011, 210, 'Cutris'),
-(21012, 210, 'Monterrey'),
-(21013, 210, 'Pocosol'),
-(21101, 211, 'Zarcero'),
-(21102, 211, 'Laguna'),
-(21103, 211, 'Tapezco'),
-(21104, 211, 'Guadalupe'),
-(21105, 211, 'Palmira'),
-(21106, 211, 'Zapote'),
-(21107, 211, 'Las Brisas'),
-(21201, 212, 'Sarchí Norte'),
-(21202, 212, 'Sarchí Sur'),
-(21203, 212, 'Toro Amarillo'),
-(21204, 212, 'San Pedro'),
-(21205, 212, 'Rodríguez'),
-(21301, 213, 'Upala'),
-(21302, 213, 'Aguas Claras'),
-(21303, 213, 'San José o Pizote'),
-(21304, 213, 'Bijagua'),
-(21305, 213, 'Delicias'),
-(21306, 213, 'Dos Ríos'),
-(21307, 213, 'Yolillal'),
-(21401, 214, 'Los Chiles'),
-(21402, 214, 'Caño Negro'),
-(21403, 214, 'Amparo'),
-(21404, 214, 'San Jorge'),
-(21501, 215, 'San Rafael'),
-(21502, 215, 'Buenavista'),
-(21503, 215, 'Cote'),
-(30101, 301, 'Oriental'),
-(30102, 301, 'Occidental'),
-(30103, 301, 'Carmen'),
-(30104, 301, 'San Nicolás'),
-(30105, 301, 'Aguacaliente o San Francisco'),
-(30106, 301, 'Guadalupe o Arenilla'),
-(30107, 301, 'Corralillo'),
-(30108, 301, 'Tierra Blanca'),
-(30109, 301, 'Dulce Nombre'),
-(30110, 301, 'Llano Grande'),
-(30111, 301, 'Quebradilla'),
-(30201, 302, 'Paraíso'),
-(30202, 302, 'Santiago'),
-(30203, 302, 'Orosi'),
-(30204, 302, 'Cachí'),
-(30205, 302, 'Los Llanos de Santa Lucía'),
-(30301, 303, 'Tres Ríos'),
-(30302, 303, 'San Diego'),
-(30303, 303, 'San Juan'),
-(30304, 303, 'San Rafael'),
-(30305, 303, 'Concepción'),
-(30306, 303, 'Dulce Nombre'),
-(30307, 303, 'San Ramón'),
-(30308, 303, 'Río Azul'),
-(30401, 304, 'Juan Viñas'),
-(30402, 304, 'Tucurrique'),
-(30403, 304, 'Pejibaye'),
-(30501, 305, 'Turrialba'),
-(30502, 305, 'La Suiza'),
-(30503, 305, 'Peralta'),
-(30504, 305, 'Santa Cruz'),
-(30505, 305, 'Santa Teresita'),
-(30506, 305, 'Pavones'),
-(30507, 305, 'Tuis'),
-(30508, 305, 'Tayutic'),
-(30509, 305, 'Santa Rosa'),
-(30510, 305, 'Tres Equis'),
-(30511, 305, 'La Isabel'),
-(30512, 305, 'Chirripó'),
-(30601, 306, 'Pacayas'),
-(30602, 306, 'Cervantes'),
-(30603, 306, 'Capellades'),
-(30701, 307, 'San Rafael'),
-(30702, 307, 'Cot'),
-(30703, 307, 'Potrero Cerrado'),
-(30704, 307, 'Cipreses'),
-(30705, 307, 'Santa Rosa'),
-(30801, 308, 'El Tejar'),
-(30802, 308, 'San Isidro'),
-(30803, 308, 'Tobosi'),
-(30804, 308, 'Patio de Agua'),
-(40101, 401, 'Heredia'),
-(40102, 401, 'Mercedes'),
-(40103, 401, 'San Francisco'),
-(40104, 401, 'Ulloa'),
-(40105, 401, 'Varablanca'),
-(40201, 402, 'Barva'),
-(40202, 402, 'San Pedro'),
-(40203, 402, 'San Pablo'),
-(40204, 402, 'San Roque'),
-(40205, 402, 'Santa Lucía'),
-(40206, 402, 'San José de la Montaña'),
-(40301, 403, 'Santo Domingo'),
-(40302, 403, 'San Vicente'),
-(40303, 403, 'San Miguel'),
-(40304, 403, 'Paracito'),
-(40305, 403, 'Santo Tomás'),
-(40306, 403, 'Santa Rosa'),
-(40307, 403, 'Tures'),
-(40308, 403, 'Pará'),
-(40401, 404, 'Santa Bárbara'),
-(40402, 404, 'San Pedro'),
-(40403, 404, 'San Juan'),
-(40404, 404, 'Jesús'),
-(40405, 404, 'Santo Domingo del Roble'),
-(40406, 404, 'Puraba'),
-(40501, 405, 'San Rafael'),
-(40502, 405, 'San Josecito'),
-(40503, 405, 'Santiago'),
-(40504, 405, 'Angeles'),
-(40505, 405, 'Concepción'),
-(40601, 406, 'San Isidro'),
-(40602, 406, 'San José'),
-(40603, 406, 'Concepción'),
-(40604, 406, 'San Francisco'),
-(40701, 407, 'San Antonio'),
-(40702, 407, 'La Ribera'),
-(40703, 407, 'Asunción'),
-(40801, 408, 'San Joaquín'),
-(40802, 408, 'Barrantes'),
-(40803, 408, 'Llorente'),
-(40901, 409, 'San Pablo'),
-(41001, 410, 'Puerto Viejo'),
-(41002, 410, 'La Virgen'),
-(41003, 410, 'Horquetas'),
-(41004, 410, 'Llanuras de Gaspar'),
-(41005, 410, 'Cureña'),
-(50101, 501, 'Liberia'),
-(50102, 501, 'Cañas Dulces'),
-(50103, 501, 'Mayorga'),
-(50104, 501, 'Nacascolo'),
-(50105, 501, 'Curubande'),
-(50201, 502, 'Nicoya'),
-(50202, 502, 'Mansión'),
-(50203, 502, 'San Antonio'),
-(50204, 502, 'Quebrada Honda'),
-(50205, 502, 'Sámara'),
-(50206, 502, 'Nósara'),
-(50207, 502, 'Belén de Nosarita'),
-(50301, 503, 'Santa Cruz'),
-(50302, 503, 'Bolsón'),
-(50303, 503, 'Veintisiete de Abril'),
-(50304, 503, 'Tempate'),
-(50305, 503, 'Cartagena'),
-(50306, 503, 'Cuajiniquil'),
-(50307, 503, 'Diriá'),
-(50308, 503, 'Cabo Velas'),
-(50309, 503, 'Tamarindo'),
-(50401, 504, 'Bagaces'),
-(50402, 504, 'Fortuna'),
-(50403, 504, 'Mogote'),
-(50404, 504, 'Río Naranjo'),
-(50501, 505, 'Filadelfia'),
-(50502, 505, 'Palmira'),
-(50503, 505, 'Sardinal'),
-(50504, 505, 'Belén'),
-(50601, 506, 'Cañas'),
-(50602, 506, 'Palmira'),
-(50603, 506, 'San Miguel'),
-(50604, 506, 'Bebedero'),
-(50605, 506, 'Porozal'),
-(50701, 507, 'Juntas'),
-(50702, 507, 'Sierra'),
-(50703, 507, 'San Juan'),
-(50704, 507, 'Colorado'),
-(50801, 508, 'Tilarán'),
-(50802, 508, 'Quebrada Grande'),
-(50803, 508, 'Tronadora'),
-(50804, 508, 'Santa Rosa'),
-(50805, 508, 'Líbano'),
-(50806, 508, 'Tierras Morenas'),
-(50807, 508, 'Arenal'),
-(50901, 509, 'Carmona'),
-(50902, 509, 'Santa Rita'),
-(50903, 509, 'Zapotal'),
-(50904, 509, 'San Pablo'),
-(50905, 509, 'Porvenir'),
-(50906, 509, 'Bejuco'),
-(51001, 510, 'La Cruz'),
-(51002, 510, 'Santa Cecilia'),
-(51003, 510, 'Garita'),
-(51004, 510, 'Santa Elena'),
-(51101, 511, 'Hojancha'),
-(51102, 511, 'Monte Romo'),
-(51103, 511, 'Puerto Carrillo'),
-(51104, 511, 'Huacas'),
-(60101, 601, 'Puntarenas'),
-(60102, 601, 'Pitahaya'),
-(60103, 601, 'Chomes'),
-(60104, 601, 'Lepanto'),
-(60105, 601, 'Paquera'),
-(60106, 601, 'Manzanillo'),
-(60107, 601, 'Guacimal'),
-(60108, 601, 'Barranca'),
-(60109, 601, 'Monte Verde'),
-(60110, 601, 'Isla del Coco'),
-(60111, 601, 'Cóbano'),
-(60112, 601, 'Chacarita'),
-(60113, 601, 'Chira'),
-(60114, 601, 'Acapulco'),
-(60115, 601, 'Roble'),
-(60116, 601, 'Arancibia'),
-(60201, 602, 'Espíritu Santo'),
-(60202, 602, 'San Juan Grande'),
-(60203, 602, 'Macacona'),
-(60204, 602, 'San Rafael'),
-(60205, 602, 'San Jerónimo'),
-(60301, 603, 'Buenos Aires'),
-(60302, 603, 'Volcán'),
-(60303, 603, 'Potrero Grande'),
-(60304, 603, 'Boruca'),
-(60305, 603, 'Pilas'),
-(60306, 603, 'Colinas o Bajo de Maíz'),
-(60307, 603, 'Chánguena'),
-(60308, 603, 'Bioley'),
-(60309, 603, 'Brunka'),
-(60401, 604, 'Miramar'),
-(60402, 604, 'Unión'),
-(60403, 604, 'San Isidro'),
-(60501, 605, 'Puerto Cortés'),
-(60502, 605, 'Palmar'),
-(60503, 605, 'Sierpe'),
-(60504, 605, 'Bahía Ballena'),
-(60505, 605, 'Piedras Blancas'),
-(60601, 606, 'Quepos'),
-(60602, 606, 'Savegre'),
-(60603, 606, 'Naranjito'),
-(60701, 607, 'Golfito'),
-(60702, 607, 'Puerto Jiménez'),
-(60703, 607, 'Guaycará'),
-(60704, 607, 'Pavon'),
-(60801, 608, 'San Vito'),
-(60802, 608, 'Sabalito'),
-(60803, 608, 'Agua Buena'),
-(60804, 608, 'Limoncito'),
-(60805, 608, 'Pittier'),
-(60901, 609, 'Parrita'),
-(61001, 610, 'Corredor'),
-(61002, 610, 'La Cuesta'),
-(61003, 610, 'Paso Canoas'),
-(61004, 610, 'Laurel'),
-(61101, 611, 'Jacó'),
-(61102, 611, 'Tárcoles'),
-(70101, 701, 'Limón'),
-(70102, 701, 'Valle La Estrella'),
-(70103, 701, 'Río Blanco'),
-(70104, 701, 'Matama'),
-(70201, 702, 'Guápiles'),
-(70202, 702, 'Jiménez'),
-(70203, 702, 'Rita'),
-(70204, 702, 'Roxana'),
-(70205, 702, 'Cariari'),
-(70206, 702, 'Colorado'),
-(70301, 703, 'Siquirres'),
-(70302, 703, 'Pacuarito'),
-(70303, 703, 'Florida'),
-(70304, 703, 'Germania'),
-(70305, 703, 'Cairo'),
-(70306, 703, 'Alegría'),
-(70401, 704, 'Bratsi'),
-(70402, 704, 'Sixaola'),
-(70403, 704, 'Cahuita'),
-(70404, 704, 'Telire'),
-(70501, 705, 'Matina'),
-(70502, 705, 'Batán'),
-(70503, 705, 'Carrandí'),
-(70601, 706, 'Guácimo'),
-(70602, 706, 'Mercedes'),
-(70603, 706, 'Pocora'),
-(70604, 706, 'Río Jiménez'),
-(70605, 706, 'Duacarí');
 
 -- --------------------------------------------------------
 
@@ -1198,7 +774,29 @@ INSERT INTO `factura` (`id`, `subtotal`, `iva`, `it`, `tipo_comprobante`, `total
 (48, '0.00', '0.00', '0.00', 'RECIBO', '2530', '0.00', '0.00', '2025-11-30', '18:20:08', '1', '1', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1),
 (49, '0.00', '0.00', '0.00', 'RECIBO', '880', '0.00', '0.00', '2025-11-30', '20:38:59', '1', '2', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1),
 (50, '0.00', '0.00', '0.00', 'RECIBO', '1650', '0.00', '0.00', '2025-11-30', '20:55:19', '1', '2', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1),
-(51, '0.00', '0.00', '0.00', 'RECIBO', '3650', '0.00', '0.00', '2025-11-30', '21:51:12', '1', '2', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1);
+(51, '0.00', '0.00', '0.00', 'RECIBO', '3650', '0.00', '0.00', '2025-11-30', '21:51:12', '1', '2', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1),
+(52, '0.00', '0.00', '0.00', 'RECIBO', '1200', '0.00', '0.00', '2025-12-02', '18:02:44', '1', '100', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1),
+(53, '0.00', '0.00', '0.00', 'RECIBO', '250', '0.00', '0.00', '2025-12-02', '19:15:36', '1', '11', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1),
+(54, '0.00', '0.00', '0.00', 'RECIBO', '250', '0.00', '0.00', '2025-12-03', '04:30:03', '1', '11', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1),
+(55, '0.00', '0.00', '0.00', 'RECIBO', '500', '0.00', '0.00', '2025-12-03', '16:29:06', '1', '11', NULL, NULL, 1, 'EFECTIVO', NULL, NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `facturacion_siat_config`
+--
+
+CREATE TABLE `facturacion_siat_config` (
+  `id` int(11) NOT NULL,
+  `nit` varchar(20) NOT NULL,
+  `razon_social` varchar(150) NOT NULL,
+  `codigo_sistema` varchar(100) DEFAULT NULL,
+  `cuis` varchar(100) DEFAULT NULL,
+  `cufd` varchar(200) DEFAULT NULL,
+  `token` text DEFAULT NULL,
+  `ambiente` enum('PRUEBA','PRODUCCION') DEFAULT 'PRUEBA',
+  `fecha_actualizacion` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -1399,7 +997,7 @@ INSERT INTO `perfil` (`id`, `perfil`, `comentario`, `habilitado`) VALUES
 --
 
 CREATE TABLE `producto` (
-  `id` int(9) NOT NULL,
+  `id` int(11) NOT NULL,
   `codigo` varchar(50) DEFAULT NULL,
   `nombre` varchar(255) DEFAULT NULL,
   `tipo_servicio` enum('PASAJE','PAQUETE','SEGURO','TRAMITE','OTRO') DEFAULT 'OTRO',
@@ -1419,22 +1017,22 @@ CREATE TABLE `producto` (
   `medida` varchar(50) DEFAULT NULL,
   `especificaciones` text DEFAULT NULL,
   `habilitado` tinyint(1) DEFAULT 1,
-  `categoria_id` int(11) DEFAULT NULL
+  `categoria_id` int(11) DEFAULT NULL,
+  `aerolinea` varchar(100) DEFAULT NULL,
+  `destino` varchar(150) DEFAULT NULL,
+  `fecha_salida` date DEFAULT NULL,
+  `fecha_retorno` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`id`, `codigo`, `nombre`, `tipo_servicio`, `descripcion`, `requiere_boleto`, `requiere_visa`, `preciocosto`, `precioventa`, `iva`, `comision`, `es_comisionable`, `proveedor`, `departamento`, `stock`, `stockMin`, `impuesto`, `medida`, `especificaciones`, `habilitado`, `categoria_id`) VALUES
-(1, 'SVC001', 'Pasaje Aéreo - Santa Cruz a Buenos Aires', 'OTRO', 'Vuelo ida con BOA', 0, 0, 800, 950, '13.00', '0.00', 1, 1, 1, NULL, NULL, 0, NULL, NULL, 0, NULL),
-(2, 'SVC002', 'Pasaje Aéreo - Santa Cruz a São Paulo', 'OTRO', 'Vuelo ida con GOL', 0, 0, 740, 880, '13.00', '0.00', 1, 2, 1, NULL, NULL, 0, NULL, NULL, 1, NULL),
-(3, 'SVC003', 'Pasaje Aéreo - Santa Cruz a Madrid', 'OTRO', 'Vuelo ida con Air Europa', 0, 0, 1400, 1650, '13.00', '0.00', 1, 3, 1, NULL, NULL, 0, NULL, NULL, 1, NULL),
-(4, 'TUR001', 'Paquete Turístico - Salar de Uyuni (3 días)', 'OTRO', 'Tour completo con hotel y transporte', 0, 0, 550, 720, '0.00', '0.00', 1, 4, 2, NULL, NULL, 0, NULL, NULL, 1, NULL),
-(5, 'TUR002', 'Paquete Turístico - Cusco & Machu Picchu', 'OTRO', 'Tour guiado por 5 días', 0, 0, 900, 1150, '0.00', '0.00', 1, 5, 2, NULL, NULL, 0, NULL, NULL, 0, NULL),
-(6, 'TRM001', 'Trámite de Visa Estados Unidos (DS-160)', 'OTRO', 'Asesoría completa + programación de cita', 0, 0, 0, 350, '0.00', '0.00', 1, NULL, 3, NULL, NULL, 0, NULL, NULL, 1, NULL),
-(7, 'TRM002', 'Trámite de Visa México', 'OTRO', 'Llenado de formularios + cita', 0, 0, 0, 220, '0.00', '0.00', 1, NULL, 3, NULL, NULL, 0, NULL, NULL, 1, NULL),
-(8, 'TRM003', 'Renovación de Pasaporte Boliviano', 'OTRO', 'Acompañamiento y requisitos', 0, 0, 0, 180, '0.00', '0.00', 1, NULL, 3, NULL, NULL, 0, NULL, NULL, 1, NULL);
+INSERT INTO `producto` (`id`, `codigo`, `nombre`, `tipo_servicio`, `descripcion`, `requiere_boleto`, `requiere_visa`, `preciocosto`, `precioventa`, `iva`, `comision`, `es_comisionable`, `proveedor`, `departamento`, `stock`, `stockMin`, `impuesto`, `medida`, `especificaciones`, `habilitado`, `categoria_id`, `aerolinea`, `destino`, `fecha_salida`, `fecha_retorno`) VALUES
+(100, NULL, 'Pasaje Santa Cruz - Buenos Aires', 'PASAJE', NULL, 0, 0, NULL, 850, '0.00', '0.00', 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL),
+(101, NULL, 'Paquete 4 días - Cusco', 'PAQUETE', NULL, 0, 0, NULL, 1200, '0.00', '0.00', 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL),
+(102, NULL, 'Seguro de viaje 15 días', 'SEGURO', NULL, 0, 0, NULL, 250, '0.00', '0.00', 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL),
+(103, NULL, 'Trámite de Visa Americana', 'TRAMITE', NULL, 0, 0, NULL, 500, '0.00', '0.00', 1, NULL, NULL, NULL, NULL, 0, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1612,7 +1210,7 @@ CREATE TABLE `tramites` (
 --
 
 CREATE TABLE `usuario` (
-  `id` int(11) NOT NULL COMMENT 'Identificador numérico para cada uno de los registros de la tabla.(Llave Primaria)',
+  `id` int(11) NOT NULL,
   `usuario` varchar(50) DEFAULT NULL COMMENT 'Nombre del pseudonimo del usuario del sistema',
   `contrasena` varchar(40) DEFAULT NULL COMMENT 'Contraseña de acceso al sistema',
   `id_vendedor` int(9) DEFAULT NULL COMMENT 'Identificador numérico para cada uno de los registros de la tabla.(Llave Foránea-Tabla Perfil)(1:1)',
@@ -1687,75 +1285,82 @@ CREATE TABLE `ventas` (
   `habilitada` int(1) DEFAULT 1,
   `anulada` tinyint(1) DEFAULT 0,
   `total` decimal(12,2) DEFAULT NULL,
-  `total_comision` decimal(12,2) DEFAULT NULL
+  `total_comision` decimal(12,2) DEFAULT NULL,
+  `iva_monto` decimal(10,2) DEFAULT 0.00,
+  `impuesto_monto` decimal(10,2) DEFAULT 0.00,
+  `comision_monto` decimal(10,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`id`, `idfactura`, `producto`, `cantidad`, `precio`, `totalprecio`, `vendedor`, `usuario_factura`, `cliente`, `nit`, `razon_social`, `fecha`, `hora`, `tipo`, `con_factura`, `metodo_pago`, `id_banco`, `referencia_pago`, `nro_comprobante`, `id_tramite`, `comision`, `habilitada`, `anulada`, `total`, `total_comision`) VALUES
-(1, 1, 3, 1, 1650, 1650, 1, NULL, 1, NULL, NULL, '21-11-2025', '02:40:10 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(2, 2, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '21-11-2025', '02:43:43 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(3, 3, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '21-11-2025', '04:56:27 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(4, 4, 4, 2, 720, 1440, 1, NULL, 1, NULL, NULL, '21-11-2025', '05:03:22 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(5, 5, 3, 1, 1650, 1650, 1, NULL, 1, NULL, NULL, '21-11-2025', '05:04:06 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(6, 6, 5, 2, 1150, 2300, 1, NULL, 1, NULL, NULL, '21-11-2025', '04:43:44 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(7, 7, 2, 1, 880, 880, 1, NULL, 1, NULL, NULL, '21-11-2025', '07:51:00 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(8, 9, 3, 1, 1650, 1650, 1, NULL, 1, NULL, NULL, '21-11-2025', '07:52:35 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL),
-(9, 10, 3, 2, 1650, 3300, 1, NULL, 1, NULL, NULL, '22-11-2025', '10:29:00 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(10, 11, 2, 1, 880, 880, 1, NULL, 1, NULL, NULL, '23-11-2025', '05:27:52 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(11, 12, 2, 4, 880, 3520, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:19:02 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(12, 13, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:26:14 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(13, 14, 3, 2, 1650, 3300, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:26:53 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(14, 14, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:32:41 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(15, 15, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:36:10 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(16, 16, 3, 1, 1650, 1650, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:44:15 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(17, 17, 4, 1, 720, 720, 2, NULL, 1, NULL, NULL, '24-11-2025', '01:13:24 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(18, 18, 2, 1, 880, 880, 1, NULL, 1, NULL, NULL, '24-11-2025', '01:37:59 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(19, 19, 5, 1, 1150, 1150, 1, NULL, 2, NULL, NULL, '24-11-2025', '07:35:15 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(20, 20, 4, 1, 720, 720, 2, NULL, 2, NULL, NULL, '24-11-2025', '07:41:29 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(21, 21, 3, 6, 1650, 9900, 1, NULL, 2, NULL, NULL, '25-11-2025', '04:12:07 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL),
-(22, 23, 2, 1, 880, 880, 1, 1, 2, NULL, NULL, '25-11-2025', '04:36:08 am', 1, 0, 'EFECTIVO', NULL, NULL, '1', NULL, 0, 1, 0, NULL, NULL),
-(23, 23, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '25-11-2025', '04:39:58 am', 1, 0, 'EFECTIVO', NULL, NULL, '1', NULL, 0, 1, 0, NULL, NULL),
-(24, 24, 5, 1, 1150, 1150, 1, 1, 2, NULL, NULL, '25-11-2025', '06:49:47 am', 1, 0, 'EFECTIVO', NULL, NULL, '2', NULL, 0, 1, 0, NULL, NULL),
-(25, 25, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '25-11-2025', '05:38:44 pm', 1, 0, 'EFECTIVO', NULL, NULL, '3', NULL, 0, 1, 0, NULL, NULL),
-(26, 26, 3, 3, 1650, 4950, 1, 1, 2, NULL, NULL, '27-11-2025', '04:59:38 am', 1, 0, 'EFECTIVO', NULL, NULL, '4', NULL, 0, 1, 0, NULL, NULL),
-(27, 27, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '27-11-2025', '07:37:09 am', 1, 0, 'EFECTIVO', NULL, NULL, '5', NULL, 0, 1, 0, NULL, NULL),
-(28, 28, 4, 1, 720, 720, 1, 1, 2, NULL, NULL, '27-11-2025', '08:09:32 pm', 1, 0, 'EFECTIVO', NULL, NULL, '6', NULL, 0, 1, 0, NULL, NULL),
-(29, 29, 2, 2, 880, 1760, 1, 1, 1, NULL, NULL, '28-11-2025', '04:38:34 am', 1, 0, 'EFECTIVO', NULL, NULL, '7', NULL, 0, 1, 0, NULL, NULL),
-(30, 30, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '28-11-2025', '04:40:07 am', 1, 0, 'EFECTIVO', NULL, NULL, '8', NULL, 0, 1, 0, NULL, NULL),
-(31, 31, 4, 1, 720, 720, 1, 1, 1, NULL, NULL, '28-11-2025', '04:42:13 am', 1, 0, 'EFECTIVO', NULL, NULL, '9', NULL, 0, 1, 0, NULL, NULL),
-(32, 32, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '28-11-2025', '05:21:19 am', 1, 0, 'EFECTIVO', NULL, NULL, '10', NULL, 0, 1, 0, NULL, NULL),
-(33, 32, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '28-11-2025', '05:23:00 am', 1, 0, 'EFECTIVO', NULL, NULL, '10', NULL, 0, 1, 0, NULL, NULL),
-(34, 33, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '28-11-2025', '05:41:27 am', 1, 0, 'EFECTIVO', NULL, NULL, '11', NULL, 0, 1, 0, NULL, NULL),
-(35, 34, 4, 1, 720, 720, 1, 1, 1, NULL, NULL, '28-11-2025', '05:47:07 am', 1, 0, 'EFECTIVO', NULL, NULL, '12', NULL, 0, 1, 0, NULL, NULL),
-(36, 35, 4, 1, 720, 720, 1, 1, 1, NULL, NULL, '28-11-2025', '06:03:59 am', 1, 0, 'EFECTIVO', NULL, NULL, '13', NULL, 0, 1, 0, NULL, NULL),
-(37, 36, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '28-11-2025', '06:46:34 am', 1, 0, 'EFECTIVO', NULL, NULL, '14', NULL, 0, 1, 0, NULL, NULL),
-(38, 37, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '28-11-2025', '06:50:16 am', 1, 0, 'EFECTIVO', NULL, NULL, '15', NULL, 0, 1, 0, NULL, NULL),
-(39, 38, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '2025-11-28', '08:57:29', 1, 0, 'EFECTIVO', NULL, NULL, '16', NULL, 0, 1, 0, NULL, NULL),
-(40, 39, 3, 12, 1650, 19800, 1, 1, 2, NULL, NULL, '2025-11-29', '17:06:51', 1, 0, 'EFECTIVO', NULL, NULL, '17', NULL, 0, 1, 0, NULL, NULL),
-(41, 40, 2, 1, 880, 880, 1, 1, 2, NULL, NULL, '2025-11-29', '19:14:25', 1, 0, 'EFECTIVO', NULL, NULL, '18', NULL, 0, 1, 0, NULL, NULL),
-(42, 41, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '2025-11-29', '22:39:33', 1, 0, 'EFECTIVO', NULL, NULL, '19', NULL, 0, 1, 0, NULL, NULL),
-(43, 42, 3, 2, 1650, 3300, 1, 1, 1, NULL, NULL, '2025-11-30', '01:01:18', 1, 0, 'EFECTIVO', NULL, NULL, '20', NULL, 0, 1, 0, NULL, NULL),
-(44, 43, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '2025-11-30', '01:09:22', 1, 0, 'EFECTIVO', NULL, NULL, '21', NULL, 0, 1, 0, NULL, NULL),
-(45, 43, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '2025-11-30', '01:09:22', 1, 0, 'EFECTIVO', NULL, NULL, '21', NULL, 0, 1, 0, NULL, NULL),
-(46, 44, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL),
-(47, 44, 3, 2, 1650, 3300, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL),
-(48, 44, 4, 1, 720, 720, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL),
-(49, 44, 8, 1, 180, 180, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL),
-(50, 44, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL),
-(51, 45, 2, 1, 880, 880, 1, 1, 2, NULL, NULL, '2025-11-30', '03:59:05', 1, 0, 'EFECTIVO', NULL, NULL, '23', NULL, 0, 1, 0, NULL, NULL),
-(52, 46, 6, 1, 350, 350, 1, 1, 1, NULL, NULL, '2025-11-30', '05:50:49', 1, 0, 'EFECTIVO', NULL, NULL, '24', NULL, 0, 1, 0, NULL, NULL),
-(53, 46, 7, 1, 220, 220, 1, 1, 1, NULL, NULL, '2025-11-30', '05:50:49', 1, 0, 'EFECTIVO', NULL, NULL, '24', NULL, 0, 1, 0, NULL, NULL),
-(54, 47, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '2025-11-30', '17:44:32', 1, 0, 'EFECTIVO', NULL, NULL, '25', NULL, 0, 1, 0, NULL, NULL),
-(55, 48, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '2025-11-30', '18:20:08', 1, 0, 'EFECTIVO', NULL, NULL, '26', NULL, 0, 1, 0, NULL, NULL),
-(56, 48, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '2025-11-30', '18:20:08', 1, 0, 'EFECTIVO', NULL, NULL, '26', NULL, 0, 1, 0, NULL, NULL),
-(57, 49, 2, 1, 880, 880, 1, 1, 2, NULL, NULL, '2025-11-30', '20:38:59', 1, 0, 'EFECTIVO', NULL, NULL, '27', NULL, 0, 1, 0, NULL, NULL),
-(58, 50, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '2025-11-30', '20:55:19', 1, 0, 'EFECTIVO', NULL, NULL, '28', NULL, 0, 1, 0, NULL, NULL),
-(59, 50, 0, 0, 0, 0, 1, 1, 2, NULL, NULL, '2025-11-30', '20:55:19', 1, 0, 'EFECTIVO', NULL, NULL, '28', NULL, 0, 1, 0, NULL, NULL),
-(60, 51, 3, 2, 1650, 3300, 1, 1, 2, NULL, NULL, '2025-11-30', '21:51:12', 1, 0, 'EFECTIVO', NULL, NULL, '29', NULL, 0, 1, 0, NULL, NULL),
-(61, 51, 6, 1, 350, 350, 1, 1, 2, NULL, NULL, '2025-11-30', '21:51:12', 1, 0, 'EFECTIVO', NULL, NULL, '29', NULL, 0, 1, 0, NULL, NULL);
+INSERT INTO `ventas` (`id`, `idfactura`, `producto`, `cantidad`, `precio`, `totalprecio`, `vendedor`, `usuario_factura`, `cliente`, `nit`, `razon_social`, `fecha`, `hora`, `tipo`, `con_factura`, `metodo_pago`, `id_banco`, `referencia_pago`, `nro_comprobante`, `id_tramite`, `comision`, `habilitada`, `anulada`, `total`, `total_comision`, `iva_monto`, `impuesto_monto`, `comision_monto`) VALUES
+(1, 1, 3, 1, 1650, 1650, 1, NULL, 1, NULL, NULL, '21-11-2025', '02:40:10 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(2, 2, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '21-11-2025', '02:43:43 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(3, 3, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '21-11-2025', '04:56:27 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(4, 4, 4, 2, 720, 1440, 1, NULL, 1, NULL, NULL, '21-11-2025', '05:03:22 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(5, 5, 3, 1, 1650, 1650, 1, NULL, 1, NULL, NULL, '21-11-2025', '05:04:06 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(6, 6, 5, 2, 1150, 2300, 1, NULL, 1, NULL, NULL, '21-11-2025', '04:43:44 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(7, 7, 2, 1, 880, 880, 1, NULL, 1, NULL, NULL, '21-11-2025', '07:51:00 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(8, 9, 3, 1, 1650, 1650, 1, NULL, 1, NULL, NULL, '21-11-2025', '07:52:35 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 0, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(9, 10, 3, 2, 1650, 3300, 1, NULL, 1, NULL, NULL, '22-11-2025', '10:29:00 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(10, 11, 2, 1, 880, 880, 1, NULL, 1, NULL, NULL, '23-11-2025', '05:27:52 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(11, 12, 2, 4, 880, 3520, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:19:02 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(12, 13, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:26:14 am', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(13, 14, 3, 2, 1650, 3300, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:26:53 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(14, 14, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:32:41 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(15, 15, 4, 1, 720, 720, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:36:10 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(16, 16, 3, 1, 1650, 1650, 1, NULL, 1, NULL, NULL, '24-11-2025', '12:44:15 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(17, 17, 4, 1, 720, 720, 2, NULL, 1, NULL, NULL, '24-11-2025', '01:13:24 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(18, 18, 2, 1, 880, 880, 1, NULL, 1, NULL, NULL, '24-11-2025', '01:37:59 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(19, 19, 5, 1, 1150, 1150, 1, NULL, 2, NULL, NULL, '24-11-2025', '07:35:15 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(20, 20, 4, 1, 720, 720, 2, NULL, 2, NULL, NULL, '24-11-2025', '07:41:29 pm', NULL, 0, 'EFECTIVO', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(21, 21, 3, 6, 1650, 9900, 1, NULL, 2, NULL, NULL, '25-11-2025', '04:12:07 am', 1, 0, '', NULL, NULL, NULL, NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(22, 23, 2, 1, 880, 880, 1, 1, 2, NULL, NULL, '25-11-2025', '04:36:08 am', 1, 0, 'EFECTIVO', NULL, NULL, '1', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(23, 23, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '25-11-2025', '04:39:58 am', 1, 0, 'EFECTIVO', NULL, NULL, '1', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(24, 24, 5, 1, 1150, 1150, 1, 1, 2, NULL, NULL, '25-11-2025', '06:49:47 am', 1, 0, 'EFECTIVO', NULL, NULL, '2', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(25, 25, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '25-11-2025', '05:38:44 pm', 1, 0, 'EFECTIVO', NULL, NULL, '3', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(26, 26, 3, 3, 1650, 4950, 1, 1, 2, NULL, NULL, '27-11-2025', '04:59:38 am', 1, 0, 'EFECTIVO', NULL, NULL, '4', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(27, 27, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '27-11-2025', '07:37:09 am', 1, 0, 'EFECTIVO', NULL, NULL, '5', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(28, 28, 4, 1, 720, 720, 1, 1, 2, NULL, NULL, '27-11-2025', '08:09:32 pm', 1, 0, 'EFECTIVO', NULL, NULL, '6', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(29, 29, 2, 2, 880, 1760, 1, 1, 1, NULL, NULL, '28-11-2025', '04:38:34 am', 1, 0, 'EFECTIVO', NULL, NULL, '7', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(30, 30, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '28-11-2025', '04:40:07 am', 1, 0, 'EFECTIVO', NULL, NULL, '8', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(31, 31, 4, 1, 720, 720, 1, 1, 1, NULL, NULL, '28-11-2025', '04:42:13 am', 1, 0, 'EFECTIVO', NULL, NULL, '9', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(32, 32, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '28-11-2025', '05:21:19 am', 1, 0, 'EFECTIVO', NULL, NULL, '10', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(33, 32, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '28-11-2025', '05:23:00 am', 1, 0, 'EFECTIVO', NULL, NULL, '10', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(34, 33, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '28-11-2025', '05:41:27 am', 1, 0, 'EFECTIVO', NULL, NULL, '11', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(35, 34, 4, 1, 720, 720, 1, 1, 1, NULL, NULL, '28-11-2025', '05:47:07 am', 1, 0, 'EFECTIVO', NULL, NULL, '12', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(36, 35, 4, 1, 720, 720, 1, 1, 1, NULL, NULL, '28-11-2025', '06:03:59 am', 1, 0, 'EFECTIVO', NULL, NULL, '13', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(37, 36, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '28-11-2025', '06:46:34 am', 1, 0, 'EFECTIVO', NULL, NULL, '14', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(38, 37, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '28-11-2025', '06:50:16 am', 1, 0, 'EFECTIVO', NULL, NULL, '15', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(39, 38, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '2025-11-28', '08:57:29', 1, 0, 'EFECTIVO', NULL, NULL, '16', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(40, 39, 3, 12, 1650, 19800, 1, 1, 2, NULL, NULL, '2025-11-29', '17:06:51', 1, 0, 'EFECTIVO', NULL, NULL, '17', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(41, 40, 2, 1, 880, 880, 1, 1, 2, NULL, NULL, '2025-11-29', '19:14:25', 1, 0, 'EFECTIVO', NULL, NULL, '18', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(42, 41, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '2025-11-29', '22:39:33', 1, 0, 'EFECTIVO', NULL, NULL, '19', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(43, 42, 3, 2, 1650, 3300, 1, 1, 1, NULL, NULL, '2025-11-30', '01:01:18', 1, 0, 'EFECTIVO', NULL, NULL, '20', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(44, 43, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '2025-11-30', '01:09:22', 1, 0, 'EFECTIVO', NULL, NULL, '21', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(45, 43, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '2025-11-30', '01:09:22', 1, 0, 'EFECTIVO', NULL, NULL, '21', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(46, 44, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(47, 44, 3, 2, 1650, 3300, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(48, 44, 4, 1, 720, 720, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(49, 44, 8, 1, 180, 180, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(50, 44, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '2025-11-30', '02:21:33', 1, 0, 'EFECTIVO', NULL, NULL, '22', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(51, 45, 2, 1, 880, 880, 1, 1, 2, NULL, NULL, '2025-11-30', '03:59:05', 1, 0, 'EFECTIVO', NULL, NULL, '23', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(52, 46, 6, 1, 350, 350, 1, 1, 1, NULL, NULL, '2025-11-30', '05:50:49', 1, 0, 'EFECTIVO', NULL, NULL, '24', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(53, 46, 7, 1, 220, 220, 1, 1, 1, NULL, NULL, '2025-11-30', '05:50:49', 1, 0, 'EFECTIVO', NULL, NULL, '24', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(54, 47, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '2025-11-30', '17:44:32', 1, 0, 'EFECTIVO', NULL, NULL, '25', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(55, 48, 3, 1, 1650, 1650, 1, 1, 1, NULL, NULL, '2025-11-30', '18:20:08', 1, 0, 'EFECTIVO', NULL, NULL, '26', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(56, 48, 2, 1, 880, 880, 1, 1, 1, NULL, NULL, '2025-11-30', '18:20:08', 1, 0, 'EFECTIVO', NULL, NULL, '26', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(57, 49, 2, 1, 880, 880, 1, 1, 2, NULL, NULL, '2025-11-30', '20:38:59', 1, 0, 'EFECTIVO', NULL, NULL, '27', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(58, 50, 3, 1, 1650, 1650, 1, 1, 2, NULL, NULL, '2025-11-30', '20:55:19', 1, 0, 'EFECTIVO', NULL, NULL, '28', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(59, 50, 0, 0, 0, 0, 1, 1, 2, NULL, NULL, '2025-11-30', '20:55:19', 1, 0, 'EFECTIVO', NULL, NULL, '28', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(60, 51, 3, 2, 1650, 3300, 1, 1, 2, NULL, NULL, '2025-11-30', '21:51:12', 1, 0, 'EFECTIVO', NULL, NULL, '29', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(61, 51, 6, 1, 350, 350, 1, 1, 2, NULL, NULL, '2025-11-30', '21:51:12', 1, 0, 'EFECTIVO', NULL, NULL, '29', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(62, 52, 101, 1, 1200, 1200, 1, 1, 100, NULL, NULL, '2025-12-02', '18:02:44', 1, 0, 'EFECTIVO', NULL, NULL, '30', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(63, 53, 102, 1, 250, 250, 1, 1, 11, NULL, NULL, '2025-12-02', '19:15:36', 1, 0, 'EFECTIVO', NULL, NULL, '31', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(64, 54, 102, 1, 250, 250, 1, 1, 11, NULL, NULL, '2025-12-03', '04:30:03', 1, 0, 'EFECTIVO', NULL, NULL, '32', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00'),
+(65, 55, 103, 1, 500, 500, 1, 1, 11, NULL, NULL, '2025-12-03', '16:29:06', 1, 0, 'EFECTIVO', NULL, NULL, '33', NULL, 0, 1, 0, NULL, NULL, '0.00', '0.00', '0.00');
 
 --
 -- Índices para tablas volcadas
@@ -1836,6 +1441,12 @@ ALTER TABLE `canton`
   ADD KEY `FK_CANTON_PROVINCIA` (`id_provincia`);
 
 --
+-- Indices de la tabla `carrito_cotizacion`
+--
+ALTER TABLE `carrito_cotizacion`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `categorias_servicios`
 --
 ALTER TABLE `categorias_servicios`
@@ -1854,23 +1465,31 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `clientes`
+-- Indices de la tabla `comisiones_vendedores`
 --
-ALTER TABLE `clientes`
+ALTER TABLE `comisiones_vendedores`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `comision_detalle`
+--
+ALTER TABLE `comision_detalle`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_venta` (`id_venta`),
+  ADD KEY `id_vendedor` (`id_vendedor`);
+
+--
+-- Indices de la tabla `comprobante`
+--
+ALTER TABLE `comprobante`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_venta` (`id_venta`);
 
 --
 -- Indices de la tabla `cotizacion`
 --
 ALTER TABLE `cotizacion`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `cotizaciones`
---
-ALTER TABLE `cotizaciones`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_cot_cliente` (`id_cliente`);
 
 --
 -- Indices de la tabla `cotizacion_detalle`
@@ -1891,23 +1510,6 @@ ALTER TABLE `credito`
 --
 ALTER TABLE `departamento`
   ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `detalleventa`
---
-ALTER TABLE `detalleventa`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `idx_factura` (`idfactura`),
-  ADD KEY `idx_venta` (`idventa`),
-  ADD KEY `idx_producto` (`producto`);
-
---
--- Indices de la tabla `detalle_cotizacion`
---
-ALTER TABLE `detalle_cotizacion`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_dc_cot` (`id_cotizacion`),
-  ADD KEY `fk_dc_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `distrito`
@@ -1932,6 +1534,12 @@ ALTER TABLE `establecimiento`
 -- Indices de la tabla `factura`
 --
 ALTER TABLE `factura`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `facturacion_siat_config`
+--
+ALTER TABLE `facturacion_siat_config`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -2115,7 +1723,7 @@ ALTER TABLE `cajaregistros`
 -- AUTO_INCREMENT de la tabla `cajatmp`
 --
 ALTER TABLE `cajatmp`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `caja_chica_movimientos`
@@ -2127,7 +1735,13 @@ ALTER TABLE `caja_chica_movimientos`
 -- AUTO_INCREMENT de la tabla `caja_general_movimientos`
 --
 ALTER TABLE `caja_general_movimientos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT de la tabla `carrito_cotizacion`
+--
+ALTER TABLE `carrito_cotizacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias_servicios`
@@ -2145,31 +1759,37 @@ ALTER TABLE `cierre`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT de la tabla `clientes`
+-- AUTO_INCREMENT de la tabla `comisiones_vendedores`
 --
-ALTER TABLE `clientes`
+ALTER TABLE `comisiones_vendedores`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `comision_detalle`
+--
+ALTER TABLE `comision_detalle`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `comprobante`
+--
+ALTER TABLE `comprobante`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `cotizacion`
 --
 ALTER TABLE `cotizacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `cotizaciones`
---
-ALTER TABLE `cotizaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT de la tabla `cotizacion_detalle`
 --
 ALTER TABLE `cotizacion_detalle`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
 
 --
 -- AUTO_INCREMENT de la tabla `credito`
@@ -2182,18 +1802,6 @@ ALTER TABLE `credito`
 --
 ALTER TABLE `departamento`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT de la tabla `detalleventa`
---
-ALTER TABLE `detalleventa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `detalle_cotizacion`
---
-ALTER TABLE `detalle_cotizacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `entradasalidaregistro`
@@ -2211,7 +1819,13 @@ ALTER TABLE `establecimiento`
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT de la tabla `facturacion_siat_config`
+--
+ALTER TABLE `facturacion_siat_config`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `iva`
@@ -2271,7 +1885,7 @@ ALTER TABLE `perfil`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
@@ -2319,7 +1933,7 @@ ALTER TABLE `tramites`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Identificador numérico para cada uno de los registros de la tabla.(Llave Primaria)', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `vendedores`
@@ -2331,7 +1945,7 @@ ALTER TABLE `vendedores`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(25) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- Restricciones para tablas volcadas
@@ -2351,25 +1965,17 @@ ALTER TABLE `canton`
   ADD CONSTRAINT `FK_CANTON_PROVINCIA` FOREIGN KEY (`id_provincia`) REFERENCES `provincia` (`id`);
 
 --
--- Filtros para la tabla `cotizaciones`
+-- Filtros para la tabla `comision_detalle`
 --
-ALTER TABLE `cotizaciones`
-  ADD CONSTRAINT `fk_cot_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`);
+ALTER TABLE `comision_detalle`
+  ADD CONSTRAINT `comision_detalle_ibfk_1` FOREIGN KEY (`id_venta`) REFERENCES `ventas` (`id`),
+  ADD CONSTRAINT `comision_detalle_ibfk_2` FOREIGN KEY (`id_vendedor`) REFERENCES `usuario` (`id`);
 
 --
--- Filtros para la tabla `detalleventa`
+-- Filtros para la tabla `comprobante`
 --
-ALTER TABLE `detalleventa`
-  ADD CONSTRAINT `fk_detalleventa_factura` FOREIGN KEY (`idfactura`) REFERENCES `factura` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_detalleventa_producto` FOREIGN KEY (`producto`) REFERENCES `producto` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_detalleventa_venta` FOREIGN KEY (`idventa`) REFERENCES `ventas` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `detalle_cotizacion`
---
-ALTER TABLE `detalle_cotizacion`
-  ADD CONSTRAINT `fk_dc_cot` FOREIGN KEY (`id_cotizacion`) REFERENCES `cotizaciones` (`id`),
-  ADD CONSTRAINT `fk_dc_producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`);
+ALTER TABLE `comprobante`
+  ADD CONSTRAINT `comprobante_ibfk_1` FOREIGN KEY (`id_venta`) REFERENCES `ventas` (`id`);
 
 --
 -- Filtros para la tabla `distrito`
@@ -2402,20 +2008,5 @@ ALTER TABLE `pagos_proveedor`
 ALTER TABLE `producto`
   ADD CONSTRAINT `FK_id_categoria` FOREIGN KEY (`departamento`) REFERENCES `departamento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_id_proveedor` FOREIGN KEY (`proveedor`) REFERENCES `proveedor` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `servicios`
---
-ALTER TABLE `servicios`
-  ADD CONSTRAINT `servicios_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `categorias_servicios` (`id`);
-
---
--- Filtros para la tabla `tramites`
---
-ALTER TABLE `tramites`
-  ADD CONSTRAINT `fk_tramites_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
