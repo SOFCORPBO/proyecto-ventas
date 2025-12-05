@@ -1,0 +1,250 @@
+/* =========================================================
+   GLOBAL CSS – SISTEMA DE AGENCIA DE VIAJES
+   Diseño Moderno / Dashboard SaaS / UX Pro
+   ========================================================= */
+
+/* ----------------------------
+   RESET Y CORRECCIONES
+---------------------------- */
+html,
+body {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f5f7fa;
+  padding-top: 85px !important; /* Corrige barra superior */
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 130px !important;
+  }
+}
+
+/* ----------------------------
+   NAVBAR Y MENÚ SUPERIOR
+---------------------------- */
+.navbar,
+.navbar-default,
+.navbar-fixed-top {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  background: #ffffff !important;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.navbar .navbar-brand img {
+  height: 34px;
+}
+
+/* Hover moderno */
+.navbar-nav > li > a:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ----------------------------
+   TITULOS Y ENCABEZADOS
+---------------------------- */
+.page-header {
+  border-bottom: 0;
+  margin-top: 10px !important;
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  font-weight: 600;
+  color: #333;
+}
+
+/* ----------------------------
+   TARJETAS KPI
+---------------------------- */
+
+.kpi-box {
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.15s;
+}
+
+.kpi-box:hover {
+  transform: translateY(-3px);
+}
+
+.kpi-title {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.kpi-value {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+/* Colores */
+.kpi-blue {
+  background: linear-gradient(135deg, #007bff, #0056c9);
+}
+.kpi-green {
+  background: linear-gradient(135deg, #28a745, #1c7d34);
+}
+.kpi-orange {
+  background: linear-gradient(135deg, #ff8c00, #e67600);
+}
+.kpi-dark {
+  background: linear-gradient(135deg, #2c3e50, #1b2838);
+}
+
+/* ----------------------------
+   PANEL / CARDS
+---------------------------- */
+.panel {
+  border-radius: 10px !important;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.panel-heading {
+  border-radius: 10px 10px 0 0 !important;
+  font-weight: 600;
+  padding: 15px;
+  font-size: 16px;
+}
+
+.panel-default .panel-heading {
+  background: #f4f7fa !important;
+}
+
+.panel-primary .panel-heading {
+  background: #007bff !important;
+  color: white !important;
+}
+
+.panel-warning .panel-heading {
+  background: #ff9800 !important;
+  color: white !important;
+}
+
+/* ----------------------------
+   BOTONES
+---------------------------- */
+.btn {
+  border-radius: 8px !important;
+  font-weight: 500;
+  padding: 8px 18px;
+}
+
+.btn-primary {
+  background: #007bff !important;
+  border-color: #005dc8 !important;
+}
+
+.btn-success {
+  background: #28a745 !important;
+}
+
+.btn-danger {
+  background: #dc3545 !important;
+}
+
+.btn-warning {
+  background: #ffc107 !important;
+}
+
+/* Hover */
+.btn:hover {
+  filter: brightness(0.92);
+}
+
+/* ----------------------------
+   TABLAS PROFESIONALES
+---------------------------- */
+.table {
+  background: white;
+  border-radius: 10px !important;
+  overflow: hidden;
+}
+
+.table > thead > tr {
+  background: #eef2f7;
+}
+
+.table > thead > tr > th {
+  font-weight: 600;
+}
+
+.table-striped > tbody > tr:nth-child(even) {
+  background: #fafbfc;
+}
+
+/* ----------------------------
+   DATATABLES
+---------------------------- */
+.dataTables_filter input {
+  border-radius: 5px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border-radius: 6px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: #007bff !important;
+  color: white !important;
+}
+
+/* ----------------------------
+   FORMULARIOS
+---------------------------- */
+.form-control {
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+/* ----------------------------
+   BADGES Y LABELS
+---------------------------- */
+.label {
+  padding: 5px 10px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+/* ----------------------------
+   MODALES
+---------------------------- */
+.modal-content {
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ----------------------------
+   GRÁFICAS (Chart.js)
+---------------------------- */
+.chart-container {
+  width: 100%;
+  min-height: 350px;
+}
+
+/* ----------------------------
+   FIX: ESPACIADO SUPERIOR
+---------------------------- */
+.section-top {
+  margin-top: 25px;
+}
+
+/* ----------------------------
+   FOOTER
+---------------------------- */
+footer {
+  margin-top: 40px;
+  padding: 25px 0;
+  background: #ffffff;
+  border-top: 1px solid #e6e6e6;
+}
+|
