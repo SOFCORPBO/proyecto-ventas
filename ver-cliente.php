@@ -6,7 +6,7 @@ $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
 $ClienteClase = new Cliente();
-//$TramitesClase = new Tramites();
+$TramitesClase = new Tramites();
 //$AlertasClase = new Alertas();
 
 $idCliente = intval($_GET['id']);

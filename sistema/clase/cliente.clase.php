@@ -10,7 +10,7 @@ class Cliente extends Conexion {
     }
 
     /* =====================================================
-       📌 CREAR CLIENTE
+       CREAR CLIENTE
     ====================================================== */
     public function CrearCliente()
     {
@@ -39,12 +39,11 @@ class Cliente extends Conexion {
             )
         ");
 
-        echo '<div class="alert alert-success">Cliente registrado correctamente.</div>';
-        echo '<meta http-equiv="refresh" content="1;url='.URLBASE.'cliente.php">';
+        echo '<meta http-equiv="refresh" content="0;url='.URLBASE.'clientes.php">';
     }
 
     /* =====================================================
-       📌 EDITAR CLIENTE
+       EDITAR CLIENTE
     ====================================================== */
     public function EditarCliente()
     {
@@ -54,7 +53,10 @@ class Cliente extends Conexion {
         $nombre         = ucwords($_POST['nombre']);
         $ci_pasaporte   = $_POST['ci_pasaporte'];
         $tipo_documento = $_POST['tipo_documento'];
-        $nacionalidad   = $_POST['nacionalacionalidad'];
+
+        // FIX: corregido error "nacionalacionalidad"
+        $nacionalidad   = $_POST['nacionalidad'];
+
         $fecha_nac      = $_POST['fecha_nacimiento'];
         $telefono       = $_POST['telefono'];
         $email          = $_POST['email'];
@@ -77,12 +79,11 @@ class Cliente extends Conexion {
             WHERE id=$id
         ");
 
-        echo '<div class="alert alert-success">Cliente actualizado correctamente.</div>';
-        echo '<meta http-equiv="refresh" content="1;url='.URLBASE.'cliente.php">';
+        echo '<meta http-equiv="refresh" content="0;url='.URLBASE.'clientes.php">';
     }
 
     /* =====================================================
-       📌 LISTAR CLIENTES
+       LISTAR CLIENTES
     ====================================================== */
     public function ListarClientes()
     {
@@ -92,7 +93,7 @@ class Cliente extends Conexion {
     }
 
     /* =====================================================
-       📌 OBTENER CLIENTE POR ID
+       OBTENER CLIENTE POR ID
     ====================================================== */
     public function ObtenerClientePorId($id)
     {
@@ -103,50 +104,46 @@ class Cliente extends Conexion {
     }
 
     /* =====================================================
-       📌 ACTIVAR CLIENTE
+       ACTIVAR CLIENTE
     ====================================================== */
     public function ActivarCliente()
     {
         if (!isset($_POST['ActivarCliente'])) return;
 
         $id = intval($_POST['id']);
-
         $this->db->SQL("UPDATE cliente SET habilitado=1 WHERE id=$id");
 
-        echo '<meta http-equiv="refresh" content="0;url='.URLBASE.'cliente.php">';
+        echo '<meta http-equiv="refresh" content="0;url='.URLBASE.'clientes.php">';
     }
 
     /* =====================================================
-       📌 DESACTIVAR CLIENTE
+       DESACTIVAR CLIENTE
     ====================================================== */
     public function DesactivarCliente()
     {
         if (!isset($_POST['DesactivarCliente'])) return;
 
         $id = intval($_POST['id']);
-
         $this->db->SQL("UPDATE cliente SET habilitado=0 WHERE id=$id");
 
-        echo '<meta http-equiv="refresh" content="0;url='.URLBASE.'cliente.php">';
+        echo '<meta http-equiv="refresh" content="0;url='.URLBASE.'clientes.php">';
     }
 
     /* =====================================================
-       📌 ELIMINAR CLIENTE
+       ELIMINAR CLIENTE
     ====================================================== */
     public function EliminarCliente()
     {
         if (!isset($_POST['EliminarCliente'])) return;
 
         $id = intval($_POST['id']);
-
         $this->db->SQL("DELETE FROM cliente WHERE id=$id");
 
-        echo '<div class="alert alert-success">Cliente eliminado.</div>';
-        echo '<meta http-equiv="refresh" content="1;url='.URLBASE.'cliente.php">';
+        echo '<meta http-equiv="refresh" content="0;url='.URLBASE.'clientes.php">';
     }
 
     /* =====================================================
-       📌 EXPEDIENTE — TRÁMITES ASOCIADOS
+       TRÁMITES ASOCIADOS
     ====================================================== */
     public function TramitesCliente($idCliente)
     {
@@ -159,21 +156,22 @@ class Cliente extends Conexion {
     }
 
     /* =====================================================
-       📌 EXPEDIENTE — HISTORIAL DE SERVICIOS (ventas)
+       HISTORIAL DE SERVICIOS (ventas)
+       (FIX: campos corregidos)
     ====================================================== */
     public function HistorialServicios($idCliente)
     {
         return $this->db->SQL("
             SELECT v.*, p.nombre AS servicio
             FROM ventas v
-            LEFT JOIN producto p ON p.id=v.idproducto
-            WHERE v.id_cliente=$idCliente
+            LEFT JOIN producto p ON p.id = v.producto
+            WHERE v.cliente = $idCliente
             ORDER BY v.id DESC
         ");
     }
 
     /* =====================================================
-       📌 EXPEDIENTE — COTIZACIONES
+       COTIZACIONES
     ====================================================== */
     public function CotizacionesCliente($idCliente)
     {
@@ -186,7 +184,7 @@ class Cliente extends Conexion {
     }
 
     /* =====================================================
-       📌 EXPEDIENTE — ALERTAS DE TRÁMITES
+       ALERTAS DEL CLIENTE
     ====================================================== */
     public function AlertasCliente($idCliente)
     {
@@ -200,14 +198,14 @@ class Cliente extends Conexion {
     }
 
     /* =====================================================
-       📌 DASHBOARD DEL CLIENTE (KPIs)
+       DASHBOARD
     ====================================================== */
     public function DashboardCliente($idCliente)
     {
         return $this->db->SQL("
             SELECT  
                 (SELECT COUNT(*) FROM tramites WHERE id_cliente=$idCliente) AS tramites,
-                (SELECT COUNT(*) FROM ventas WHERE id_cliente=$idCliente) AS servicios,
+                (SELECT COUNT(*) FROM ventas WHERE cliente=$idCliente) AS servicios,
                 (SELECT COUNT(*) FROM cotizacion WHERE id_cliente=$idCliente) AS cotizaciones,
                 (SELECT COUNT(*)
                     FROM notificaciones n

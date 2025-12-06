@@ -30,10 +30,12 @@
                     <a class="dropdown-toggle" data-toggle="dropdown"> CLIENTES Y EXPEDIENTES <span
                             class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo URLBASE ?>cliente.php">Clientes </a></li>
-                        <li><a href="<?php echo URLBASE ?>tramites.php">TRAMITES</a></li>
-                        <li><a href="<?php echo URLBASE ?>cliente-expediente.php">EXPEDIENTE</a></li>
+                        <li><a href="<?php echo URLBASE ?>cliente-dashboard.php">Dashboard Cliente</a></li>
+                        <li><a href="<?php echo URLBASE ?>cliente.php">Gestion Clientes </a></li>
+                        <li><a href="<?php echo URLBASE ?>tramites.php">Tramites</a></li>
                         <li><a href="<?php echo URLBASE ?>cotizacion-kamban.php">Cotizaciones </a></li>
+                        <li><a href="<?php echo URLBASE ?>alertas-visa.php">Alertas </a></li>
+
                     </ul>
                 </li>
 

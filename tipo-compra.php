@@ -1,17 +1,17 @@
 <?php
-/*
-|-------------------------------------------------------------
-| FORMULARIO PARA REGISTRAR EL PAGO / FACTURA / RECIBO
-|-------------------------------------------------------------
-*/
-
+// TOTAL SOLO DEL CLIENTE ACTUAL
 $TotalSQL = $db->SQL("
     SELECT SUM(totalprecio) AS total 
     FROM cajatmp 
     WHERE vendedor='{$usuarioApp['id']}'
+      AND cliente='{$_SESSION['cliente_actual']}'
 ");
 $Total = $TotalSQL->fetch_assoc();
 $TotalPagar = $Total['total'] ?? 0;
+
+// Obtener nombre del cliente actual
+$ClienteData = $db->SQL("SELECT nombre FROM cliente WHERE id={$_SESSION['cliente_actual']}")->fetch_assoc();
+$ClienteNombre = $ClienteData['nombre'] ?? 'SIN NOMBRE';
 ?>
 
 <!-- MODAL REGISTRAR VENTA -->
@@ -23,26 +23,20 @@ $TotalPagar = $Total['total'] ?? 0;
                 <div class="modal-header">
                     <h4 class="modal-title">
                         Registrar Venta – Total:
-                        <strong class="text-success">$ <?php echo number_format($TotalPagar, 2); ?></strong>
+                        <strong class="text-success">$ <?= number_format($TotalPagar, 2); ?></strong>
                     </h4>
                 </div>
 
                 <div class="modal-body">
-                    <div class="row">
 
-                        <!-- CLIENTE -->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Cliente</label>
-                                <select class="form-control" name="cliente" required>
-                                    <?php foreach ($SelectorClientesArray as $c): ?>
-                                    <option value="<?php echo $c['id']; ?>">
-                                        <?php echo $c['nombre']; ?>
-                                    </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </div>
-                        </div>
+                    <!-- CLIENTE (FIJO) -->
+                    <input type="hidden" name="cliente" value="<?= $_SESSION['cliente_actual'] ?>">
+
+                    <div class="well well-sm">
+                        <strong>Cliente seleccionado:</strong> <?= $ClienteNombre ?>
+                    </div>
+
+                    <div class="row">
 
                         <!-- ¿CON FACTURA? -->
                         <div class="col-md-6">
@@ -55,12 +49,8 @@ $TotalPagar = $Total['total'] ?? 0;
                             </div>
                         </div>
 
-                    </div>
-
-                    <div class="row">
-
                         <!-- MÉTODO DE PAGO -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Método de Pago</label>
                                 <select class="form-control" name="metodo_pago" id="metodo_pago" required>
@@ -72,8 +62,12 @@ $TotalPagar = $Total['total'] ?? 0;
                             </div>
                         </div>
 
+                    </div>
+
+                    <div class="row">
+
                         <!-- CAJA -->
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label>Caja</label>
                                 <select class="form-control" name="tipo_caja" required>
@@ -83,15 +77,13 @@ $TotalPagar = $Total['total'] ?? 0;
                             </div>
                         </div>
 
-                        <!-- BANCO SOLO SI NO ES EFECTIVO -->
-                        <div class="col-md-4" id="banco_div" style="display:none;">
+                        <!-- BANCO -->
+                        <div class="col-md-6" id="banco_div" style="display:none;">
                             <div class="form-group">
                                 <label>Banco</label>
                                 <select class="form-control" name="id_banco">
                                     <?php foreach ($ListaBancosArray as $b): ?>
-                                    <option value="<?php echo $b['id']; ?>">
-                                        <?php echo $b['nombre']; ?>
-                                    </option>
+                                    <option value="<?= $b['id'] ?>"><?= $b['nombre'] ?></option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -105,8 +97,7 @@ $TotalPagar = $Total['total'] ?? 0;
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Observaciones de la venta</label>
-                                <textarea class="form-control" name="observacion" rows="3"
-                                    placeholder="Ej: Detalles del servicio, notas adicionales"></textarea>
+                                <textarea class="form-control" name="observacion" rows="3"></textarea>
                             </div>
                         </div>
 
@@ -115,9 +106,7 @@ $TotalPagar = $Total['total'] ?? 0;
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        Cerrar
-                    </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 
                     <button type="submit" name="RegistrarVenta" class="btn btn-primary">
                         <i class="fa fa-check"></i> Procesar Venta
@@ -129,14 +118,10 @@ $TotalPagar = $Total['total'] ?? 0;
     </div>
 </div>
 
-<!-- SCRIPT PARA MOSTRAR BANCO SI NO ES EFECTIVO -->
 <script>
+// Mostrar banco si no es efectivo
 document.getElementById('metodo_pago').addEventListener('change', function() {
     var metodo = this.value;
-    if (metodo === 'EFECTIVO') {
-        document.getElementById('banco_div').style.display = 'none';
-    } else {
-        document.getElementById('banco_div').style.display = 'block';
-    }
+    document.getElementById('banco_div').style.display = (metodo === 'EFECTIVO') ? 'none' : 'block';
 });
 </script>

@@ -6,14 +6,14 @@ $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
 // Cargar clase clientes
-$ClientesClase = new Clientes();
+$ClienteClase = new Cliente();
 
 // Ejecutar acciones
-$ClientesClase->EliminarCliente();
-$ClientesClase->ActivarCliente();
-$ClientesClase->DesactivarCliente();
+$ClienteClase->EliminarCliente();
+$ClienteClase->ActivarCliente();
+$ClienteClase->DesactivarCliente();
 
-$ListaClientes = $ClientesClase->ListarClientes();
+$ListaCliente = $ClienteClase->ListarCliente();
 ?>
 <!DOCTYPE html>
 <html lang="es">
