@@ -37,7 +37,66 @@
                         <li><a href="<?php echo URLBASE ?>alertas-visa.php">Alertas </a></li>
 
                     </ul>
+
+
                 </li>
+                <!-- PROVEEDORES -->
+                <!-- PROVEEDORES -->
+                <li class="dropdown menu">
+                    <a class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-truck"></i> Proveedores <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        <!-- DASHBOARD -->
+                        <li>
+                            <a href="<?php echo URLBASE ?>proveedores-dashboard.php">
+                                <i class="fa fa-area-chart"></i> Dashboard General
+                            </a>
+                        </li>
+
+                        <!-- GESTIÓN PRINCIPAL -->
+                        <li>
+                            <a href="<?php echo URLBASE ?>proveedores.php">
+                                <i class="fa fa-users"></i> Gestión de Proveedores
+                            </a>
+                        </li>
+
+                        <li role="separator" class="divider"></li>
+
+                        <!-- FACTURAS -->
+                        <li>
+                            <a href="<?php echo URLBASE ?>proveedor_factura.php">
+                                <i class="fa fa-file-text-o"></i> Facturas Recibidas
+                            </a>
+                        </li>
+
+                        <!-- PAGOS -->
+                        <li>
+                            <a href="<?php echo URLBASE ?>proveedor_pagos.php">
+                                <i class="fa fa-money"></i> Pagos Realizados
+                            </a>
+                        </li>
+
+                        <!-- DEUDAS -->
+                        <li>
+                            <a href="<?php echo URLBASE ?>proveedor_deudas.php">
+                                <i class="fa fa-exclamation-circle"></i> Deudas Pendientes
+                            </a>
+                        </li>
+
+                        <!-- HISTORIAL / ESTADO DE CUENTA -->
+                        <li>
+                            <a href="<?php echo URLBASE ?>proveedor_historial.php">
+                                <i class="fa fa-book"></i> Historial Financiero
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+
 
                 <!-- SERVICIOS -->
                 <li class="dropdown">

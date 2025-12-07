@@ -1,216 +1,224 @@
-<?php session_start();
-include ('sistema/configuracion.php');
+<?php
+session_start();
+define('acceso', true);
+
+require_once('sistema/configuracion.php'); // CARGA clase.php y $usuario automáticamente
+require_once('sistema/clase/proveedor.clase.php'); // SOLO una vez
+
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
+
+/* ==========================
+   Instancia
+========================== */
+$Proveedor = new Proveedor();
+
+/* ==========================
+   Acciones CRUD reales
+========================== */
+$Proveedor->CrearProveedor();
+$Proveedor->EditarProveedor();
+$Proveedor->ActivarProveedor();
+$Proveedor->DesactivarProveedor();
+$Proveedor->EliminarProveedor();
+
+/* ==========================
+   KPIs
+========================== */
+$KPI = $Proveedor->KPIs();
+
+/* ==========================
+   Listado proveedores
+========================== */
+$Lista = $Proveedor->ListarProveedores();
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-	<meta charset="utf-8">
-	<title><?php echo TITULO ?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<link rel="shortcut icon" href="<?php echo ESTATICO ?>img/favicon.ico">
-	<link rel="stylesheet" href="<?php echo ESTATICO ?>css/dataTables.bootstrap.css">
-	<?php include(MODULO.'Tema.CSS.php');?>
+    <meta charset="utf-8">
+    <title>Gestión de Proveedores | <?= TITULO ?></title>
+
+    <link rel="stylesheet" href="<?= ESTATICO ?>css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= ESTATICO ?>css/dataTables.bootstrap.css">
+    <?php include(MODULO . 'Tema.CSS.php'); ?>
+
+    <style>
+    .kpi-box {
+        padding: 18px;
+        color: #fff;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .k1 {
+        background: #3f51b5;
+    }
+
+    .k2 {
+        background: #4caf50;
+    }
+
+    .k3 {
+        background: #f44336;
+    }
+
+    .k4 {
+        background: #009688;
+    }
+    </style>
 </head>
+
 <body>
-	<?php
-	// Menu inicio
-	if($usuarioApp['id_perfil']==2){
-		include (MODULO.'menu_vendedor.php');
-	}elseif($usuarioApp['id_perfil']==1){
-		include (MODULO.'menu_admin.php');
-	}else{
-		echo'<meta http-equiv="refresh" content="0;url='.URLBASE.'cerrar-sesion"/>';
-	}
-	//Menu Fin
-	?>
-	<div id="wrap">
-		<div class="container">
 
-			<div class="page-header" id="banner">
-				<div class="row">
-					<div class="col-lg-8 col-md-7 col-sm-6">
-						<h1>Proveedores</h1>
-					</div>
-				</div>
-			</div>
-			<?php
-			$ProductosClase->CrearProveedor();
-			$ProductosClase->EliminarProveedor();
-			$ProductosClase->EditarProveedor();
-			?>
+    <?php
+if ($usuarioApp['id_perfil']==1) include(MODULO.'menu_admin.php');
+else include(MODULO.'menu_vendedor.php');
+?>
 
-			<div class="row">
-				<div class="col-md-8">
-					<div class="">
-						<table class="table table-bordered" id="Proveedor">
-							<thead>
-								<tr>
-									<td><strong>Nombre Proveedor</strong></td>
-									<td><strong>Tel&eacute;fono Contacto</strong></td>
-									<td><strong>Persona Contacto</strong></td>
-									<td><strong><center>Estado</center></strong></td>
-									<td><strong><center>Opciones</center></strong></td>
-								</tr>
-							</thead>
-							<tbody>
-								<?php foreach($ProveedoresStockArray as $ProveedoresStockRow): ?>
-								<tr>
-									<td><?php echo $ProveedoresStockRow['nombre']; ?></td>
-									<td><?php echo $ProveedoresStockRow['telefono']; ?></td>
-									<td><?php echo $ProveedoresStockRow['contacto']; ?></td>
-									<td>
-										<center>
-										<?php
-										if($ProveedoresStockRow['habilitado'] == 1){
-											echo'<span class="label label-success">Activo</span>';
-										}else{
-											echo'<span class="label label-danger">No Activo</span>';
-										}
-										?>
-										</center>
-									</td>
-									<td>
-										<!-- Modal Eliminar-->
-										<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#EliminarProveedor<?php echo $ProveedoresStockRow['id']; ?>"><i class="fa fa-trash-o"></i></button>
-										<!-- Modal Eliminar Final -->
-										<!-- Modal Editar -->
-										<button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#EditarProveedor<?php echo $ProveedoresStockRow['id']; ?>"><i class="fa fa-pencil-square-o"></i></button>
-										<!-- Modal Editar -->
-									</td>
-								</tr>
+    <div class="container" id="wrap">
 
-								<!-- Modal Eliminar-->
-								<div class="modal fade" id="EliminarProveedor<?php echo $ProveedoresStockRow['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								  <div class="modal-dialog">
-									<div class="modal-content">
-									  <div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title" id="myModalLabesl">Eliminar <?php echo $ProveedoresStockRow['nombre']; ?> del sistema</h4>
-									  </div>
-									  <div class="modal-body">
-										<form method="post" action="" class="form-horizontal" >
-											<input type="hidden" name="IdProveedor" value="<?php echo $ProveedoresStockRow['id']; ?>">
-											<input type="hidden" name="nombre" value="<?php echo $ProveedoresStockRow['nombre']; ?>">
-											<div class="form-group">
-												<div class="input-group">
-													¿Est&aacute; seguro que desea eliminar el proveedor?
-												</div>
-											</div>
-											<div class="form-group">
-											   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-												<button type="submit" name="EliminarProveedor" class="btn btn-primary">Si, Eliminar</button>
-											</div>
-										</form>
-									  </div>
-									</div>
-								  </div>
-								</div>
-								<!-- Modal Eliminar Fin -->
-								<!-- Modal Editar-->
-								<div class="modal fade" id="EditarProveedor<?php echo $ProveedoresStockRow['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-									<div class="modal-dialog">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-												<h4 class="modal-title" id="myModalLabel">Editar Proveedor <?php echo $ProveedoresStockRow['nombre']; ?></h4>
-											</div>
-											<div class="modal-body">
-												<form method="post" action="" class="form-horizontal">
-													<input type="hidden" name="IdProveedor" value="<?php echo $ProveedoresStockRow['id']; ?>">
-													<div class="form-group">
-														<label>Nombre Proveedor</label>
-														<input type="text" class="form-control" name="nombre" value="<?php echo $ProveedoresStockRow['nombre']; ?>" required autocomplete="off"/>
-													</div>
-													<div class="form-group">
-														<label>Tel&eacute;fono Proveedor</label>
-														<input type="text" class="form-control" name="telefono" value="<?php echo $ProveedoresStockRow['telefono']; ?>" required autocomplete="off"/>
-													</div>
-													<div class="form-group">
-														<label>Persona de Contacto</label>
-														<input type="text" class="form-control" name="contacto" value="<?php echo $ProveedoresStockRow['contacto']; ?>" required autocomplete="off"/>
-													</div>
-													<div class="form-group">
-														<label>Direcci&oacute;n Proveedor</label>
-														<input type="text" class="form-control" name="direccion" value="<?php echo $ProveedoresStockRow['direccion']; ?>" required autocomplete="off"/>
-													</div>
-													<div class="form-group">
-														<label>Estado</label>
-														<select name="estado" class="form-control">
-															<option value="1" <?php if($ProveedoresStockRow['habilitado']=='1'){ echo 'selected'; }else{} ?>>ACTIVO</option>
-															<option value="0" <?php if($ProveedoresStockRow['habilitado']=='0'){ echo 'selected'; }else{} ?>>NO ACTIVO</option>
-														</select>
-													</div>
-													<div class="form-group">
-														<button type="submit" name="EditarProveedor" class="btn btn-primary">Editar Proveedor</button>
-														<a href="#" class="btn btn-default">Cancelar</a>
-													</div>
-												</form>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Modal Editar Final -->
-								<?php endforeach?>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="panel panel-default">
-						<div class="panel-heading"><strong>Crear Proveedores</strong></div>
-						<div class="panel-body">
-							<form method="post" action="" class="form-horizontal">
-								<div class="form-group">
-									<label>Nombre Proveedor</label>
-									<input type="text" class="form-control" name="nombre" required autocomplete="off"/>
-								</div>
-								<div class="form-group">
-									<label>Tel&eacute;fono Proveedor</label>
-									<input type="text" class="form-control" name="telefono" required autocomplete="off"/>
-								</div>
-								<div class="form-group">
-									<label>Persona de Contacto</label>
-									<input type="text" class="form-control" name="contacto" required autocomplete="off"/>
-								</div>
-								<div class="form-group">
-									<label>Direcci&oacute;n Proveedor</label>
-									<input type="text" class="form-control" name="direccion" required autocomplete="off"/>
-								</div>
-								<div class="form-group">
-									<label>Estado</label>
-									<select name="estado" class="form-control">
-										<option value="1" selected="">ACTIVO</option>
-										<option value="0">NO ACTIVO</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<button type="submit" name="CrearProveedor" class="btn btn-primary">Crear Proveedor</button>
-									<a href="#" class="btn btn-default">Cancelar</a>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+        <div class="page-header">
+            <h1><i class="fa fa-truck"></i> Gestión de Proveedores</h1>
+
+            <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#ModalProveedor"
+                onclick="NuevoProveedor()">
+                <i class="fa fa-plus"></i> Nuevo Proveedor
+            </button>
+            <div style="clear:both;"></div>
+        </div>
+
+        <!-- =============================
+         KPI PRINCIPALES
+    ============================= -->
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="kpi-box k1">
+                    <h2><?= $KPI['total'] ?></h2>
+                    <small>Total Proveedores</small>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="kpi-box k2">
+                    <h2><?= $KPI['activos'] ?></h2>
+                    <small>Activos</small>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="kpi-box k3">
+                    <h2><?= $KPI['inactivos'] ?></h2>
+                    <small>Inactivos</small>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="kpi-box k4">
+                    <h2><?= number_format($KPI['deuda_total'],2) ?> Bs</h2>
+                    <small>Deuda Total</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- =============================
+         TABLA PRINCIPAL
+    ============================= -->
+        <table class="table table-bordered table-striped" id="tabla_proveedores">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Proveedor</th>
+                    <th>Tipo</th>
+                    <th>Contacto</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Saldo</th>
+                    <th>Estado</th>
+                    <th width="180">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while($p = $Lista->fetch_assoc()): ?>
+                <tr>
+                    <td><?= $p['id'] ?></td>
+                    <td><?= $p['nombre'] ?></td>
+                    <td><?= $p['tipo_proveedor'] ?></td>
+                    <td><?= $p['contacto'] ?></td>
+                    <td><?= $p['email'] ?></td>
+                    <td><?= $p['telefono'] ?></td>
+                    <td><strong><?= number_format($p['saldo_pendiente'],2) ?> Bs</strong></td>
+
+                    <td>
+                        <span class="label <?= $p['habilitado'] ? 'label-success':'label-danger' ?>">
+                            <?= $p['habilitado'] ? 'Activo':'Inactivo' ?>
+                        </span>
+                    </td>
+
+                    <td>
+                        <!-- Editar -->
+                        <button class="btn btn-warning btn-xs" data-toggle="modal" data-target="#ModalProveedor"
+                            onclick='EditarProveedor(<?= json_encode($p, JSON_HEX_APOS | JSON_HEX_QUOT) ?>)'>
+                            <i class="fa fa-pencil"></i>
+                        </button>
+
+                        <!-- Activar / Desactivar -->
+                        <form method="post" style="display:inline-block;">
+                            <input type="hidden"
+                                name="<?= $p['habilitado']==1?'DesactivarProveedor':'ActivarProveedor' ?>">
+                            <input type="hidden" name="id" value="<?= $p['id'] ?>">
+
+                            <button class="btn btn-<?= $p['habilitado']==1?'warning':'success' ?> btn-xs">
+                                <i class="fa <?= $p['habilitado']==1?'fa-ban':'fa-check' ?>"></i>
+                            </button>
+                        </form>
+
+                        <!-- Eliminar -->
+                        <form method="post" style="display:inline-block;"
+                            onsubmit="return confirm('¿Eliminar proveedor?');">
+
+                            <input type="hidden" name="EliminarProveedor">
+                            <input type="hidden" name="id" value="<?= $p['id'] ?>">
+
+                            <button class="btn btn-danger btn-xs">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
+        </table>
+
     </div>
-	<?php include (MODULO.'footer.php'); ?>
-	<!-- Cargado archivos javascript al final para que la pagina cargue mas rapido -->
-	<?php include(MODULO.'Tema.JS.php');?>
-	<script type="text/javascript" language="javascript" src="<?php echo ESTATICO ?>js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" language="javascript" src="<?php echo ESTATICO ?>js/dataTables.bootstrap.js"></script>
-	<script type="text/javascript" charset="utf-8">
-	//Tablas Diseño
-	$(document).ready(function() {
-		$('#Proveedor').dataTable({
-			"scrollY": false,
-			"scrollX": true
-		});
-	});
-	</script>
-	<!-- Cargado archivos javascript al final para que la pagina cargue mas rapido Fin -->
+
+    <?php include("modal_proveedor.php"); ?>
+
+    <?php include(MODULO.'footer.php'); ?>
+    <?php include(MODULO.'Tema.JS.php'); ?>
+
+    <script src="<?= ESTATICO ?>js/jquery.dataTables.min.js"></script>
+    <script src="<?= ESTATICO ?>js/dataTables.bootstrap.js"></script>
+
+    <script>
+    $('#tabla_proveedores').dataTable();
+
+    function NuevoProveedor() {
+        document.getElementById("FormProveedor").reset();
+        document.getElementById("id").value = "";
+    }
+
+    function EditarProveedor(p) {
+        document.getElementById("id").value = p.id;
+        document.getElementById("nombre").value = p.nombre;
+        document.getElementById("telefono").value = p.telefono;
+        document.getElementById("contacto").value = p.contacto;
+        document.getElementById("email").value = p.email;
+        document.getElementById("direccion").value = p.direccion;
+        document.getElementById("tipo_proveedor").value = p.tipo_proveedor;
+        document.getElementById("habilitado").checked = (p.habilitado == 1);
+    }
+    </script>
+
 </body>
+
 </html>
