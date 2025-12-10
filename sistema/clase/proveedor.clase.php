@@ -11,23 +11,23 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 CREAR PROVEEDOR
+       CREAR PROVEEDOR
     ============================================================ */
     public function CrearProveedor()
     {
         if (!isset($_POST['CrearProveedor'])) return;
 
-        $nombre        = ucwords(trim($_POST['nombre']));
-        $telefono      = trim($_POST['telefono']);
-        $contacto      = trim($_POST['contacto']);
-        $direccion     = trim($_POST['direccion']);
-        $email         = trim($_POST['email']);
-        $tipo          = $_POST['tipo_proveedor'];
-        $habilitado    = isset($_POST['habilitado']) ? 1 : 0;
+        $nombre     = ucwords(trim($_POST['nombre']));
+        $telefono   = trim($_POST['telefono']);
+        $contacto   = trim($_POST['contacto']);
+        $direccion  = trim($_POST['direccion']);
+        $email      = trim($_POST['email']);
+        $tipo       = isset($_POST['tipo_proveedor']) ? $_POST['tipo_proveedor'] : 'OTRO';
+        $habilitado = isset($_POST['habilitado']) ? 1 : 0;
 
         $this->db->SQL("
             INSERT INTO proveedor (
-                nombre, telefono, contacto, direccion, email, 
+                nombre, telefono, contacto, direccion, email,
                 tipo_proveedor, saldo_pendiente, habilitado, fecha_registro
             ) VALUES (
                 '{$nombre}', '{$telefono}', '{$contacto}', '{$direccion}', '{$email}',
@@ -40,30 +40,30 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 EDITAR PROVEEDOR
+       EDITAR PROVEEDOR
     ============================================================ */
     public function EditarProveedor()
     {
         if (!isset($_POST['EditarProveedor'])) return;
 
-        $id           = intval($_POST['id']);
-        $nombre       = ucwords(trim($_POST['nombre']));
-        $telefono     = trim($_POST['telefono']);
-        $contacto     = trim($_POST['contacto']);
-        $direccion    = trim($_POST['direccion']);
-        $email        = trim($_POST['email']);
-        $tipo         = $_POST['tipo_proveedor'];
-        $habilitado   = isset($_POST['habilitado']) ? 1 : 0;
+        $id         = intval($_POST['id']);
+        $nombre     = ucwords(trim($_POST['nombre']));
+        $telefono   = trim($_POST['telefono']);
+        $contacto   = trim($_POST['contacto']);
+        $direccion  = trim($_POST['direccion']);
+        $email      = trim($_POST['email']);
+        $tipo       = isset($_POST['tipo_proveedor']) ? $_POST['tipo_proveedor'] : 'OTRO';
+        $habilitado = isset($_POST['habilitado']) ? 1 : 0;
 
         $this->db->SQL("
             UPDATE proveedor SET
-                nombre = '{$nombre}',
-                telefono = '{$telefono}',
-                contacto = '{$contacto}',
-                direccion = '{$direccion}',
-                email = '{$email}',
+                nombre         = '{$nombre}',
+                telefono       = '{$telefono}',
+                contacto       = '{$contacto}',
+                direccion      = '{$direccion}',
+                email          = '{$email}',
                 tipo_proveedor = '{$tipo}',
-                habilitado = '{$habilitado}'
+                habilitado     = '{$habilitado}'
             WHERE id = {$id}
         ");
 
@@ -72,7 +72,7 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 LISTAR PROVEEDORES
+       LISTAR PROVEEDORES
     ============================================================ */
     public function ListarProveedores()
     {
@@ -84,7 +84,7 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 OBTENER PROVEEDOR POR ID
+       OBTENER PROVEEDOR POR ID
     ============================================================ */
     public function ObtenerProveedor($id)
     {
@@ -101,7 +101,7 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 ACTIVAR PROVEEDOR
+       ACTIVAR PROVEEDOR
     ============================================================ */
     public function ActivarProveedor()
     {
@@ -115,7 +115,7 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 DESACTIVAR PROVEEDOR
+       DESACTIVAR PROVEEDOR
     ============================================================ */
     public function DesactivarProveedor()
     {
@@ -129,7 +129,7 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 ELIMINAR PROVEEDOR
+       ELIMINAR PROVEEDOR
     ============================================================ */
     public function EliminarProveedor()
     {
@@ -144,7 +144,7 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 LISTAR PROVEEDORES PARA SELECT (CAMPOS LIGEROS)
+       LISTAR PROVEEDORES PARA SELECT
     ============================================================ */
     public function SelectorProveedores()
     {
@@ -157,7 +157,7 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 OBTENER SALDO DEL PROVEEDOR
+       OBTENER SALDO DEL PROVEEDOR
     ============================================================ */
     public function ObtenerSaldo($idProveedor)
     {
@@ -175,13 +175,12 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 ACTUALIZAR SALDO (FACTURAS Y PAGOS)
+       ACTUALIZAR SALDO (FACTURAS - PAGOS)
     ============================================================ */
     public function ActualizarSaldo($idProveedor)
     {
         $idProveedor = intval($idProveedor);
 
-        // Total facturas pendientes
         $facturas = $this->db->SQL("
             SELECT SUM(monto_total - monto_pagado) AS deuda
             FROM proveedor_factura
@@ -190,7 +189,6 @@ class Proveedor extends Conexion
 
         $deuda = $facturas ? $facturas : 0;
 
-        // Actualizar en tabla proveedor
         $this->db->SQL("
             UPDATE proveedor
             SET saldo_pendiente = {$deuda}
@@ -201,7 +199,7 @@ class Proveedor extends Conexion
     }
 
     /* ============================================================
-       📌 KPI PROVEEDORES
+       KPIs PROVEEDORES
     ============================================================ */
     public function KPIs()
     {
@@ -213,7 +211,5 @@ class Proveedor extends Conexion
                 (SELECT SUM(saldo_pendiente) FROM proveedor) AS deuda_total
         ")->fetch_assoc();
     }
-
 }
-
 ?>

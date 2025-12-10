@@ -10,358 +10,277 @@ $usuario->VerificacionCuenta();
 
 $Proveedor = new Proveedor();
 
-/* ============================
-   CONSULTAS PRINCIPALES
-============================ */
+/* ================================
+   KPI PRINCIPALES
+================================ */
 $KPI = $Proveedor->KPIs();
 
-$Facturas = $db->SQL("
-    SELECT f.*, p.nombre AS proveedor
-    FROM proveedor_factura f
-    INNER JOIN proveedor p ON p.id=f.id_proveedor
-    ORDER BY f.id DESC
+// Facturas según estado
+$FacturasEstados = $db->SQL("
+    SELECT estado, COUNT(*) AS total, SUM(monto_total - monto_pagado) AS saldo
+    FROM proveedor_factura
+    GROUP BY estado
 ");
 
-$Pagos = $db->SQL("
-    SELECT pg.*, p.nombre AS proveedor
-    FROM proveedor_pago pg
-    INNER JOIN proveedor p ON p.id=pg.id_proveedor
-    ORDER BY pg.id DESC
-");
+$fact_pend = $fact_parc = $fact_pag = $fact_venc = 0;
+while ($f = $FacturasEstados->fetch_assoc()) {
+    if ($f['estado'] == 'PENDIENTE') $fact_pend = $f['total'];
+    if ($f['estado'] == 'PARCIAL')   $fact_parc = $f['total'];
+    if ($f['estado'] == 'PAGADA')    $fact_pag  = $f['total'];
+    if ($f['estado'] == 'VENCIDA')   $fact_venc = $f['total'];
+}
 
-$Deudas = $db->SQL("
-    SELECT p.id, p.nombre, p.saldo_pendiente
+// Top 10 proveedores con más deuda
+$TopDeudaSQL = $db->SQL("
+    SELECT p.nombre, p.tipo_proveedor, p.saldo_pendiente
     FROM proveedor p
     WHERE p.saldo_pendiente > 0
     ORDER BY p.saldo_pendiente DESC
+    LIMIT 10
 ");
 
-$Historial = $db->SQL("
-    SELECT 'FACTURA' AS tipo, f.fecha_emision AS fecha, f.monto_total AS monto, p.nombre AS proveedor
-    FROM proveedor_factura f
-    INNER JOIN proveedor p ON p.id=f.id_proveedor
-
-    UNION ALL
-
-    SELECT 'PAGO' AS tipo, pg.fecha_pago AS fecha, pg.monto AS monto, p.nombre AS proveedor
-    FROM proveedor_pago pg
-    INNER JOIN proveedor p ON p.id=pg.id_proveedor
-
-    ORDER BY fecha DESC
+// Últimos movimientos financieros
+$MovimientosSQL = $db->SQL("
+    SELECT pm.*, pr.nombre AS proveedor_nombre
+    FROM proveedor_movimiento pm
+    LEFT JOIN proveedor pr ON pr.id = pm.id_proveedor
+    ORDER BY pm.fecha DESC
+    LIMIT 50
 ");
 
-/* ============================
-   INGRESOS MENSUALES (FACTURAS)
-============================ */
-$MontosMensuales = $db->SQL("
-    SELECT DATE_FORMAT(fecha_emision, '%Y-%m') AS mes,
-           SUM(monto_total) AS total
-    FROM proveedor_factura
+// Ingresos/Egresos mensuales a proveedores
+$PagosMensualesSQL = $db->SQL("
+    SELECT DATE_FORMAT(fecha_pago, '%Y-%m') AS mes, SUM(monto) AS total
+    FROM proveedor_pago
     GROUP BY mes
     ORDER BY mes ASC
 ");
-
 ?>
 <!DOCTYPE html>
-<html>
-
+<html lang="es">
 <head>
     <meta charset="utf-8">
-    <title>Dashboard Proveedores | <?= TITULO ?></title>
+    <title>Dashboard de Proveedores | <?= TITULO ?></title>
 
     <link rel="stylesheet" href="<?= ESTATICO ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= ESTATICO ?>css/dataTables.bootstrap.css">
-    <?php include(MODULO . 'Tema.CSS.php'); ?>
+    <?php include(MODULO.'Tema.CSS.php'); ?>
 
     <style>
-    .kpi {
-        padding: 25px;
-        border-radius: 8px;
-        color: #fff;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .k1 {
-        background: #3f51b5;
-    }
-
-    .k2 {
-        background: #4caf50;
-    }
-
-    .k3 {
-        background: #f44336;
-    }
-
-    .k4 {
-        background: #009688;
-    }
-
-    .k5 {
-        background: #ff9800;
-    }
-
-    .tab-pane {
-        padding-top: 20px;
-    }
-
-    .timeline {
-        border-left: 3px solid #3f51b5;
-        margin-left: 20px;
-        padding-left: 20px;
-    }
-
-    .timeline-item {
-        margin-bottom: 20px;
-    }
-
-    .timeline-item span {
-        font-weight: bold;
-    }
+        .kpi-box {
+            padding: 18px;
+            color: #fff;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .k1 { background:#3f51b5; }
+        .k2 { background:#4caf50; }
+        .k3 { background:#f44336; }
+        .k4 { background:#009688; }
+        .k5 { background:#ff9800; }
+        .k6 { background:#9c27b0; }
     </style>
 </head>
-
 <body>
 
-    <?php
+<?php
 if ($usuarioApp['id_perfil']==1) include(MODULO.'menu_admin.php');
 else include(MODULO.'menu_vendedor.php');
 ?>
 
-    <div class="container" id="wrap">
+<div class="container" id="wrap">
 
-        <div class="page-header">
-            <h1><i class="fa fa-truck"></i> Dashboard de Proveedores</h1>
-            <p class="text-muted">Análisis financiero completo de proveedores.</p>
-        </div>
+    <div class="page-header">
+        <h1>Dashboard de Proveedores</h1>
+        <small class="text-muted">
+            Visión general de facturas, pagos, deudas y comportamiento financiero con proveedores.
+        </small>
+    </div>
 
-        <!-- ============================
+    <!-- ===========================
          KPIs PRINCIPALES
-    ============================= -->
-        <div class="row">
-            <div class="col-sm-3">
-                <div class="kpi k1">
-                    <h2><?= $KPI['total'] ?></h2>
-                    <small>Total Proveedores</small>
-                </div>
+    ============================ -->
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="kpi-box k1">
+                <h2><?= (int)$KPI['total'] ?></h2>
+                <small>Total Proveedores</small>
             </div>
-            <div class="col-sm-3">
-                <div class="kpi k2">
-                    <h2><?= $KPI['activos'] ?></h2>
-                    <small>Activos</small>
-                </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="kpi-box k2">
+                <h2><?= (int)$KPI['activos'] ?></h2>
+                <small>Proveedores Activos</small>
             </div>
-            <div class="col-sm-3">
-                <div class="kpi k3">
-                    <h2><?= $KPI['inactivos'] ?></h2>
-                    <small>Inactivos</small>
-                </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="kpi-box k3">
+                <h2><?= (int)$KPI['inactivos'] ?></h2>
+                <small>Proveedores Inactivos</small>
             </div>
-            <div class="col-sm-3">
-                <div class="kpi k4">
-                    <h2><?= number_format($KPI['deuda_total'],2) ?> Bs</h2>
-                    <small>Deuda Total</small>
-                </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="kpi-box k4">
+                <h2><?= number_format($KPI['deuda_total'],2) ?> Bs</h2>
+                <small>Deuda Total con Proveedores</small>
             </div>
         </div>
 
-        <!-- ============================
-         PESTAÑAS
-    ============================= -->
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#kpis">Resumen</a></li>
-            <li><a data-toggle="tab" href="#facturas">Facturas</a></li>
-            <li><a data-toggle="tab" href="#pagos">Pagos</a></li>
-            <li><a data-toggle="tab" href="#deudas">Deudas</a></li>
-            <li><a data-toggle="tab" href="#historial">Historial</a></li>
-        </ul>
-
-        <div class="tab-content">
-
-            <!-- ============================
-             TAB 1 – KPIs y GRÁFICOS
-        ============================= -->
-            <div id="kpis" class="tab-pane fade in active">
-
-                <h3><i class="fa fa-area-chart"></i> Resumen Financiero General</h3>
-
-                <canvas id="grafico_montos" height="100"></canvas>
-
+        <div class="col-sm-3">
+            <div class="kpi-box k5">
+                <h2><?= $fact_pend ?></h2>
+                <small>Facturas Pendientes</small>
             </div>
-
-            <!-- ============================
-             TAB 2 – FACTURAS
-        ============================= -->
-            <div id="facturas" class="tab-pane fade">
-
-                <h3><i class="fa fa-file-text-o"></i> Facturas Recibidas</h3>
-
-                <table class="table table-bordered table-striped" id="tabla_facturas">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Proveedor</th>
-                            <th>Fecha</th>
-                            <th>Monto Total</th>
-                            <th>Pagado</th>
-                            <th>Pendiente</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php while($f = $Facturas->fetch_assoc()): 
-                    $pendiente = $f['monto_total'] - $f['monto_pagado'];
-                ?>
-                        <tr>
-                            <td><?= $f['id'] ?></td>
-                            <td><?= $f['proveedor'] ?></td>
-                            <td><?= $f['fecha_emision'] ?></td>
-                            <td><?= number_format($f['monto_total'],2) ?> Bs</td>
-                            <td><?= number_format($f['monto_pagado'],2) ?> Bs</td>
-                            <td><strong><?= number_format($pendiente,2) ?> Bs</strong></td>
-                        </tr>
-                        <?php endwhile; ?>
-
-                    </tbody>
-                </table>
-
+        </div>
+        <div class="col-sm-3">
+            <div class="kpi-box k5">
+                <h2><?= $fact_parc ?></h2>
+                <small>Facturas en Pago Parcial</small>
             </div>
-
-            <!-- ============================
-             TAB 3 – PAGOS
-        ============================= -->
-            <div id="pagos" class="tab-pane fade">
-
-                <h3><i class="fa fa-money"></i> Pagos a Proveedores</h3>
-
-                <table class="table table-bordered table-striped" id="tabla_pagos">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Proveedor</th>
-                            <th>Fecha</th>
-                            <th>Monto</th>
-                            <th>Método</th>
-                            <th>Referencia</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        <?php while($p = $Pagos->fetch_assoc()): ?>
-                        <tr>
-                            <td><?= $p['id'] ?></td>
-                            <td><?= $p['proveedor'] ?></td>
-                            <td><?= $p['fecha_pago'] ?></td>
-                            <td><?= number_format($p['monto'],2) ?> Bs</td>
-                            <td><?= $p['metodo_pago'] ?></td>
-                            <td><?= $p['referencia'] ?></td>
-                        </tr>
-                        <?php endwhile; ?>
-
-                    </tbody>
-                </table>
-
+        </div>
+        <div class="col-sm-3">
+            <div class="kpi-box k6">
+                <h2><?= $fact_venc ?></h2>
+                <small>Facturas Vencidas</small>
             </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="kpi-box k6">
+                <h2><?= $fact_pag ?></h2>
+                <small>Facturas Pagadas</small>
+            </div>
+        </div>
+    </div>
 
-            <!-- ============================
-             TAB 4 – DEUDAS
-        ============================= -->
-            <div id="deudas" class="tab-pane fade">
+    <!-- ===========================
+         TABS PRINCIPALES
+    ============================ -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab-resumen" data-toggle="tab">Resumen General</a></li>
+        <li><a href="#tab-topdeuda" data-toggle="tab">Top Deudas</a></li>
+        <li><a href="#tab-movimientos" data-toggle="tab">Movimientos</a></li>
+        <li><a href="#tab-grafico" data-toggle="tab">Pagos Mensuales</a></li>
+    </ul>
 
-                <h3><i class="fa fa-exclamation-circle"></i> Deudas Pendientes</h3>
+    <div class="tab-content" style="margin-top:15px;">
 
-                <table class="table table-bordered table-striped" id="tabla_deudas">
+        <!-- TAB RESUMEN -->
+        <div class="tab-pane fade in active" id="tab-resumen">
+            <div class="alert alert-info">
+                Este panel te permite entender rápidamente la situación financiera global con tus proveedores:
+                total de deudas, facturas vencidas, y comportamiento de pagos.
+            </div>
+        </div>
+
+        <!-- TAB TOP DEUDA -->
+        <div class="tab-pane fade" id="tab-topdeuda">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Top 10 Proveedores con Mayor Deuda</strong></div>
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Proveedor</th>
+                            <th>Tipo</th>
                             <th>Saldo Pendiente</th>
                         </tr>
                     </thead>
                     <tbody>
-
-                        <?php while($d = $Deudas->fetch_assoc()): ?>
+                        <?php while($t = $TopDeudaSQL->fetch_assoc()): ?>
                         <tr>
-                            <td><?= $d['nombre'] ?></td>
-                            <td><strong><?= number_format($d['saldo_pendiente'],2) ?> Bs</strong></td>
+                            <td><?= $t['nombre'] ?></td>
+                            <td><?= $t['tipo_proveedor'] ?></td>
+                            <td><strong><?= number_format($t['saldo_pendiente'],2) ?> Bs</strong></td>
                         </tr>
                         <?php endwhile; ?>
-
                     </tbody>
                 </table>
-
             </div>
+        </div>
 
-            <!-- ============================
-             TAB 5 – HISTORIAL
-        ============================= -->
-            <div id="historial" class="tab-pane fade">
-
-                <h3><i class="fa fa-book"></i> Historial Financiero</h3>
-
-                <div class="timeline">
-
-                    <?php while($h = $Historial->fetch_assoc()): ?>
-                    <div class="timeline-item">
-                        <span><?= $h['fecha'] ?> – <?= $h['proveedor'] ?></span><br>
-                        <strong><?= $h['tipo'] ?></strong>: <?= number_format($h['monto'],2) ?> Bs
-                    </div>
-                    <?php endwhile; ?>
-
+        <!-- TAB MOVIMIENTOS -->
+        <div class="tab-pane fade" id="tab-movimientos">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Últimos Movimientos con Proveedores</strong></div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped" id="tabla_movimientos_prov">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Proveedor</th>
+                                <th>Tipo</th>
+                                <th>Descripción</th>
+                                <th>Monto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php while($m = $MovimientosSQL->fetch_assoc()): ?>
+                            <tr>
+                                <td><?= $m['fecha'] ?></td>
+                                <td><?= $m['proveedor_nombre'] ?></td>
+                                <td><?= $m['tipo'] ?></td>
+                                <td><?= $m['descripcion'] ?></td>
+                                <td><strong><?= number_format($m['monto'],2) ?> Bs</strong></td>
+                            </tr>
+                            <?php endwhile; ?>
+                        </tbody>
+                    </table>
                 </div>
-
             </div>
+        </div>
 
-        </div> <!-- /tab-content -->
+        <!-- TAB GRAFICO PAGOS MENSUALES -->
+        <div class="tab-pane fade" id="tab-grafico">
+            <div class="panel panel-default">
+                <div class="panel-heading"><strong>Pagos Mensuales a Proveedores</strong></div>
+                <div class="panel-body">
+                    <canvas id="chart_pagos_proveedores" height="100"></canvas>
+                </div>
+            </div>
+        </div>
 
-    </div><!-- /container -->
+    </div>
 
+</div>
 
-    <?php include(MODULO.'footer.php'); ?>
-    <?php include(MODULO.'Tema.JS.php'); ?>
+<?php include(MODULO.'footer.php'); ?>
+<?php include(MODULO.'Tema.JS.php'); ?>
 
-    <script src="<?= ESTATICO ?>js/jquery.dataTables.min.js"></script>
-    <script src="<?= ESTATICO ?>js/dataTables.bootstrap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="<?= ESTATICO ?>js/jquery.dataTables.min.js"></script>
+<script src="<?= ESTATICO ?>js/dataTables.bootstrap.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-    $("#tabla_facturas").dataTable();
-    $("#tabla_pagos").dataTable();
-    $("#tabla_deudas").dataTable();
+<script>
+$('#tabla_movimientos_prov').dataTable();
 
-    var ctx = document.getElementById("grafico_montos").getContext("2d");
-
-    var meses = [
-        <?php 
-            $MontosMensuales->data_seek(0);
-            while($m = $MontosMensuales->fetch_assoc()):
+// Gráfico pagos mensuales
+var ctx = document.getElementById('chart_pagos_proveedores').getContext('2d');
+var chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [
+            <?php 
+            $PagosMensualesSQL->data_seek(0);
+            while($m = $PagosMensualesSQL->fetch_assoc()):
                 echo "'".$m['mes']."',";
             endwhile;
-        ?>
-    ];
-
-    var totales = [
-        <?php 
-            $MontosMensuales->data_seek(0);
-            while($m = $MontosMensuales->fetch_assoc()):
-                echo $m['total'].",";
-            endwhile;
-        ?>
-    ];
-
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: meses,
-            datasets: [{
-                label: "Facturación de Proveedores",
-                backgroundColor: "#3f51b5",
-                data: totales
-            }]
-        }
-    });
-    </script>
+            ?>
+        ],
+        datasets: [{
+            label: "Pagos a Proveedores",
+            backgroundColor: "#3f51b5",
+            data: [
+                <?php 
+                $PagosMensualesSQL->data_seek(0);
+                while($m = $PagosMensualesSQL->fetch_assoc()):
+                    echo $m['total'].",";
+                endwhile;
+                ?>
+            ]
+        }]
+    }
+});
+</script>
 
 </body>
-
 </html>

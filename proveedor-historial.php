@@ -1,30 +1,18 @@
 <?php
 session_start();
-define('acceso', true);
-
-include('sistema/configuracion.php');
-
+include("sistema/configuracion.php");
+include("sistema/clase/proveedor.clase.php");
 
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
 $Proveedor = new Proveedor();
-global $db;
 
-$Historial = $db->SQL("
-    SELECT 'FACTURA' AS tipo, f.fecha_emision AS fecha, f.monto_total AS monto,
-           p.nombre AS proveedor, f.nro_factura AS ref
-    FROM proveedor_factura f
-    INNER JOIN proveedor p ON p.id=f.id_proveedor
-
-    UNION ALL
-
-    SELECT 'PAGO' AS tipo, pg.fecha_pago AS fecha, pg.monto AS monto,
-           p.nombre AS proveedor, pg.referencia AS ref
-    FROM proveedor_pago pg
-    INNER JOIN proveedor p ON p.id=pg.id_proveedor
-
-    ORDER BY fecha DESC
+$Movimientos = $db->SQL("
+    SELECT m.*, p.nombre AS proveedor_nombre
+    FROM proveedor_movimiento m
+    INNER JOIN proveedor p ON p.id = m.id_proveedor
+    ORDER BY m.fecha DESC
 ");
 ?>
 <!DOCTYPE html>
@@ -32,63 +20,40 @@ $Historial = $db->SQL("
 
 <head>
     <meta charset="utf-8">
-    <title>Historial Financiero Proveedores | <?= TITULO ?></title>
-
+    <title>Historial Financiero de Proveedores | <?= TITULO ?></title>
     <link rel="stylesheet" href="<?= ESTATICO ?>css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= ESTATICO ?>css/dataTables.bootstrap.css">
-    <?php include(MODULO . 'Tema.CSS.php'); ?>
-
-    <style>
-    .tipo-factura {
-        color: #3f51b5;
-        font-weight: bold;
-    }
-
-    .tipo-pago {
-        color: #4caf50;
-        font-weight: bold;
-    }
-    </style>
+    <?php include(MODULO."Tema.CSS.php"); ?>
 </head>
 
 <body>
 
-    <?php
-if ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
-else include(MODULO.'menu_vendedor.php');
-?>
+    <?php include(MODULO."menu_admin.php"); ?>
 
     <div class="container" id="wrap">
 
         <div class="page-header">
-            <h1><i class="fa fa-book"></i> Historial Financiero de Proveedores</h1>
-            <p class="text-muted">Línea de tiempo de facturas y pagos.</p>
+            <h1>Historial Financiero de Proveedores</h1>
         </div>
 
-        <table class="table table-bordered table-striped" id="tabla_historial">
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Fecha</th>
                     <th>Proveedor</th>
                     <th>Tipo</th>
-                    <th>Referencia</th>
+                    <th>Descripción</th>
                     <th>Monto</th>
+                    <th>Fecha</th>
                 </tr>
             </thead>
+
             <tbody>
-                <?php while($h = $Historial->fetch_assoc()): ?>
+                <?php while($m = $Movimientos->fetch_assoc()): ?>
                 <tr>
-                    <td><?= $h['fecha'] ?></td>
-                    <td><?= $h['proveedor'] ?></td>
-                    <td>
-                        <?php if($h['tipo']=='FACTURA'): ?>
-                        <span class="tipo-factura">Factura</span>
-                        <?php else: ?>
-                        <span class="tipo-pago">Pago</span>
-                        <?php endif; ?>
-                    </td>
-                    <td><?= $h['ref'] ?></td>
-                    <td><strong><?= number_format($h['monto'],2) ?> Bs</strong></td>
+                    <td><?= $m['proveedor_nombre'] ?></td>
+                    <td><?= $m['tipo'] ?></td>
+                    <td><?= $m['descripcion'] ?></td>
+                    <td><strong><?= number_format($m['monto'],2) ?> Bs</strong></td>
+                    <td><?= $m['fecha'] ?></td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>
@@ -96,19 +61,7 @@ else include(MODULO.'menu_vendedor.php');
 
     </div>
 
-    <?php include(MODULO.'footer.php'); ?>
-    <?php include(MODULO.'Tema.JS.php'); ?>
-
-    <script src="<?= ESTATICO ?>js/jquery.dataTables.min.js"></script>
-    <script src="<?= ESTATICO ?>js/dataTables.bootstrap.js"></script>
-
-    <script>
-    $('#tabla_historial').dataTable({
-        "order": [
-            [0, "desc"]
-        ]
-    });
-    </script>
+    <?php include(MODULO."footer.php"); ?>
 
 </body>
 
