@@ -6,21 +6,24 @@
 |--------------------------------------------------------------------------|
 */
 spl_autoload_register(function ($class_name) {
-    // Ruta completa del archivo de clase
     $file = SISTEMA . 'clase' . DS . strtolower($class_name) . '.clase.php';
 
-    // Depuración: Verificar la ruta que se está cargando
-    // Para producción, usa error_log en lugar de var_dump
-    error_log("Cargando clase: $file");  // Graba el mensaje en el archivo de logs
+    error_log("Cargando clase: $class_name desde: $file");
 
     if (file_exists($file)) {
         require_once($file);
+
+        // Si el archivo existe pero NO define la clase:
+        if (!class_exists($class_name, false)) {
+            error_log("Archivo cargado pero la clase '$class_name' no fue declarada en: $file");
+        }
     } else {
-        // Si el archivo no existe, mostramos un mensaje claro de error
-        echo "Archivo no encontrado: $file";
-        exit;  // Detener ejecución si no se encuentra la clase
+        // Recomendación: NO cortar todo el sistema por una clase que quizá no se usa en esa pantalla
+        error_log("Archivo de clase no encontrado: $file");
+        // NO echo + exit aquí (te rompe módulos que no usan esa clase)
     }
 });
+
 
 // Instanciar clases de manera correcta
 $db             = new Conexion();

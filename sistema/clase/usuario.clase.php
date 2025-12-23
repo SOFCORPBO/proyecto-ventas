@@ -4,33 +4,58 @@
 class Usuario extends Conexion {
 public function LoginUsuario(){
 
-    if (isset($_POST['sesionPost'])) {
+    if (!isset($_POST['sesionPost'])) {
+        return;
+    }
 
-        $usuarioPost = isset($_POST['usuarioPost']) ? trim($_POST['usuarioPost']) : null;
-        $contrasena  = isset($_POST['contrasenaPost']) ? trim($_POST['contrasenaPost']) : null;
+    $db = $this->Conectar();
 
-        // LOGIN SIN ENCRIPTACIÓN
-        $sql = "SELECT * FROM usuario
-                WHERE usuario = '{$usuarioPost}'
-                AND contrasena = '{$contrasena}'
-                AND habilitado = '1'";
+    $usuarioPost = isset($_POST['usuarioPost']) ? trim($_POST['usuarioPost']) : '';
+    $contrasena  = isset($_POST['contrasenaPost']) ? trim($_POST['contrasenaPost']) : '';
 
-        $UsuarioExisteSQL = $this->Conectar()->query($sql);
-        $UsuarioExiste    = $UsuarioExisteSQL->num_rows;
+    if ($usuarioPost === '' || $contrasena === '') {
+        return;
+    }
 
-        if ($UsuarioExiste == 1) {
+    // Buscar usuario
+    $stmt = $db->prepare("SELECT id, usuario, contrasena, id_perfil, habilitado FROM usuario WHERE usuario = ? LIMIT 1");
+    $stmt->bind_param("s", $usuarioPost);
+    $stmt->execute();
+    $res = $stmt->get_result();
 
-            $_SESSION['usuario'] = $usuarioPost;
+    if ($res && $res->num_rows === 1) {
 
-            header("location: index.php");
+        $u = $res->fetch_assoc();
+
+        if ((int)$u['habilitado'] !== 1) {
+            return;
+        }
+
+        // Compatibilidad: contraseña plana o SHA1 tipo (USER:PASS) en mayúsculas
+        $sha = sha1(strtoupper($u['usuario']) . ":" . strtoupper($contrasena));
+        $ok  = hash_equals((string)$u['contrasena'], (string)$contrasena) || hash_equals((string)$u['contrasena'], (string)$sha);
+
+        if ($ok) {
+            // Seguridad básica: regenerar sesión
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+            session_regenerate_id(true);
+
+            // Sesión completa (clave para que chat-config/chat-bridge NO te boten)
+            $_SESSION['usuario']    = $u['usuario'];
+            $_SESSION['id_usuario'] = (int)$u['id'];
+            $_SESSION['id_perfil']  = (int)$u['id_perfil'];
+            $_SESSION['mark']       = true;
+
+            header("Location: " . URLBASE . "index.php");
             exit();
-        } else {
-            // Puedes activar un aviso si quieres:
-            // echo "Usuario o contraseña incorrectos";
         }
     }
-}
 
+    // opcional: manejar error de login
+    // echo "Usuario o contraseña incorrectos";
+}
 	public function LoginCuentaConsulta(){
 
 		global $usuarioQuerySQL;
@@ -41,6 +66,16 @@ public function LoginUsuario(){
 		$SessionUsuario		= isset($_SESSION['usuario']) ? $_SESSION['usuario'] : null;
 		$usuarioQuerySQL	= $this->Conectar()->query("SELECT * FROM `usuario` WHERE usuario = '{$SessionUsuario}' AND habilitado='1'");
 		$usuarioApp			= $usuarioQuerySQL->fetch_assoc();
+		// Al final de LoginCuentaConsulta(), después de $usuarioApp = fetch_assoc();
+if (!empty($usuarioApp)) {
+    if (!isset($_SESSION['id_usuario']) && isset($usuarioApp['id'])) {
+        $_SESSION['id_usuario'] = (int)$usuarioApp['id'];
+    }
+    if (!isset($_SESSION['id_perfil']) && isset($usuarioApp['id_perfil'])) {
+        $_SESSION['id_perfil'] = (int)$usuarioApp['id_perfil'];
+    }
+}
+
 	}
 
 	public function VerificacionCuenta(){

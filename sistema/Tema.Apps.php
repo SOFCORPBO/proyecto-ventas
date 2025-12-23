@@ -1,1 +1,1 @@
-<?php define('TEMA', 'simplex'); ?>
+<?php define('TEMA', 'cosmo'); ?>
