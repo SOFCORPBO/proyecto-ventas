@@ -310,7 +310,8 @@ body.sidebar-collapsed .sidebar {
                 <li><a href="<?php echo URLBASE ?>impuestos-reportes.php"><i class="fa fa-bar-chart"></i> Reportes
                         Tributarios</a></li>
                 <li style="border-top:1px solid #e7e7e7; margin:6px 0;"></li>
-                <li><a href="<?php echo URLBASE ?>contabilidad.php"><i class="fa fa-sitemap"></i> Plan de Cuentas</a>
+                <li><a href="<?php echo URLBASE ?>contabilidad.cuentas.php"><i class="fa fa-sitemap"></i> Plan de
+                        Cuentas</a>
                 </li>
                 <li><a href="<?php echo URLBASE ?>conta-diario.php"><i class="fa fa-book"></i> Libro Diario</a></li>
                 <li><a href="<?php echo URLBASE ?>conta-mayor.php"><i class="fa fa-bookmark"></i> Libro Mayor</a></li>
@@ -343,6 +344,8 @@ body.sidebar-collapsed .sidebar {
                 <li><a href="<?php echo URLBASE ?>cajas.php"><i class="fa fa-archive"></i> Caja del Sistema</a></li>
                 <li><a href="<?php echo URLBASE ?>caja-chica.php"><i class="fa fa-briefcase"></i> Caja Chica</a></li>
                 <li><a href="<?php echo URLBASE ?>caja-general.php"><i class="fa fa-university"></i> Caja General</a>
+                </li>
+                <li><a href="<?php echo URLBASE ?>caja-general-bancos.php"><i class="fa fa-university"></i>Bancos</a>
                 </li>
                 <li><a href="<?php echo URLBASE ?>panel-cajas.php"><i class="fa fa-area-chart"></i> Panel de Cajas</a>
                 </li>

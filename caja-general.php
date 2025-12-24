@@ -27,9 +27,23 @@ if (isset($_POST['RegistrarMovimientoGeneral'])) {
     $id_banco    = !empty($_POST['id_banco']) ? intval($_POST['id_banco']) : null;
     $referencia  = trim($_POST['referencia']);
 
+    // Normalización
+    $tipo = strtoupper(trim($tipo));
+    $metodo_pago = strtoupper(trim($metodo_pago));
+
+    // Métodos permitidos (manteniendo compatibilidad con tu BD)
+    $metodos_permitidos = ['EFECTIVO','TRANSFERENCIA','DEPOSITO','TARJETA','QR'];
+    if (!in_array($metodo_pago, $metodos_permitidos, true)) {
+        $metodo_pago = 'EFECTIVO';
+    }
+
+    // Validaciones
     if ($monto <= 0 || $concepto == '' || ($tipo != 'INGRESO' && $tipo != 'EGRESO')) {
         $mensaje = 'Debe indicar un monto válido, un concepto y un tipo.';
         $tipo_mensaje = 'danger';
+    } elseif ($metodo_pago != 'EFECTIVO' && empty($id_banco)) {
+        $mensaje = 'Debe seleccionar un banco para pagos que no sean en efectivo.';
+        $tipo_mensaje = 'warning';
     } else {
 
         $fecha = date("Y-m-d");
@@ -41,7 +55,7 @@ if (isset($_POST['RegistrarMovimientoGeneral'])) {
 
         /* OBTENER SALDO ANTERIOR */
         $SaldoSQL = $db->SQL("SELECT saldo_caja FROM caja_general_movimientos ORDER BY id DESC LIMIT 1");
-        if ($SaldoSQL->num_rows > 0) {
+        if ($SaldoSQL && $SaldoSQL->num_rows > 0) {
             $saldoAnterior = floatval($SaldoSQL->fetch_assoc()['saldo_caja']);
         } else {
             $saldoAnterior = 0;
@@ -51,6 +65,8 @@ if (isset($_POST['RegistrarMovimientoGeneral'])) {
         $saldoNuevo = ($tipo === 'INGRESO')
             ? $saldoAnterior + $monto
             : $saldoAnterior - $monto;
+
+        if ($saldoNuevo < 0) $saldoNuevo = 0;
 
         /* MANEJO DE BANCOS */
         $saldoBanco = null;
@@ -71,7 +87,7 @@ if (isset($_POST['RegistrarMovimientoGeneral'])) {
                 GROUP BY b.id
             ");
 
-            if ($SaldoBancoSQL->num_rows > 0) {
+            if ($SaldoBancoSQL && $SaldoBancoSQL->num_rows > 0) {
                 $saldoBanco = floatval($SaldoBancoSQL->fetch_assoc()['saldo']);
             }
         }
@@ -112,10 +128,13 @@ if (!empty($fecha_hasta)) $where .= " AND m.fecha <= '{$fecha_hasta}'";
 if (!empty($filtro_metodo)) $where .= " AND m.metodo_pago = '{$filtro_metodo}'";
 if (!empty($filtro_banco))  $where .= " AND m.id_banco = '{$filtro_banco}'";
 
+/* ======================================================
+|   BANCOS (SELECT)
+====================================================== */
 $BancosSQL = $db->SQL("SELECT id, nombre FROM bancos ORDER BY nombre ASC");
 
 /* ======================================================
-|   CONSULTA PRINCIPAL
+|   CONSULTA PRINCIPAL – MOVIMIENTOS
 ====================================================== */
 $MovSQL = $db->SQL("
     SELECT 
@@ -129,12 +148,73 @@ $MovSQL = $db->SQL("
     ORDER BY m.id DESC
 ");
 
-/* SALDO CAJA */
+/* ======================================================
+|   SALDO CAJA (GLOBAL)
+====================================================== */
 $saldo_caja_actual = 0;
 $rowSaldo = $db->SQL("SELECT saldo_caja FROM caja_general_movimientos ORDER BY id DESC LIMIT 1");
 if ($rowSaldo && $rowSaldo->num_rows > 0) {
     $saldo_caja_actual = (float)$rowSaldo->fetch_assoc()['saldo_caja'];
 }
+
+/* ======================================================
+|   REPORTES (MISMO FILTRO $where)
+|   - Agrupa TRANSFERENCIA/DEPOSITO como BANCO
+====================================================== */
+$TotalesSQL = $db->SQL("
+    SELECT
+        COALESCE(SUM(CASE WHEN m.tipo='INGRESO' THEN m.monto ELSE 0 END),0) AS ingresos,
+        COALESCE(SUM(CASE WHEN m.tipo='EGRESO' THEN m.monto ELSE 0 END),0) AS egresos,
+        COALESCE(SUM(CASE WHEN m.tipo='INGRESO' THEN m.monto ELSE -m.monto END),0) AS neto
+    FROM caja_general_movimientos m
+    WHERE {$where}
+");
+$tot = ($TotalesSQL && $TotalesSQL->num_rows) ? $TotalesSQL->fetch_assoc() : ['ingresos'=>0,'egresos'=>0,'neto'=>0];
+
+$ReporteMetodosSQL = $db->SQL("
+    SELECT
+        CASE 
+            WHEN m.metodo_pago IN ('TRANSFERENCIA','DEPOSITO') THEN 'BANCO'
+            ELSE m.metodo_pago
+        END AS metodo_grp,
+        COALESCE(SUM(CASE WHEN m.tipo='INGRESO' THEN m.monto ELSE 0 END),0) AS total_ingresos,
+        COALESCE(SUM(CASE WHEN m.tipo='EGRESO' THEN m.monto ELSE 0 END),0) AS total_egresos,
+        COALESCE(SUM(CASE WHEN m.tipo='INGRESO' THEN m.monto ELSE -m.monto END),0) AS neto
+    FROM caja_general_movimientos m
+    WHERE {$where}
+    GROUP BY 
+        CASE 
+            WHEN m.metodo_pago IN ('TRANSFERENCIA','DEPOSITO') THEN 'BANCO'
+            ELSE m.metodo_pago
+        END
+    ORDER BY metodo_grp
+");
+
+$ReporteBancosSQL = $db->SQL("
+    SELECT
+        COALESCE(b.nombre, 'SIN BANCO') AS banco,
+        COALESCE(SUM(CASE WHEN m.tipo='INGRESO' THEN m.monto ELSE 0 END),0) AS ingresos,
+        COALESCE(SUM(CASE WHEN m.tipo='EGRESO' THEN m.monto ELSE 0 END),0) AS egresos,
+        COALESCE(SUM(CASE WHEN m.tipo='INGRESO' THEN m.monto ELSE -m.monto END),0) AS neto
+    FROM caja_general_movimientos m
+    LEFT JOIN bancos b ON b.id = m.id_banco
+    WHERE {$where}
+    GROUP BY m.id_banco
+    ORDER BY banco ASC
+");
+
+/* ======================================================
+|   SALDOS ACTUALES POR BANCO (GLOBAL)
+====================================================== */
+$SaldosBancosSQL = $db->SQL("
+    SELECT 
+        b.id, b.nombre, b.numero_cuenta, b.moneda,
+        (b.saldo_inicial + COALESCE(SUM(CASE WHEN bm.tipo='INGRESO' THEN bm.monto ELSE -bm.monto END),0)) AS saldo_actual
+    FROM bancos b
+    LEFT JOIN banco_movimientos bm ON bm.id_banco = b.id
+    GROUP BY b.id
+    ORDER BY b.nombre ASC
+");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -163,13 +243,17 @@ elseif ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
                 <div class="row">
                     <div class="col-md-8">
                         <h1>Caja General</h1>
-                        <p class="text-muted">Ingresos del POS + movimientos manuales + bancos</p>
+                        <p class="text-muted">Ingresos del POS + movimientos manuales + control bancario</p>
+
+                        <a href="caja-general-bancos.php" class="btn btn-default btn-sm">
+                            Administrar Bancos
+                        </a>
                     </div>
+
                     <div class="col-md-4 text-right">
-                        <h3>Saldo actual</h3>
+                        <h3 style="margin-top:0;">Saldo actual</h3>
                         <span class="label label-primary" style="font-size:18px;">Bs
-                            <?php echo number_format($saldo_caja_actual, 2); ?>
-                        </span>
+                            <?php echo number_format($saldo_caja_actual, 2); ?></span>
                     </div>
                 </div>
             </div>
@@ -211,22 +295,27 @@ elseif ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
 
                                 <div class="form-group">
                                     <label>Método de Pago</label>
-                                    <select name="metodo_pago" class="form-control" required>
+                                    <select name="metodo_pago" id="metodo_pago" class="form-control" required>
                                         <option value="EFECTIVO">Efectivo</option>
-                                        <option value="TRANSFERENCIA">Transferencia</option>
-                                        <option value="DEPOSITO">Depósito</option>
+                                        <option value="TRANSFERENCIA">Banco - Transferencia</option>
+                                        <option value="DEPOSITO">Banco - Depósito</option>
                                         <option value="TARJETA">Tarjeta</option>
+                                        <option value="QR">QR</option>
                                     </select>
+                                    <p class="help-block" style="margin-bottom:0;">
+                                        Nota: Transferencia/Depósito se consolidan como “BANCO” en reportes.
+                                    </p>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Banco (si aplica)</label>
-                                    <select name="id_banco" class="form-control">
-                                        <option value="">-- Sin banco --</option>
+                                    <select name="id_banco" id="id_banco" class="form-control">
+                                        <option value="">-- Seleccione banco --</option>
                                         <?php while($b = $BancosSQL->fetch_assoc()): ?>
                                         <option value="<?php echo $b['id']; ?>"><?php echo $b['nombre']; ?></option>
                                         <?php endwhile; ?>
                                     </select>
+                                    <p class="help-block">Obligatorio si el método no es efectivo.</p>
                                 </div>
 
                                 <div class="form-group">
@@ -245,8 +334,118 @@ elseif ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
                     </div>
                 </div>
 
-                <!-- TABLA DE MOVIMIENTOS -->
+                <!-- PANEL DERECHO -->
                 <div class="col-md-8">
+
+                    <!-- REPORTES -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><strong>Reportes (según filtros)</strong></div>
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="well well-sm" style="margin-bottom:10px;">
+                                        <strong>Total Ingresos:</strong> Bs
+                                        <?php echo number_format((float)$tot['ingresos'],2); ?><br>
+                                        <strong>Total Egresos:</strong> Bs
+                                        <?php echo number_format((float)$tot['egresos'],2); ?><br>
+                                        <strong>Neto:</strong> Bs <?php echo number_format((float)$tot['neto'],2); ?>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-condensed" style="margin-bottom:10px;">
+                                            <thead>
+                                                <tr>
+                                                    <th>Método</th>
+                                                    <th class="text-right">Ingresos</th>
+                                                    <th class="text-right">Egresos</th>
+                                                    <th class="text-right">Neto</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php while($r = $ReporteMetodosSQL->fetch_assoc()): ?>
+                                                <tr>
+                                                    <td><?php echo $r['metodo_grp']; ?></td>
+                                                    <td class="text-right">
+                                                        <?php echo number_format((float)$r['total_ingresos'],2); ?></td>
+                                                    <td class="text-right">
+                                                        <?php echo number_format((float)$r['total_egresos'],2); ?></td>
+                                                    <td class="text-right">
+                                                        <?php echo number_format((float)$r['neto'],2); ?></td>
+                                                </tr>
+                                                <?php endwhile; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="margin:10px 0;">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-condensed" style="margin-bottom:0;">
+                                    <thead>
+                                        <tr>
+                                            <th>Banco</th>
+                                            <th class="text-right">Ingresos</th>
+                                            <th class="text-right">Egresos</th>
+                                            <th class="text-right">Neto</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($rb = $ReporteBancosSQL->fetch_assoc()): ?>
+                                        <tr>
+                                            <td><?php echo $rb['banco']; ?></td>
+                                            <td class="text-right">
+                                                <?php echo number_format((float)$rb['ingresos'],2); ?></td>
+                                            <td class="text-right"><?php echo number_format((float)$rb['egresos'],2); ?>
+                                            </td>
+                                            <td class="text-right"><?php echo number_format((float)$rb['neto'],2); ?>
+                                            </td>
+                                        </tr>
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- SALDOS BANCARIOS -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading"><strong>Saldos bancarios actuales</strong></div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-condensed"
+                                    style="margin-bottom:0;">
+                                    <thead>
+                                        <tr>
+                                            <th>Banco</th>
+                                            <th>N° Cuenta</th>
+                                            <th>Moneda</th>
+                                            <th class="text-right">Saldo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php while($sb = $SaldosBancosSQL->fetch_assoc()): ?>
+                                        <tr>
+                                            <td><?php echo $sb['nombre']; ?></td>
+                                            <td><?php echo $sb['numero_cuenta']; ?></td>
+                                            <td><?php echo $sb['moneda']; ?></td>
+                                            <td class="text-right">
+                                                <?php echo number_format((float)$sb['saldo_actual'],2); ?></td>
+                                        </tr>
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-muted" style="margin-top:8px;margin-bottom:0;">
+                                Calculado con saldo_inicial + movimientos registrados en banco_movimientos.
+                            </p>
+                        </div>
+                    </div>
 
                     <!-- FILTROS -->
                     <div class="panel panel-default">
@@ -269,21 +468,22 @@ elseif ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
                                     <option value="EFECTIVO" <?php if($filtro_metodo=='EFECTIVO') echo 'selected'; ?>>
                                         Efectivo</option>
                                     <option value="TRANSFERENCIA"
-                                        <?php if($filtro_metodo=='TRANSFERENCIA') echo 'selected'; ?>>Transferencia
-                                    </option>
+                                        <?php if($filtro_metodo=='TRANSFERENCIA') echo 'selected'; ?>>Banco -
+                                        Transferencia</option>
                                     <option value="DEPOSITO" <?php if($filtro_metodo=='DEPOSITO') echo 'selected'; ?>>
-                                        Depósito</option>
+                                        Banco - Depósito</option>
                                     <option value="TARJETA" <?php if($filtro_metodo=='TARJETA') echo 'selected'; ?>>
                                         Tarjeta</option>
+                                    <option value="QR" <?php if($filtro_metodo=='QR') echo 'selected'; ?>>QR</option>
                                 </select>
 
                                 <label>&nbsp;Banco:&nbsp;</label>
                                 <select name="id_banco" class="form-control">
                                     <option value="">Todos</option>
                                     <?php
-                            $b2 = $db->SQL("SELECT id, nombre FROM bancos ORDER BY nombre ASC");
-                            while ($bf = $b2->fetch_assoc()):
-                            ?>
+                                    $b2 = $db->SQL("SELECT id, nombre FROM bancos ORDER BY nombre ASC");
+                                    while ($bf = $b2->fetch_assoc()):
+                                ?>
                                     <option value="<?php echo $bf['id']; ?>"
                                         <?php if($bf['id']==$filtro_banco) echo 'selected'; ?>>
                                         <?php echo $bf['nombre']; ?>
@@ -322,24 +522,28 @@ elseif ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
 
                                     <tbody>
                                         <?php
-                            $total_ing = 0;
-                            $total_egr = 0;
+                                    $total_ing = 0;
+                                    $total_egr = 0;
 
-                            while($m = $MovSQL->fetch_assoc()):
-                                $isIng = ($m['tipo'] == 'INGRESO');
-                                if ($isIng) $total_ing += $m['monto'];
-                                else $total_egr += $m['monto'];
-                            ?>
+                                    while($m = $MovSQL->fetch_assoc()):
+                                        $isIng = ($m['tipo'] == 'INGRESO');
+                                        if ($isIng) $total_ing += $m['monto'];
+                                        else $total_egr += $m['monto'];
+
+                                        // Mostrar “BANCO” si fue transferencia/deposito
+                                        $metodo_mostrar = $m['metodo_pago'];
+                                        if (in_array($metodo_mostrar, ['TRANSFERENCIA','DEPOSITO'])) $metodo_mostrar = 'BANCO';
+                                ?>
                                         <tr>
                                             <td><?php echo $m['fecha']; ?></td>
                                             <td><?php echo $m['hora']; ?></td>
                                             <td>
-                                                <?php echo $isIng 
-                                        ? "<span class='label label-success'>Ingreso</span>"
-                                        : "<span class='label label-danger'>Egreso</span>"; ?>
+                                                <?php echo $isIng
+                                                ? "<span class='label label-success'>Ingreso</span>"
+                                                : "<span class='label label-danger'>Egreso</span>"; ?>
                                             </td>
                                             <td><?php echo $m['concepto']; ?></td>
-                                            <td><?php echo $m['metodo_pago']; ?></td>
+                                            <td><?php echo $metodo_mostrar; ?></td>
                                             <td><?php echo $m['banco_nombre'] ?: '-'; ?></td>
                                             <td class="text-right"><?php echo number_format($m['monto'],2); ?></td>
                                             <td class="text-right"><?php echo number_format($m['saldo_caja'],2); ?></td>
@@ -376,12 +580,12 @@ elseif ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
                         </div>
                     </div>
 
-                </div>
+                </div><!-- /col-md-8 -->
 
-            </div>
+            </div><!-- /row -->
 
-        </div>
-    </div>
+        </div><!-- /container -->
+    </div><!-- /wrap -->
 
     <?php include(MODULO.'footer.php'); ?>
     <?php include(MODULO.'Tema.JS.php'); ?>
@@ -396,6 +600,21 @@ elseif ($usuarioApp['id_perfil'] == 1) include(MODULO.'menu_admin.php');
                 [0, 'desc']
             ]
         });
+
+        function toggleBanco() {
+            var metodo = ($('#metodo_pago').val() || '').toUpperCase();
+            var esEfectivo = (metodo === 'EFECTIVO');
+
+            $('#id_banco').prop('disabled', esEfectivo);
+
+            // Si es efectivo, limpiamos banco
+            if (esEfectivo) {
+                $('#id_banco').val('');
+            }
+        }
+
+        $('#metodo_pago').on('change', toggleBanco);
+        toggleBanco();
     });
     </script>
 
