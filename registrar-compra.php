@@ -1,9 +1,12 @@
-<?php 
+<?php
 session_start();
-include ('sistema/configuracion.php');
+include('sistema/configuracion.php');
 
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
+
+// Helpers mínimos
+function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); }
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,19 +16,19 @@ $usuario->VerificacionCuenta();
     <title><?php echo TITULO ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="<?php echo ESTATICO ?>img/favicon.ico">
-    <?php include(MODULO.'Tema.CSS.php'); ?>
+    <?php include(MODULO . 'Tema.CSS.php'); ?>
 </head>
 
 <body>
-
     <?php
 // Menú
-if($usuarioApp['id_perfil']==2){
-    include (MODULO.'menu_vendedor.php');
-}elseif($usuarioApp['id_perfil']==1){
-    include (MODULO.'menu_admin.php');
-}else{
-    echo'<meta http-equiv="refresh" content="0;url='.URLBASE.'cerrar-sesion"/>';
+if ($usuarioApp['id_perfil'] == 2) {
+    include(MODULO . 'menu_vendedor.php');
+} elseif ($usuarioApp['id_perfil'] == 1) {
+    include(MODULO . 'menu_admin.php');
+} else {
+    echo '<meta http-equiv="refresh" content="0;url=' . URLBASE . 'cerrar-sesion"/>';
+    exit;
 }
 ?>
 
@@ -38,19 +41,36 @@ if($usuarioApp['id_perfil']==2){
    =========================================================== */
 if (isset($_POST['RegistrarCompra'])) {
 
-    $vendedor = $usuarioApp['id'];
+    $vendedor = isset($usuarioApp['id']) ? (int)$usuarioApp['id'] : 0;
+    if ($vendedor <= 0) {
+        ?>
+            <div class="page-header" id="banner">
+                <h1>Error</h1>
+                <p class="lead">No se pudo identificar el usuario vendedor.</p>
+            </div>
+            <?php
+        exit;
+    }
 
     /* 1) DATOS DEL FORMULARIO */
     $tipo_comprobante = $_POST['tipo_comprobante'] ?? 'RECIBO';
-    $con_factura      = intval($_POST['con_factura'] ?? 0);
-    $nit_cliente      = $_POST['nit_cliente'] ?: null;
-    $razon_social     = $_POST['razon_social'] ?: null;
+    $con_factura      = (int)($_POST['con_factura'] ?? 0);
+    $nit_cliente      = !empty($_POST['nit_cliente']) ? trim($_POST['nit_cliente']) : null;
+    $razon_social     = !empty($_POST['razon_social']) ? trim($_POST['razon_social']) : null;
 
-    $metodo_pago      = $_POST['metodo_pago'] ?? 'EFECTIVO';
-    $id_banco         = !empty($_POST['id_banco']) ? intval($_POST['id_banco']) : null;
-    $referencia       = $_POST['referencia'] ?: null;
+    $metodo_pago  = $_POST['metodo_pago'] ?? 'EFECTIVO';
+    $metodo_pago  = strtoupper(trim($metodo_pago));
 
-    $id_tramite       = !empty($_POST['id_tramite']) ? intval($_POST['id_tramite']) : null;
+    $id_banco     = !empty($_POST['id_banco']) ? (int)$_POST['id_banco'] : null;
+    $referencia   = !empty($_POST['referencia']) ? trim($_POST['referencia']) : null;
+
+    $id_tramite   = !empty($_POST['id_tramite']) ? (int)$_POST['id_tramite'] : null;
+
+    // Normalizar método a los que manejas
+    $metodosValidos = ['EFECTIVO','TRANSFERENCIA','DEPOSITO','TARJETA','QR'];
+    if (!in_array($metodo_pago, $metodosValidos, true)) {
+        $metodo_pago = 'EFECTIVO';
+    }
 
     /* 2) LECTURA DEL CARRITO */
     $CarritoSql = $db->SQL("
@@ -59,7 +79,7 @@ if (isset($_POST['RegistrarCompra'])) {
         WHERE vendedor='{$vendedor}'
     ");
 
-    if ($CarritoSql->num_rows <= 0) {
+    if (!$CarritoSql || $CarritoSql->num_rows <= 0) {
         ?>
             <div class="page-header" id="banner">
                 <h1>Error – No hay venta registrada</h1>
@@ -75,7 +95,7 @@ if (isset($_POST['RegistrarCompra'])) {
             WHERE vendedor='{$vendedor}'
             LIMIT 1
         ");
-        $cliente = intval($DatosSql->fetch_assoc()['cliente']);
+        $cliente = (int)($DatosSql && $DatosSql->num_rows ? $DatosSql->fetch_assoc()['cliente'] : 1);
 
         /* 3) TOTALES */
         $TotalesSql = $db->SQL("
@@ -85,14 +105,14 @@ if (isset($_POST['RegistrarCompra'])) {
             FROM cajatmp
             WHERE vendedor='{$vendedor}'
         ");
-        $Totales        = $TotalesSql->fetch_assoc();
-        $total_general  = floatval($Totales['total']);
-        $total_comision = floatval($Totales['total_comision']);
+        $Totales        = $TotalesSql ? $TotalesSql->fetch_assoc() : ['total'=>0,'total_comision'=>0];
+        $total_general  = (float)$Totales['total'];
+        $total_comision = (float)$Totales['total_comision'];
 
         $fecha = date('Y-m-d');
         $hora  = date('H:i:s');
 
-        $tipo = ($metodo_pago == 'EFECTIVO') ? 1 : 2;
+        $tipo = ($metodo_pago === 'EFECTIVO') ? 1 : 2;
 
         /* 4) CREAR FACTURA */
         $FacturaSql = $db->SQL("
@@ -119,21 +139,21 @@ if (isset($_POST['RegistrarCompra'])) {
                 FROM factura
                 WHERE usuario='{$vendedor}'
             ");
-            $idfactura = intval($IdFacturaSql->fetch_assoc()['ultimaid']);
+            $idfactura = (int)($IdFacturaSql && $IdFacturaSql->num_rows ? $IdFacturaSql->fetch_assoc()['ultimaid'] : 0);
 
             /* Nro Comprobante */
-            $NcSql   = $db->SQL("SELECT MAX(CAST(nro_comprobante AS UNSIGNED)) AS ultimo FROM ventas");
-            $ultimo  = intval($NcSql->fetch_assoc()['ultimo']);
+            $NcSql    = $db->SQL("SELECT MAX(CAST(nro_comprobante AS UNSIGNED)) AS ultimo FROM ventas");
+            $ultimo   = (int)($NcSql && $NcSql->num_rows ? $NcSql->fetch_assoc()['ultimo'] : 0);
             $nro_comp = $ultimo + 1;
 
             /* 6) INSERTAR DETALLES */
-            while($c = $CarritoSql->fetch_assoc()){
+            while ($c = $CarritoSql->fetch_assoc()) {
 
-                $producto   = intval($c['producto']);
-                $cantidad   = intval($c['cantidad']);
-                $precio     = floatval($c['precio']);
-                $totalLinea = floatval($c['totalprecio']);
-                $comision   = floatval($c['comision']);
+                $producto   = (int)$c['producto'];
+                $cantidad   = (int)$c['cantidad'];
+                $precio     = (float)$c['precio'];
+                $totalLinea = (float)$c['totalprecio'];
+                $comision   = (float)$c['comision'];
 
                 $db->SQL("
                     INSERT INTO ventas (
@@ -147,49 +167,62 @@ if (isset($_POST['RegistrarCompra'])) {
                         '{$idfactura}','{$producto}','{$cantidad}','{$precio}','{$totalLinea}',
                         '{$vendedor}','{$cliente}','{$fecha}','{$hora}','{$tipo}',
                         '{$con_factura}','{$metodo_pago}',
-                        ".($id_banco ? $id_banco : "NULL").",
-                        ".($id_tramite ? $id_tramite : "NULL").",
+                        " . ($id_banco ? $id_banco : "NULL") . ",
+                        " . ($id_tramite ? $id_tramite : "NULL") . ",
                         '{$comision}',1,
-                        ".($nit_cliente   ? "'".$nit_cliente."'"   : "NULL").",
-                        ".($razon_social ? "'".$razon_social."'" : "NULL").",
-                        ".($referencia   ? "'".$referencia."'"   : "NULL").",
+                        " . ($nit_cliente   ? "'" . addslashes($nit_cliente) . "'"   : "NULL") . ",
+                        " . ($razon_social ? "'" . addslashes($razon_social) . "'" : "NULL") . ",
+                        " . ($referencia   ? "'" . addslashes($referencia) . "'"   : "NULL") . ",
                         '{$nro_comp}','{$vendedor}'
                     )
                 ");
             }
 
             /* ======================================================
-               NUEVO: MOVIMIENTO AUTOMÁTICO A CAJA GENERAL
+               MOVIMIENTO AUTOMÁTICO A CAJA CHICA (INGRESO)
+               - SIEMPRE SUMA al saldo_resultante, sin importar método.
+               - Guarda método/banco/referencia dentro de "referencia"
+                 (porque caja_chica_movimientos no tiene esas columnas).
                ====================================================== */
             $conceptoVenta = "Venta de servicios - Factura #{$idfactura}";
 
-            /* saldo anterior */
-            $SaldoSQL = $db->SQL("SELECT saldo_caja FROM caja_general_movimientos ORDER BY id DESC LIMIT 1");
-            $saldoAnterior = ($SaldoSQL->num_rows > 0)
-                ? floatval($SaldoSQL->fetch_assoc()['saldo_caja'])
-                : 0;
-
-            /* nuevo saldo */
-            $saldoNuevo = $saldoAnterior + $total_general;
-
-            $id_banco_insert      = ($metodo_pago != 'EFECTIVO' && $id_banco) ? $id_banco : "NULL";
-            $referencia_insert    = $referencia ? "'{$referencia}'" : "NULL";
-
-            $db->SQL("
-                INSERT INTO caja_general_movimientos
-                (fecha, hora, tipo, monto, concepto, metodo_pago, id_banco, referencia,
-                 responsable, saldo_caja)
-                VALUES
-                (
-                    '{$fecha}','{$hora}','INGRESO','{$total_general}',
-                    '{$conceptoVenta}','{$metodo_pago}',{$id_banco_insert},
-                    {$referencia_insert},'{$vendedor}','{$saldoNuevo}'
-                )
+            // saldo anterior (por responsable)
+            $SaldoSQL = $db->SQL("
+                SELECT saldo_resultante
+                FROM caja_chica_movimientos
+                WHERE responsable='{$vendedor}'
+                ORDER BY id DESC
+                LIMIT 1
             ");
 
-            /* ======================================================
-               FIN DE REGISTRO EN CAJA GENERAL
-               ====================================================== */
+            $saldoAnterior = ($SaldoSQL && $SaldoSQL->num_rows > 0)
+                ? (float)$SaldoSQL->fetch_assoc()['saldo_resultante']
+                : 0.0;
+
+            // SIEMPRE sumar
+            $saldoNuevo = $saldoAnterior + $total_general;
+
+            // referencia compacta (<=100)
+            $refTxt = "V#{$idfactura} MP={$metodo_pago}";
+            if (!empty($id_banco)) $refTxt .= " B={$id_banco}";
+            if (!empty($referencia)) $refTxt .= " REF={$referencia}";
+            $refTxt = substr($refTxt, 0, 100);
+
+            $db->SQL("
+                INSERT INTO caja_chica_movimientos
+                    (fecha, hora, tipo, monto, concepto, responsable, saldo_resultante, referencia)
+                VALUES
+                    (
+                        '{$fecha}',
+                        '{$hora}',
+                        'INGRESO',
+                        '{$total_general}',
+                        '" . addslashes($conceptoVenta) . "',
+                        '{$vendedor}',
+                        '{$saldoNuevo}',
+                        '" . addslashes($refTxt) . "'
+                    )
+            ");
 
             /* 8) LIMPIAR CARRITO */
             $db->SQL("DELETE FROM cajatmp WHERE vendedor='{$vendedor}'");
@@ -200,7 +233,7 @@ if (isset($_POST['RegistrarCompra'])) {
                 FROM vendedores
                 WHERE id='{$vendedor}'
             ");
-            $local = $localSql->fetch_assoc();
+            $local = $localSql ? $localSql->fetch_assoc() : ['establecimiento' => ''];
 
             $ventaCabSql = $db->SQL("
                 SELECT idfactura, fecha, hora, cliente, nit, razon_social, metodo_pago, nro_comprobante
@@ -208,14 +241,14 @@ if (isset($_POST['RegistrarCompra'])) {
                 WHERE idfactura='{$idfactura}'
                 LIMIT 1
             ");
-            $ventaCab = $ventaCabSql->fetch_assoc();
+            $ventaCab = $ventaCabSql ? $ventaCabSql->fetch_assoc() : [];
 
             $TotalVentaSql = $db->SQL("
                 SELECT SUM(totalprecio) AS total
                 FROM ventas
                 WHERE idfactura='{$idfactura}'
             ");
-            $totalFinal = floatval($TotalVentaSql->fetch_assoc()['total']);
+            $totalFinal = (float)($TotalVentaSql && $TotalVentaSql->num_rows ? $TotalVentaSql->fetch_assoc()['total'] : 0);
 
             ?>
 
@@ -244,24 +277,24 @@ if (isset($_POST['RegistrarCompra'])) {
                                         <table width="95%">
                                             <tr>
                                                 <td><br>
-                                                    <strong><?php echo $local['establecimiento']; ?></strong><br>
+                                                    <strong><?php echo h($local['establecimiento']); ?></strong><br>
                                                     <strong>Factura / Comprobante:</strong>
-                                                    <?php echo $idfactura; ?><br>
+                                                    <?php echo (int)$idfactura; ?><br>
                                                     <strong>Nro. Comprobante:</strong>
-                                                    <?php echo $ventaCab['nro_comprobante']; ?><br>
+                                                    <?php echo h($ventaCab['nro_comprobante'] ?? $nro_comp); ?><br>
                                                     <strong>Fecha:</strong>
-                                                    <?php echo $ventaCab['fecha'].' '.$ventaCab['hora']; ?><br>
+                                                    <?php echo h(($ventaCab['fecha'] ?? $fecha) . ' ' . ($ventaCab['hora'] ?? $hora)); ?><br>
                                                     <strong>Cliente (ID):</strong>
-                                                    <?php echo $ventaCab['cliente']; ?><br>
-                                                    <?php if($ventaCab['nit']): ?>
-                                                    <strong>NIT/CI:</strong> <?php echo $ventaCab['nit']; ?><br>
+                                                    <?php echo h($ventaCab['cliente'] ?? $cliente); ?><br>
+                                                    <?php if (!empty($ventaCab['nit'])): ?>
+                                                    <strong>NIT/CI:</strong> <?php echo h($ventaCab['nit']); ?><br>
                                                     <?php endif; ?>
-                                                    <?php if($ventaCab['razon_social']): ?>
+                                                    <?php if (!empty($ventaCab['razon_social'])): ?>
                                                     <strong>Razón Social:</strong>
-                                                    <?php echo $ventaCab['razon_social']; ?><br>
+                                                    <?php echo h($ventaCab['razon_social']); ?><br>
                                                     <?php endif; ?>
                                                     <strong>Método de Pago:</strong>
-                                                    <?php echo $ventaCab['metodo_pago']; ?><br>
+                                                    <?php echo h($ventaCab['metodo_pago'] ?? $metodo_pago); ?><br>
                                                 </td>
                                             </tr>
                                         </table>
@@ -283,23 +316,28 @@ if (isset($_POST['RegistrarCompra'])) {
                                                 INNER JOIN producto p ON p.id=v.producto
                                                 WHERE v.idfactura='{$idfactura}'
                                             ");
-                                            while($l = $LineasSql->fetch_assoc()){
+                                            if ($LineasSql && $LineasSql->num_rows > 0):
+                                                while ($l = $LineasSql->fetch_assoc()):
                                             ?>
                                             <tr>
-                                                <td align="center"><?php echo $l['nombre']; ?></td>
-                                                <td align="center"><?php echo $l['cantidad']; ?></td>
-                                                <td align="center"><?php echo number_format($l['precio'],2); ?></td>
-                                                <td align="center"><?php echo number_format($l['totalprecio'],2); ?>
+                                                <td align="center"><?php echo h($l['nombre']); ?></td>
+                                                <td align="center"><?php echo (int)$l['cantidad']; ?></td>
+                                                <td align="center"><?php echo number_format((float)$l['precio'], 2); ?>
                                                 </td>
+                                                <td align="center">
+                                                    <?php echo number_format((float)$l['totalprecio'], 2); ?></td>
                                             </tr>
-                                            <?php } ?>
+                                            <?php
+                                                endwhile;
+                                            endif;
+                                            ?>
 
                                             <tr>
                                                 <td align="center"><strong>Total</strong></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td align="center">
-                                                    <strong><?php echo number_format($totalFinal,2); ?></strong>
+                                                    <strong><?php echo number_format($totalFinal, 2); ?></strong>
                                                 </td>
                                             </tr>
 
@@ -332,8 +370,8 @@ if (isset($_POST['RegistrarCompra'])) {
         </div>
     </div>
 
-    <?php include (MODULO.'footer.php'); ?>
-    <?php include(MODULO.'Tema.JS.php'); ?>
+    <?php include(MODULO . 'footer.php'); ?>
+    <?php include(MODULO . 'Tema.JS.php'); ?>
 
     <script>
     function imprimir() {

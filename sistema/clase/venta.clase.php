@@ -2,8 +2,7 @@
 
 class Venta extends Conexion
 {
-
-  private function vendedor()
+    private function vendedor()
     {
         global $usuarioApp;
         return (int)$usuarioApp['id'];
@@ -25,8 +24,8 @@ class Venta extends Conexion
 
         // Verifica producto
         $ProductoSql = $db->query("
-            SELECT id, precioventa, comision 
-            FROM producto 
+            SELECT id, precioventa, comision
+            FROM producto
             WHERE id = {$idProducto} LIMIT 1
         ");
 
@@ -35,8 +34,8 @@ class Venta extends Conexion
         $P = $ProductoSql->fetch_assoc();
 
         $precio = (float)$P['precioventa'];
-        $com = (float)$P['comision'];
-        $total = $precio * $cantidad;
+        $com    = (float)$P['comision'];
+        $total  = $precio * $cantidad;
         $totalCom = $com * $cantidad;
 
         $fecha = date('Y-m-d');
@@ -62,7 +61,7 @@ class Venta extends Conexion
     {
         if (!isset($_POST['EliminarProducto'])) return;
 
-        $IdCajatmp  = (int)$_POST['IdCajatmp'];
+        $IdCajatmp = (int)$_POST['IdCajatmp'];
 
         $this->Conectar()->query("
             DELETE FROM cajatmp
@@ -124,13 +123,15 @@ class Venta extends Conexion
 
         $idProducto = (int)$_POST['codigo'];
         $cantidad   = (int)$_POST['cantidad'];
-        $idCliente  = $this->cliente(); // SIEMPRE sincronizar con POS
+        $idCliente  = $this->cliente(); // sincronizado con POS
 
         return $this->agregarAlCarrito($idProducto, $cantidad, $idCliente);
     }
 
     /* ==========================================================
        6) REGISTRAR VENTA COMPLETA
+       ✅ AHORA REGISTRA INGRESO EN CAJA_CHICA_MOVIMIENTOS
+       ❌ YA NO INSERTA NADA EN CAJA_GENERAL_MOVIMIENTOS
     ========================================================== */
     public function RegistrarVenta1()
     {
@@ -141,18 +142,18 @@ class Venta extends Conexion
         $idVendedor = $this->vendedor();
         $idCliente  = $this->cliente();
 
-        $nit       = $db->real_escape_string($_POST['nit'] ?? '');
-        $razon     = $db->real_escape_string($_POST['razon_social'] ?? '');
-        $con_factura = (int)$_POST['con_factura'];
-        $tipo_comprobante = $db->real_escape_string($_POST['tipo_comprobante']);
+        $nit            = $db->real_escape_string($_POST['nit'] ?? '');
+        $razon          = $db->real_escape_string($_POST['razon_social'] ?? '');
+        $con_factura    = (int)($_POST['con_factura'] ?? 0);
+        $tipo_comprobante = $db->real_escape_string($_POST['tipo_comprobante'] ?? 'RECIBO');
 
-        $metodo_pago = $db->real_escape_string($_POST['metodo_pago']);
-        $id_banco = $_POST['id_banco'] !== "" ? (int)$_POST['id_banco'] : "NULL";
-        $referencia   = $db->real_escape_string($_POST['referencia_pago']);
-        $nro_comp     = $db->real_escape_string($_POST['nro_comprobante']);
+        $metodo_pago = $db->real_escape_string($_POST['metodo_pago'] ?? 'EFECTIVO');
+        $id_banco    = ($_POST['id_banco'] ?? '') !== "" ? (int)$_POST['id_banco'] : "NULL";
+        $referencia  = $db->real_escape_string($_POST['referencia_pago'] ?? '');
+        $nro_comp    = $db->real_escape_string($_POST['nro_comprobante'] ?? '');
 
-        $iva_porcentaje = (float)$_POST['iva_porcentaje'];
-        $it_porcentaje  = (float)$_POST['it_porcentaje'];
+        $iva_porcentaje = (float)($_POST['iva_porcentaje'] ?? 0);
+        $it_porcentaje  = (float)($_POST['it_porcentaje'] ?? 0);
 
         $fecha = date('Y-m-d');
         $hora  = date('H:i:s');
@@ -166,27 +167,27 @@ class Venta extends Conexion
               AND c.cliente  = {$idCliente}
         ");
 
-        if ($Carrito->num_rows == 0) {
+        if (!$Carrito || $Carrito->num_rows == 0) {
             echo '<div class="alert alert-danger">Carrito vacío.</div>';
             return;
         }
 
-        $subtotal = 0;
-        $totalComision = 0;
+        $subtotal = 0.0;
+        $totalComision = 0.0;
         $items = [];
 
         while ($row = $Carrito->fetch_assoc()) {
-            $subtotal += $row['totalprecio'];
-            $totalComision += $row['comision_unidad'] * $row['cantidad'];
+            $subtotal += (float)$row['totalprecio'];
+            $totalComision += ((float)$row['comision_unidad'] * (int)$row['cantidad']);
             $items[] = $row;
         }
 
-        $montoIva = $subtotal * ($iva_porcentaje / 100);
-        $montoIt  = $subtotal * ($it_porcentaje / 100);
+        $montoIva     = $subtotal * ($iva_porcentaje / 100);
+        $montoIt      = $subtotal * ($it_porcentaje / 100);
         $totalFactura = $subtotal + $montoIva + $montoIt;
 
         // INSERTAR FACTURA
-        $db->query("
+        $okFactura = $db->query("
             INSERT INTO factura(
                 subtotal, iva, it, tipo_comprobante, total,
                 total_comision, total_caja, fecha, hora,
@@ -201,11 +202,16 @@ class Venta extends Conexion
             )
         ");
 
-        $idFactura = $db->insert_id;
+        if (!$okFactura) {
+            echo '<div class="alert alert-danger">Error al registrar factura.</div>';
+            return;
+        }
 
-        // INSERTAR DETALLES
+        $idFactura = (int)$db->insert_id;
+
+        // INSERTAR DETALLES EN VENTAS
         foreach ($items as $it) {
-            $comLinea = $it['comision_unidad'] * $it['cantidad'];
+            $comLinea = ((float)$it['comision_unidad'] * (int)$it['cantidad']);
 
             $db->query("
                 INSERT INTO ventas (
@@ -231,7 +237,52 @@ class Venta extends Conexion
             ");
         }
 
-        // LIMPIAR SOLO EL CARRITO DEL CLIENTE
+        /* ==========================================================
+           ✅ REGISTRAR INGRESO EN CAJA CHICA (VENTA DIARIA)
+        ========================================================== */
+        $SaldoChicaSQL = $db->query("
+            SELECT saldo_resultante
+            FROM caja_chica_movimientos
+            ORDER BY id DESC
+            LIMIT 1
+        ");
+
+        $saldoAnteriorChica = ($SaldoChicaSQL && $SaldoChicaSQL->num_rows > 0)
+            ? (float)$SaldoChicaSQL->fetch_assoc()['saldo_resultante']
+            : 0.0;
+
+        $saldoNuevoChica = $saldoAnteriorChica + (float)$totalFactura;
+
+        // Concepto con método/banco, sin cambiar estructura de tabla
+        $conceptoCaja = "Venta de servicios - Factura #{$idFactura} ({$metodo_pago})";
+        if ($id_banco !== "NULL" && (int)$id_banco > 0) {
+            $conceptoCaja .= " - Banco #".(int)$id_banco;
+        }
+        if (!empty($nro_comp)) {
+            $conceptoCaja .= " - Comp: {$nro_comp}";
+        }
+
+        $refCaja = "VENTA#{$idFactura}";
+
+        $db->query("
+            INSERT INTO caja_chica_movimientos
+                (fecha, hora, tipo, monto, concepto, responsable, saldo_resultante, referencia)
+            VALUES
+                (
+                    '{$fecha}',
+                    '{$hora}',
+                    'INGRESO',
+                    {$totalFactura},
+                    '".addslashes($conceptoCaja)."',
+                    {$idVendedor},
+                    {$saldoNuevoChica},
+                    '{$refCaja}'
+                )
+        ");
+
+        /* ==========================================================
+           LIMPIAR SOLO EL CARRITO DEL CLIENTE
+        ========================================================== */
         $db->query("
             DELETE FROM cajatmp
             WHERE vendedor = {$idVendedor}
@@ -243,8 +294,9 @@ class Venta extends Conexion
 
     /*
     |--------------------------------------------------------------------------
-    | 6) CANCELAR FACTURA
-    |--------------------------------------------------------------------------
+    | 7) CANCELAR FACTURA
+    | ✅ REVERSA CAJA CHICA (NO CAJA GENERAL)
+    |-------------------------------------------------------------------------- 
     */
     public function CancelarFactura()
     {
@@ -252,49 +304,67 @@ class Venta extends Conexion
 
         $db = $this->Conectar();
 
-        $IdFactura = (int)$_POST['Idfactura'];
+        $IdFactura  = (int)$_POST['Idfactura'];
         $Comentario = $db->real_escape_string($_POST['Comentario']);
 
-        if ($IdFactura <= 0):
+        if ($IdFactura <= 0) {
             echo '<div class="alert alert-danger">ID inválido.</div>';
             return;
-        endif;
+        }
 
         $FacturaSql = $db->query("SELECT * FROM factura WHERE id = {$IdFactura}");
 
-        if ($FacturaSql->num_rows == 0):
+        if (!$FacturaSql || $FacturaSql->num_rows == 0) {
             echo '<div class="alert alert-danger">Factura no encontrada.</div>';
             return;
-        endif;
+        }
 
         $F = $FacturaSql->fetch_assoc();
 
-        if ((int)$F['habilitado'] === 0):
+        if ((int)$F['habilitado'] === 0) {
             echo '<div class="alert alert-warning">La factura ya estaba cancelada.</div>';
             return;
-        endif;
+        }
 
-        $total_caja = $F['total_caja'];
-        $metodo_pago = $F['metodo_pago'];
-        $id_banco = $F['id_banco'];
+        $total_caja   = (float)($F['total_caja'] ?? $F['total'] ?? 0);
+        $metodo_pago  = $F['metodo_pago'] ?? 'EFECTIVO';
 
-        // Reversar caja
-        if ($total_caja > 0):
-            $MaxCaja = $db->query("SELECT MAX(id) AS id FROM caja")->fetch_assoc();
-            $db->query("UPDATE caja SET monto = monto - {$total_caja} WHERE id = {$MaxCaja['id']}");
-        endif;
+        // ✅ Reverso en CAJA CHICA (EGRESO)
+        if ($total_caja > 0) {
 
-        // Reversar banco
-        if ($metodo_pago !== 'EFECTIVO' && $id_banco):
-            $db->query("
-                INSERT INTO banco_movimientos(
-                    id_banco, fecha, tipo, monto, concepto, id_factura
-                ) VALUES (
-                    {$id_banco}, NOW(), 'EGRESO', {$total_caja},
-                    'Reverso Factura #{$IdFactura}', {$IdFactura}
-                )
+            $SaldoChicaSQL = $db->query("
+                SELECT saldo_resultante
+                FROM caja_chica_movimientos
+                ORDER BY id DESC
+                LIMIT 1
             ");
-        endif;
+
+            $saldoAnteriorChica = ($SaldoChicaSQL && $SaldoChicaSQL->num_rows > 0)
+                ? (float)$SaldoChicaSQL->fetch_assoc()['saldo_resultante']
+                : 0.0;
+
+            $saldoNuevoChica = $saldoAnteriorChica - $total_caja;
+            if ($saldoNuevoChica < 0) $saldoNuevoChica = 0;
+
+            $conceptoRev = "Reverso de venta - Factura #{$IdFactura}";
+            $refRev = "REVERSO#{$IdFactura}";
+
+            $db->query("
+                INSERT INTO caja_chica_movimientos
+                    (fecha, hora, tipo, monto, concepto, responsable, saldo_resultante, referencia)
+                VALUES
+                    (
+                        '".date('Y-m-d')."',
+                        '".date('H:i:s')."',
+                        'EGRESO',
+                        {$total_caja},
+                        '".addslashes($conceptoRev)."',
+                        ".$this->vendedor().",
+                        {$saldoNuevoChica},
+                        '{$refRev}'
+                    )
+            ");
+        }
 
         // Cancelar factura
         $db->query("

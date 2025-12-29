@@ -1,20 +1,18 @@
 <?php
 session_start();
 include('sistema/configuracion.php');
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-ini_set('log_errors', 1);
 
-// Clases necesarias
+// Mostrar errores SOLO si estás depurando
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+
 include_once("sistema/clase/facturacion_ventas.clase.php");
 include_once("sistema/clase/venta.clase.php");
 
-// Validar sesión
 $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 $usuario->ZonaAdministrador();
 
-// Instancias
 if (!isset($Venta)) {
     $Venta = new Venta();
 }
@@ -22,7 +20,7 @@ $Facturacion = new FacturacionVentas();
 
 /*
 |------------------------------------------------------------
-| PROCESAR CANCELACIÓN DE FACTURA (ya existente)
+| PROCESAR CANCELACIÓN DE FACTURA (usa tu clase Venta)
 |------------------------------------------------------------
 */
 $Venta->CancelarFactura();
@@ -34,27 +32,67 @@ $Venta->CancelarFactura();
 */
 if (isset($_POST['ConfirmarFacturacion'])) {
 
-    $idfactura      = intval($_POST['idfactura']);
-    $nit            = isset($_POST['nit']) ? trim($_POST['nit']) : '';
-    $razon_social   = isset($_POST['razon_social']) ? trim($_POST['razon_social']) : '';
-    $nro_comprobante= isset($_POST['nro_comprobante']) ? trim($_POST['nro_comprobante']) : '';
+    $idfactura       = (int)($_POST['idfactura'] ?? 0);
+    $nit             = isset($_POST['nit']) ? trim($_POST['nit']) : '';
+    $razon_social    = isset($_POST['razon_social']) ? trim($_POST['razon_social']) : '';
+    $nro_comprobante = isset($_POST['nro_comprobante']) ? trim($_POST['nro_comprobante']) : '';
 
     // Usuario que factura (usuario del sistema logueado)
-    $usuario_factura = isset($usuarioApp['id']) ? intval($usuarioApp['id']) : 0;
+    $usuario_factura = isset($usuarioApp['id']) ? (int)$usuarioApp['id'] : 0;
 
-    $Facturacion->FacturarPorIdFactura($idfactura, [
-        'nit'             => $nit,
-        'razon_social'    => $razon_social,
-        'nro_comprobante' => $nro_comprobante,
-        'usuario_factura' => $usuario_factura
-    ]);
+    if ($idfactura > 0) {
+        $Facturacion->FacturarPorIdFactura($idfactura, [
+            'nit'             => $nit,
+            'razon_social'    => $razon_social,
+            'nro_comprobante' => $nro_comprobante,
+            'usuario_factura' => $usuario_factura
+        ]);
 
-    echo '<div class="alert alert-success text-center" style="margin:10px;">
-            <strong>Factura actualizada correctamente.</strong>
-          </div>
-          <meta http-equiv="refresh" content="1;url=registro-de-ventas.php">';
-    exit;
+        echo '<div class="alert alert-success text-center" style="margin:10px;">
+                <strong>Factura actualizada correctamente.</strong>
+              </div>
+              <meta http-equiv="refresh" content="1;url=registro-ventas.php">';
+        exit;
+    }
 }
+
+/*
+|------------------------------------------------------------
+| FILTROS (GET)
+|------------------------------------------------------------
+*/
+$hoy = date('Y-m-d');
+
+$desde  = isset($_GET['desde']) ? trim($_GET['desde']) : '';
+$hasta  = isset($_GET['hasta']) ? trim($_GET['hasta']) : '';
+$metodo = isset($_GET['metodo']) ? trim($_GET['metodo']) : '';
+$estado = isset($_GET['estado']) ? trim($_GET['estado']) : ''; // 1=activa,0=cancelada,''=todas
+
+$where = "v.idfactura IS NOT NULL";
+
+if ($desde !== '') $where .= " AND v.fecha >= '" . addslashes($desde) . "'";
+if ($hasta !== '') $where .= " AND v.fecha <= '" . addslashes($hasta) . "'";
+if ($metodo !== '') $where .= " AND v.metodo_pago = '" . addslashes($metodo) . "'";
+
+if ($estado !== '') {
+    // Preferimos estado de FACTURA si existe, si no cae al de VENTAS
+    $where .= " AND ( (f.habilitado IS NOT NULL AND f.habilitado = '" . addslashes($estado) . "')
+                    OR (f.habilitado IS NULL AND v.habilitada = '" . addslashes($estado) . "') )";
+}
+
+/*
+|------------------------------------------------------------
+| LISTA DE FACTURAS (IDFACTURA) SEGÚN FILTROS
+|------------------------------------------------------------
+*/
+$FacturasSql = $db->SQL("
+    SELECT v.idfactura
+    FROM ventas v
+    LEFT JOIN factura f ON f.id = v.idfactura
+    WHERE {$where}
+    GROUP BY v.idfactura
+    ORDER BY v.idfactura DESC
+");
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -68,19 +106,31 @@ if (isset($_POST['ConfirmarFacturacion'])) {
 
     <link rel="stylesheet" type="text/css" href="<?php echo ESTATICO; ?>css/dataTables.bootstrap.css">
     <?php include(MODULO . 'Tema.CSS.php'); ?>
+
+    <style>
+    .filtros-wrap .form-control {
+        margin-right: 8px;
+        margin-bottom: 8px;
+    }
+
+    .badge-soft {
+        background: #f3f3f3;
+        color: #333;
+        border: 1px solid #ddd;
+    }
+    </style>
 </head>
 
 <body>
     <?php
-// Menú inicio
 if ($usuarioApp['id_perfil'] == 2) {
     include(MODULO . 'menu_vendedor.php');
 } elseif ($usuarioApp['id_perfil'] == 1) {
     include(MODULO . 'menu_admin.php');
 } else {
     echo '<meta http-equiv="refresh" content="0;url=' . URLBASE . 'cerrar-sesion"/>';
+    exit;
 }
-// Menú fin
 ?>
 
     <div id="wrap">
@@ -90,15 +140,54 @@ if ($usuarioApp['id_perfil'] == 2) {
                 <div class="row">
                     <div class="col-lg-8 col-md-7 col-sm-6">
                         <h1>Registro de Ventas</h1>
+                        <p class="text-muted">Listado de facturas/ventas agrupadas por idfactura</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Tabla de ventas agrupadas por factura -->
+            <!-- FILTROS -->
+            <div class="panel panel-default filtros-wrap">
+                <div class="panel-heading"><strong>Filtros</strong></div>
+                <div class="panel-body">
+                    <form method="get" class="form-inline">
+                        <label>Desde:&nbsp;</label>
+                        <input type="date" name="desde" value="<?php echo htmlspecialchars($desde ?: ''); ?>"
+                            class="form-control">
+
+                        <label>&nbsp;Hasta:&nbsp;</label>
+                        <input type="date" name="hasta" value="<?php echo htmlspecialchars($hasta ?: ''); ?>"
+                            class="form-control">
+
+                        <label>&nbsp;Método:&nbsp;</label>
+                        <select name="metodo" class="form-control">
+                            <option value="">Todos</option>
+                            <?php
+                        $metodos = ['EFECTIVO','TRANSFERENCIA','DEPOSITO','TARJETA','QR'];
+                        foreach ($metodos as $m) {
+                            $sel = ($metodo === $m) ? 'selected' : '';
+                            echo "<option value=\"{$m}\" {$sel}>{$m}</option>";
+                        }
+                        ?>
+                        </select>
+
+                        <label>&nbsp;Estado:&nbsp;</label>
+                        <select name="estado" class="form-control">
+                            <option value="" <?php echo ($estado==='' ? 'selected' : ''); ?>>Todas</option>
+                            <option value="1" <?php echo ($estado==='1' ? 'selected' : ''); ?>>Activas</option>
+                            <option value="0" <?php echo ($estado==='0' ? 'selected' : ''); ?>>Canceladas</option>
+                        </select>
+
+                        <button type="submit" class="btn btn-default">Buscar</button>
+                        <a href="registro-ventas.php" class="btn btn-link">Limpiar</a>
+                    </form>
+                </div>
+            </div>
+
+            <!-- TABLA -->
             <div class="row">
                 <div class="col-sm-12">
                     <table cellpadding="0" cellspacing="0" border="0"
-                        class="table table-striped table-bordered table-condensed" id="example">
+                        class="table table-striped table-bordered table-condensed" id="tabla_registro_ventas">
                         <thead>
                             <tr>
                                 <th>Id Factura</th>
@@ -106,145 +195,129 @@ if ($usuarioApp['id_perfil'] == 2) {
                                 <th>Vendedor</th>
                                 <th>Total</th>
                                 <th>Comisión</th>
-                                <th>Método de pago</th>
+                                <th>Método</th>
                                 <th>Comprobante</th>
                                 <th>Fecha</th>
                                 <th>Estado</th>
-                                <th>Opciones</th>
+                                <th style="min-width:220px;">Opciones</th>
                             </tr>
                         </thead>
+
                         <tbody>
                             <?php
-                        /*
-                         * - Usamos TABLA VENTAS
-                         * - Agrupamos por idfactura
-                         */
-                        $FacturasSql = $db->SQL("
-                            SELECT idfactura
+                    while ($row = $FacturasSql->fetch_assoc()):
+                        $idfactura = (int)$row['idfactura'];
+
+                        // Resumen de ventas de esa factura
+                        $DatosSql = $db->SQL("
+                            SELECT
+                                SUM(totalprecio) AS total,
+                                SUM(comision)    AS total_comision,
+                                MIN(fecha)       AS fecha,
+                                MIN(hora)        AS hora,
+                                MIN(vendedor)    AS id_vendedor,
+                                MIN(cliente)     AS id_cliente,
+                                MIN(metodo_pago) AS metodo_pago,
+                                MIN(con_factura) AS con_factura,
+                                MIN(habilitada)  AS habilitada
                             FROM ventas
-                            WHERE idfactura IS NOT NULL
-                            GROUP BY idfactura
-                            ORDER BY idfactura DESC
+                            WHERE idfactura = '{$idfactura}'
                         ");
+                        $Datos = $DatosSql ? $DatosSql->fetch_assoc() : null;
+                        if (!$Datos) continue;
 
-                        while ($row = $FacturasSql->fetch_assoc()):
-                            $idfactura = $row['idfactura'];
-
-                            // Resumen de ventas de esa factura
-                            $DatosSql = $db->SQL("
-                                SELECT
-                                    SUM(totalprecio) AS total,
-                                    SUM(comision)    AS total_comision,
-                                    MIN(fecha)       AS fecha,
-                                    MIN(hora)        AS hora,
-                                    MIN(vendedor)    AS id_vendedor,
-                                    MIN(cliente)     AS id_cliente,
-                                    MIN(metodo_pago) AS metodo_pago,
-                                    MIN(con_factura) AS con_factura,
-                                    MIN(habilitada)  AS habilitada
-                                FROM ventas
-                                WHERE idfactura = '{$idfactura}'
-                            ");
-                            $Datos = $DatosSql->fetch_assoc();
-
-                            // Vendedor
-                            $VendedorNombre = 'Sin asignar';
-                            if (!empty($Datos['id_vendedor'])) {
-                                $VendedorSql = $db->SQL("
-                                    SELECT nombre, apellido1, apellido2
-                                    FROM vendedores
-                                    WHERE id='{$Datos['id_vendedor']}'
-                                ");
-                                if ($VendedorSql && $VendedorSql->num_rows > 0) {
-                                    $Vend = $VendedorSql->fetch_assoc();
-                                    $VendedorNombre = trim(
-                                        $Vend['nombre'] . ' ' .
-                                        $Vend['apellido1'] . ' ' .
-                                        $Vend['apellido2']
-                                    );
-                                }
-                            }
-
-                            // Cliente
-                            $ClienteNombre = 'Cliente Contado';
-                            if (!empty($Datos['id_cliente'])) {
-                                $ClienteSql = $db->SQL("
-                                    SELECT nombre
-                                    FROM cliente
-                                    WHERE id = '{$Datos['id_cliente']}'
-                                ");
-                                if ($ClienteSql && $ClienteSql->num_rows > 0) {
-                                    $Cli = $ClienteSql->fetch_assoc();
-                                    $ClienteNombre = $Cli['nombre'];
-                                }
-                            }
-
-                            // Leer estado y tipo_comprobante desde factura
-                            $FacturaSql = $db->SQL("
-                                SELECT habilitado, tipo_comprobante,
-                                       nit_cliente, razon_social
-                                FROM factura
-                                WHERE id='{$idfactura}'
+                        // Vendedor
+                        $VendedorNombre = 'Sin asignar';
+                        if (!empty($Datos['id_vendedor'])) {
+                            $VendedorSql = $db->SQL("
+                                SELECT nombre, apellido1, apellido2
+                                FROM vendedores
+                                WHERE id='{$Datos['id_vendedor']}'
                                 LIMIT 1
                             ");
-                            $Factura = $FacturaSql->fetch_assoc();
+                            if ($VendedorSql && $VendedorSql->num_rows > 0) {
+                                $Vend = $VendedorSql->fetch_assoc();
+                                $VendedorNombre = trim($Vend['nombre'].' '.$Vend['apellido1'].' '.$Vend['apellido2']);
+                            }
+                        }
 
-                            $estadoFactura   = isset($Factura['habilitado']) ? (int)$Factura['habilitado'] : (int)$Datos['habilitada'];
-                            $tipoComprobante = isset($Factura['tipo_comprobante'])
-                                ? $Factura['tipo_comprobante']
-                                : ((int)$Datos['con_factura'] === 1 ? 'FACTURA' : 'RECIBO');
+                        // Cliente
+                        $ClienteNombre = 'Cliente Contado';
+                        if (!empty($Datos['id_cliente'])) {
+                            $ClienteSql = $db->SQL("
+                                SELECT nombre
+                                FROM cliente
+                                WHERE id = '{$Datos['id_cliente']}'
+                                LIMIT 1
+                            ");
+                            if ($ClienteSql && $ClienteSql->num_rows > 0) {
+                                $Cli = $ClienteSql->fetch_assoc();
+                                $ClienteNombre = $Cli['nombre'];
+                            }
+                        }
 
-                            $nitFactura      = isset($Factura['nit_cliente']) ? $Factura['nit_cliente'] : '';
-                            $razonFactura    = isset($Factura['razon_social']) ? $Factura['razon_social'] : '';
+                        // Estado y tipo comprobante desde factura (si existe)
+                        $FacturaSql = $db->SQL("
+                            SELECT habilitado, tipo_comprobante, nit_cliente, razon_social
+                            FROM factura
+                            WHERE id='{$idfactura}'
+                            LIMIT 1
+                        ");
+                        $Factura = ($FacturaSql && $FacturaSql->num_rows > 0) ? $FacturaSql->fetch_assoc() : null;
 
-                            // Método de pago
-                            $MetodoPago = $Datos['metodo_pago'] ?: 'EFECTIVO';
+                        $estadoFactura = $Factura && isset($Factura['habilitado'])
+                            ? (int)$Factura['habilitado']
+                            : (int)$Datos['habilitada'];
 
-                            // Etiqueta estado
-                            $EtiquetaEstado = ($estadoFactura === 1)
-                                ? '<span class="label label-success">Activa</span>'
-                                : '<span class="label label-danger">Cancelada</span>';
+                        $tipoComprobante = $Factura && !empty($Factura['tipo_comprobante'])
+                            ? $Factura['tipo_comprobante']
+                            : (((int)$Datos['con_factura'] === 1) ? 'FACTURA' : 'RECIBO');
 
-                            // Facturada o no (según MIN con_factura)
-                            $yaFacturada = ((int)$Datos['con_factura'] === 1);
-                        ?>
+                        $nitFactura   = $Factura && isset($Factura['nit_cliente']) ? (string)$Factura['nit_cliente'] : '';
+                        $razonFactura = $Factura && isset($Factura['razon_social']) ? (string)$Factura['razon_social'] : '';
+
+                        $MetodoPago = !empty($Datos['metodo_pago']) ? $Datos['metodo_pago'] : 'EFECTIVO';
+
+                        $EtiquetaEstado = ($estadoFactura === 1)
+                            ? '<span class="label label-success">Activa</span>'
+                            : '<span class="label label-danger">Cancelada</span>';
+
+                        $yaFacturada = ((int)$Datos['con_factura'] === 1);
+                    ?>
                             <tr>
-                                <td><?php echo $idfactura; ?></td>
+                                <td><?php echo (int)$idfactura; ?></td>
                                 <td><?php echo htmlspecialchars($ClienteNombre); ?></td>
                                 <td><?php echo htmlspecialchars($VendedorNombre); ?></td>
-                                <td>Bs <?php echo number_format($Datos['total'], 2); ?></td>
-                                <td>Bs <?php echo number_format($Datos['total_comision'], 2); ?></td>
-                                <td><?php echo htmlspecialchars($MetodoPago); ?></td>
+                                <td>Bs <?php echo number_format((float)$Datos['total'], 2); ?></td>
+                                <td>Bs <?php echo number_format((float)$Datos['total_comision'], 2); ?></td>
+                                <td><span class="label badge-soft"><?php echo htmlspecialchars($MetodoPago); ?></span>
+                                </td>
                                 <td><?php echo htmlspecialchars($tipoComprobante); ?></td>
-                                <td><?php echo $Datos['fecha'] . ' ' . $Datos['hora']; ?></td>
+                                <td><?php echo htmlspecialchars($Datos['fecha'].' '.$Datos['hora']); ?></td>
                                 <td><?php echo $EtiquetaEstado; ?></td>
                                 <td>
-                                    <!-- Ver comprobante -->
-                                    <a href="<?php echo URLBASE ?>reimprimir.php?id=<?php echo $idfactura; ?>"
+                                    <a href="<?php echo URLBASE ?>reimprimir.php?id=<?php echo (int)$idfactura; ?>"
                                         class="btn btn-primary btn-xs">
                                         Ver comprobante
                                     </a>
 
-                                    <!-- Ver detalle -->
-                                    <a href="<?php echo URLBASE; ?>detalle-venta.php?id=<?php echo $idfactura; ?>"
+                                    <a href="<?php echo URLBASE; ?>detalle-venta.php?id=<?php echo (int)$idfactura; ?>"
                                         class="btn btn-info btn-xs">
                                         Ver detalle
                                     </a>
 
                                     <?php if ($estadoFactura === 1): ?>
                                     <?php if (!$yaFacturada): ?>
-                                    <!-- Botón Facturar -->
                                     <button type="button" class="btn btn-success btn-xs" data-toggle="modal"
-                                        data-target="#FacturarModal<?php echo $idfactura; ?>">
+                                        data-target="#FacturarModal<?php echo (int)$idfactura; ?>">
                                         Facturar
                                     </button>
                                     <?php else: ?>
                                     <span class="label label-info">Facturada</span>
                                     <?php endif; ?>
 
-                                    <!-- Botón Cancelar -->
                                     <button type="button" class="btn btn-danger btn-xs" data-toggle="modal"
-                                        data-target="#CancelarFactura<?php echo $idfactura; ?>">
+                                        data-target="#CancelarFactura<?php echo (int)$idfactura; ?>">
                                         Cancelar
                                     </button>
                                     <?php else: ?>
@@ -255,9 +328,9 @@ if ($usuarioApp['id_perfil'] == 2) {
                                 </td>
                             </tr>
 
-                            <!-- Modal FACTURAR -->
-                            <div class="modal fade" id="FacturarModal<?php echo $idfactura; ?>" tabindex="-1"
-                                role="dialog" aria-labelledby="FacturarLabel<?php echo $idfactura; ?>"
+                            <!-- MODAL FACTURAR -->
+                            <div class="modal fade" id="FacturarModal<?php echo (int)$idfactura; ?>" tabindex="-1"
+                                role="dialog" aria-labelledby="FacturarLabel<?php echo (int)$idfactura; ?>"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -267,13 +340,14 @@ if ($usuarioApp['id_perfil'] == 2) {
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
-                                                <h4 class="modal-title" id="FacturarLabel<?php echo $idfactura; ?>">
-                                                    Facturar Venta #<?php echo $idfactura; ?>
+                                                <h4 class="modal-title"
+                                                    id="FacturarLabel<?php echo (int)$idfactura; ?>">
+                                                    Facturar Venta #<?php echo (int)$idfactura; ?>
                                                 </h4>
                                             </div>
                                             <div class="modal-body">
-
-                                                <input type="hidden" name="idfactura" value="<?php echo $idfactura; ?>">
+                                                <input type="hidden" name="idfactura"
+                                                    value="<?php echo (int)$idfactura; ?>">
 
                                                 <div class="form-group">
                                                     <label>NIT</label>
@@ -299,7 +373,6 @@ if ($usuarioApp['id_perfil'] == 2) {
                                                     Los impuestos IVA (13%) e IT (3%) se calcularán automáticamente
                                                     sobre el total de la venta.
                                                 </p>
-
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-default"
@@ -313,11 +386,11 @@ if ($usuarioApp['id_perfil'] == 2) {
                                     </div>
                                 </div>
                             </div>
-                            <!-- FIN Modal FACTURAR -->
+                            <!-- FIN MODAL FACTURAR -->
 
-                            <!-- Modal Cancelar Factura (ya lo tenías) -->
-                            <div class="modal fade" id="CancelarFactura<?php echo $idfactura; ?>" tabindex="-1"
-                                role="dialog" aria-labelledby="myModalLabel<?php echo $idfactura; ?>"
+                            <!-- MODAL CANCELAR FACTURA -->
+                            <div class="modal fade" id="CancelarFactura<?php echo (int)$idfactura; ?>" tabindex="-1"
+                                role="dialog" aria-labelledby="CancelLabel<?php echo (int)$idfactura; ?>"
                                 aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -325,30 +398,27 @@ if ($usuarioApp['id_perfil'] == 2) {
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                            <h4 class="modal-title" id="myModalLabel<?php echo $idfactura; ?>">
-                                                Cancelar Factura #<?php echo $idfactura; ?>
+                                            <h4 class="modal-title" id="CancelLabel<?php echo (int)$idfactura; ?>">
+                                                Cancelar Factura #<?php echo (int)$idfactura; ?>
                                             </h4>
                                         </div>
                                         <div class="modal-body">
                                             <form class="form-horizontal" method="post" action="">
-                                                <input type="hidden" name="Idfactura" value="<?php echo $idfactura; ?>">
-                                                <!-- Campo MetodoPago (si CancelarFactura lo usa) -->
+                                                <input type="hidden" name="Idfactura"
+                                                    value="<?php echo (int)$idfactura; ?>">
                                                 <input type="hidden" name="MetodoPago"
                                                     value="<?php echo htmlspecialchars($MetodoPago); ?>">
 
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
-                                                        <p>
-                                                            ¿Est&aacute; seguro que desea cancelar la factura
-                                                            #<?php echo $idfactura; ?>?
-                                                        </p>
+                                                        <p>¿Está seguro que desea cancelar la factura
+                                                            #<?php echo (int)$idfactura; ?>?</p>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <label class="col-sm-12 control-label">
-                                                        Motivo de la cancelación
-                                                    </label>
+                                                    <label class="col-sm-12 control-label">Motivo de la
+                                                        cancelación</label>
                                                     <div class="col-sm-12">
                                                         <textarea name="Comentario" class="form-control" rows="3"
                                                             placeholder="Describa el motivo de cancelación"
@@ -359,13 +429,9 @@ if ($usuarioApp['id_perfil'] == 2) {
                                                 <div class="form-group">
                                                     <div class="col-sm-12">
                                                         <button type="button" class="btn btn-default"
-                                                            data-dismiss="modal">
-                                                            Cerrar
-                                                        </button>
+                                                            data-dismiss="modal">Cerrar</button>
                                                         <button type="submit" name="CancelarFactura"
-                                                            class="btn btn-primary">
-                                                            Sí, Cancelar
-                                                        </button>
+                                                            class="btn btn-primary">Sí, Cancelar</button>
                                                     </div>
                                                 </div>
                                             </form>
@@ -373,7 +439,7 @@ if ($usuarioApp['id_perfil'] == 2) {
                                     </div>
                                 </div>
                             </div>
-                            <!-- FIN Modal Cancelar Factura -->
+                            <!-- FIN MODAL CANCELAR -->
 
                             <?php endwhile; ?>
                         </tbody>
@@ -385,22 +451,21 @@ if ($usuarioApp['id_perfil'] == 2) {
     </div>
 
     <?php include(MODULO . 'footer.php'); ?>
-
-    <!-- JS al final para mejor rendimiento -->
     <?php include(MODULO . 'Tema.JS.php'); ?>
-    <script type="text/javascript" language="javascript" src="<?php echo ESTATICO; ?>js/jquery.dataTables.min.js">
-    </script>
-    <script type="text/javascript" language="javascript" src="<?php echo ESTATICO; ?>js/dataTables.bootstrap.js">
-    </script>
-    <script type="text/javascript" charset="utf-8">
+
+    <script type="text/javascript" src="<?php echo ESTATICO; ?>js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="<?php echo ESTATICO; ?>js/dataTables.bootstrap.js"></script>
+
+    <script>
     $(document).ready(function() {
-        $('#example').dataTable({
+        $('#tabla_registro_ventas').dataTable({
             "order": [
                 [0, 'desc']
             ]
         });
     });
     </script>
+
 </body>
 
 </html>
