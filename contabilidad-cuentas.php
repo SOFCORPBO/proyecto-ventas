@@ -7,7 +7,6 @@ $usuario->LoginCuentaConsulta();
 $usuario->VerificacionCuenta();
 
 $Cont = new Contabilidad();
-$cn = $db->Conectar();
 
 function h($v){ return htmlspecialchars((string)$v, ENT_QUOTES, 'UTF-8'); }
 
@@ -43,10 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $s = $r['stats'];
                 $msg = "Importación OK. Insertados: {$s['insertados']} | Actualizados: {$s['actualizados']}";
                 if (!empty($s['errores'])) {
-                    $err = "Importación con observaciones: ".implode(" | ", array_slice($s['errores'], 0, 5));
+                    $err = "Observaciones: ".implode(" | ", array_slice($s['errores'], 0, 5));
                 }
             } else {
-                $err = "No se pudo importar. ".implode(" | ", $r['stats']['errores']);
+                $errs = $r['stats']['errores'] ?? ['No se pudo importar.'];
+                $err = implode(" | ", $errs);
             }
         }
     }
@@ -61,23 +61,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $padre_id = ($_POST['padre_id'] ?? '');
         $padre_id = ($padre_id === '' ? null : (int)$padre_id);
         $habilitado = (int)($_POST['habilitado'] ?? 1);
+        $permite_mov = (int)($_POST['permite_movimiento'] ?? 1);
 
         if ($codigo==='' || $nombre==='' || $tipo==='') {
             $err = "Complete Código, Nombre y Tipo.";
         } else {
-            // mayor_codigo desde padre (para compatibilidad con Excel)
             $mayor_codigo = null;
             if (!empty($padre_id)) {
                 $p = $Cont->ObtenerCuenta($padre_id);
                 if ($p && !empty($p['codigo'])) $mayor_codigo = $p['codigo'];
             }
 
-            $ok = $Cont->GuardarCuenta($id, $codigo, $nombre, $tipo, $nivel, $padre_id, $habilitado, $mayor_codigo);
-            if ($ok) {
-                $msg = ($id>0) ? "Cuenta actualizada correctamente." : "Cuenta creada correctamente.";
-            } else {
-                $err = "No se pudo guardar la cuenta.";
-            }
+            $ok = $Cont->GuardarCuenta($id, $codigo, $nombre, $tipo, $nivel, $padre_id, $habilitado, $mayor_codigo, $permite_mov);
+            if ($ok) $msg = ($id>0) ? "Cuenta actualizada correctamente." : "Cuenta creada correctamente.";
+            else $err = "No se pudo guardar la cuenta (verifica UNIQUE de código).";
         }
     }
 
@@ -103,19 +100,17 @@ $f_q      = trim($_GET['q'] ?? '');
 $cuentas = $Cont->ListarCuentas(false);
 $kpi = $Cont->KPI_Cuentas();
 
-// Filtrado en PHP (simple y rápido)
 $cuentasFil = array_filter($cuentas, function($c) use ($f_tipo,$f_nivel,$f_estado,$f_q){
     if ($f_tipo !== '' && $c['tipo'] !== $f_tipo) return false;
     if ($f_nivel !== '' && (int)$c['nivel'] !== (int)$f_nivel) return false;
     if ($f_estado !== '' && (int)$c['habilitado'] !== (int)$f_estado) return false;
     if ($f_q !== '') {
-        $q = mb_strtolower($f_q);
-        $hay = mb_strtolower($c['codigo'].' '.$c['nombre']);
+        $q = mb_strtolower($f_q, 'UTF-8');
+        $hay = mb_strtolower(($c['codigo'].' '.$c['nombre']), 'UTF-8');
         if (mb_strpos($hay, $q) === false) return false;
     }
     return true;
 });
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -134,7 +129,7 @@ $cuentasFil = array_filter($cuentas, function($c) use ($f_tipo,$f_nivel,$f_estad
     .kpi-card {
         background: #fff;
         border: 1px solid #e7e7e7;
-        border-radius: 10px;
+        border-radius: 12px;
         padding: 14px;
         margin-bottom: 12px;
     }
@@ -160,7 +155,7 @@ $cuentasFil = array_filter($cuentas, function($c) use ($f_tipo,$f_nivel,$f_estad
     }
 
     .panel-clean {
-        border-radius: 10px;
+        border-radius: 12px;
         overflow: hidden;
     }
 
@@ -172,6 +167,7 @@ $cuentasFil = array_filter($cuentas, function($c) use ($f_tipo,$f_nivel,$f_estad
     .badge-soft {
         padding: 6px 10px;
         border-radius: 999px;
+        display: inline-block;
     }
 
     .badge-on {
@@ -223,7 +219,7 @@ else include(MODULO.'menu_vendedor.php');
             <?php if ($msg): ?><div class="alert alert-success"><?php echo h($msg); ?></div><?php endif; ?>
             <?php if ($err): ?><div class="alert alert-danger"><?php echo h($err); ?></div><?php endif; ?>
 
-            <!-- KPIs ARRIBA -->
+            <!-- KPIs -->
             <div class="row">
                 <div class="col-sm-3">
                     <div class="kpi-card">
@@ -245,13 +241,13 @@ else include(MODULO.'menu_vendedor.php');
                 </div>
                 <div class="col-sm-3">
                     <div class="kpi-card">
-                        <div class="kpi-title">Ingresos/Gastos</div>
+                        <div class="kpi-title">Ingresos / Gastos</div>
                         <div class="kpi-value"><?php echo (int)$kpi['ingresos'].' / '.(int)$kpi['gastos']; ?></div>
                     </div>
                 </div>
             </div>
 
-            <!-- FILTROS -->
+            <!-- Filtros -->
             <div class="panel panel-default panel-clean">
                 <div class="panel-heading"><strong>Filtros</strong></div>
                 <div class="panel-body">
@@ -296,7 +292,7 @@ else include(MODULO.'menu_vendedor.php');
                 </div>
             </div>
 
-            <!-- TABLA -->
+            <!-- Tabla -->
             <div class="panel panel-default panel-clean">
                 <div class="panel-heading"><strong>Listado</strong></div>
                 <div class="panel-body">
@@ -310,16 +306,18 @@ else include(MODULO.'menu_vendedor.php');
                                     <th>Tipo</th>
                                     <th>Nivel</th>
                                     <th>Padre</th>
+                                    <th>Movimiento</th>
                                     <th>Estado</th>
-                                    <th width="150">Acciones</th>
+                                    <th width="160">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php foreach($cuentasFil as $c): ?>
                                 <?php
-                  $on = ((int)$c['habilitado']===1);
-                  $padre = (!empty($c['padre_id']) ? (($c['padre_codigo']??'').' - '.($c['padre_nombre']??'')) : '-');
-                ?>
+                            $on = ((int)$c['habilitado']===1);
+                            $padre = (!empty($c['padre_id']) ? (($c['padre_codigo']??'').' - '.($c['padre_nombre']??'')) : '-');
+                            $mov = ((int)($c['permite_movimiento'] ?? 1)===1) ? 'Imputable' : 'Título';
+                        ?>
                                 <tr>
                                     <td><?php echo (int)$c['id']; ?></td>
                                     <td><?php echo h($c['codigo']); ?></td>
@@ -327,6 +325,7 @@ else include(MODULO.'menu_vendedor.php');
                                     <td><?php echo h($c['tipo']); ?></td>
                                     <td><?php echo (int)$c['nivel']; ?></td>
                                     <td><?php echo h($padre); ?></td>
+                                    <td><?php echo h($mov); ?></td>
                                     <td>
                                         <?php if ($on): ?>
                                         <span class="badge-soft badge-on">Habilitado</span>
@@ -342,7 +341,7 @@ else include(MODULO.'menu_vendedor.php');
                                         </button>
 
                                         <form method="post" style="display:inline-block;"
-                                            onsubmit="return confirm('¿Cambiar estado de la cuenta?');">
+                                            onsubmit="return confirm('¿Cambiar estado?');">
                                             <input type="hidden" name="ToggleCuenta" value="1">
                                             <input type="hidden" name="id" value="<?php echo (int)$c['id']; ?>">
                                             <button class="btn btn-default btn-xs" title="Habilitar/Deshabilitar">
@@ -355,15 +354,18 @@ else include(MODULO.'menu_vendedor.php');
                             </tbody>
                         </table>
                     </div>
-                    <div class="text-muted">Export/Import mantiene el formato del Excel: CUENTA, NOMBRE DE CUENTA,
-                        NIVEL, MAYOR, TIPO.</div>
+
+                    <div class="text-muted">
+                        Export/Import (CSV) mantiene el formato Excel: <strong>CUENTA, NOMBRE DE CUENTA, NIVEL, MAYOR,
+                            TIPO</strong>.
+                    </div>
                 </div>
             </div>
 
         </div>
     </div>
 
-    <!-- MODAL CUENTA -->
+    <!-- Modal Cuenta -->
     <div class="modal fade" id="ModalCuenta" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <form method="post" id="FormCuenta">
@@ -397,32 +399,42 @@ else include(MODULO.'menu_vendedor.php');
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <label>Nivel</label>
                                 <input type="number" name="nivel" id="nivel" class="form-control" min="1" value="1">
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-5">
+                                <label>Movimiento</label>
+                                <select name="permite_movimiento" id="permite_movimiento" class="form-control">
+                                    <option value="1">Imputable (se usa en asientos)</option>
+                                    <option value="0">Título (solo agrupa)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top:10px;">
+                            <div class="col-sm-6">
                                 <label>Estado</label>
                                 <select name="habilitado" id="habilitado" class="form-control">
                                     <option value="1">Habilitado</option>
                                     <option value="0">Deshabilitado</option>
                                 </select>
                             </div>
+                            <div class="col-sm-6">
+                                <label>Cuenta Padre</label>
+                                <select name="padre_id" id="padre_id" class="form-control">
+                                    <option value="">Sin padre</option>
+                                    <?php foreach($cuentas as $p): ?>
+                                    <option value="<?php echo (int)$p['id']; ?>">
+                                        <?php echo h($p['codigo'].' - '.$p['nombre']); ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="form-group" style="margin-top:10px;">
-                            <label>Cuenta Padre (opcional)</label>
-                            <select name="padre_id" id="padre_id" class="form-control">
-                                <option value="">Sin padre</option>
-                                <?php foreach($cuentas as $p): ?>
-                                <option value="<?php echo (int)$p['id']; ?>">
-                                    <?php echo h($p['codigo'].' - '.$p['nombre']); ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                            <p class="help-block">Si eliges padre, el sistema sincroniza MAYOR (Excel) automáticamente.
-                            </p>
-                        </div>
-
+                        <p class="help-block" style="margin-top:8px;">
+                            Si eliges padre, el sistema sincroniza <strong>MAYOR</strong> (Excel) automáticamente.
+                        </p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -433,7 +445,7 @@ else include(MODULO.'menu_vendedor.php');
         </div>
     </div>
 
-    <!-- MODAL IMPORT -->
+    <!-- Modal Import -->
     <div class="modal fade" id="ModalImport" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <form method="post" enctype="multipart/form-data">
@@ -445,8 +457,8 @@ else include(MODULO.'menu_vendedor.php');
                     <div class="modal-body">
                         <input type="hidden" name="ImportarCSV" value="1">
                         <div class="alert alert-info">
-                            El CSV debe tener columnas: <strong>CUENTA, NOMBRE DE CUENTA, NIVEL, MAYOR, TIPO</strong>.
-                            Excel lo abre y lo guarda sin problema.
+                            CSV con columnas: <strong>CUENTA; NOMBRE DE CUENTA; NIVEL; MAYOR; TIPO</strong> (separador
+                            recomendado “;”).
                         </div>
                         <input type="file" name="archivo" class="form-control" accept=".csv" required>
                     </div>
@@ -477,6 +489,7 @@ else include(MODULO.'menu_vendedor.php');
             $('#id_cuenta').val('0');
             $('#habilitado').val('1');
             $('#nivel').val('1');
+            $('#permite_movimiento').val('1');
         };
 
         window.EditarCuenta = function(c) {
@@ -486,7 +499,8 @@ else include(MODULO.'menu_vendedor.php');
             $('#tipo').val(c.tipo || '');
             $('#nivel').val(c.nivel || 1);
             $('#padre_id').val(c.padre_id || '');
-            $('#habilitado').val(c.habilitado || 0);
+            $('#habilitado').val((c.habilitado === undefined ? 1 : c.habilitado));
+            $('#permite_movimiento').val((c.permite_movimiento === undefined ? 1 : c.permite_movimiento));
         };
     })();
     </script>
